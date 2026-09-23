@@ -65,6 +65,8 @@ Frequently used tools include:
 
 Not every event uses every tool. The goal is to introduce tools when they support the learning objective.
 
+For a track-by-track tool reference, see [resources/KALI_TOOLS.md](resources/KALI_TOOLS.md).
+
 ---
 
 ## Repository Structure
