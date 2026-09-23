@@ -3,84 +3,58 @@
 **Difficulty:** Beginner  
 **Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 03–06  
-**Environment:** Browser, developer tools, curl, Docker
+**Environment:** Kali Linux, Firefox, curl, Docker; optional Burp Suite preview
 
 ## Why This Event Exists
 
-Web applications are a major part of modern computing and cybersecurity. Before members learn web exploitation, they need to understand normal HTTP behavior, requests, responses, status codes, cookies, authentication, authorization, and input handling.
+Web applications are a major part of modern cybersecurity. This event focuses on normal HTTP behavior first, then gives members a short preview of Burp Suite before it becomes a primary Intermediate tool.
 
 ## Learning Objectives
 
 Members should be able to:
 
-- explain the HTTP request/response model
+- explain HTTP requests and responses
 - distinguish GET and POST conceptually
-- identify a URL path, headers, body, and status code
-- inspect requests in browser developer tools
+- identify URL paths, headers, and status codes
+- inspect requests with browser developer tools
+- use curl to inspect raw responses
 - explain cookies and sessions at a basic level
 - distinguish authentication and authorization
-- identify several security-control failures conceptually
+- understand what an intercepting proxy does
+- preview Burp Suite safely against the local lab
 
-## HTTP Model
+## Kali Tools Introduced
 
-Request:
-
-```http
-GET /about HTTP/1.1
-Host: localhost
-User-Agent: Browser
-```
-
-Response:
-
-```http
-HTTP/1.1 200 OK
-Content-Type: text/html
-```
-
-## Common Status Codes
-
-| Code | Meaning |
-|---:|---|
-| 200 | OK |
-| 301/302 | Redirect |
-| 400 | Bad Request |
-| 401 | Authentication required/failed |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 500 | Server error |
-
-## Authentication vs. Authorization
-
-```text
-Authentication = Who are you?
-Authorization  = What may you access?
-```
+| Tool | Purpose |
+|---|---|
+| Firefox Developer Tools | inspect browser traffic |
+| curl | manually inspect HTTP |
+| Burp Suite | optional intercepting-proxy preview |
 
 ## Guided Lab
 
-Start the local app:
+Start:
 
 ```bash
 cd challenge
 docker compose up --build -d
 ```
 
-Open:
+Target:
 
 ```text
 http://127.0.0.1:8080
 ```
 
-### Task 1 — Browser Developer Tools
+### Task 1 — Developer Tools
 
-Open the Network tab and reload the page.
+Open the Network tab.
 
 Record:
 
-- request method
-- request path
-- response status
+- method
+- path
+- status
 - content type
 
 ### Task 2 — curl
@@ -89,36 +63,64 @@ Record:
 curl -i http://127.0.0.1:8080/
 curl -i http://127.0.0.1:8080/api/status
 curl -i http://127.0.0.1:8080/admin
+curl -i http://127.0.0.1:8080/robots.txt
 ```
 
-Compare the response codes.
+## Optional Burp Suite Preview
 
-### Task 3 — robots.txt
+Launch:
+
+```bash
+burpsuite
+```
+
+Explain:
+
+```text
+Browser
+  ↓
+Burp Proxy
+  ↓
+Local training application
+```
+
+If time allows, configure Firefox to proxy HTTP through:
+
+```text
+127.0.0.1:8080
+```
+
+Then visit the local challenge and use Burp only to:
+
+1. capture one request,
+2. identify method/path/headers,
+3. forward the request,
+4. view it in HTTP history.
+
+Do not introduce exploitation yet.
+
+Intermediate Web Enumeration covers Repeater and content discovery.
+
+## robots.txt Discussion
 
 ```bash
 curl http://127.0.0.1:8080/robots.txt
 ```
 
-Discuss why `robots.txt` is not an access-control mechanism.
+Explain why `robots.txt` is guidance for crawlers, not an authorization control.
 
 ## Challenge
 
-Use only normal browsing, developer tools, and curl to map the local application.
-
-See:
-
-```text
-challenge/README.md
-```
+Use normal browsing, developer tools, curl, and optionally Burp Proxy to map the local application.
 
 ## Deliverable
-
-Create a small application map:
 
 ```text
 Route:
 Method:
 Status:
+Headers:
+Tool used:
 Purpose:
 Security observation:
 ```
@@ -128,6 +130,8 @@ Security observation:
 ```bash
 docker compose down
 ```
+
+If Burp was used, return browser proxy settings to normal.
 
 ## Next Event
 
