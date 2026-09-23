@@ -1,0 +1,4 @@
+Organization: Northstar Robotics Club
+Domain: northstar-robotics.example
+Contact handle: @northstar_ops
+Event: Autumn Robotics Showcase
