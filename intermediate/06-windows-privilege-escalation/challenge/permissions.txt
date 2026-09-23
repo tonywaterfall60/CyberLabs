@@ -1,0 +1,5 @@
+C:\Tools\backup.ps1
+BUILTIN\Users: Modify
+
+C:\Program Files\Backup Agent\
+BUILTIN\Users: ReadAndExecute
