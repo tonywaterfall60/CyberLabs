@@ -1,0 +1,6 @@
+member,group
+alice,Helpdesk
+Helpdesk,Server Operators
+bob,Web Admins
+carol,Domain Admins
+svc_backup,Server Operators
