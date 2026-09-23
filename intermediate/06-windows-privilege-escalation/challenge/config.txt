@@ -1,0 +1,3 @@
+service_account=backupsvc
+service_password=training-only-password
+note=Credentials should not be stored in plaintext configuration files.
