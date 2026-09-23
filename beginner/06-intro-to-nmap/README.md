@@ -1,78 +1,128 @@
 # Beginner 06 — Intro to Nmap
 
-**Time:** 75–90 minutes  
+**Difficulty:** Beginner  
+**Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 03–05  
-**Environment:** Two local VMs on an isolated host-only network
+**Environment:** Nmap + local challenge services
+
+## Why This Event Exists
+
+Nmap helps security professionals understand which network services are exposed by an authorized system. This event teaches basic enumeration while reinforcing ports, protocols, and responsible scope.
 
 ## Learning Objectives
 
 Members should be able to:
 
 - explain what a port scan does
-- identify open ports on an authorized target
-- distinguish host discovery from service discovery
-- document findings clearly
+- distinguish host discovery from port discovery
+- identify open and closed ports
+- perform basic service detection
+- scan a limited, authorized port range
+- document findings
+- explain why scan scope matters
 
 ## Safety / Scope
 
-Use Nmap only against the instructor-provided local target.
+Use Nmap only against the local challenge target and explicitly provided lab targets.
 
 Do not scan campus infrastructure, public Internet systems, or other members' devices.
 
-## Recommended Network
+## Core Commands
+
+Basic target scan:
+
+```bash
+nmap <target>
+```
+
+Service detection:
+
+```bash
+nmap -sV <target>
+```
+
+Specific ports:
+
+```bash
+nmap -p 22,80,443 <target>
+```
+
+Port range:
+
+```bash
+nmap -p 8000-8100 <target>
+```
+
+## Reading Results
+
+Example:
 
 ```text
-Student VM     192.168.56.10
-Target VM      192.168.56.20
+PORT     STATE SERVICE
+8080/tcp open  http-proxy
+8088/tcp open  radan-http
 ```
 
-## Lab
+Important distinctions:
 
-### Task 1 — Verify Connectivity
+**Reachable host** — the host can be contacted.
+
+**Open port** — something is accepting connections on that port.
+
+**Service identification** — Nmap attempts to determine what application/protocol is listening.
+
+## Guided Lab
+
+Use the local challenge to avoid touching external systems.
 
 ```bash
-ping 192.168.56.20
+cd challenge
+docker compose up -d
 ```
 
-### Task 2 — Basic Scan
+Then scan only:
+
+```text
+127.0.0.1 ports 8000–8100
+```
+
+Try:
 
 ```bash
-nmap 192.168.56.20
+nmap -p 8000-8100 127.0.0.1
+nmap -sV -p 8000-8100 127.0.0.1
 ```
 
-Record any open ports.
+## Documentation Exercise
 
-### Task 3 — Service Identification
+Create:
 
-```bash
-nmap -sV 192.168.56.20
-```
+| Port | State | Service guess | Evidence | Security question |
+|---:|---|---|---|---|
 
-Compare the results with the first scan.
+For each open port, ask:
 
-### Task 4 — Specific Ports
-
-```bash
-nmap -p 22,80,443 192.168.56.20
-```
-
-Discuss why targeted scans may be useful.
-
-## Reporting Exercise
-
-Create a small table:
-
-| Port | State | Service | What it may be used for |
-|---|---|---|---|
+- Should this service be exposed?
+- Is encryption expected?
+- Does it require authentication?
+- Is the software maintained?
 
 ## Challenge
 
-Explain the difference between:
+See:
 
-- a host being reachable
-- a port being open
-- a service being identified
+```text
+challenge/README.md
+```
+
+The goal is to discover the intentionally exposed local services and produce a short enumeration report.
 
 ## Cleanup
 
-Shut down or restore the target VM snapshot.
+```bash
+docker compose down
+```
+
+## Next Event
+
+[Beginner 07 — Web Security Basics](../07-web-security-basics/)
