@@ -1,40 +1,57 @@
-# Advanced 02 — Binary Analysis & Exploitation Foundations
+# Advanced 02 — Binary Analysis Foundations
 
-**Time:** 90 minutes  
-**Environment:** Instructor-provided toy binary
+**Difficulty:** Advanced  
+**Estimated time:** 120 minutes  
+**Prerequisites:** Intermediate Reverse Engineering  
+**Environment:** Kali Linux, GCC, GDB, checksec, radare2/Ghidra
 
-## Objectives
-Members will practice:
-- identifying binary metadata
-- recognizing basic program protections
-- inspecting strings and symbols
-- using a debugger in a controlled lab
-- explaining the difference between a crash and security impact
+## Learning Objectives
 
-## Suggested Tools
-- `file`
-- `strings`
-- `readelf`
-- `objdump`
+Students should be able to:
+
+- inspect ELF metadata and protections
+- recognize unsafe C patterns
+- reproduce and characterize a crash
+- inspect stack state in GDB
+- explain the difference between crash, control, and exploitability
+- recommend compiler and source-level mitigations
+
+## Tools
+
+- file
+- strings
+- readelf
+- objdump
+- checksec
 - GDB
-- Ghidra (optional)
+- radare2 / Ghidra
+- optional pwndbg/GEF
 
-## Tasks
-1. Identify the binary architecture and format.
-2. Inspect printable strings.
-3. Review imported functions.
-4. Run the program with normal inputs.
-5. Observe program behavior in a debugger.
-6. Document one unsafe programming pattern supplied by the instructor.
-7. Explain how a developer could correct it.
+## Challenge
+
+```bash
+cd challenge
+./build.sh
+cat README.md
+```
+
+The challenge is an intentionally vulnerable local toy binary.
+
+This event stops at crash/control analysis; the dedicated Exploit Development event later goes further.
 
 ## Deliverable
-Write a short analysis containing:
-- binary type
-- architecture
-- notable functions
-- observed behavior
-- risky code pattern
-- recommended mitigation
 
-Use only the provided lab binary.
+```text
+Architecture:
+Protections:
+Unsafe function/pattern:
+Crash conditions:
+Observed register/stack state:
+Exploitability questions:
+Source mitigation:
+Compiler/runtime mitigation:
+```
+
+## Next Event
+
+[Advanced 03 — Active Directory Security](../03-active-directory-security/)
