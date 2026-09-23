@@ -1,86 +1,134 @@
 # Beginner 07 — Web Security Basics
 
-**Time:** 75–90 minutes  
+**Difficulty:** Beginner  
+**Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 03–06  
-**Environment:** Browser + local web lab
+**Environment:** Browser, developer tools, curl, Docker
+
+## Why This Event Exists
+
+Web applications are a major part of modern computing and cybersecurity. Before members learn web exploitation, they need to understand normal HTTP behavior, requests, responses, status codes, cookies, authentication, authorization, and input handling.
 
 ## Learning Objectives
 
 Members should be able to:
 
-- explain HTTP requests and responses
+- explain the HTTP request/response model
 - distinguish GET and POST conceptually
-- identify headers, status codes, cookies, and forms
-- explain authentication vs. authorization
-- recognize why input validation and access control matter
+- identify a URL path, headers, body, and status code
+- inspect requests in browser developer tools
+- explain cookies and sessions at a basic level
+- distinguish authentication and authorization
+- identify several security-control failures conceptually
 
-## Safety / Scope
+## HTTP Model
 
-Use only the local training site or another instructor-approved lab.
-
-## Part 1 — HTTP Basics
-
-A simplified request:
+Request:
 
 ```http
 GET /about HTTP/1.1
 Host: localhost
+User-Agent: Browser
 ```
 
-A simplified response:
+Response:
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: text/html
 ```
 
-Discuss:
+## Common Status Codes
+
+| Code | Meaning |
+|---:|---|
+| 200 | OK |
+| 301/302 | Redirect |
+| 400 | Bad Request |
+| 401 | Authentication required/failed |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 500 | Server error |
+
+## Authentication vs. Authorization
+
+```text
+Authentication = Who are you?
+Authorization  = What may you access?
+```
+
+## Guided Lab
+
+Start the local app:
+
+```bash
+cd challenge
+docker compose up --build -d
+```
+
+Open:
+
+```text
+http://127.0.0.1:8080
+```
+
+### Task 1 — Browser Developer Tools
+
+Open the Network tab and reload the page.
+
+Record:
 
 - request method
-- path
+- request path
 - response status
 - content type
 
-## Part 2 — Browser Developer Tools
+### Task 2 — curl
 
-Open Developer Tools and use the **Network** tab while browsing the local lab.
+```bash
+curl -i http://127.0.0.1:8080/
+curl -i http://127.0.0.1:8080/api/status
+curl -i http://127.0.0.1:8080/admin
+```
 
-Identify:
+Compare the response codes.
 
-- requested path
-- method
-- status code
-- response headers
+### Task 3 — robots.txt
 
-## Part 3 — Security Concepts
+```bash
+curl http://127.0.0.1:8080/robots.txt
+```
 
-Discuss these examples:
-
-### Authentication
-"Who are you?"
-
-### Authorization
-"What are you allowed to do?"
-
-### Input Validation
-"Is this input expected and safe for the application to process?"
-
-### Session Management
-"How does the application remember who is logged in?"
+Discuss why `robots.txt` is not an access-control mechanism.
 
 ## Challenge
 
-For each issue, identify the primary control that should address it:
+Use only normal browsing, developer tools, and curl to map the local application.
 
-1. A normal user can access an admin-only page.
-2. A password is sent without encryption.
-3. A form accepts unexpected input without validation.
-4. A session remains active after logout.
+See:
+
+```text
+challenge/README.md
+```
 
 ## Deliverable
 
-Write one paragraph describing at least three security controls a web application should use.
+Create a small application map:
+
+```text
+Route:
+Method:
+Status:
+Purpose:
+Security observation:
+```
 
 ## Cleanup
 
-Close the local web lab and browser developer tools.
+```bash
+docker compose down
+```
+
+## Next Event
+
+[Beginner 08 — Intro to Cryptography](../08-intro-to-cryptography/)
