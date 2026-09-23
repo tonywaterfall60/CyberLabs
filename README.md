@@ -59,6 +59,4 @@ Only perform security testing against:
 
 Do not scan, probe, exploit, or capture traffic from university production systems, public Internet systems, other students' devices, or third-party systems without authorization.
 
-## Repository Roles
 
-This repository is student-facing. Answer keys, CTF solutions, interview rubrics, and event-lead materials are kept separately in the private `CyberLabs-Instructor` repository.
