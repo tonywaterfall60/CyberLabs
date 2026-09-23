@@ -123,7 +123,7 @@ Identify:
 Decode:
 
 ```text
-RkxBR3tiYXNlNjRfaXNfZW5jb2Rpbmd9
+U1JVe30=
 ```
 
 Then explain why the transformation is not encryption.
