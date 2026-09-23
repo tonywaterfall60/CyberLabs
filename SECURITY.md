@@ -183,13 +183,28 @@ that target is the scope of the exercise.
 
 ## Flag Handling
 
-Student challenge flags use:
+Challenge flags use the format:
 
 ```text
-SRU{}
+SRU{...}
 ```
 
-Instructor solutions and final filled-in flag values should be stored in the private instructor repository when answers need to remain hidden.
+Filled-in flag values are private instructor material and must never be committed to this repository.
+
+The private `CyberLabs-Instructor` repository stores challenge-specific values and event-lead injection instructions.
+
+Student challenge code may contain runtime hooks such as:
+
+```text
+FLAG_VALUE
+LINUX_FLAG_VALUE
+REV_FLAG_VALUE
+WEB_FLAG_VALUE
+```
+
+but those values are supplied only at event time.
+
+Private files such as `.env`, `flags.env`, `flag.txt`, `.flag`, and `*.flag` are ignored by this repository.
 
 ---
 
