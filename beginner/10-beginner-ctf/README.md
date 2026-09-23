@@ -1,56 +1,124 @@
 # Beginner 10 — Beginner CTF
 
-**Time:** 90–120 minutes  
+**Difficulty:** Beginner capstone  
+**Estimated time:** 90–120 minutes  
 **Prerequisites:** Beginner 01–09  
-**Environment:** Local member workstation and instructor-provided lab targets
+**Environment:** Linux/WSL, Docker, Wireshark, Nmap
 
 ## Purpose
 
-This capstone challenge night combines the skills learned throughout the Beginner track.
+This CTF combines the entire Beginner track into one authorized local challenge environment.
 
-Members may work individually or in small teams.
+The objective is not speed. Members should demonstrate that they can choose an appropriate tool, explain what they observe, and stay within scope.
 
-## Rules
+## Setup
 
-- Use only the provided challenge files and local lab targets.
-- Do not scan or test systems outside the event scope.
-- Ask for hints when needed; the goal is learning, not gatekeeping.
-
-## Challenge 1 — Linux Search
-
-Create the challenge:
+From this directory:
 
 ```bash
-mkdir -p ~/cyberclub/beginner-ctf/logs
-printf "INFO startup\nINFO user login\nFLAG{grep_is_your_friend}\nINFO shutdown\n" > ~/cyberclub/beginner-ctf/logs/system.log
+./setup.sh
+docker compose up -d
 ```
 
-Goal: find the flag using command-line search tools.
-
-## Challenge 2 — Networking
-
-Given:
+The setup creates challenge files in:
 
 ```text
-Host: 192.168.56.20
-Services: SSH and HTTP
+~/cyberclub/beginner-ctf
+```
+
+The Docker service is available only on:
+
+```text
+127.0.0.1:8090
+```
+
+## Scope
+
+Authorized targets:
+
+```text
+~/cyberclub/beginner-ctf/*
+127.0.0.1:8090
+```
+
+Do not scan or test anything else for this CTF.
+
+## Challenge 1 — Linux
+
+Find the flag hidden somewhere under:
+
+```text
+~/cyberclub/beginner-ctf/linux
+```
+
+Use command-line search tools.
+
+## Challenge 2 — Log Analysis
+
+Analyze:
+
+```text
+~/cyberclub/beginner-ctf/logs/auth.log
 ```
 
 Answer:
 
-1. Which common ports would you expect?
-2. Which protocol would a browser normally use?
-3. What tool from the Beginner track could identify open ports on the authorized host?
+1. How many failed logins occurred?
+2. Which user had the most failures?
+3. Which source IP appears most often?
 
-## Challenge 3 — Packet Analysis
+## Challenge 3 — Networking
 
-Using a capture generated during the Wireshark event, identify:
+Explain:
 
-- one DNS query
-- one TCP conversation
-- one source and destination IP
+1. What service would you normally expect on port 22?
+2. What service would you normally expect on port 443?
+3. What is the role of DNS?
+4. What does a default gateway do?
 
-## Challenge 4 — Cryptography
+## Challenge 4 — Nmap
+
+Scan only:
+
+```text
+127.0.0.1 port 8090
+```
+
+Identify:
+
+- port state
+- detected service
+- one piece of evidence supporting your answer
+
+## Challenge 5 — Web
+
+Visit:
+
+```text
+http://127.0.0.1:8090
+```
+
+Find:
+
+- HTTP status
+- response content type
+- one custom training header
+- the path listed in `robots.txt`
+
+Explain why `robots.txt` is not access control.
+
+## Challenge 6 — Wireshark
+
+Capture your own traffic while visiting the local web challenge.
+
+Identify:
+
+- destination port
+- HTTP request path
+- one TCP flag
+- response status
+
+## Challenge 7 — Cryptography
 
 Decode:
 
@@ -58,50 +126,37 @@ Decode:
 RkxBR3tiYXNlNjRfaXNfZW5jb2Rpbmd9
 ```
 
-Hint: this is an encoding challenge.
+Then explain why the transformation is not encryption.
 
-## Challenge 5 — Forensics
+## Challenge 8 — Forensics
 
-```bash
-echo "FLAG{hashes_show_change}" > original.txt
-cp original.txt copy.txt
+Hash:
+
+```text
+~/cyberclub/beginner-ctf/forensics/original.txt
+~/cyberclub/beginner-ctf/forensics/copy.txt
 ```
 
-1. Hash both files.
-2. Modify `copy.txt`.
-3. Hash them again.
-4. Explain what changed.
+Then modify only `copy.txt`, hash it again, and explain what the change demonstrates.
 
-## Challenge 6 — Web Concepts
+## Suggested Submission
 
-Given a normal user who can open an administrator-only page, identify whether the primary problem is:
-
-- authentication
-- authorization
-- DNS
-- encryption
-
-## Suggested Scoring
-
-| Challenge | Points |
-|---|---:|
-| Linux | 10 |
-| Networking | 10 |
-| Wireshark | 15 |
-| Crypto | 10 |
-| Forensics | 15 |
-| Web | 10 |
-| Written explanations | 30 |
-
-Total: **100 points**
+```text
+Challenge:
+Answer:
+Commands/tools used:
+Reasoning:
+```
 
 ## Completion
 
-Finishing the CTF prepares a member for the Beginner → Intermediate mock interview.
+After completing the CTF, members should review:
+
+[Beginner 11 — Capstone Interview Prep](../11-capstone-interview-prep/)
 
 ## Cleanup
 
 ```bash
-rm -rf ~/cyberclub/beginner-ctf
-rm -f original.txt copy.txt
+docker compose down
+./reset.sh
 ```
