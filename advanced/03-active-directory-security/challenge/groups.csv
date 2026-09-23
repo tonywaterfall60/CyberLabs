@@ -1,0 +1,5 @@
+group,privileged
+Helpdesk,false
+Server Operators,true
+Domain Admins,true
+Web Admins,false
