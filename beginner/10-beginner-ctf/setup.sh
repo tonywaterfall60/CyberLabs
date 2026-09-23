@@ -6,7 +6,12 @@ rm -rf "$BASE"
 mkdir -p "$BASE/linux/archive" "$BASE/logs" "$BASE/forensics"
 
 printf "normal training notes\n" > "$BASE/linux/readme.txt"
-printf "SRU{}\n" > "$BASE/linux/archive/evidence.txt"
+
+if [[ -n "${LINUX_FLAG_VALUE:-}" ]]; then
+  printf "%s\n" "$LINUX_FLAG_VALUE" > "$BASE/linux/archive/evidence.txt"
+else
+  printf "FLAG_NOT_CONFIGURED\n" > "$BASE/linux/archive/evidence.txt"
+fi
 
 cat > "$BASE/logs/auth.log" <<'EOF'
 INFO user=alex action=LOGIN_SUCCESS source=192.168.56.10
