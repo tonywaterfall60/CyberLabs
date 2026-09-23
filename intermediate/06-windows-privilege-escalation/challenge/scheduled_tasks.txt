@@ -1,0 +1,4 @@
+Task: NightlyBackup
+RunAs: SYSTEM
+Program: C:\Tools\backup.ps1
+Schedule: Daily 02:00
