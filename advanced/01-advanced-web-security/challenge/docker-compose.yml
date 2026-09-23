@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    environment:
+      WEB_FLAG_VALUE: ${WEB_FLAG_VALUE:-FLAG_NOT_CONFIGURED}
+    ports:
+      - "127.0.0.1:8500:5000"
