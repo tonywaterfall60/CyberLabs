@@ -6,7 +6,7 @@ rm -rf "$BASE"
 mkdir -p "$BASE/linux/archive" "$BASE/logs" "$BASE/forensics"
 
 printf "normal training notes\n" > "$BASE/linux/readme.txt"
-printf "FLAG{linux_search_complete}\n" > "$BASE/linux/archive/evidence.txt"
+printf "SRU{}\n" > "$BASE/linux/archive/evidence.txt"
 
 cat > "$BASE/logs/auth.log" <<'EOF'
 INFO user=alex action=LOGIN_SUCCESS source=192.168.56.10
