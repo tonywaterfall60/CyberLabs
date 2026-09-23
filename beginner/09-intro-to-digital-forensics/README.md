@@ -1,26 +1,48 @@
 # Beginner 09 — Intro to Digital Forensics
 
-**Time:** 75–90 minutes  
-**Prerequisites:** Beginner 02, 04, and 08  
-**Environment:** Local practice files
+**Difficulty:** Beginner  
+**Estimated time:** 75–90 minutes  
+**Prerequisites:** Beginner 02, 04, 08  
+**Environment:** Linux/WSL command line
+
+## Why This Event Exists
+
+Digital forensics focuses on preserving, examining, and documenting digital evidence. This event introduces evidence handling, hashes, file types, metadata, timestamps, and documentation without requiring specialized forensic suites.
 
 ## Learning Objectives
 
 Members should be able to:
 
-- explain the purpose of digital forensics
-- inspect file metadata and hashes
-- recognize that extensions do not define file contents
-- preserve evidence before analysis
+- explain why evidence preservation matters
+- calculate and compare hashes
+- inspect basic file metadata
+- distinguish filename extensions from actual file types
 - document observations
+- explain why analysts often work from copies
 
-## Safety / Ethics
+## Evidence Principles
 
-Use only instructor-provided or personally created files.
+A beginner-friendly workflow:
 
-Do not inspect another person's private files or device without authorization.
+```text
+Identify
+  ↓
+Preserve
+  ↓
+Hash
+  ↓
+Work from copy
+  ↓
+Examine
+  ↓
+Document
+  ↓
+Re-hash / verify
+```
 
-## Setup
+## Guided Lab
+
+Create files:
 
 ```bash
 mkdir -p ~/cyberclub/forensics-lab
@@ -28,65 +50,79 @@ cd ~/cyberclub/forensics-lab
 
 echo "Meeting moved to 7 PM." > note.txt
 cp note.txt evidence-copy.txt
-printf 'This is a training artifact.\n' > mystery.dat
+printf 'Training artifact\n' > mystery.jpg
 ```
 
-## Task 1 — Record File Information
+### Task 1 — File Type
 
 ```bash
-ls -l
 file note.txt
-file mystery.dat
+file mystery.jpg
 ```
 
-## Task 2 — Calculate Hashes
+Discuss why an extension alone is not proof of content type.
+
+### Task 2 — Hashes
 
 ```bash
 sha256sum note.txt
 sha256sum evidence-copy.txt
 ```
 
-Do the matching hashes support the conclusion that the files are identical?
-
-## Task 3 — Modify the Copy
+Modify the copy:
 
 ```bash
 echo "Additional line" >> evidence-copy.txt
-sha256sum note.txt
-sha256sum evidence-copy.txt
 ```
 
-Compare again.
+Hash again.
 
-## Task 4 — Metadata
-
-Linux:
+### Task 3 — Metadata
 
 ```bash
 stat note.txt
 ```
 
-Record the size and timestamps.
+Record:
 
-## Task 5 — Evidence Notes
+- size
+- owner
+- permissions
+- timestamps
 
-Create:
+### Task 4 — Documentation
+
+Use:
 
 ```text
-File:
+Evidence item:
+Observed filename:
+Detected file type:
 Size:
-Type:
 SHA-256:
-Observed timestamps:
+Timestamps:
+Actions performed:
 Notes:
 ```
 
 ## Challenge
 
-Explain why an investigator should hash evidence before and after analysis.
+```bash
+cd challenge
+./setup.sh
+cat README.md
+```
+
+The challenge creates a small evidence directory containing several files, one misleading extension, and an integrity question.
 
 ## Cleanup
 
 ```bash
 rm -rf ~/cyberclub/forensics-lab
+cd challenge
+./reset.sh
 ```
+
+## Next Event
+
+[Beginner 10 — Beginner CTF](../10-beginner-ctf/)
