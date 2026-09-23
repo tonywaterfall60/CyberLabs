@@ -1,0 +1,13 @@
+.env
+*.key
+*.pem
+*.p12
+*.pfx
+*.log
+*.pcapng~
+__pycache__/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+instructor/private/
