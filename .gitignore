@@ -18,3 +18,7 @@ flag.txt
 flags.env
 *.flag
 runtime-flags/
+
+# Generated challenge runtime data
+runtime/
+**/runtime/
