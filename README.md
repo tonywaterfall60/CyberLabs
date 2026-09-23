@@ -146,21 +146,19 @@ docker compose down
 
 ## Flags
 
-Challenges that use flags follow the format:
+Challenge flags use the format:
 
 ```text
-SRU{}
+SRU{...}
 ```
 
-Challenge authors can place the final flag text between the braces.
+Filled-in flag values are never stored in this student repository.
 
-Example format only:
+Private values live only in the private `CyberLabs-Instructor` repository and are injected by the event lead when a challenge requires a flag.
 
-```text
-SRU{example}
-```
+Student challenge code may reference runtime variables such as `FLAG_VALUE`, `LINUX_FLAG_VALUE`, `REV_FLAG_VALUE`, or `WEB_FLAG_VALUE`, but the real values are instructor-only.
 
-Do not commit instructor solutions or real challenge answers to the student-facing repository.
+If a private value is not injected, the challenge may show `FLAG_NOT_CONFIGURED` or use a non-flag success message.
 
 ---
 
