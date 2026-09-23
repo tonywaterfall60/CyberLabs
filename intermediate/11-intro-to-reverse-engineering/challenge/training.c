@@ -8,7 +8,7 @@ int main(void) {
     buf[strcspn(buf, "\n")] = 0;
 
     if (strcmp(buf, "northstar") == 0) {
-        puts("SRU{}");
+        puts("SUCCESS");
     } else {
         puts("Access denied.");
     }
