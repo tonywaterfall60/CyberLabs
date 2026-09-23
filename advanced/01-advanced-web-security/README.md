@@ -1,44 +1,89 @@
 # Advanced 01 — Advanced Web Security
 
-**Time:** 90 minutes  
-**Scope:** Instructor-provided local application only
+**Difficulty:** Advanced  
+**Estimated time:** 120 minutes  
+**Prerequisites:** Intermediate Web Enumeration + OWASP workshop  
+**Environment:** Kali Linux, Burp Suite, Docker
 
-## Objectives
-Members will practice:
-- creating a structured web application threat model
-- identifying trust boundaries
-- analyzing authentication and authorization assumptions
-- validating findings inside an authorized lab
-- writing mitigation guidance
+## Learning Objectives
 
-## Exercise
+Students should be able to:
+
+- build an application threat model
+- identify trust boundaries
+- test authorization assumptions
+- use Burp Proxy and Repeater methodically
+- distinguish authentication from object-level authorization
+- validate a finding with multiple requests/accounts
+- write remediation and detection guidance
+
+## Workflow
+
 ```text
-Browser
-   |
-Web Application
-   |
-API
-   |
-Database
+Threat model
+  ↓
+Map roles/resources
+  ↓
+Establish normal behavior
+  ↓
+Modify one variable
+  ↓
+Compare authorization decisions
+  ↓
+Validate impact
+  ↓
+Document evidence
 ```
 
-For each boundary, identify:
-- trusted input assumptions
-- authentication controls
-- authorization controls
-- sensitive data
-- likely logging points
-- defensive validation opportunities
+## Challenge
+
+```bash
+cd challenge
+docker compose up --build -d
+cat README.md
+```
+
+Target:
+
+```text
+http://127.0.0.1:8500
+```
+
+The application contains an intentionally weak object-authorization check.
+
+If an instructor injects `WEB_FLAG_VALUE`, successful validation may reveal the private event flag. Without injection, the lab still works and returns `FLAG_NOT_CONFIGURED`.
+
+## Tools
+
+- Burp Suite Proxy
+- Repeater
+- curl
+- optional ffuf for route mapping
 
 ## Deliverable
-Prepare a concise finding with:
-1. Title
-2. Affected component
-3. Preconditions
-4. Observation
-5. Security impact
-6. Reproduction notes within the lab
-7. Recommended remediation
-8. Detection/logging ideas
 
-Do not test systems outside the instructor-provided environment.
+Write a professional finding:
+
+```text
+Title:
+Affected route:
+Preconditions:
+Expected authorization:
+Observed behavior:
+Reproduction:
+Impact:
+Evidence:
+Remediation:
+Detection/logging:
+Confidence:
+```
+
+## Cleanup
+
+```bash
+docker compose down
+```
+
+## Next Event
+
+[Advanced 02 — Binary Analysis Foundations](../02-binary-analysis-foundations/)
