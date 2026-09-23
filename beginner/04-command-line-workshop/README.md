@@ -1,89 +1,148 @@
 # Beginner 04 — Command Line Workshop
 
-**Time:** 75–90 minutes  
+**Difficulty:** Beginner  
+**Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 02–03  
 **Environment:** Linux VM, WSL, or terminal
 
+## Why This Event Exists
+
+Cybersecurity analysts frequently need to turn raw files and logs into useful information quickly. This event teaches members to combine small command-line tools into repeatable workflows.
+
 ## Learning Objectives
 
-Members will practice:
+Members should be able to:
 
-- combining commands
-- pipes and redirection
-- searching files
-- inspecting processes
-- basic network troubleshooting from the terminal
+- understand standard input/output at a basic level
+- use pipes
+- redirect output
+- search and count log entries
+- sort and extract useful data
+- inspect basic process/network state
+- build simple command pipelines
 
-## Setup
+## Core Concepts
+
+### Standard Output
+
+Commands normally print output to the terminal.
+
+```bash
+cat file.txt
+```
+
+### Redirection
+
+Write output into a file:
+
+```bash
+command > output.txt
+```
+
+Append instead of replace:
+
+```bash
+command >> output.txt
+```
+
+### Pipes
+
+Send output from one command into another:
+
+```bash
+command1 | command2
+```
+
+Example:
+
+```bash
+grep WARNING app.log | wc -l
+```
+
+## Guided Lab Setup
 
 ```bash
 mkdir -p ~/cyberclub/cli-lab/logs
 cd ~/cyberclub/cli-lab
 
 printf "INFO user=alex action=login\nWARNING user=sam action=failed_login\nINFO user=alex action=logout\nWARNING user=sam action=failed_login\n" > logs/auth.log
+
 printf "web01,192.168.56.20,80\nssh01,192.168.56.21,22\ndns01,192.168.56.22,53\n" > hosts.csv
 ```
 
-## Tasks
+## Guided Tasks
 
-### 1. Read and Search
+### Search the Log
 
 ```bash
-cat logs/auth.log
 grep WARNING logs/auth.log
 ```
 
-### 2. Count Results
+### Count Failed Events
 
 ```bash
 grep WARNING logs/auth.log | wc -l
 ```
 
-### 3. Redirect Output
+### Save Results
 
 ```bash
 grep WARNING logs/auth.log > warnings.txt
-cat warnings.txt
 ```
 
-### 4. Sort and Inspect
+### Extract Fields
+
+```bash
+cut -d, -f1 hosts.csv
+cut -d, -f2 hosts.csv
+```
+
+### Sort Data
 
 ```bash
 sort hosts.csv
-head hosts.csv
-tail hosts.csv
 ```
 
-### 5. Process Inspection
+### Inspect Processes and Sockets
 
 ```bash
 ps aux
-```
-
-Find your shell process.
-
-### 6. Network Inspection
-
-```bash
-ip addr
-ip route
 ss -tulpn
 ```
 
+## Mini Exercises
+
+Build commands that:
+
+1. count lines containing `INFO`
+2. save all failed-login events to a new file
+3. extract only hostnames from `hosts.csv`
+4. sort those hostnames alphabetically
+
 ## Challenge
 
-Create one command pipeline that:
+Run:
 
-1. finds all `WARNING` lines,
-2. counts them,
-3. writes the result into `warning-count.txt`.
+```bash
+cd challenge
+./setup.sh
+cat README.md
+```
 
-## Reflection
+The challenge gives you a larger authentication log. Solve it using pipelines instead of manually reading every line.
 
-Why are command pipelines useful to cybersecurity analysts?
+## Deliverable
+
+Provide the command pipelines used to answer the challenge questions.
 
 ## Cleanup
 
 ```bash
 rm -rf ~/cyberclub/cli-lab
 ```
+
+Use `challenge/reset.sh` for the challenge data.
+
+## Next Event
+
+[Beginner 05 — Intro to Wireshark](../05-intro-to-wireshark/)
