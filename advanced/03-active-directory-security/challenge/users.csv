@@ -1,0 +1,6 @@
+user,enabled,description
+alice,true,Helpdesk analyst
+bob,true,Application administrator
+svc_backup,true,Backup service account
+svc_web,true,Web service account
+carol,true,Domain administrator
