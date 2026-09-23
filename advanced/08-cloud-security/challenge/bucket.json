@@ -1,0 +1,7 @@
+{
+  "bucket": "training-reports",
+  "public_access_block": false,
+  "acl": "public-read",
+  "encryption": "AES256",
+  "versioning": false
+}
