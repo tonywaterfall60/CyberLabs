@@ -15,5 +15,10 @@ cat > "$BASE/linux-audit/sudoers.txt" <<'EOF'
 analyst ALL=(root) NOPASSWD: /usr/bin/tar
 EOF
 
-printf "SRU{}\n" > "$BASE/reversing/flag.txt"
+if [[ -n "${REV_FLAG_VALUE:-}" ]]; then
+  printf "%s\n" "$REV_FLAG_VALUE" > "$BASE/reversing/flag.txt"
+else
+  printf "FLAG_NOT_CONFIGURED\n" > "$BASE/reversing/flag.txt"
+fi
+
 echo "[+] Intermediate CTF files created at $BASE"
