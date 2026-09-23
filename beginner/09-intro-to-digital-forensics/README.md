@@ -3,11 +3,11 @@
 **Difficulty:** Beginner  
 **Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 02, 04, 08  
-**Environment:** Linux/WSL command line
+**Environment:** Kali Linux command line
 
 ## Why This Event Exists
 
-Digital forensics focuses on preserving, examining, and documenting digital evidence. This event introduces evidence handling, hashes, file types, metadata, timestamps, and documentation without requiring specialized forensic suites.
+Digital forensics focuses on preserving, examining, and documenting digital evidence. Kali includes several useful file-inspection tools that let beginners start analyzing evidence without a full forensic suite.
 
 ## Learning Objectives
 
@@ -15,14 +15,23 @@ Members should be able to:
 
 - explain why evidence preservation matters
 - calculate and compare hashes
-- inspect basic file metadata
+- inspect file metadata
 - distinguish filename extensions from actual file types
+- use `file`, `stat`, `strings`, and `exiftool`
 - document observations
 - explain why analysts often work from copies
 
-## Evidence Principles
+## Kali Tools Introduced
 
-A beginner-friendly workflow:
+| Tool | Purpose |
+|---|---|
+| file | identify likely file type |
+| stat | filesystem metadata |
+| sha256sum | integrity hash |
+| strings | printable text extraction |
+| exiftool | embedded metadata inspection |
+
+## Evidence Workflow
 
 ```text
 Identify
@@ -33,16 +42,14 @@ Hash
   ↓
 Work from copy
   ↓
-Examine
+Inspect type/metadata
   ↓
 Document
   ↓
-Re-hash / verify
+Verify integrity
 ```
 
 ## Guided Lab
-
-Create files:
 
 ```bash
 mkdir -p ~/cyberclub/forensics-lab
@@ -60,16 +67,39 @@ file note.txt
 file mystery.jpg
 ```
 
-Discuss why an extension alone is not proof of content type.
+Discuss why extensions can be misleading.
 
-### Task 2 — Hashes
+### Task 2 — Strings
+
+```bash
+strings mystery.jpg
+```
+
+Explain what `strings` can reveal and what it cannot prove.
+
+### Task 3 — Filesystem Metadata
+
+```bash
+stat note.txt
+```
+
+### Task 4 — Embedded Metadata
+
+```bash
+exiftool note.txt
+exiftool mystery.jpg
+```
+
+Discuss the difference between filesystem metadata and file-embedded metadata.
+
+### Task 5 — Hashes
 
 ```bash
 sha256sum note.txt
 sha256sum evidence-copy.txt
 ```
 
-Modify the copy:
+Modify only the copy:
 
 ```bash
 echo "Additional line" >> evidence-copy.txt
@@ -77,30 +107,17 @@ echo "Additional line" >> evidence-copy.txt
 
 Hash again.
 
-### Task 3 — Metadata
-
-```bash
-stat note.txt
-```
-
-Record:
-
-- size
-- owner
-- permissions
-- timestamps
-
-### Task 4 — Documentation
-
-Use:
+## Documentation Template
 
 ```text
 Evidence item:
 Observed filename:
-Detected file type:
+Detected type:
 Size:
 SHA-256:
-Timestamps:
+Filesystem metadata:
+Embedded metadata:
+Interesting strings:
 Actions performed:
 Notes:
 ```
@@ -113,7 +130,7 @@ cd challenge
 cat README.md
 ```
 
-The challenge creates a small evidence directory containing several files, one misleading extension, and an integrity question.
+Use at least three Kali tools during the challenge.
 
 ## Cleanup
 
