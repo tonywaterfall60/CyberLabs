@@ -1,0 +1,5 @@
+[
+  {"name":"web","protocol":"tcp","port":443,"source":"0.0.0.0/0"},
+  {"name":"admin","protocol":"tcp","port":22,"source":"0.0.0.0/0"},
+  {"name":"database","protocol":"tcp","port":5432,"source":"10.50.0.0/16"}
+]
