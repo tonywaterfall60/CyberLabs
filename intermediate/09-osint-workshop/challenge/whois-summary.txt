@@ -1,0 +1,4 @@
+Domain: northstar-robotics.example
+Registration organization: Northstar Robotics Club
+Created: 2026-05-01
+Contact details: privacy protected
