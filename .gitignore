@@ -11,3 +11,10 @@ Thumbs.db
 .vscode/
 .idea/
 instructor/private/
+
+# Private challenge flag material
+flag.txt
+.flag
+flags.env
+*.flag
+runtime-flags/
