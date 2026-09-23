@@ -36,7 +36,7 @@ Members progress through hands-on events, challenge nights, CTFs, and capstone i
 
 ## Planned Improvements
 
-- [ ] add more Kali-specific tool practice
+- [x] add more Kali-specific tool practice
 - [ ] expand PCAP challenge variety
 - [ ] add optional Windows equivalents
 - [ ] improve diagrams/screenshots
@@ -71,14 +71,14 @@ Planned/in progress:
 - [x] Nmap
 - [x] curl
 - [x] Wireshark
-- [ ] Burp Suite
-- [ ] Gobuster
-- [ ] ffuf
-- [ ] Nikto
-- [ ] tcpdump / tshark
-- [ ] hashid / hashcat
+- [x] Burp Suite
+- [x] Gobuster
+- [x] ffuf
+- [x] Nikto
+- [x] tcpdump / tshark
+- [x] hashid / hashcat
 - [ ] John the Ripper
-- [ ] GDB / radare2
+- [x] GDB / radare2
 
 ---
 
