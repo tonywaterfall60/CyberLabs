@@ -3,11 +3,13 @@
 **Difficulty:** Beginner  
 **Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 01–02  
-**Environment:** Member laptop; optional Linux VM
+**Environment:** Kali Linux VM or member laptop
 
 ## Why This Event Exists
 
-Most cybersecurity activity involves systems communicating over networks. Before using Wireshark or Nmap, members need to understand what IP addresses, DNS, ports, TCP, UDP, and gateways actually do.
+Most cybersecurity activity involves systems communicating over networks. Before using Wireshark or Nmap, members need to understand what IP addresses, DNS, ports, TCP, UDP, gateways, and routes actually do.
+
+This event also begins introducing common Kali networking tools in a low-pressure way.
 
 ## Learning Objectives
 
@@ -20,7 +22,19 @@ Members should be able to:
 - distinguish TCP and UDP
 - recognize several common services
 - describe what happens when a browser visits a website
+- use basic Kali networking commands
 - troubleshoot a simple connectivity problem
+
+## Kali Tools Introduced
+
+| Tool | Purpose |
+|---|---|
+| `ip` | view addresses and routes |
+| `ping` | basic reachability testing |
+| `dig` | DNS queries |
+| `traceroute` | view network path hops |
+| `ss` | inspect local sockets |
+| `curl` | test HTTP connectivity |
 
 ## Core Concepts
 
@@ -56,10 +70,6 @@ The default gateway is where traffic is sent when the destination is outside the
 
 DNS translates hostnames into IP addresses.
 
-```text
-example.com → 93.184.216.34
-```
-
 ### Ports
 
 A single host can run many services. Ports help identify which service a connection is intended for.
@@ -87,18 +97,9 @@ A single host can run many services. Ports help identify which service a connect
 
 ### Task 1 — View Your Configuration
 
-Linux:
-
 ```bash
 ip addr
 ip route
-```
-
-Windows:
-
-```powershell
-ipconfig
-route print
 ```
 
 Record:
@@ -107,40 +108,68 @@ Record:
 IP address:
 Subnet/prefix:
 Default gateway:
-DNS server:
 ```
 
-### Task 2 — Test the Local Stack
+### Task 2 — Inspect Local Sockets
 
 ```bash
-ping 127.0.0.1
+ss -tulpn
+```
+
+Discuss:
+
+- listening sockets
+- TCP vs. UDP
+- port numbers
+
+### Task 3 — Test Loopback
+
+```bash
+ping -c 4 127.0.0.1
 ```
 
 Explain what loopback means.
 
-### Task 3 — Test the Gateway
-
-```bash
-ping <your-default-gateway>
-```
-
-Discuss what a successful or failed result does and does not prove.
-
-### Task 4 — DNS Resolution
-
-```bash
-nslookup example.com
-```
-
-or:
+### Task 4 — DNS with dig
 
 ```bash
 dig example.com
 ```
 
-Identify the query name and returned address.
+Focus on:
 
-### Task 5 — Trace the Web Request
+- QUESTION SECTION
+- ANSWER SECTION
+- returned address
+
+Short output:
+
+```bash
+dig +short example.com
+```
+
+### Task 5 — Trace a Route
+
+If Internet access is allowed:
+
+```bash
+traceroute example.com
+```
+
+Discuss why some hops may not respond and why traceroute output is not a complete map of the Internet.
+
+### Task 6 — Test HTTP with curl
+
+```bash
+curl -I https://example.com
+```
+
+Identify:
+
+- response status
+- headers
+
+### Task 7 — Trace the Web Request
 
 Describe:
 
@@ -151,13 +180,13 @@ DNS resolves hostname
       ↓
 Client knows destination IP
       ↓
+Routing chooses a path
+      ↓
 TCP connection is established
       ↓
 HTTP/HTTPS request is sent
       ↓
 Server responds
-      ↓
-Browser renders content
 ```
 
 ## Troubleshooting Exercise
@@ -178,14 +207,15 @@ Open:
 challenge/README.md
 ```
 
-The challenge gives you a fictional network and several failure reports. Use the provided data to identify the likely failure point.
+The challenge gives you a fictional network and several failure reports.
 
 ## Deliverable
 
-Write a short explanation of what happens when a browser visits a website, using at least these terms:
+Write a short explanation of what happens when a browser visits a website, using:
 
 - DNS
 - IP
+- route/gateway
 - TCP
 - port
 - HTTP or HTTPS
