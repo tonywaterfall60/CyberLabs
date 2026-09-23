@@ -1,37 +1,71 @@
 # Beginner 03 — Networking Fundamentals
 
-**Time:** 75–90 minutes  
+**Difficulty:** Beginner  
+**Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 01–02  
 **Environment:** Member laptop; optional Linux VM
 
+## Why This Event Exists
+
+Most cybersecurity activity involves systems communicating over networks. Before using Wireshark or Nmap, members need to understand what IP addresses, DNS, ports, TCP, UDP, and gateways actually do.
+
 ## Learning Objectives
 
-By the end of this event, members should be able to:
+Members should be able to:
 
-- explain the purpose of IP addresses, MAC addresses, DNS, ports, TCP, and UDP
-- distinguish a local network from the Internet
-- identify their own IP configuration
-- explain what happens when a browser visits a website
-- recognize common ports and services
+- explain IP and MAC addresses
+- identify a subnet and default gateway at a basic level
+- explain DNS
+- explain why ports exist
+- distinguish TCP and UDP
+- recognize several common services
+- describe what happens when a browser visits a website
+- troubleshoot a simple connectivity problem
 
-## Concepts
+## Core Concepts
 
 ### IP Address
-An IP address identifies a device or interface on a network.
+
+An IP address identifies a network interface at Layer 3.
+
+Example:
+
+```text
+192.168.56.20
+```
 
 ### MAC Address
-A MAC address identifies a network interface at Layer 2.
+
+A MAC address identifies a network interface at Layer 2 on the local network.
+
+### Subnet
+
+A subnet groups addresses that can communicate locally according to the network configuration.
+
+Example:
+
+```text
+192.168.56.0/24
+```
+
+### Default Gateway
+
+The default gateway is where traffic is sent when the destination is outside the local network.
 
 ### DNS
-DNS translates names such as `example.com` into IP addresses.
+
+DNS translates hostnames into IP addresses.
+
+```text
+example.com → 93.184.216.34
+```
 
 ### Ports
-Ports help identify services on a host.
 
-Common examples:
+A single host can run many services. Ports help identify which service a connection is intended for.
 
-| Port | Service |
-|---|---|
+| Port | Typical Service |
+|---:|---|
 | 22 | SSH |
 | 53 | DNS |
 | 80 | HTTP |
@@ -39,11 +73,19 @@ Common examples:
 
 ### TCP vs. UDP
 
-TCP is connection-oriented and emphasizes reliable delivery. UDP is connectionless and is commonly used where low overhead or speed is important.
+**TCP**
+- connection-oriented
+- reliable delivery
+- ordered stream
 
-## Hands-On Lab
+**UDP**
+- connectionless
+- lower overhead
+- no built-in guarantee of delivery
 
-### Task 1 — View Local Network Information
+## Guided Lab
+
+### Task 1 — View Your Configuration
 
 Linux:
 
@@ -56,26 +98,35 @@ Windows:
 
 ```powershell
 ipconfig
+route print
 ```
 
 Record:
 
-- your local IP address
-- subnet mask/prefix
-- default gateway
+```text
+IP address:
+Subnet/prefix:
+Default gateway:
+DNS server:
+```
 
-### Task 2 — Test Connectivity
+### Task 2 — Test the Local Stack
 
 ```bash
 ping 127.0.0.1
+```
+
+Explain what loopback means.
+
+### Task 3 — Test the Gateway
+
+```bash
 ping <your-default-gateway>
 ```
 
-Discuss what each test proves.
+Discuss what a successful or failed result does and does not prove.
 
-### Task 3 — DNS
-
-Try:
+### Task 4 — DNS Resolution
 
 ```bash
 nslookup example.com
@@ -87,39 +138,58 @@ or:
 dig example.com
 ```
 
-Identify the returned IP address.
+Identify the query name and returned address.
 
-### Task 4 — Follow a Web Request
+### Task 5 — Trace the Web Request
 
-As a group, describe this sequence:
+Describe:
 
 ```text
-Browser
-  ↓
-DNS lookup
-  ↓
-IP address
-  ↓
-TCP connection
-  ↓
-HTTP/HTTPS request
-  ↓
-Web server response
+User enters URL
+      ↓
+DNS resolves hostname
+      ↓
+Client knows destination IP
+      ↓
+TCP connection is established
+      ↓
+HTTP/HTTPS request is sent
+      ↓
+Server responds
+      ↓
+Browser renders content
 ```
+
+## Troubleshooting Exercise
+
+For each symptom, identify a likely area to investigate:
+
+1. hostname does not resolve
+2. host responds to ping but web page does not load
+3. HTTP works but HTTPS does not
+4. local host is reachable but remote networks are not
+5. browser works by IP but not by hostname
 
 ## Challenge
 
-For each situation, identify which component is most likely involved:
+Open:
 
-1. A hostname does not resolve.
-2. A host responds to ping, but its website does not load.
-3. A web server is reachable on port 80 but not port 443.
-4. Two devices have addresses on the same subnet.
+```text
+challenge/README.md
+```
+
+The challenge gives you a fictional network and several failure reports. Use the provided data to identify the likely failure point.
 
 ## Deliverable
 
-Write a short explanation of what happens when you type a URL into a browser.
+Write a short explanation of what happens when a browser visits a website, using at least these terms:
 
-## Cleanup
+- DNS
+- IP
+- TCP
+- port
+- HTTP or HTTPS
 
-No cleanup required.
+## Next Event
+
+[Beginner 04 — Command Line Workshop](../04-command-line-workshop/)
