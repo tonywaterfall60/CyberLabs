@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.insecure
+    privileged: true
+    network_mode: host
+    volumes:
+      - /:/host
+    environment:
+      ADMIN_PASSWORD: training-password
