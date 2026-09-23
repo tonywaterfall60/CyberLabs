@@ -43,7 +43,7 @@ docker compose up --build -d
 Target:
 
 ```text
-http://127.0.0.1:8080
+http://127.0.0.1:8070
 ```
 
 ### Task 1 — Developer Tools
@@ -60,10 +60,10 @@ Record:
 ### Task 2 — curl
 
 ```bash
-curl -i http://127.0.0.1:8080/
-curl -i http://127.0.0.1:8080/api/status
-curl -i http://127.0.0.1:8080/admin
-curl -i http://127.0.0.1:8080/robots.txt
+curl -i http://127.0.0.1:8070/
+curl -i http://127.0.0.1:8070/api/status
+curl -i http://127.0.0.1:8070/admin
+curl -i http://127.0.0.1:8070/robots.txt
 ```
 
 ## Optional Burp Suite Preview
@@ -90,6 +90,8 @@ If time allows, configure Firefox to proxy HTTP through:
 127.0.0.1:8080
 ```
 
+Burp uses port 8080 as the proxy listener; the training application itself runs on port 8070.
+
 Then visit the local challenge and use Burp only to:
 
 1. capture one request,
@@ -104,7 +106,7 @@ Intermediate Web Enumeration covers Repeater and content discovery.
 ## robots.txt Discussion
 
 ```bash
-curl http://127.0.0.1:8080/robots.txt
+curl http://127.0.0.1:8070/robots.txt
 ```
 
 Explain why `robots.txt` is guidance for crawlers, not an authorization control.
