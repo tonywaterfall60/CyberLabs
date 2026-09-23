@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    environment:
+      RED_FLAG_VALUE: ${RED_FLAG_VALUE:-FLAG_NOT_CONFIGURED}
+    ports:
+      - "127.0.0.1:8600:5000"
+    volumes:
+      - ./runtime:/data
