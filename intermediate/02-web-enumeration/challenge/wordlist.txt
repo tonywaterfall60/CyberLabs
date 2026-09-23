@@ -1,0 +1,6 @@
+about
+admin
+api/status
+debug-info
+robots.txt
+search
