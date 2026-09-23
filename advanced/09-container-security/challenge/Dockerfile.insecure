@@ -1,0 +1,10 @@
+FROM python:latest
+
+ENV TRAINING_API_KEY=training-secret-do-not-copy
+
+WORKDIR /app
+RUN echo "hello" > app.txt
+
+EXPOSE 5000
+
+CMD ["python","-m","http.server","5000"]
