@@ -1,0 +1,9 @@
+Name: BackupAgent
+RunAs: LocalSystem
+Path: C:\Program Files\Backup Agent\backup.exe
+QuotedPath: No
+
+Name: WebHelper
+RunAs: LocalService
+Path: "C:\Program Files\WebHelper\helper.exe"
+QuotedPath: Yes
