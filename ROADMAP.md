@@ -84,26 +84,26 @@ Planned/in progress:
 
 # Advanced Track
 
-**Status: Early development**
+**Status: Core local track built; shared-range upgrades remain**
 
 ## Planned Events
 
 - [x] Advanced Web Security outline
 - [x] Binary Analysis Foundations outline
-- [ ] Active Directory Security
-- [ ] Windows domain enumeration
-- [ ] enterprise identity/security concepts
-- [ ] advanced web exploitation labs
-- [ ] binary exploitation foundations
-- [ ] malware analysis
-- [ ] advanced network analysis
-- [ ] threat hunting
-- [ ] detection engineering
+- [x] Active Directory Security
+- [x] Windows domain enumeration (static/exported-data version)
+- [x] enterprise identity/security concepts
+- [x] advanced web security local lab
+- [x] binary exploitation foundations
+- [x] malware analysis (benign simulation)
+- [x] advanced network analysis
+- [x] threat hunting
+- [x] detection engineering
 - [ ] SIEM investigation
-- [ ] cloud security
-- [ ] container security
-- [ ] vulnerability research
-- [ ] red vs. blue capstone
+- [x] cloud security
+- [x] container security
+- [x] exploit-development / vulnerability-analysis foundations
+- [x] local red vs. blue capstone
 
 ---
 
