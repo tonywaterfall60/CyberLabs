@@ -1,39 +1,111 @@
 # Intermediate 01 — Network Enumeration
 
-**Time:** 75–90 minutes  
-**Scope:** Provided local target only
+**Difficulty:** Intermediate  
+**Estimated time:** 90 minutes  
+**Prerequisites:** Beginner track completion  
+**Environment:** Nmap, curl, Docker
 
-## Objectives
-Members will practice:
-1. Verify connectivity
-2. Identify exposed services
-3. Document observations
-4. Form hypotheses
-5. Recommend defensive improvements
+## Why This Event Exists
 
-## Recommended Environment
+Beginner Nmap taught members how to identify ports. Intermediate enumeration adds structure: discover, validate, fingerprint, document, prioritize, and recommend defensive action.
+
+## Learning Objectives
+
+Members should be able to:
+
+- define an authorized enumeration scope
+- identify exposed services
+- perform targeted service detection
+- manually validate service behavior
+- distinguish observation from assumption
+- prioritize findings
+- write a concise enumeration report
+
+## Enumeration Workflow
+
 ```text
-Student VM    192.168.56.10
-Target VM     192.168.56.20
+Confirm scope
+   ↓
+Identify exposed ports
+   ↓
+Fingerprint services
+   ↓
+Manually validate
+   ↓
+Record evidence
+   ↓
+Prioritize
+   ↓
+Recommend hardening
 ```
 
-The instructor should configure only intentionally exposed services on the target.
+## Guided Lab
 
-## Tasks
-1. Verify the target is reachable.
-2. Identify listening services using approved lab tools.
-3. Record port, protocol, observed service, and possible purpose.
-4. For each service, identify one defensive hardening recommendation.
-5. Create a short enumeration report.
+Start the local environment:
+
+```bash
+cd challenge
+docker compose up -d
+```
+
+Authorized scope:
+
+```text
+127.0.0.1
+Ports 8100-8199
+```
+
+### Discovery
+
+```bash
+nmap -p 8100-8199 127.0.0.1
+```
+
+### Service Detection
+
+Run `-sV` only against discovered ports.
+
+### Manual Validation
+
+Use tools appropriate to the service, such as:
+
+```bash
+curl -i http://127.0.0.1:<port>/
+```
+
+## Analysis Questions
+
+For each service:
+
+1. What evidence identifies the service?
+2. Does it expose a banner/version?
+3. Does it require authentication?
+4. Is the traffic encrypted?
+5. Should it be exposed?
+6. What defensive improvement would you recommend?
+
+## Challenge
+
+See `challenge/README.md`.
 
 ## Deliverable
+
 ```text
-Host:
-Observed services:
-Interesting findings:
-Questions:
+Target:
+Authorized scope:
+Open ports:
+Service evidence:
+Interesting observations:
+Risk questions:
 Recommended hardening:
 ```
 
 ## Cleanup
-Restore the target VM snapshot.
+
+```bash
+docker compose down
+```
+
+## Next Event
+
+[Intermediate 02 — Web Enumeration](../02-web-enumeration/)
