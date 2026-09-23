@@ -1,0 +1,14 @@
+title: Suspicious Encoded PowerShell From Office Parent
+status: experimental
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image: powershell.exe
+    ParentImage: winword.exe
+    CommandLineContains: EncodedCommand
+  condition: selection
+falsepositives:
+  - TODO
+level: TODO
