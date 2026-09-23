@@ -1,0 +1,6 @@
+USER: WORKSTATION\student
+
+PRIVILEGES
+SeChangeNotifyPrivilege        Enabled
+SeShutdownPrivilege            Disabled
+SeImpersonatePrivilege         Enabled
