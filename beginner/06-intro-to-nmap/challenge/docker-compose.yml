@@ -1,0 +1,14 @@
+services:
+  web-one:
+    image: nginx:alpine
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - ./web-one:/usr/share/nginx/html:ro
+
+  web-two:
+    image: nginx:alpine
+    ports:
+      - "127.0.0.1:8088:80"
+    volumes:
+      - ./web-two:/usr/share/nginx/html:ro
