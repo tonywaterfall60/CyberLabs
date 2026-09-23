@@ -1,96 +1,154 @@
 # Beginner 11 — Intermediate Advancement Capstone Prep
 
-**Purpose:** Prepare members for the Beginner → Intermediate mock interview.
+**Difficulty:** Beginner capstone preparation  
+**Estimated review time:** 45–60 minutes  
+**Prerequisites:** Beginner 01–10
 
-The actual advancement interview should be administered by an E-board member or approved interviewer using the private club rubric.
+## Purpose
 
-## Readiness Checklist
+This event prepares members for the Beginner → Intermediate mock interview.
 
-A member should be comfortable explaining:
+The actual interview is administered using the private instructor rubric. The goal is to verify foundational understanding, reasoning, communication, and safe security practices.
 
-### Cybersecurity Foundations
-- CIA triad
-- threat, vulnerability, and risk
+## What You Should Be Able to Explain
+
+### Security Foundations
+
+- confidentiality, integrity, availability
+- threat vs. vulnerability vs. risk
 - authentication vs. authorization
-- legal/ethical scope
+- attack surface
+- why authorization is required before testing
 
 ### Linux
-- `pwd`
-- `ls`
-- `cd`
-- `cat`
-- `grep`
-- pipes and redirection
-- basic permissions concepts
+
+You should understand what these do:
+
+```bash
+pwd
+ls
+cd
+cat
+grep
+find
+ps
+ip addr
+ip route
+ss
+```
+
+You should also understand:
+
+- pipes
+- output redirection
+- basic permissions
 
 ### Networking
+
+Be prepared to explain:
+
 - IP address
 - MAC address
+- subnet
+- default gateway
 - DNS
 - TCP vs. UDP
 - ports
-- common services such as SSH, DNS, HTTP, and HTTPS
+- SSH
+- HTTP/HTTPS
 
 ### Wireshark
-- what packet capture is
-- basic filters such as `dns`, `tcp`, and `icmp`
-- TCP three-way handshake
-- why packet analysis is useful
+
+Be prepared to:
+
+- explain packet capture
+- use simple display filters
+- identify source/destination
+- identify DNS
+- recognize SYN → SYN-ACK → ACK
 
 ### Nmap
-- purpose of a port scan
-- open vs. closed port
-- service identification
-- authorization requirements
+
+Be prepared to explain:
+
+- what a port scan does
+- open vs. closed ports
+- basic service detection
+- why scan scope matters
 
 ### Web Security
+
+Be prepared to explain:
+
 - HTTP request/response
-- status codes
+- GET vs. POST conceptually
+- common status codes
 - authentication vs. authorization
 - input validation
+- why `robots.txt` is not access control
 
 ### Cryptography
-- encoding vs. hashing vs. encryption
-- purpose of hashing
-- symmetric vs. asymmetric encryption conceptually
 
-### Forensics
+Be prepared to distinguish:
+
+- encoding
+- hashing
+- encryption
+- symmetric encryption
+- asymmetric cryptography
+
+### Digital Forensics
+
+Be prepared to explain:
+
+- evidence preservation
 - file hashes
 - metadata
-- evidence preservation
-- documentation
+- file types vs. extensions
+- why analysts document their actions
 
 ## Practice Questions
 
 1. What is the difference between authentication and authorization?
 2. What does DNS do?
-3. What is the difference between TCP and UDP?
-4. What does an open port tell you?
-5. Why would an analyst use Wireshark?
-6. Why is Base64 not encryption?
-7. Why would an investigator calculate a hash?
-8. What should you do before scanning a system?
+3. What is the purpose of a default gateway?
+4. What is the difference between TCP and UDP?
+5. What does an open port tell you?
+6. Why would an analyst use Wireshark?
+7. What does the TCP three-way handshake accomplish?
+8. Why is Base64 not encryption?
+9. Why calculate a file hash?
+10. What should you confirm before scanning a system?
 
-## Practical Practice
+## Practice Practical
 
-Given an instructor-provided Linux VM, practice:
+Using only your local lab environment, practice:
 
-1. finding a file,
-2. searching a log,
-3. identifying the machine's IP,
-4. inspecting a short packet capture,
-5. interpreting a basic Nmap result,
-6. hashing a file.
+1. searching a log with `grep`
+2. counting matching entries
+3. identifying your IP address
+4. identifying a TCP connection in Wireshark
+5. scanning an authorized local port with Nmap
+6. inspecting a local web response with `curl -i`
+7. hashing two files and comparing them
 
-## Advancement Philosophy
+## Interview Mindset
 
-The interview is intended to verify foundational understanding and communication, not memorization.
+You do not need to memorize every command flag.
 
-Members should be able to explain what they are doing and why. A correct thought process is more important than perfect command syntax.
+A strong answer explains:
 
-## Next Step
+```text
+What I would check
+Why I would check it
+What result I expect
+What the result would mean
+How I stay within scope
+```
 
-After passing the Beginner → Intermediate capstone, continue with:
+## After Passing
+
+Continue with:
 
 ```text
 intermediate/01-network-enumeration
