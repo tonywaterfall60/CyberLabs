@@ -1,87 +1,133 @@
 # Beginner 08 — Intro to Cryptography
 
-**Time:** 75–90 minutes  
+**Difficulty:** Beginner  
+**Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 02–04  
-**Environment:** Linux, macOS, or Windows with common command-line tools
+**Environment:** Command line
+
+## Why This Event Exists
+
+Cybersecurity frequently uses terms such as encoding, hashing, encryption, keys, signatures, and certificates. Members need to understand which tools protect confidentiality, which verify integrity, and which simply change representation.
 
 ## Learning Objectives
 
 Members should be able to:
 
 - distinguish encoding, hashing, and encryption
-- explain why passwords should be hashed instead of stored in plaintext
-- recognize common hash output
-- understand symmetric vs. asymmetric encryption at a conceptual level
+- explain one-way hashing
+- explain symmetric vs. asymmetric encryption
+- calculate SHA-256 hashes
+- explain why secure password storage uses specialized password hashing
+- identify when Base64 is being mistaken for encryption
 
-## Key Concepts
+## Encoding
 
-### Encoding
+Encoding changes representation.
 
-Encoding changes representation. It is not intended to provide secrecy.
-
-Example: Base64.
-
-### Hashing
-
-Hashing produces a fixed-length digest and is designed to be one-way.
-
-### Encryption
-
-Encryption protects confidentiality and is reversible with the correct key.
-
-## Lab
-
-### Task 1 — Base64
-
-Linux/macOS:
+Example:
 
 ```bash
 echo -n "cyberclub" | base64
 ```
 
-Decode:
+Base64 is reversible without a secret key.
+
+## Hashing
+
+Hash functions produce a fixed-length digest.
 
 ```bash
+echo -n "cyberclub" | sha256sum
+```
+
+Important properties conceptually:
+
+- deterministic
+- one-way
+- small input changes cause very different output
+- useful for integrity verification
+
+## Encryption
+
+Encryption protects confidentiality.
+
+### Symmetric
+
+Same secret key is used to encrypt and decrypt.
+
+Example concept:
+
+```text
+AES
+```
+
+### Asymmetric
+
+Uses a public/private key pair.
+
+Example concept:
+
+```text
+RSA
+```
+
+## Guided Lab
+
+### Base64
+
+```bash
+echo -n "cyberclub" | base64
 echo "Y3liZXJjbHVi" | base64 -d
 ```
 
-Discuss why this is not encryption.
-
-### Task 2 — Hashing
+### Hash Comparison
 
 ```bash
 echo -n "cyberclub" | sha256sum
 echo -n "CyberClub" | sha256sum
 ```
 
-Compare the two hashes.
-
-### Task 3 — File Integrity
+### File Integrity
 
 ```bash
-echo "original notes" > notes.txt
-sha256sum notes.txt
-echo "modified" >> notes.txt
-sha256sum notes.txt
+echo "original" > file.txt
+sha256sum file.txt
+echo "change" >> file.txt
+sha256sum file.txt
 ```
 
-Explain why the hash changed.
+## Password Storage Discussion
+
+Secure applications should not store plaintext passwords.
+
+Explain at a conceptual level:
+
+```text
+password
+  ↓
+salt + password-hashing algorithm
+  ↓
+stored verifier
+```
+
+Examples of password-hashing approaches include Argon2, bcrypt, and scrypt.
 
 ## Challenge
 
-Classify each as **encoding**, **hashing**, or **encryption**:
+```bash
+cd challenge
+./setup.sh
+cat README.md
+```
 
-1. Base64
-2. SHA-256
-3. AES
-4. RSA
-
-## Reflection
-
-Why is hashing useful for integrity checking?
+The challenge combines Base64 identification, integrity verification, and hash comparison.
 
 ## Cleanup
 
 ```bash
-rm -f notes.txt
+./reset.sh
 ```
+
+## Next Event
+
+[Beginner 09 — Intro to Digital Forensics](../09-intro-to-digital-forensics/)
