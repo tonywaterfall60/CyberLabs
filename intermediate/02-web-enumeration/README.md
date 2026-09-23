@@ -1,33 +1,92 @@
 # Intermediate 02 — Web Enumeration
 
-**Time:** 75–90 minutes  
-**Environment:** Local Docker web lab
+**Difficulty:** Intermediate  
+**Estimated time:** 90 minutes  
+**Prerequisites:** Intermediate 01  
+**Environment:** Browser developer tools, curl, Docker
 
-## Objectives
+## Why This Event Exists
+
+Before testing a web application, an analyst needs to understand its attack surface. This event teaches systematic mapping of routes, methods, parameters, APIs, headers, cookies, and trust boundaries.
+
+## Learning Objectives
+
 Members should be able to:
-- inspect HTTP requests and responses
-- identify application routes and technologies
-- examine headers
-- document attack surface without leaving the authorized lab
 
-## Start
+- map visible and discoverable application routes
+- inspect HTTP methods and status codes
+- identify forms and parameters
+- inspect cookies and response headers
+- identify API calls
+- distinguish public, authenticated, and restricted functionality
+- create an attack-surface diagram
+
+## Enumeration Workflow
+
+```text
+Browse normally
+  ↓
+Inspect requests
+  ↓
+Map routes
+  ↓
+Identify parameters
+  ↓
+Observe cookies/headers
+  ↓
+Identify trust boundaries
+  ↓
+Prioritize test areas
+```
+
+## Start the Lab
+
 ```bash
-docker compose up -d
+cd challenge
+docker compose up --build -d
 ```
 
 Open:
+
 ```text
-http://127.0.0.1:8080
+http://127.0.0.1:8200
 ```
 
-## Tasks
-1. Browse the application normally.
-2. Inspect response headers using browser developer tools.
-3. Identify visible routes and application behavior.
-4. Draw a simple application map.
-5. Identify three areas that deserve deeper security review.
+## Guided Tasks
+
+Use browser developer tools and `curl -i` to identify:
+
+- main pages
+- API routes
+- restricted routes
+- HTTP methods
+- status codes
+- custom headers
+- cookies
+- parameters
+
+## Application Map Template
+
+```text
+Route:
+Method:
+Parameters:
+Authentication required?
+Observed status:
+Purpose:
+Security questions:
+```
+
+## Challenge
+
+See `challenge/README.md`.
 
 ## Cleanup
+
 ```bash
-docker compose down -v
+docker compose down
 ```
+
+## Next Event
+
+[Intermediate 03 — OWASP Top 10 Workshop](../03-owasp-top-10/)
