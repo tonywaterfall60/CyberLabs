@@ -7,9 +7,17 @@
 
 ## Purpose
 
-This capstone connects offensive validation with defensive detection.
+This capstone connects offensive validation with defensive detection. The same local application produces structured logs so one team can validate a known authorization weakness while another team analyzes the resulting telemetry.
 
-The same local application produces structured logs so one team can test a known authorization weakness while another team analyzes the resulting telemetry.
+## Learning Objectives
+
+- establish a normal application baseline
+- validate a controlled authorization flaw
+- capture exact offensive evidence
+- identify the corresponding defensive telemetry
+- write detection logic
+- recommend a precise server-side fix
+- conduct a purple-team debrief
 
 ## Roles
 
@@ -17,55 +25,89 @@ The same local application produces structured logs so one team can test a known
 
 - map the application
 - establish normal behavior
-- validate the authorization flaw
-- retrieve the private runtime flag if configured
-- document exact requests
+- validate cross-user object access
+- retrieve the instructor-injected flag if configured
+- document exact requests and responses
 
 ### Blue
 
-- monitor or analyze the generated log
+- monitor or analyze the generated JSON log
 - identify cross-user object access
 - build a timeline
 - propose detection logic
-- recommend remediation
+- recommend response and remediation
 
 ### Purple Debrief
 
-Both sides compare:
+Compare:
 
-- action
-- observable telemetry
-- detection opportunity
-- prevention
-- gaps
+~~~text
+action
+  ↓
+application decision
+  ↓
+telemetry
+  ↓
+detection
+  ↓
+prevention
+~~~
 
 ## Setup
 
-```bash
+~~~bash
 docker compose up --build -d
-```
+~~~
 
 Target:
 
-```text
+~~~text
 http://127.0.0.1:8600
-```
+~~~
 
 Logs:
 
-```text
+~~~text
 runtime/app.log
-```
+~~~
 
-## Private Flag
+## Flag Privacy
 
-The red-team flag is injected through `RED_FLAG_VALUE` by the event lead.
+The public repository contains no filled-in flag. The event lead injects `RED_FLAG_VALUE` at runtime from the private instructor repository.
 
-No real value is stored here.
+## Suggested Blue Tools
+
+~~~bash
+tail -f runtime/app.log
+jq . runtime/app.log
+grep cross_user runtime/app.log
+~~~
+
+## Deliverables
+
+### Red report
+
+~~~text
+Baseline:
+Modified request:
+Observed authorization failure:
+Evidence:
+Impact:
+~~~
+
+### Blue report
+
+~~~text
+Suspicious event:
+Timeline:
+Detection logic:
+Triage context:
+Remediation:
+~~~
 
 ## Cleanup
 
-```bash
+~~~bash
 docker compose down
 rm -rf runtime
-```
+~~~
