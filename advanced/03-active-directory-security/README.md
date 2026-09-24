@@ -3,64 +3,119 @@
 **Difficulty:** Advanced  
 **Estimated time:** 120 minutes  
 **Prerequisites:** Intermediate Windows privilege foundations  
-**Environment:** Kali Linux; local exported dataset now, shared AD range later
+**Environment:** Kali Linux; fictional exported AD dataset  
+**Future range:** BloodHound, LDAP/Kerberos tooling against a club-owned domain only
+
+## Why This Event Exists
+
+Enterprise security is heavily influenced by identity relationships rather than isolated hosts.
+
+Active Directory security requires thinking in graphs:
+
+~~~text
+user
+  ↓
+group
+  ↓
+nested group
+  ↓
+delegated right
+  ↓
+privileged system/account
+~~~
+
+The local version teaches that reasoning without requiring a live domain.
 
 ## Learning Objectives
 
 Students should be able to:
 
-- explain core AD objects and relationships
-- reason about groups, delegated rights, SPNs, trusts, and privileged accounts
-- identify likely attack paths from exported data
-- distinguish exposure from exploitability
+- explain users, groups, nested membership, service accounts, and SPNs
+- identify privileged groups
+- trace nested privilege relationships
+- identify delegated-management relationships
+- build a plausible attack path from exported data
+- distinguish observed relationships from assumptions
 - recommend identity hardening
-- explain what BloodHound-style graph analysis adds
+- explain how BloodHound-style graph analysis helps
 
-## Local-Only Version
+## Challenge Dataset
 
-Until a shared domain lab exists, use the fictional challenge dataset under:
-
-```text
+~~~text
 challenge/
-```
+├── users.csv
+├── groups.csv
+├── memberships.csv
+├── spns.csv
+└── delegation.csv
+~~~
 
-Tools:
+Everything is fictional.
 
-- grep
-- awk
-- jq
-- Python
-- optional graphing tools
+## Suggested Kali Tools
 
-## Shared-Range Upgrade
+~~~bash
+grep
+awk
+cut
+sort
+column
+python3
+~~~
 
-When a club AD range exists, this event can add:
+Optional tools include csvtool and graphing utilities if already installed.
 
-- BloodHound
-- bloodhound-python
-- ldapsearch
-- Kerberos/LDAP enumeration
-- domain group analysis
+## Guided Workflow
 
-Those additions should target only the club-owned domain.
+### 1. Identify Privileged Groups
 
-## Challenge
+Inspect groups.csv and identify direct privilege.
 
-```bash
-cd challenge
-cat README.md
-```
+### 2. Trace Membership
+
+Inspect memberships.csv for direct and nested relationships.
+
+### 3. Review SPNs
+
+Identify service identities in spns.csv. An SPN is context, not proof of compromise.
+
+### 4. Review Delegation
+
+Inspect delegation.csv and ask which relationships cross privilege boundaries.
+
+### 5. Build a Graph
+
+Example:
+
+~~~text
+alice
+  ↓ member of
+Helpdesk
+  ↓ nested member of
+Server Operators
+  ↓ relationship
+backup01
+~~~
+
+Label each edge as observed, inferred, or requires validation.
 
 ## Deliverable
 
-Produce:
+~~~text
+Privileged groups:
+Direct privileged users:
+Nested privileged users:
+Service accounts:
+Delegated relationships:
+Likely attack path:
+Evidence:
+Validation still required:
+Remediation priorities:
+~~~
 
-- privileged-group map
-- risky relationship list
-- likely attack path
-- evidence for each step
-- remediation priorities
-- uncertainty/validation needs
+## Future Shared-Range Upgrade
+
+When the club has an isolated AD lab, add BloodHound, bloodhound-python, LDAP queries, SPN review, and local-admin relationship analysis against the club-owned domain only.
 
 ## Next Event
 
