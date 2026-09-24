@@ -3,44 +3,89 @@
 **Difficulty:** Advanced  
 **Estimated time:** 120 minutes  
 **Prerequisites:** Intermediate security foundations  
-**Environment:** Kali Linux, jq; static fictional cloud configuration
+**Environment:** Kali Linux, jq; fictional exported cloud configuration only
+
+## Why This Event Exists
+
+Cloud security often depends on configuration and identity relationships rather than a single vulnerable host. This event teaches students to review IAM, storage, and network controls without requiring real cloud credentials.
 
 ## Learning Objectives
-
-Students should be able to:
 
 - review IAM policy scope
 - identify wildcard permissions
 - inspect storage exposure
-- review network/security-group rules
-- identify public-access and least-privilege concerns
+- review security-group/network rules
+- identify public-access concerns
+- apply least privilege
 - prioritize remediation
-- avoid requiring real cloud credentials
+- explain what additional cloud logs or controls would be needed
 
 ## Safety
 
-This event uses fictional exported configuration only.
+No AWS, Azure, or GCP account is required. Do not use personal or university cloud credentials for this lab.
 
-No AWS/Azure/GCP account is required.
+## Challenge Files
 
-## Challenge
+~~~text
+challenge/iam-policy.json
+challenge/bucket.json
+challenge/security-groups.json
+~~~
 
-```bash
-cd challenge
-cat README.md
-```
+## Suggested Tools
+
+~~~bash
+jq
+grep
+python3
+~~~
+
+## Guided Workflow
+
+Pretty-print IAM policy:
+
+~~~bash
+jq . challenge/iam-policy.json
+~~~
+
+Search wildcard strings:
+
+~~~bash
+jq '.. | strings | select(. == "*")' challenge/iam-policy.json
+~~~
+
+Review bucket configuration:
+
+~~~bash
+jq . challenge/bucket.json
+~~~
+
+Review network rules:
+
+~~~bash
+jq . challenge/security-groups.json
+~~~
+
+## Analysis Questions
+
+- Is the IAM action scope broader than required?
+- Is the resource scope broader than required?
+- Is the storage resource intended to be public?
+- Which network rule has the greatest exposure?
+- Which finding is configuration context-dependent?
+- Which logs would confirm use or abuse?
 
 ## Deliverable
 
-Create a cloud-security review with:
-
-- finding
-- evidence
-- affected resource
-- potential impact
-- priority
-- least-privilege remediation
-- validation needed
+~~~text
+Finding:
+Evidence:
+Affected resource:
+Potential impact:
+Priority:
+Least-privilege remediation:
+Validation still needed:
+~~~
 
 ## Next Event
 
