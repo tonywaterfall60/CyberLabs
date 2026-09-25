@@ -1,0 +1,20 @@
+{
+  "scanner": "training-dependency-scan",
+  "generated": "2026-09-25T12:00:00Z",
+  "findings": [
+    {
+      "package": "requests",
+      "version": "2.31.0",
+      "severity": "medium",
+      "id": "TRAIN-REQ-001",
+      "note": "Review newer patched releases; training finding only."
+    },
+    {
+      "package": "PyYAML",
+      "version": "6.0.1",
+      "severity": "low",
+      "id": "TRAIN-YAML-001",
+      "note": "Informational training finding."
+    }
+  ]
+}
