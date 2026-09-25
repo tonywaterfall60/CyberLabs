@@ -113,28 +113,56 @@ For one scenario, answer both:
 - What logs or alerts might detect it?
 - How could impact be reduced?
 
+## Beginner Analysis Method
+
+Use the same sequence for every security scenario:
+
+~~~text
+What are we protecting?
+        ↓
+What could go wrong?
+        ↓
+What weakness makes that possible?
+        ↓
+What would the impact be?
+        ↓
+Which control reduces the risk?
+        ↓
+How would we know if it happened?
+~~~
+
+This structure matters more than memorizing terminology.
+
 ## Challenge
 
-Complete the self-contained challenge in:
+Complete:
 
-```text
-challenge/
-```
+~~~text
+challenge/README.md
+~~~
 
-The challenge presents short incidents that must be classified by security concept and recommended mitigation.
+The expanded Security Triage Case File contains five incidents with additional context.
+
+For each one, students now identify:
+
+- asset,
+- threat,
+- vulnerability,
+- impact,
+- CIA effect,
+- authentication vs. authorization,
+- preventive control,
+- detection idea,
+- recovery/response action,
+- confidence.
+
+Students also prioritize the incidents and compare attacker/defender perspectives.
 
 ## Deliverable
 
-Submit or discuss a short response for one scenario containing:
+Submit or discuss the completed challenge template for all five cases plus one attacker/defender analysis.
 
-```text
-Asset:
-Threat:
-Vulnerability:
-Impact:
-CIA property:
-Mitigation:
-```
+A strong Beginner answer explains **why** a term applies rather than only naming it.
 
 ## Key Takeaway
 
