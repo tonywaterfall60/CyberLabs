@@ -50,8 +50,8 @@ cat README.md
 | 04 | Packet Investigation | Intermediate → Advanced | Wireshark, tshark, timelines | generated synthetic PCAP |
 | 05 | Authentication Incident | Intermediate → Advanced | auth/MFA/VPN/app correlation, Python | generated multi-source logs |
 | 06 | Container Security Audit | Advanced | Dockerfile/Compose review, hardening | local image + static runtime config |
-| 07 | Reverse Engineering Drill | Planned | GDB, radare2, strings | local binary |
-| 08 | Purple-Team Mini Range | Planned | web + logs + detection | multi-container range |
+| 07 | Reverse Engineering Drill | Intermediate → Advanced | GDB, radare2, strings, checksec | compiled stripped ELF artifact |
+| 08 | Purple-Team Mini Range | Advanced | Burp, web authz, logs, detection | Nginx + portal + API multi-container range |
 
 More labs will be added in small batches.
 
