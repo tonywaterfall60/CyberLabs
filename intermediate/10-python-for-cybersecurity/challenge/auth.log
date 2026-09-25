@@ -1,5 +1,6 @@
-2026-09-23T18:00:01Z FAIL user=sam src=10.10.10.50
-2026-09-23T18:00:04Z FAIL user=sam src=10.10.10.50
-2026-09-23T18:00:08Z FAIL user=alex src=10.10.10.50
-2026-09-23T18:00:12Z FAIL user=pat src=10.10.10.77
-2026-09-23T18:00:20Z SUCCESS user=sam src=10.10.10.50
+2026-09-23T18:00:01Z FAIL user=sam src=10.10.10.50 session=-
+2026-09-23T18:00:04Z FAIL user=sam src=10.10.10.50 session=-
+2026-09-23T18:00:08Z FAIL user=alex src=10.10.10.50 session=-
+2026-09-23T18:00:12Z FAIL user=pat src=10.10.10.77 session=-
+2026-09-23T18:00:20Z SUCCESS user=sam src=10.10.10.50 session=S-2201
+2026-09-23T18:10:00Z SUCCESS user=lee src=10.10.10.12 session=S-3301
