@@ -1,74 +1,151 @@
-# Challenge — Encoding, Hashing, and Integrity
+# Challenge — Encoding, Hashing, and Integrity Case
 
-Run:
+**Difficulty:** Beginner  
+**Estimated time:** 40–55 minutes
 
-```bash
+## Scenario
+
+You received several small files from a training evidence package. Some values are encoded, some are hashes, and some files should be identical.
+
+Your job is to classify each operation correctly and verify integrity using basic Kali tools.
+
+## Setup
+
+~~~bash
+chmod +x setup.sh reset.sh
 ./setup.sh
-```
+cd ~/cyberclub/crypto-challenge
+ls -l
+~~~
 
-Challenge files are created in:
+## Phase 1 — Base64
 
-```text
-~/cyberclub/crypto-challenge
-```
+Inspect and decode:
 
-## Kali Tools
+~~~text
+message.b64
+operator-note.b64
+~~~
 
 Use:
 
-- `base64`
-- `sha256sum`
-- `hashid`
-
-## Tasks
-
-1. Decode `message.b64`.
-2. Decide whether Base64 is encoding, hashing, or encryption.
-3. Calculate the SHA-256 hash of `original.txt`.
-4. Calculate the SHA-256 hash of `copy.txt`.
-5. Determine whether the files are initially identical.
-6. Save one SHA-256 digest to a file named `sample.hash`.
-7. Run `hashid sample.hash`.
-8. Record the likely hash type(s) reported.
-9. Append any line to `copy.txt`.
-10. Hash both files again.
-11. Explain why the hashes changed.
-12. Classify:
-    - SHA-256
-    - AES
-    - RSA
-    - Base64
-
-## Suggested Commands
-
-```bash
-cd ~/cyberclub/crypto-challenge
+~~~bash
 base64 -d message.b64
-sha256sum original.txt
-sha256sum copy.txt
-sha256sum original.txt | awk '{print $1}' > sample.hash
+base64 -d operator-note.b64
+~~~
+
+Answer:
+
+- Is Base64 reversible?
+- Does decoding require a secret key?
+- Is Base64 encryption?
+
+## Phase 2 — File Integrity
+
+Hash:
+
+~~~text
+original.txt
+copy.txt
+modified.txt
+~~~
+
+Use:
+
+~~~bash
+sha256sum original.txt copy.txt modified.txt
+~~~
+
+Determine which files are identical without relying only on filenames.
+
+## Phase 3 — Verify a Known Digest
+
+Inspect:
+
+~~~text
+known.sha256
+~~~
+
+Calculate the SHA-256 of `evidence.txt` and compare it with the provided digest.
+
+Answer:
+
+~~~text
+Integrity verified? yes/no
+Evidence:
+~~~
+
+## Phase 4 — Hash Identification
+
+Create:
+
+~~~bash
+sha256sum evidence.txt | awk '{print $1}' > sample.hash
 hashid sample.hash
-```
+~~~
 
-## Discussion
+Record the likely types reported.
 
-`hashid` can suggest likely formats based on the digest's appearance, but that is not proof of how the value was generated.
+Explain why hashid is making a format guess rather than recovering the original input.
+
+## Phase 5 — Modify and Recheck
+
+Append a line to `copy.txt`:
+
+~~~bash
+echo 'student change' >> copy.txt
+~~~
+
+Hash it again.
+
+Explain why even a small content change produces a different digest.
+
+## Phase 6 — Classify the Concepts
+
+Classify each as encoding, hashing, symmetric encryption, or asymmetric encryption:
+
+~~~text
+Base64
+SHA-256
+AES
+RSA
+~~~
+
+Then answer:
+
+~~~text
+Which are reversible?
+Which require a key?
+Which are intended for integrity checks?
+~~~
 
 ## Deliverable
 
-```text
+~~~text
 Decoded message:
-Base64 category:
-Original SHA-256:
-Copy SHA-256 before change:
+Decoded operator note:
+Base64 classification:
+
+original.txt SHA-256:
+copy.txt SHA-256 before change:
+modified.txt SHA-256:
+Files initially identical:
+
+evidence.txt SHA-256:
+Known digest matches:
 hashid result:
-Copy SHA-256 after change:
-Classification answers:
+
+copy.txt SHA-256 after change:
 Integrity explanation:
-```
+
+Base64:
+SHA-256:
+AES:
+RSA:
+~~~
 
 ## Cleanup
 
-```bash
+~~~bash
 ./reset.sh
-```
+~~~
