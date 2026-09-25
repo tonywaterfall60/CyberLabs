@@ -3,3 +3,5 @@ Helpdesk,false
 Server Operators,true
 Domain Admins,true
 Web Admins,false
+Reporting Operators,false
+Finance App Admins,false
