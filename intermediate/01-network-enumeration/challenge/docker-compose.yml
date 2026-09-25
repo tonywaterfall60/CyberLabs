@@ -22,3 +22,11 @@ services:
     volumes:
       - ./admin:/usr/share/nginx/html:ro
       - ./admin.conf:/etc/nginx/conf.d/default.conf:ro
+
+  metrics:
+    image: nginx:alpine
+    ports:
+      - "127.0.0.1:8140:80"
+    volumes:
+      - ./metrics:/usr/share/nginx/html:ro
+      - ./metrics.conf:/etc/nginx/conf.d/default.conf:ro
