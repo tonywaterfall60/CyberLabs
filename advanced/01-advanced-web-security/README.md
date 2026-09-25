@@ -30,10 +30,16 @@ Modify one variable
   ↓
 Compare authorization decisions
   ↓
+Correlate server telemetry
+  ↓
 Validate impact
   ↓
-Document evidence
+Design remediation
+  ↓
+Design detection
 ```
+
+Advanced work should connect the offensive observation to the server-side decision and the defensive visibility.
 
 ## Challenge
 
@@ -50,6 +56,14 @@ http://127.0.0.1:8500
 ```
 
 The application contains an intentionally weak object-authorization check.
+
+The challenge now also writes structured authorization telemetry to:
+
+```text
+challenge/runtime/access.jsonl
+```
+
+Students correlate the Burp/API request with the application log by request ID.
 
 If an instructor injects `WEB_FLAG_VALUE`, successful validation may reveal the private event flag. Without injection, the lab still works and returns `FLAG_NOT_CONFIGURED`.
 
