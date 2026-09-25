@@ -1,0 +1,12 @@
+about
+admin
+api
+api/status
+api/v1/tickets
+debug
+internal
+internal/build
+robots.txt
+search
+support
+tickets
