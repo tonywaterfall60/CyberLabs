@@ -1,5 +1,6 @@
 import json
 import os
+import uuid
 from datetime import datetime, timezone
 from flask import Flask, session, redirect, jsonify, abort, request
 
@@ -27,15 +28,21 @@ def page(title, subtitle, body):
 
 def log_event(event, **fields):
     os.makedirs("/data", exist_ok=True)
+    request_id = "REQ-" + uuid.uuid4().hex[:10]
     record = {
         "ts": datetime.now(timezone.utc).isoformat(),
         "event": event,
-        "remote": request.remote_addr,
+        "request_id": request_id,
+        "remote": request.headers.get("X-Forwarded-For", request.remote_addr),
         "user": session.get("user"),
+        "path": request.path,
+        "method": request.method,
+        "user_agent": request.headers.get("User-Agent", ""),
     }
     record.update(fields)
     with open(LOG_PATH, "a", encoding="utf-8") as f:
         f.write(json.dumps(record) + "\n")
+    return request_id
 
 @app.after_request
 def headers(resp):
@@ -86,12 +93,26 @@ def document(doc_id):
         return jsonify(error="not found"), 404
 
     cross_user = user != doc["owner"]
-    log_event("document_access", doc_id=doc_id, owner=doc["owner"], cross_user=cross_user, result="allowed")
+    request_id = log_event(
+        "document_access",
+        doc_id=doc_id,
+        owner=doc["owner"],
+        cross_user=cross_user,
+        result="allowed"
+    )
 
-    body = {"owner": doc["owner"], "title": doc["title"], "classification": doc["classification"], "content": doc["content"]}
+    body = {
+        "request_id": request_id,
+        "owner": doc["owner"],
+        "title": doc["title"],
+        "classification": doc["classification"],
+        "content": doc["content"]
+    }
     if cross_user:
         body["private_event_flag"] = os.getenv("RED_FLAG_VALUE", "FLAG_NOT_CONFIGURED")
-    return jsonify(body)
+    response = jsonify(body)
+    response.headers["X-Request-ID"] = request_id
+    return response
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
