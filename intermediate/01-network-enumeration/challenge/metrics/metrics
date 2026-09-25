@@ -1,0 +1,7 @@
+# HELP cyberlabs_requests_total Training request counter
+# TYPE cyberlabs_requests_total counter
+cyberlabs_requests_total{service="inventory"} 128
+cyberlabs_requests_total{service="status"} 406
+cyberlabs_requests_total{service="admin"} 17
+# HELP cyberlabs_build_info Training build metadata
+cyberlabs_build_info{environment="training",build="2026.09",region="east"} 1
