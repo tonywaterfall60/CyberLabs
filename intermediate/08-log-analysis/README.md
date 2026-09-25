@@ -22,11 +22,31 @@ When analyzing logs ask:
 
 1. What happened?
 2. When did it happen?
-3. Which user/host was involved?
-4. What source initiated it?
-5. Was it successful?
+3. Which user, host, source, or session was involved?
+4. Which fields let me correlate separate log sources?
+5. Was the action successful?
 6. What happened immediately before and after?
-7. What evidence is missing?
+7. Which action had the highest impact?
+8. Which conclusions are direct evidence versus interpretation?
+9. What evidence is missing?
+
+A strong Intermediate workflow is:
+
+```text
+Understand each schema
+      ↓
+Find a suspicious event
+      ↓
+Choose a correlation key
+      ↓
+Trace the same identity/session across sources
+      ↓
+Build a timeline
+      ↓
+Assess impact
+      ↓
+State confidence and evidence gaps
+```
 
 ## Challenge
 
@@ -44,11 +64,32 @@ Create an incident summary:
 Initial suspicious event:
 Affected account:
 Source IP:
-Successful activity:
+Successful session:
+VPN-assigned address:
+Sensitive application activity:
+Related host activity:
 Timeline:
-Evidence:
+Highest-priority event:
+
+Observed:
+Inferred:
+Unknown:
+
+Additional evidence requested:
 Recommended next steps:
+Confidence:
 ```
+
+The challenge now correlates four sources:
+
+```text
+auth.log
+vpn.log
+app.log
+host.log
+```
+
+using shared user/session/time fields.
 
 ## Cleanup
 
