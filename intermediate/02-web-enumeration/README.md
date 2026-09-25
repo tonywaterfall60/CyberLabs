@@ -38,25 +38,29 @@ Members should be able to:
 
 ## Enumeration Workflow
 
-```text
+~~~text
 Browse normally
   ↓
 Proxy through Burp
   ↓
-Inspect requests/responses
+Identify routes and methods
   ↓
-Map known routes
+Map query/body parameters
+  ↓
+Map cookies and APIs
   ↓
 Run targeted content discovery
   ↓
 Validate discoveries manually
   ↓
-Identify parameters/cookies/headers
-  ↓
 Map trust boundaries
   ↓
-Prioritize test areas
-```
+Separate public/restricted/unlinked surface
+  ↓
+Prioritize later test areas
+~~~
+
+At Intermediate level, the output is an **application model**, not merely a list of URLs.
 
 ## Start the Lab
 
@@ -128,27 +132,31 @@ Identify:
 
 ## Part 2 — Burp Repeater
 
-Choose a request such as:
+Practice with two normal request types:
 
-```text
+~~~text
 GET /search?q=training
-```
+POST /feedback
+~~~
 
-Send it to **Repeater**.
+For each:
 
-Change:
+1. send the normal request to Repeater,
+2. change exactly one parameter,
+3. resend,
+4. compare the response,
+5. explain which part of the HTTP request carried user-controlled data.
 
-```text
-q=training
-```
+This introduces the distinction between:
 
-to another harmless value.
+~~~text
+query-string parameters
+POST body/form parameters
+cookies
+headers
+~~~
 
-Send the request again.
-
-Observe what changed in the response.
-
-The goal is to understand request manipulation—not to exploit the application.
+The goal is controlled request analysis—not exploitation.
 
 ---
 
@@ -208,17 +216,24 @@ Never treat automated discovery output as proof by itself. Validate it.
 
 ## Application Map Template
 
-```text
+~~~text
 Route:
 Method:
-Parameters:
+Query parameters:
+Body parameters:
 Discovered by:
-Authentication required?
+Linked or unlinked:
+Authentication/authorization behavior:
 Observed status:
+Response content type:
 Cookies/headers:
 Purpose:
+Trust boundary:
 Security questions:
-```
+Further test area:
+~~~
+
+The challenge now includes HTML routes, JSON APIs, GET and POST parameters, a restricted route, and unlinked internal-style functionality.
 
 ## Challenge
 
