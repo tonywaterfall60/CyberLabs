@@ -23,6 +23,12 @@ deployment.env.example
 
 Your task is to identify weaknesses in source, dependency, build, secret, and deployment practices.
 
+## Safety Note
+
+The training workflow is stored under this lab directory. It is **not an active GitHub Actions workflow for the CyberLabs repository** because GitHub only loads repository workflows from the repository-root `.github/workflows/` directory.
+
+Do not copy the intentionally weak workflow into a real repository without fixing it first.
+
 ## Scope
 
 Review only this local training repository snapshot.
