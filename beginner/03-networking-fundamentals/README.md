@@ -189,25 +189,77 @@ HTTP/HTTPS request is sent
 Server responds
 ```
 
+## Beginner Troubleshooting Method
+
+Do not jump randomly between tools.
+
+Use:
+
+~~~text
+Local configuration
+      ↓
+Local route
+      ↓
+IP reachability
+      ↓
+Name resolution
+      ↓
+Port/service
+      ↓
+Application response
+~~~
+
+Example questions:
+
+~~~text
+Do I have an IP address?
+Do I have a route?
+Can I reach the destination IP?
+Does the hostname resolve correctly?
+Is the expected port/service reachable?
+What HTTP response does the application return?
+~~~
+
+A failed step narrows the problem.
+
 ## Troubleshooting Exercise
 
 For each symptom, identify a likely area to investigate:
 
-1. hostname does not resolve
-2. host responds to ping but web page does not load
-3. HTTP works but HTTPS does not
-4. local host is reachable but remote networks are not
-5. browser works by IP but not by hostname
+1. hostname does not resolve,
+2. host responds to ping but web page does not load,
+3. HTTP works but HTTPS does not,
+4. local host is reachable but remote networks are not,
+5. browser works by IP but not by hostname.
+
+For each, name both:
+
+~~~text
+Likely component
+First useful command
+~~~
 
 ## Challenge
 
 Open:
 
-```text
+~~~text
 challenge/README.md
-```
+~~~
 
-The challenge gives you a fictional network and several failure reports.
+The expanded Network Troubleshooting Desk provides a network diagram and seven tickets.
+
+Students must document:
+
+~~~text
+Likely component
+Reason
+First command/tool
+Expected supporting result
+What would cause them to investigate elsewhere
+~~~
+
+This is designed to teach hypothesis-based troubleshooting rather than command memorization.
 
 ## Deliverable
 
