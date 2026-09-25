@@ -1,6 +1,10 @@
 about
 admin
 api/status
+api/v1/projects
 debug-info
+feedback
+internal
+internal/build
 robots.txt
 search
