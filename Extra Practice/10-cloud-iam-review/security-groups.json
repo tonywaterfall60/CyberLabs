@@ -1,0 +1,23 @@
+{
+  "group": "training-app-sg",
+  "rules": [
+    {
+      "protocol": "tcp",
+      "port": 443,
+      "source": "0.0.0.0/0",
+      "purpose": "public web"
+    },
+    {
+      "protocol": "tcp",
+      "port": 22,
+      "source": "0.0.0.0/0",
+      "purpose": "administration"
+    },
+    {
+      "protocol": "tcp",
+      "port": 5432,
+      "source": "10.80.0.0/16",
+      "purpose": "database"
+    }
+  ]
+}
