@@ -35,36 +35,60 @@ Members should be able to:
 
 Start:
 
-```bash
+~~~bash
 cd challenge
 docker compose up --build -d
-```
+~~~
 
 Target:
 
-```text
+~~~text
 http://127.0.0.1:8070
-```
+~~~
+
+## Beginner HTTP Workflow
+
+For each page, ask:
+
+~~~text
+What did I request?
+How did I request it?
+What status came back?
+What type of content came back?
+Which headers describe the request/response?
+Did the browser store any state?
+~~~
 
 ### Task 1 — Developer Tools
 
 Open the Network tab.
 
-Record:
+Visit several routes and record:
 
-- method
-- path
-- status
-- content type
+- method,
+- path,
+- status,
+- content type,
+- one request header,
+- one response header.
 
 ### Task 2 — curl
 
-```bash
+~~~bash
 curl -i http://127.0.0.1:8070/
 curl -i http://127.0.0.1:8070/api/status
 curl -i http://127.0.0.1:8070/admin
 curl -i http://127.0.0.1:8070/robots.txt
-```
+~~~
+
+Compare:
+
+~~~text
+HTML
+JSON
+plain text
+403 response
+~~~
 
 ## Optional Burp Suite Preview
 
@@ -103,6 +127,31 @@ Do not introduce exploitation yet.
 
 Intermediate Web Enumeration covers Repeater and content discovery.
 
+## Cookie / Session-State Demonstration
+
+The challenge now sets a harmless training cookie.
+
+Save it:
+
+~~~bash
+curl -i -c cookies.txt http://127.0.0.1:8070/
+~~~
+
+Send it back:
+
+~~~bash
+curl -i -b cookies.txt http://127.0.0.1:8070/session-demo
+~~~
+
+Use this to identify:
+
+~~~text
+Set-Cookie response header
+Cookie request header
+~~~
+
+The cookie is intentionally **not** authentication. This prevents students from learning the incorrect rule that every cookie equals a login session.
+
 ## robots.txt Discussion
 
 ```bash
@@ -113,7 +162,20 @@ Explain why `robots.txt` is guidance for crawlers, not an authorization control.
 
 ## Challenge
 
-Use normal browsing, developer tools, curl, and optionally Burp Proxy to map the local application.
+Use normal browsing, developer tools, curl, cookie storage, and optionally Burp Proxy to build an application map.
+
+The challenge now covers:
+
+- routes,
+- methods,
+- status codes,
+- HTML/JSON/plain-text responses,
+- custom headers,
+- cookie creation and return,
+- authorization responses,
+- robots.txt.
+
+Exploitation remains intentionally out of scope.
 
 ## Deliverable
 
