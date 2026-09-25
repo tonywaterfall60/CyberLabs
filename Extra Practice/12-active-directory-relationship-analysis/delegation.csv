@@ -1,0 +1,4 @@
+source,relationship,target
+Web Admins,CanManage,svc_web
+Finance App Admins,CanManage,svc_reports
+Server Operators,CanResetPassword,svc_backup
