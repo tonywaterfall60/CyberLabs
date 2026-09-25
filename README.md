@@ -67,6 +67,8 @@ Not every event uses every tool. The goal is to introduce tools when they suppor
 
 For a track-by-track tool reference, see [resources/KALI_TOOLS.md](resources/KALI_TOOLS.md).
 
+Docker is not guaranteed to be installed in Kali. Before running Docker-based challenges, follow [resources/DOCKER_SETUP.md](resources/DOCKER_SETUP.md).
+
 ---
 
 ## Repository Structure
