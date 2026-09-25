@@ -107,6 +107,28 @@ echo "Additional line" >> evidence-copy.txt
 
 Hash again.
 
+## Beginner Evidence Method
+
+Use the same order for each item:
+
+~~~text
+Do not alter the evidence
+        ↓
+Record / verify a hash
+        ↓
+Identify actual file type
+        ↓
+Inspect metadata
+        ↓
+Inspect strings/content safely
+        ↓
+Document observations
+        ↓
+Separate observation from interpretation
+~~~
+
+A filename, extension, or printable string is only one piece of evidence.
+
 ## Documentation Template
 
 ```text
@@ -124,13 +146,25 @@ Notes:
 
 ## Challenge
 
-```bash
+~~~bash
 cd challenge
 ./setup.sh
 cat README.md
-```
+~~~
 
-Use at least three Kali tools during the challenge.
+The expanded challenge now creates a small evidence package plus an integrity manifest.
+
+Students:
+
+- verify original hashes,
+- identify misleading extensions,
+- inspect filesystem and embedded metadata,
+- extract printable strings,
+- compare a working copy,
+- modify only the copy,
+- document observation vs. interpretation.
+
+Use at least three Kali tools, but explain what question each tool answered.
 
 ## Cleanup
 
