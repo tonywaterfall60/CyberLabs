@@ -9,7 +9,7 @@ def page(title, subtitle, body):
 <title>{title} | CyberLabs</title>{STYLE}</head><body><div class="wrap">
 <div class="top"><div class="brand">CyberLabs</div><div class="badge">Intermediate · Web Enumeration</div></div>
 <section class="hero"><h1>{title}</h1><p>{subtitle}</p>
-<nav><a href="/">Dashboard</a><a href="/about">About</a><a href="/search?q=training">Search</a><a href="/api/status">API</a></nav></section>
+<nav><a href="/">Dashboard</a><a href="/about">About</a><a href="/search?q=training">Search</a><a href="/feedback">Feedback</a><a href="/api/status">API</a></nav></section>
 {body}<div class="footer">Authorized local training service · Map first, test second.</div></div></body></html>"""
 
 def resp(body, status=200, content_type="text/html"):
@@ -48,6 +48,25 @@ def search():
     body = f"""<div class="card"><h2>Search Results</h2><p>Query value received: <code>{q}</code></p><p class="muted">Send this request to Burp Repeater and change one parameter at a time.</p></div>"""
     return resp(page("Search","Observe how query parameters travel from the browser to the server.",body))
 
+@app.route("/feedback", methods=["GET","POST"])
+def feedback():
+    if request.method == "POST":
+        topic = request.form.get("topic","")
+        message = request.form.get("message","")
+        body = f"""<div class="card"><h2>Feedback Received</h2>
+<p>Topic: <code>{topic}</code></p>
+<p>Message length: <code>{len(message)}</code></p>
+<p class="muted">Use Burp to compare the GET form request with the POST submission.</p></div>"""
+        return resp(page("Feedback","Observe method, body parameters, and content type.",body))
+    body = """<div class="card"><h2>Training Feedback</h2>
+<form method="post">
+<label>Topic <input name="topic" value="enumeration"></label><br><br>
+<label>Message <input name="message" value="mapping exercise"></label><br><br>
+<button type="submit">Submit</button>
+</form>
+<p class="muted">This route exists to practice mapping POST parameters. It is not an injection exercise.</p></div>"""
+    return resp(page("Feedback","Compare GET and POST behavior in Burp.",body))
+
 @app.get("/api/status")
 def status():
     r = jsonify(service="cyberlabs-operations", status="online", role="training", build="intermediate", api_version="v1")
@@ -56,6 +75,24 @@ def status():
     r.headers["X-CyberLabs-Lab"] = "web-enumeration"
     return r
 
+@app.get("/api/v1/projects")
+def projects():
+    r = jsonify(projects=[
+        {"id":201,"name":"Portal Refresh","owner":"Platform","status":"active"},
+        {"id":202,"name":"Logging Upgrade","owner":"Security","status":"planned"}
+    ])
+    r.headers["X-CyberLabs-App"] = "intermediate-enum"
+    r.headers["X-CyberLabs-Level"] = "intermediate"
+    r.headers["X-CyberLabs-Lab"] = "web-enumeration"
+    return r
+
+@app.get("/internal/build")
+def internal_build():
+    body = """<div class="card"><h2>Internal Build Information</h2>
+<table><tr><th>Framework</th><td>Flask</td></tr><tr><th>Release</th><td>2026.09</td></tr><tr><th>Tier</th><td>training-internal</td></tr></table>
+<p class="muted">An unlinked internal-style route should be documented and evaluated in context.</p></div>"""
+    return resp(page("Internal Build","Additional application surface discovered during mapping.",body))
+
 @app.get("/admin")
 def admin():
     body = """<div class="card"><h2 class="warn">Restricted Administration</h2><p>Your current training session is not authorized for administrative functions.</p></div>"""
@@ -63,7 +100,7 @@ def admin():
 
 @app.get("/robots.txt")
 def robots():
-    return resp("User-agent: *\nDisallow: /admin\nDisallow: /debug-info\n",200,"text/plain")
+    return resp("User-agent: *\nDisallow: /admin\nDisallow: /debug-info\nDisallow: /internal/build\n",200,"text/plain")
 
 @app.get("/debug-info")
 def debug_info():
