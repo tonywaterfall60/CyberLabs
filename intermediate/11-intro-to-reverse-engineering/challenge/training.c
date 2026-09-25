@@ -15,7 +15,7 @@ static uint32_t mix(const char *s) {
 static int valid(const char *s) {
     if (strlen(s) != 10) return 0;
     if (s[0] != 'a' || s[4] != 'y' || s[7] != 'i') return 0;
-    return mix(s) == 0xD41FB6EEu;
+    return mix(s) == 0x9757B924u;
 }
 
 int main(void) {
