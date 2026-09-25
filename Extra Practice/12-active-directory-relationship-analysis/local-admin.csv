@@ -1,0 +1,4 @@
+principal,host,relationship
+Server Operators,backup01,LocalAdmin
+Web Admins,web01,LocalAdmin
+Finance App Admins,reporting01,LocalAdmin
