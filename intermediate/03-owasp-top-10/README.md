@@ -35,16 +35,40 @@ Rather than memorizing every edition number, focus on recurring themes:
 - logging/monitoring failures
 - server-side request risks
 
-## Guided Analysis
+## Intermediate Risk-Analysis Method
+
+Use:
+
+~~~text
+Observed behavior
+      ↓
+Failed trust assumption
+      ↓
+Security weakness/theme
+      ↓
+Potential impact
+      ↓
+Evidence still needed
+      ↓
+Prevention/remediation
+      ↓
+Detection/monitoring
+      ↓
+Confidence
+~~~
 
 For each scenario ask:
 
-1. What trust assumption failed?
-2. What category best describes the issue?
-3. What could an attacker gain?
-4. What evidence would confirm the issue?
-5. What control would reduce the risk?
-6. What logs could help detect abuse?
+1. What is directly observed?
+2. What are you inferring?
+3. What trust assumption failed?
+4. Which OWASP-style theme best describes it?
+5. What could an attacker gain?
+6. What evidence would strengthen or weaken the conclusion?
+7. What control reduces the root issue?
+8. What logs could detect attempted abuse?
+
+The category name is vocabulary. The analysis is the important part.
 
 ## Example
 
@@ -72,11 +96,18 @@ Broken access control
 
 Open:
 
-```text
+~~~text
 challenge/README.md
-```
+~~~
 
-You will classify a set of fictional application findings and write concise remediation guidance.
+The expanded workshop contains ten findings covering access control, injection, configuration, authentication, logging, outdated components, transport protection, client-side authorization, software integrity, and server-side request risks.
+
+You will also:
+
+- separate evidence from assumption,
+- combine two findings into a defensible risk chain,
+- prioritize remediation,
+- identify cases where more evidence is required.
 
 ## Deliverable
 
