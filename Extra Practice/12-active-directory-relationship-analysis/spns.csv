@@ -1,0 +1,4 @@
+account,spn,service_host
+svc_backup,BACKUP/backup01.training.local,backup01
+svc_web,HTTP/web01.training.local,web01
+svc_reports,MSSQLSvc/reportdb.training.local:1433,reportdb
