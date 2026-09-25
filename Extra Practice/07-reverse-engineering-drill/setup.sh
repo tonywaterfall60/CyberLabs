@@ -7,7 +7,7 @@ BASE="$HOME/cyberclub/extra-practice/reverse-drill"
 rm -rf "$BASE"
 mkdir -p "$BASE"
 
-base64 -d "$SRC_DIR/access-validator.b64" > "$BASE/access-validator"
+base64 -d "$SRC_DIR/access-validator.b64" | gzip -d > "$BASE/access-validator"
 chmod 755 "$BASE/access-validator"
 
 cat > "$BASE/CASE_INFO.txt" <<'EOF'
