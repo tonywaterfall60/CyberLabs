@@ -11,13 +11,15 @@ This capstone connects offensive validation with defensive detection. The same l
 
 ## Learning Objectives
 
-- establish a normal application baseline
+- establish normal behavior for multiple users
 - validate a controlled authorization flaw
 - capture exact offensive evidence
-- identify the corresponding defensive telemetry
-- write detection logic
+- correlate a response request ID with defensive telemetry
+- write and test detection logic
+- distinguish prevention from detection
 - recommend a precise server-side fix
-- conduct a purple-team debrief
+- discuss false-positive/delegated-access context
+- conduct a structured purple-team debrief
 
 ## Roles
 
@@ -71,6 +73,18 @@ Logs:
 runtime/app.log
 ~~~
 
+Reference blue detector:
+
+~~~text
+detect_cross_user.py
+~~~
+
+Purple-team worksheet:
+
+~~~text
+PURPLE_DEBRIEF.md
+~~~
+
 ## Flag Privacy
 
 The public repository contains no filled-in flag. The event lead injects `RED_FLAG_VALUE` at runtime from the private instructor repository.
@@ -88,21 +102,39 @@ grep cross_user runtime/app.log
 ### Red report
 
 ~~~text
-Baseline:
+Baseline Alice/Bob:
 Modified request:
 Observed authorization failure:
+X-Request-ID:
 Evidence:
 Impact:
+Confidence:
 ~~~
 
 ### Blue report
 
 ~~~text
 Suspicious event:
+Request ID correlation:
 Timeline:
 Detection logic:
-Triage context:
+False-positive context:
+Triage questions:
+Response:
 Remediation:
+~~~
+
+### Purple report
+
+Complete PURPLE_DEBRIEF.md and explain how the same request connects:
+
+~~~text
+Red action
+→ application decision
+→ request ID
+→ log event
+→ detector
+→ remediation
 ~~~
 
 ## Cleanup
