@@ -1,0 +1,8 @@
+user,type,department,enabled
+alice,human,Helpdesk,true
+bob,human,Web Operations,true
+carol,human,IT Administration,true
+dana,human,Finance,true
+svc_backup,service,Infrastructure,true
+svc_web,service,Application,true
+svc_reports,service,Finance Systems,true
