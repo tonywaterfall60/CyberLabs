@@ -23,22 +23,41 @@ Members should be able to:
 ## Workflow
 
 ```text
-Question
-  ↓
-Collection plan
-  ↓
-Source gathering
-  ↓
-Corroboration
-  ↓
-Timeline/entity map
-  ↓
-Confidence statement
+Define a question
+      ↓
+Identify allowed sources
+      ↓
+Collect only relevant facts
+      ↓
+Record provenance
+      ↓
+Corroborate across artifacts
+      ↓
+Build entity/timeline views
+      ↓
+State confidence and uncertainty
 ```
+
+Intermediate OSINT is not "find as much as possible."
+
+It is disciplined collection tied to a defined question.
 
 ## Challenge
 
 Use only the fictional data in `challenge/`.
+
+The expanded dataset includes:
+
+```text
+website.txt
+social-posts.txt
+conference-bio.txt
+whois-summary.txt
+event-flyer.txt
+repository-profile.txt
+```
+
+Students now build a provenance table, entity map, timeline, corroboration assessment, and explicit unsupported-conclusion example.
 
 ## Deliverable
 
