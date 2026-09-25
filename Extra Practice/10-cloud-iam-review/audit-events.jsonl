@@ -1,0 +1,4 @@
+{"ts":"2026-09-24T22:14:00Z","principal":"reporting-role","action":"s3:ListBucket","resource":"training-report-exports","source":"10.80.10.20","result":"success"}
+{"ts":"2026-09-24T22:15:11Z","principal":"reporting-role","action":"s3:GetObject","resource":"training-report-exports/quarterly.csv","source":"10.80.10.20","result":"success"}
+{"ts":"2026-09-24T22:18:09Z","principal":"anonymous","action":"s3:GetObject","resource":"training-report-exports/quarterly.csv","source":"198.51.100.77","result":"success"}
+{"ts":"2026-09-24T22:30:00Z","principal":"admin-user","action":"iam:CreateAccessKey","resource":"user/test-service","source":"10.80.10.5","result":"success"}
