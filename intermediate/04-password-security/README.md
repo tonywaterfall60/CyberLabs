@@ -35,15 +35,27 @@ Members should be able to:
 
 ## Password Storage Model
 
-```text
+~~~text
 Password
   +
 Unique salt
   ↓
 Password-hashing algorithm
+  +
+Work factor / cost
   ↓
 Stored verifier
-```
+~~~
+
+The review should consider both:
+
+~~~text
+Storage controls
+and
+Online authentication controls
+~~~
+
+A strong password system needs both.
 
 Examples:
 
@@ -73,13 +85,33 @@ Password hashing should intentionally require more computation and should includ
 - online rate limits no longer help
 - password-hashing cost becomes especially important
 
+## Intermediate Password-Assessment Workflow
+
+~~~text
+Identify storage format
+       ↓
+Understand the audit method
+       ↓
+Perform scoped offline validation
+       ↓
+Compare storage designs
+       ↓
+Demonstrate unique salts
+       ↓
+Review online controls
+       ↓
+Recommend layered improvements
+~~~
+
+Do not reduce the assessment to “which passwords cracked.”
+
 ## Guided Lab
 
 Enter:
 
-```bash
+~~~bash
 cd challenge
-```
+~~~
 
 ### Step 1 — Identify the Hash Format
 
@@ -124,11 +156,17 @@ Use John only against the provided toy dataset as an alternate demonstration.
 ## Analysis Questions
 
 - Why was SHA-256 fast to audit?
+- Why is a fast general-purpose hash different from a password-hashing function?
 - What does a unique salt change?
-- Why would Argon2 be more resistant to offline guessing?
-- Why is MFA still valuable?
+- What does a salt **not** protect against?
+- Why would Argon2, bcrypt, scrypt, or PBKDF2 increase offline guessing cost?
+- Why is MFA still valuable even with strong password hashing?
 - What does rate limiting protect against?
+- Why does rate limiting not stop an offline audit?
 - Why should password auditing require authorization?
+- Which logging fields would help investigate online guessing?
+
+The challenge now includes storage examples, a salt demonstration, and a fictional authentication policy in addition to the toy hash audit.
 
 ## Scope
 
