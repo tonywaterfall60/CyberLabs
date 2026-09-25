@@ -24,15 +24,24 @@ Threat hunting asks a question manually. Detection engineering turns useful beha
 
 ~~~text
 Behavior:
+Threat/use case:
+Required telemetry:
 Required fields:
 Selection logic:
-Exclusions:
+Correlation key:
 Threshold/window:
+Positive test cases:
+Negative test cases:
+Known false positives:
+Exclusions:
+Coverage gaps:
 Severity:
-False positives:
 Triage steps:
 Response:
+Regression tests:
 ~~~
+
+At Advanced level, detections should be treated like maintained code rather than one-off queries.
 
 ## Detection 1
 
@@ -54,20 +63,27 @@ Files:
 challenge/process_events.jsonl
 challenge/auth_events.jsonl
 challenge/starter-rule.yml
+challenge/test_detections.py
 ~~~
 
-Students may test logic with jq, Python, or shell tools.
+The expanded dataset contains both positive and negative/edge cases.
+
+Students must build a regression matrix, test expected alerts and non-alerts, document threshold semantics, and explain how schema changes or tuning could break coverage.
 
 ## Deliverable
 
 - rule logic
-- data requirements
-- test results
+- telemetry/data requirements
+- correlation keys
+- positive/negative test cases
+- regression matrix
+- test output
 - threshold/window rationale
 - false-positive discussion
+- coverage/evasion gaps
 - severity justification
-- recommended telemetry
 - analyst triage steps
+- detection maintenance/version-control guidance
 
 ## Next Event
 
