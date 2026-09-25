@@ -30,6 +30,9 @@ Do **not** run `compose.insecure.yml` as-is.
 ~~~text
 challenge/Dockerfile.insecure
 challenge/compose.insecure.yml
+challenge/Dockerfile.hardened.example
+challenge/compose.hardened.example.yml
+challenge/AUDIT_WORKSHEET.md
 ~~~
 
 ## Suggested Tools
@@ -49,11 +52,22 @@ trivy image <image>
 
 ## Guided Review
 
-Ask three separate questions:
+Ask four separate questions:
 
 1. What is risky in the Dockerfile/build?
 2. What persists in the image?
 3. What is risky only at runtime?
+4. Which control changes the container/host trust boundary?
+
+The expanded challenge now includes a hardened comparison so students can distinguish:
+
+~~~text
+root-cause hardening
+vs.
+runtime containment
+vs.
+residual risk
+~~~
 
 Safe image build for inspection:
 
@@ -77,14 +91,19 @@ docker inspect cyberlabs-container-audit
 
 ## Deliverable
 
+Complete the audit worksheet and provide:
+
 ~~~text
 Finding:
-Layer (build/image/runtime):
+Layer (build/image/runtime/host-boundary):
 Evidence:
 Impact:
-Safer configuration:
+Hardened comparison:
+Residual risk:
 Priority:
 ~~~
+
+If a scanner is used, manually validate at least two findings instead of reporting raw CVE counts.
 
 ## Cleanup
 
