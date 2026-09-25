@@ -1,65 +1,152 @@
-# Challenge — Toy Password Audit
+# Challenge — Toy Password Security Assessment
 
-This challenge uses fictional SHA-256 hashes generated only for training.
+**Difficulty:** Intermediate  
+**Estimated time:** 75–105 minutes
 
-## Authorized Scope
+## Scope
 
-Use only:
+Use only the files in this challenge directory.
 
-```text
+Do not use these techniques against real password databases, accounts, or credentials.
+
+## Scenario
+
+A fictional application team asks you to review its password-storage and authentication controls.
+
+You are given:
+
+~~~text
 hashes.txt
 hashes-only.txt
 wordlist.txt
-```
+storage-examples.txt
+auth-policy.txt
+salt-demo.py
+audit.py
+~~~
 
-Do not use these commands against real password databases.
+Your task is broader than recovering toy passwords. You must assess storage design and online authentication controls.
 
 ## Part 1 — Hash Identification
 
-```bash
+~~~bash
 hashid hashes-only.txt
-```
+~~~
 
 Answer:
 
-1. What hash families does the tool suggest?
-2. Why can multiple formats sometimes look similar?
+1. What formats are suggested?
+2. Why can several algorithms share the same visual format/length?
+3. Why is hash identification not proof?
 
-## Part 2 — Python Audit
+## Part 2 — Understand the Audit Script
 
-```bash
+Read:
+
+~~~bash
+less audit.py
+~~~
+
+Identify:
+
+- hashing algorithm,
+- candidate source,
+- comparison logic,
+- why the audit is offline.
+
+Then run:
+
+~~~bash
 python3 audit.py hashes.txt wordlist.txt
-```
+~~~
 
-Understand what the code is doing rather than treating it as a black box.
+## Part 3 — hashcat Validation
 
-## Part 3 — hashcat
+Use only the provided toy hashes:
 
-```bash
-hashcat   --username   --potfile-disable   -m 1400   hashes.txt   wordlist.txt
-```
+~~~bash
+hashcat --username --potfile-disable -m 1400 hashes.txt wordlist.txt
+~~~
 
-## Tasks
+Compare hashcat results with the Python script.
 
-1. Identify which toy passwords can be recovered from the provided wordlist.
-2. Identify which account remains unmatched.
-3. Explain why SHA-256 alone is a poor password-storage design.
-4. Explain the purpose of salts.
-5. Explain why a slow password-hashing algorithm changes offline attack cost.
-6. Recommend:
-   - a password-hashing approach
-   - MFA
-   - online rate limiting
+## Part 4 — Storage Design Review
+
+Inspect:
+
+~~~text
+storage-examples.txt
+~~~
+
+Classify each example:
+
+~~~text
+plaintext
+fast unsalted hash
+salted iterative password verifier
+~~~
+
+Explain which design is strongest and why.
+
+## Part 5 — Salt Demonstration
+
+Run:
+
+~~~bash
+python3 salt-demo.py
+~~~
+
+Explain why the same password produces different stored values when unique salts are used.
+
+Also explain what salts **do not** provide.
+
+## Part 6 — Online Authentication Controls
+
+Inspect:
+
+~~~text
+auth-policy.txt
+~~~
+
+Review:
+
+- MFA,
+- rate limiting,
+- lockout behavior,
+- password length,
+- breached-password screening,
+- logging.
+
+Recommend at least four improvements.
+
+## Part 7 — Online vs. Offline
+
+Create a comparison:
+
+| Control | Helps Online Guessing? | Helps Offline Guessing? | Why? |
+|---|---|---|---|
+| Rate limiting | | | |
+| MFA | | | |
+| Unique salt | | | |
+| Argon2/bcrypt/scrypt/PBKDF2 | | | |
 
 ## Deliverable
 
-```text
+~~~text
 Likely hash format:
-Recovered training accounts:
+Recovered toy accounts:
 Unmatched account:
-Why SHA-256 was weak here:
-Recommended password storage:
-Recommended authentication controls:
-```
 
-No flag is required for this challenge.
+Why SHA-256 was weak here:
+Purpose of salts:
+Salt limitations:
+Recommended password hashing:
+
+Online-control weaknesses:
+Recommended MFA/rate-limit/logging improvements:
+
+Python vs hashcat comparison:
+Online vs offline comparison:
+~~~
+
+No flag is required.
