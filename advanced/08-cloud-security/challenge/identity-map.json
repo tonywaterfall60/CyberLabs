@@ -1,0 +1,36 @@
+{
+  "identities": [
+    {
+      "name": "reporting-role",
+      "type": "role",
+      "purpose": "report generation",
+      "trusted_by": [
+        "reporting-app"
+      ]
+    },
+    {
+      "name": "admin-user",
+      "type": "human",
+      "purpose": "cloud administration",
+      "mfa": true
+    },
+    {
+      "name": "training-service",
+      "type": "service-user",
+      "purpose": "legacy integration",
+      "mfa": false
+    }
+  ],
+  "relationships": [
+    {
+      "source": "reporting-app",
+      "relationship": "assumes",
+      "target": "reporting-role"
+    },
+    {
+      "source": "reporting-role",
+      "relationship": "can-create-access-key-for",
+      "target": "training-service"
+    }
+  ]
+}
