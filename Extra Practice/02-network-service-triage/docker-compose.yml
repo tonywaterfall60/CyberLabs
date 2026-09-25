@@ -1,0 +1,38 @@
+services:
+  inventory:
+    image: nginx:alpine
+    container_name: ep02_inventory
+    volumes:
+      - ./inventory:/usr/share/nginx/html:ro
+      - ./nginx/inventory.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "127.0.0.1:8710:80"
+    networks:
+      - ep_service_network
+
+  monitoring:
+    image: nginx:alpine
+    container_name: ep02_monitoring
+    volumes:
+      - ./monitoring:/usr/share/nginx/html:ro
+      - ./nginx/monitoring.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "127.0.0.1:8720:80"
+    networks:
+      - ep_service_network
+
+  admin:
+    image: nginx:alpine
+    container_name: ep02_admin
+    volumes:
+      - ./admin:/usr/share/nginx/html:ro
+      - ./nginx/admin.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "127.0.0.1:8730:80"
+    networks:
+      - ep_service_network
+
+networks:
+  ep_service_network:
+    name: ep_service_network
+    driver: bridge
