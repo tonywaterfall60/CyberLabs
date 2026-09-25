@@ -1,84 +1,152 @@
 # Challenge — Local Packet Investigation
 
-Start the local web service:
+**Difficulty:** Beginner  
+**Estimated time:** 40–55 minutes  
+**Target:** `127.0.0.1:8085`
 
-```bash
+## Scenario
+
+You are given a small local diagnostics service and asked to capture one short session so another analyst can verify what happened on the wire.
+
+Your goal is to identify requests, responses, TCP setup, and a simple sequence of activity—not to inspect unrelated traffic.
+
+## Start the Service
+
+~~~bash
 docker compose up -d
-```
+~~~
 
-Target:
+Verify:
 
-```text
-127.0.0.1:8085
-```
-
-Open Wireshark and capture the interface that can see your authorized local traffic.
-
-Generate traffic:
-
-```bash
+~~~bash
 curl http://127.0.0.1:8085/
-curl http://127.0.0.1:8085/status
-```
+~~~
 
-## Tasks — Wireshark
+## Capture Scope
 
-1. Identify the TCP destination port.
-2. Find an HTTP GET request for `/`.
-3. Find an HTTP GET request for `/status`.
-4. Identify the HTTP response status code.
-5. Find a TCP packet with the SYN flag.
-6. Identify source and destination IPs.
+Capture only traffic for:
 
-Useful filters:
+~~~text
+127.0.0.1:8085
+~~~
 
-```text
+On Kali, loopback traffic normally appears on interface `lo`.
+
+## Generate Repeatable Traffic
+
+Use the included script:
+
+~~~bash
+chmod +x generate-traffic.sh
+./generate-traffic.sh
+~~~
+
+It requests:
+
+~~~text
+/
+/status
+/help
+/status
+~~~
+
+with short pauses so the sequence is easier to recognize.
+
+## Phase 1 — Wireshark
+
+Useful display filters:
+
+~~~text
 tcp.port == 8085
 http
+http.request
+http.response
 tcp.flags.syn == 1
-```
+~~~
 
-## Kali Tool Follow-Up — tshark
+Identify:
 
-Save a small capture from Wireshark as:
+1. TCP destination port,
+2. client/server IPs,
+3. at least one SYN packet,
+4. GET `/`,
+5. GET `/status`,
+6. GET `/help`,
+7. HTTP response status codes.
 
-```text
+## Phase 2 — Follow a Conversation
+
+Choose one HTTP packet and use **Follow → TCP Stream**.
+
+Record:
+
+~~~text
+Request line:
+Host header:
+Response status:
+One response header:
+~~~
+
+## Phase 3 — Save Evidence
+
+Save the capture as:
+
+~~~text
 challenge.pcap
-```
+~~~
 
-Then run:
+Then calculate:
 
-```bash
-tshark -r challenge.pcap
-```
+~~~bash
+sha256sum challenge.pcap
+~~~
 
-Show only HTTP requests:
+This introduces the idea that packet captures are evidence files too.
 
-```bash
-tshark   -r challenge.pcap   -Y http.request   -T fields   -e http.request.method   -e http.request.uri
-```
+## Phase 4 — tshark
 
-## Questions
+Show HTTP requests:
 
-1. Did Wireshark and tshark show the same requests?
-2. Which interface is easier for a beginner?
-3. Why might an analyst prefer a command-line tool during automation or remote analysis?
-4. Why is this packet capture within scope?
+~~~bash
+tshark -r challenge.pcap -Y http.request -T fields -e frame.number -e http.request.method -e http.request.uri
+~~~
+
+Show HTTP responses:
+
+~~~bash
+tshark -r challenge.pcap -Y http.response -T fields -e frame.number -e http.response.code
+~~~
+
+## Timeline Task
+
+Create:
+
+~~~text
+Frame | Method | Path | Response Status | Observation
+~~~
+
+Put the requests in order.
 
 ## Deliverable
 
-```text
+~~~text
+Capture interface:
+Client IP:
+Server IP:
 Destination port:
 Paths observed:
-Response status:
-TCP flag:
-Wireshark filter used:
-tshark command used:
-```
+Response statuses:
+One TCP flag:
+One request header:
+PCAP SHA-256:
+Wireshark filter:
+tshark command:
+Timeline:
+~~~
 
 ## Cleanup
 
-```bash
+~~~bash
 docker compose down
 rm -f challenge.pcap
-```
+~~~
