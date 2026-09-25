@@ -1,156 +1,158 @@
 # Challenge — Application Mapping with Burp Suite
 
-Start:
+**Difficulty:** Intermediate  
+**Estimated time:** 90–120 minutes  
+**Target:** `http://127.0.0.1:8200`
 
-```bash
-docker compose up --build -d
-```
+## Goal
 
-Target:
+Build a defensible application map using normal browsing, Burp, targeted route discovery, and manual validation.
 
-```text
-http://127.0.0.1:8200
-```
+At this level, you should choose the next tool based on the question you are trying to answer.
 
-## Authorized Scope
+## Scope
 
 Only test:
 
-```text
+~~~text
 127.0.0.1:8200
-```
+~~~
 
 Do not point Burp, Gobuster, ffuf, Nikto, or other scanners at unrelated systems.
 
-## Kali Tools
+## Phase 1 — Baseline Browsing
 
-Use:
+Browse the application before discovery tooling.
 
-- Burp Suite
-- Gobuster or ffuf
-- curl
-- Firefox developer tools
+Record visible:
 
-Optional:
+- routes,
+- links,
+- query parameters,
+- cookies,
+- response types,
+- API endpoints.
 
-- Nikto
+## Phase 2 — Burp Proxy
 
-## Part 1 — Burp Proxy
+Proxy Firefox through:
 
-Launch:
-
-```bash
-burpsuite
-```
-
-Configure the lab browser to proxy HTTP through:
-
-```text
+~~~text
 127.0.0.1:8080
-```
+~~~
 
-Then:
+Capture at least:
 
-1. Turn Intercept ON.
-2. Browse to the challenge.
-3. Capture the request.
-4. Identify the method, path, headers, and cookies.
-5. Forward the request.
-6. Turn Intercept OFF.
-7. Review the request in HTTP history.
-
-## Part 2 — Burp Repeater
-
-Find:
-
-```text
+~~~text
+GET /
 GET /search?q=training
-```
+GET /feedback
+POST /feedback
+GET /api/status
+~~~
 
-Send it to Repeater.
+For each identify method, path, query/body parameters, cookie, content type, status, and useful response headers.
 
-Change the harmless query value and resend it.
+## Phase 3 — Repeater
 
-Record:
+Send the search request to Repeater and change only `q`.
 
-- changed request
-- status code
-- response body difference
+Then send one feedback POST request to Repeater and change only one form value.
 
-## Part 3 — Route Discovery
+Explain why changing one input at a time makes the result easier to interpret.
 
-Use the included wordlist.
+## Phase 4 — Content Discovery
 
-Gobuster:
+Use the provided wordlist with Gobuster or ffuf.
 
-```bash
-gobuster dir   -u http://127.0.0.1:8200   -w wordlist.txt
-```
+~~~bash
+gobuster dir -u http://127.0.0.1:8200 -w wordlist.txt
+~~~
 
-or ffuf:
+or:
 
-```bash
-ffuf   -u http://127.0.0.1:8200/FUZZ   -w wordlist.txt
-```
+~~~bash
+ffuf -u http://127.0.0.1:8200/FUZZ -w wordlist.txt
+~~~
 
-## Part 4 — Manual Validation
+Record status, size, and whether the route was already visible.
 
-Validate discoveries:
+## Phase 5 — Manual Validation
 
-```bash
-curl -i http://127.0.0.1:8200/
-curl -i http://127.0.0.1:8200/about
-curl -i http://127.0.0.1:8200/api/status
-curl -i 'http://127.0.0.1:8200/search?q=test'
-curl -i http://127.0.0.1:8200/admin
-curl -i http://127.0.0.1:8200/robots.txt
-curl -i http://127.0.0.1:8200/debug-info
-```
+Manually validate every interesting discovery with browser, curl, or Burp.
+
+Important routes include:
+
+~~~text
+/api/v1/projects
+/admin
+/debug-info
+/internal/build
+/robots.txt
+~~~
+
+Do not label a route vulnerable solely because it is hidden or internal-looking.
+
+## Phase 6 — Trust Boundary Map
+
+Create a simple diagram showing:
+
+~~~text
+Browser
+  ↓
+Web application
+  ├── HTML routes
+  ├── form submission
+  └── JSON API
+~~~
+
+Label:
+
+- user-controlled query data,
+- user-controlled POST body data,
+- cookie state,
+- restricted functionality,
+- unlinked/internal-style functionality.
+
+## Phase 7 — Prioritize Further Testing
+
+Choose three areas you would test more deeply in a later security assessment.
+
+For each state:
+
+~~~text
+Why it is interesting:
+What evidence you currently have:
+What security question remains:
+What test category would come next:
+~~~
+
+Do not perform exploitation in this event.
 
 ## Optional — Nikto
 
-Run only against the local challenge:
-
-```bash
-nikto -h http://127.0.0.1:8200
-```
-
-Discuss:
-
-- which results are useful,
-- which are informational,
-- why automated scanner output must be manually validated.
-
-## Tasks
-
-1. Map all visible routes.
-2. Discover at least one unlinked route.
-3. Identify the API route.
-4. Record status codes for public and restricted routes.
-5. Identify the cookie set by the application.
-6. Identify the custom response header.
-7. Identify one query parameter.
-8. Use Burp Repeater to resend one harmless request.
-9. Compare Gobuster/ffuf output with manual browsing.
-10. Create a simple attack-surface diagram.
+If used, run only against the challenge and manually validate anything interesting.
 
 ## Deliverable
 
-```text
-Route:
-Method:
-Parameters:
-Discovered by:
-Status:
-Cookie/header observations:
-Burp observation:
-Security questions:
-```
+| Method | Route | Parameters | Discovery source | Status | Cookie/Header | Purpose | Security question |
+|---|---|---|---|---:|---|---|---|
+
+Also submit:
+
+~~~text
+Trust-boundary diagram:
+Three prioritized test areas:
+One automated result you manually validated:
+One observation:
+One inference:
+One unknown:
+~~~
 
 ## Cleanup
 
-```bash
+~~~bash
 docker compose down
-```
+~~~
 
-Return your browser proxy settings to normal.
+Restore browser proxy settings.
