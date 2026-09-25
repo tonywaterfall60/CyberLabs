@@ -2,5 +2,9 @@ member,group
 alice,Helpdesk
 Helpdesk,Server Operators
 bob,Web Admins
+dana,Reporting Operators
+Reporting Operators,Finance App Admins
 carol,Domain Admins
 svc_backup,Server Operators
+svc_web,Web Admins
+svc_reports,Reporting Operators
