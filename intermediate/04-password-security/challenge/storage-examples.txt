@@ -1,0 +1,10 @@
+# Fictional password-storage examples
+
+[A] plaintext
+user=legacy_admin stored_value=Summer2026!
+
+[B] fast-unsalted-sha256
+user=report_user algorithm=sha256 salt=none verifier=5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8
+
+[C] iterative-salted-demo
+user=modern_user algorithm=pbkdf2-sha256 iterations=200000 salt=8f6c2d9a verifier=<training-redacted>
