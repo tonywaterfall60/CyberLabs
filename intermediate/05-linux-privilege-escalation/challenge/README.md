@@ -1,46 +1,74 @@
 # Challenge — Linux Privilege Audit
 
-Run:
+**Difficulty:** Intermediate  
+**Estimated time:** 75–105 minutes
 
-```bash
+## Scenario
+
+You received a static snapshot from a fictional Linux server. Your job is to identify privilege-boundary weaknesses without modifying any real system configuration.
+
+## Setup
+
+~~~bash
 ./setup.sh
-```
+cd ~/cyberclub/linux-privesc-audit
+~~~
 
-A fictional Linux host snapshot is created under:
+## Analysis Method
 
-```text
-~/cyberclub/linux-privesc-audit
-```
+For every possible issue ask:
+
+~~~text
+What runs with higher privilege?
+What can a lower-privileged user influence?
+What evidence proves that relationship?
+What additional validation would be needed?
+What fixes the root cause?
+~~~
 
 ## Tasks
 
-Review the files and identify at least four risky conditions.
+1. Review identity/group context.
+2. Review sudo policy excerpts.
+3. Review scheduled tasks.
+4. Compare permissions on scripts run by root.
+5. Review plaintext configuration secrets.
+6. Review SUID inventory and distinguish normal privileged binaries from evidence that needs more context.
+7. Prioritize the findings.
 
-Look for:
+## Required Finding Format
 
-- overly permissive files
-- exposed credentials
-- risky sudo rules
-- privileged scheduled tasks that reference writable files
-- suspicious service configuration
+~~~text
+Finding:
+Evidence:
+Higher-privileged execution:
+Lower-user influence:
+Potential impact:
+Validation still needed:
+Remediation:
+Priority:
+~~~
 
-## Rules
+## Important
 
-Do not change your real sudoers, cron, service, or system configuration. Everything needed is represented as text files inside the challenge directory.
+This is an audit challenge, not an exploitation walkthrough.
+
+A useful rule is:
+
+~~~text
+privileged execution + lower-user control = high-value review area
+~~~
+
+but that relationship still needs evidence.
 
 ## Deliverable
 
-For each issue:
+Identify at least five conditions worth discussing, then rank the top three.
 
-```text
-File/evidence:
-Risk:
-How privilege could be affected:
-Remediation:
-```
+Also provide one example of something that is privileged but **not automatically a vulnerability**.
 
 ## Cleanup
 
-```bash
+~~~bash
 ./reset.sh
-```
+~~~
