@@ -1,0 +1,41 @@
+name: build-and-deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request_target:
+    types: [opened, synchronize]
+
+permissions:
+  contents: write
+  packages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - run: pip install -r requirements.txt
+      - run: pytest || true
+
+      - name: Build image
+        run: docker build -t registry.example/cyberlabs/reporting:${{ github.sha }} .
+
+      - name: Login
+        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login registry.example -u "${{ secrets.REGISTRY_USER }}" --password-stdin
+
+      - name: Push
+        run: docker push registry.example/cyberlabs/reporting:${{ github.sha }}
+
+      - name: Deploy
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: ./scripts/deploy.sh
