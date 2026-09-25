@@ -1,0 +1,10 @@
+{
+  "cloud_audit_log": true,
+  "object_access_logging": false,
+  "network_flow_logs": false,
+  "bucket_server_access_logging": false,
+  "alerting_rules": [
+    "root-account-use",
+    "console-login-without-mfa"
+  ]
+}
