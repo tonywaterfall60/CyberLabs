@@ -1,102 +1,173 @@
 # Challenge — Map the Local Web Application
 
-Start the app:
+**Difficulty:** Beginner  
+**Estimated time:** 45–60 minutes  
+**Target:** `http://127.0.0.1:8070`
 
-```bash
+## Scenario
+
+You are documenting a small local training web application before a more advanced assessment.
+
+The goal is to understand normal HTTP behavior: routes, methods, status codes, headers, JSON, cookies, and authorization responses.
+
+Do not exploit the app.
+
+## Start
+
+~~~bash
 docker compose up --build -d
-```
+~~~
 
-Target:
+The application uses port 8070 so Burp may keep its default proxy listener on 127.0.0.1:8080.
 
-```text
-http://127.0.0.1:8070
-```
-
-The application uses port **8070** so Burp Suite can keep its default proxy listener on **127.0.0.1:8080**.
-
-## Authorized Scope
+## Scope
 
 Only interact with:
 
-```text
+~~~text
 127.0.0.1:8070
-```
+~~~
 
-## Tools
+## Phase 1 — Normal Browser Mapping
 
-Required:
+Visit:
 
-- browser developer tools
-- curl
+~~~text
+/
+/about
+/session-demo
+/api/status
+/admin
+/robots.txt
+~~~
 
-Optional Beginner preview:
+Use browser Developer Tools → Network.
 
-- Burp Suite Proxy
+For each request record:
 
-## Tasks
+~~~text
+Method
+Path
+Status
+Content-Type
+One request header
+One response header
+~~~
 
-1. Request `/`.
-2. Request `/about`.
-3. Request `/api/status`.
-4. Request `/admin`.
-5. Request `/robots.txt`.
-6. Record the HTTP status for each route.
-7. Identify one custom response header.
-8. Explain why a path in `robots.txt` is not necessarily protected.
-9. Explain the difference between authentication and the `403` response.
+## Phase 2 — curl
 
-## curl
+Use:
 
-```bash
+~~~bash
 curl -i http://127.0.0.1:8070/
 curl -i http://127.0.0.1:8070/about
 curl -i http://127.0.0.1:8070/api/status
 curl -i http://127.0.0.1:8070/admin
 curl -i http://127.0.0.1:8070/robots.txt
-```
+~~~
+
+Compare HTML, JSON, plain text, and error responses.
+
+## Phase 3 — Cookie Demonstration
+
+Request the home page while saving cookies:
+
+~~~bash
+curl -i -c cookies.txt http://127.0.0.1:8070/
+~~~
+
+Inspect:
+
+~~~bash
+cat cookies.txt
+~~~
+
+Then send the stored cookie back:
+
+~~~bash
+curl -i -b cookies.txt http://127.0.0.1:8070/session-demo
+~~~
+
+Answer:
+
+- Which response header set the cookie?
+- Which request header later sends it?
+- Is `training_view` an authentication token? Why or why not?
+
+## Phase 4 — Authorization Response
+
+Request:
+
+~~~text
+/admin
+~~~
+
+Explain:
+
+~~~text
+Authentication = who are you?
+Authorization  = are you allowed to access this resource?
+~~~
+
+A 403 means the server understood the request but refused access.
+
+Do not attempt to bypass it in this Beginner lab.
+
+## Phase 5 — robots.txt
+
+Inspect `/robots.txt`.
+
+Explain why listing `/admin` does not protect it.
 
 ## Optional Burp Preview
 
-Launch:
+Launch Burp and configure Firefox HTTP proxy:
 
-```bash
-burpsuite
-```
+~~~text
+127.0.0.1:8080
+~~~
 
-Configure Firefox to use:
+Capture one request only.
 
-```text
-HTTP proxy: 127.0.0.1
-Port: 8080
-```
+Identify:
 
-Browse to:
+- method,
+- path,
+- Host,
+- User-Agent,
+- Cookie header if present,
+- response status.
 
-```text
-http://127.0.0.1:8070
-```
+Forward it and review HTTP history.
 
-Capture one request and identify:
+Do not use Repeater or automated discovery yet.
 
-- method
-- path
-- Host header
-- User-Agent
-- response status
+## Application Map
 
-Forward the request and then review it in Burp HTTP history.
+Create:
 
-Do not use Repeater or automated discovery yet; those are introduced in Intermediate.
+| Route | Method | Status | Content Type | Interesting Header/Cookie | Purpose |
+|---|---|---:|---|---|---|
 
 ## Deliverable
 
-| Route | Method | Status | Tool used | Interesting header/content | Security observation |
-|---|---|---:|---|---|---|
+Also answer:
+
+~~~text
+One custom X-CyberLabs header:
+Cookie name:
+Who sets the cookie:
+Who sends it back:
+Admin status:
+Why robots.txt is not authorization:
+Difference between authentication and authorization:
+~~~
 
 ## Cleanup
 
-```bash
+~~~bash
 docker compose down
-```
+rm -f cookies.txt
+~~~
 
-If Burp was used, return the browser proxy settings to normal.
+If Burp was used, restore browser proxy settings.
