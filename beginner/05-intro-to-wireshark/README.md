@@ -127,30 +127,78 @@ sudo tcpdump -i lo
 
 Explain that Intermediate Packet Analysis will use tcpdump more heavily.
 
+## Beginner Packet-Analysis Workflow
+
+Use this order:
+
+~~~text
+Capture the right interface
+        ↓
+Generate known traffic
+        ↓
+Filter to the conversation
+        ↓
+Identify request and response
+        ↓
+Follow one stream
+        ↓
+Save the PCAP
+        ↓
+Reproduce one observation with tshark
+~~~
+
+Knowing what traffic you generated makes the first packet-analysis experience easier to understand.
+
 ## Challenge
 
-```bash
+~~~bash
 cd challenge
 docker compose up -d
 cat README.md
-```
+~~~
 
-Use Wireshark first, then try reproducing one observation with tshark.
+The expanded challenge includes a repeatable traffic generator:
+
+~~~bash
+./generate-traffic.sh
+~~~
+
+It creates a recognizable sequence:
+
+~~~text
+/
+→ /status
+→ /help
+→ /status
+~~~
+
+Students then:
+
+- identify TCP setup,
+- inspect HTTP requests and responses,
+- follow a TCP stream,
+- save and hash the PCAP,
+- reconstruct the request order,
+- reproduce observations with tshark.
 
 ## Deliverable
 
 Record:
 
-```text
+~~~text
+Capture interface:
 Client IP:
 Server IP:
-Protocol:
 Destination port:
-One TCP flag:
-HTTP request path:
-HTTP response status:
-One tshark command used:
-```
+Paths:
+Response statuses:
+TCP flag:
+One request header:
+PCAP SHA-256:
+Wireshark filter:
+tshark command:
+Timeline:
+~~~
 
 ## Cleanup
 
