@@ -23,20 +23,26 @@ Members should be able to:
 ## Workflow
 
 ```text
-Define question
-  ↓
-Filter
-  ↓
-Identify conversations
-  ↓
-Follow streams
-  ↓
-Correlate timestamps
-  ↓
+Define investigation question
+        ↓
+Summarize conversations
+        ↓
+Filter by host/port/protocol
+        ↓
+Follow multiple streams
+        ↓
+Extract fields with tshark
+        ↓
+Correlate request/response timing
+        ↓
 Build timeline
-  ↓
-Document conclusions
+        ↓
+Separate observed / inferred / unknown
 ```
+
+Intermediate packet analysis is not just "find the GET request."
+
+The goal is to reconstruct activity and explain the limits of network-only evidence.
 
 ## Guided Lab
 
@@ -68,13 +74,27 @@ Produce a timeline with:
 
 ```text
 Time:
+Stream:
 Source:
 Destination:
 Protocol:
-Action:
+Method/path:
+Status:
 Evidence:
+Interpretation:
 Confidence:
 ```
+
+Also include:
+
+```text
+Observed:
+Inferred:
+Unknown:
+What another log source could confirm:
+```
+
+The challenge now includes a repeated profile request and a reusable training header so students can practice correlation rather than only route identification.
 
 ## Cleanup
 
