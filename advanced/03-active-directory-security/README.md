@@ -47,7 +47,11 @@ challenge/
 ├── groups.csv
 ├── memberships.csv
 ├── spns.csv
-└── delegation.csv
+├── delegation.csv
+├── computers.csv
+├── local-admin.csv
+├── sessions.csv
+└── password-policy.txt
 ~~~
 
 Everything is fictional.
@@ -83,7 +87,17 @@ Identify service identities in spns.csv. An SPN is context, not proof of comprom
 
 Inspect delegation.csv and ask which relationships cross privilege boundaries.
 
-### 5. Build a Graph
+### 5. Add Host and Session Context
+
+Use local-admin.csv and sessions.csv to connect identities/groups to computers.
+
+A privileged session on a host is context. It does not by itself prove credential theft or compromise.
+
+### 6. Review Identity Policy
+
+Use password-policy.txt to identify policy conditions that may increase or reduce path risk.
+
+### 7. Build a Graph
 
 Example:
 
@@ -107,10 +121,14 @@ Direct privileged users:
 Nested privileged users:
 Service accounts:
 Delegated relationships:
-Likely attack path:
+Attack/exposure paths:
+Host/session relationships:
+Policy context:
 Evidence:
+Observed vs inferred edges:
 Validation still required:
 Remediation priorities:
+Detection ideas:
 ~~~
 
 ## Future Shared-Range Upgrade
