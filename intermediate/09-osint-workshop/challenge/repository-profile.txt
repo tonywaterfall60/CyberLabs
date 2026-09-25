@@ -1,0 +1,6 @@
+Repository profile: northstar-control
+Owner handle: @sam_builds
+Organization: Northstar Robotics Club
+Description: Training robotics control software
+Last public update: 2026-09-15
+Project note: showcase-demo branch prepared for Autumn Robotics Showcase
