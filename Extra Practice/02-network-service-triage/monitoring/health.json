@@ -1,0 +1,11 @@
+{
+  "service": "operations-monitoring",
+  "environment": "training",
+  "status": "online",
+  "dependencies": {
+    "gateway": "online",
+    "api": "online",
+    "reporting": "online"
+  },
+  "build": "ep02-2026.09"
+}
