@@ -59,6 +59,17 @@ Determine:
 7. likely incident scope,
 8. recommended containment and next evidence collection.
 
+## Prerequisite
+
+The case setup generates a local PCAP with Scapy.
+
+On Kali:
+
+~~~bash
+sudo apt update
+sudo apt install -y python3-scapy
+~~~
+
 ## Phase 1 — Preserve and Verify
 
 Start by reviewing:
