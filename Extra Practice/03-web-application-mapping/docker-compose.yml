@@ -1,0 +1,25 @@
+services:
+  app:
+    build: ./app
+    container_name: ep03_app
+    environment:
+      - APP_ENV=training
+    networks:
+      - ep03_web_network
+
+  proxy:
+    image: nginx:alpine
+    container_name: ep03_proxy
+    depends_on:
+      - app
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "127.0.0.1:8740:80"
+    networks:
+      - ep03_web_network
+
+networks:
+  ep03_web_network:
+    name: ep03_web_network
+    driver: bridge
