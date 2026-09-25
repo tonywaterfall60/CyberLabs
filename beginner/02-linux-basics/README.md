@@ -153,26 +153,71 @@ Identify:
 - your IP address
 - the default route if present
 
+## Investigation Workflow
+
+For Linux investigations, build a habit of moving from broad to specific:
+
+~~~text
+Where am I?
+   ↓
+What files/directories exist?
+   ↓
+What is hidden?
+   ↓
+Which files contain the term I need?
+   ↓
+What does the matching evidence say?
+   ↓
+Who owns it / what are its permissions?
+~~~
+
+Example:
+
+~~~bash
+pwd
+ls -la
+find . -type f
+grep -R "FAILED_LOGIN" .
+ls -l <interesting-file>
+~~~
+
+Do not copy this sequence blindly. Understand what question each command answers.
+
 ## Challenge
 
 Enter:
 
-```bash
+~~~bash
 cd challenge
 cat README.md
 ./setup.sh
-```
+~~~
 
-The challenge creates a small fake incident-response filesystem. Your job is to locate clues using Linux commands only.
+The expanded challenge creates a small incident-style filesystem with:
+
+- multiple log files,
+- nested evidence directories,
+- a hidden analyst note,
+- file permissions,
+- timestamps,
+- an instructor-injected evidence flag.
+
+Students locate and summarize evidence using only Linux terminal tools.
 
 ## Deliverable
 
-Record the commands used to:
+Record both the **answer and command** used to determine:
 
-1. locate a suspicious log entry
-2. find a hidden file
-3. identify the current user
-4. identify the machine's IP address
+1. failed-login count,
+2. suspicious username,
+3. suspicious source IP,
+4. hidden-file clue,
+5. evidence/flag path,
+6. current user and groups,
+7. one local interface/IP,
+8. default route if present.
+
+The goal is command familiarity plus evidence handling, not speed.
 
 ## Cleanup
 
