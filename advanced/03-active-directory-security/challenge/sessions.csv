@@ -1,0 +1,5 @@
+user,computer,session_type
+carol,backup01,interactive
+bob,web01,interactive
+alice,ws-alice,interactive
+carol,ws-carol,interactive
