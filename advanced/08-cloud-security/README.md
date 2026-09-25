@@ -30,6 +30,9 @@ No AWS, Azure, or GCP account is required. Do not use personal or university clo
 challenge/iam-policy.json
 challenge/bucket.json
 challenge/security-groups.json
+challenge/identity-map.json
+challenge/audit-events.jsonl
+challenge/logging.json
 ~~~
 
 ## Suggested Tools
@@ -42,38 +45,51 @@ python3
 
 ## Guided Workflow
 
-Pretty-print IAM policy:
+~~~text
+Cloud identity graph
+      ↓
+IAM scope
+      ↓
+Storage exposure
+      ↓
+Network exposure
+      ↓
+Audit evidence
+      ↓
+Logging/visibility gaps
+      ↓
+Abuse-path reasoning
+      ↓
+Least-privilege redesign
+      ↓
+Detection / remediation
+~~~
+
+Useful review commands:
 
 ~~~bash
+jq . challenge/identity-map.json
 jq . challenge/iam-policy.json
-~~~
-
-Search wildcard strings:
-
-~~~bash
-jq '.. | strings | select(. == "*")' challenge/iam-policy.json
-~~~
-
-Review bucket configuration:
-
-~~~bash
 jq . challenge/bucket.json
-~~~
-
-Review network rules:
-
-~~~bash
 jq . challenge/security-groups.json
+jq . challenge/logging.json
+jq . challenge/audit-events.jsonl
 ~~~
+
+A wildcard is not automatically a vulnerability; evaluate API semantics, resource scope, and stated business purpose.
 
 ## Analysis Questions
 
-- Is the IAM action scope broader than required?
-- Is the resource scope broader than required?
-- Is the storage resource intended to be public?
-- Which network rule has the greatest exposure?
-- Which finding is configuration context-dependent?
-- Which logs would confirm use or abuse?
+- Which identity relationships expand blast radius?
+- Which IAM permissions exceed the reporting role's stated purpose?
+- Which wildcards are truly excessive versus context-dependent?
+- Is internal-classified storage publicly readable?
+- Does audit evidence show that public access was actually used?
+- Was unrelated identity-management permission actually exercised?
+- Which security-group rules are appropriate for service purpose?
+- Which logging gaps prevent confident scoping?
+- How should the IAM policy be rewritten for least privilege?
+- What cloud detections would remain useful after remediation?
 
 ## Deliverable
 
