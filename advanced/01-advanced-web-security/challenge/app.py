@@ -1,8 +1,28 @@
+import json
 import os
-from flask import Flask, session, redirect, jsonify, abort
+import uuid
+from datetime import datetime, timezone
+from flask import Flask, session, redirect, jsonify, abort, request
 
 app = Flask(__name__)
 app.secret_key = "training-only-secret"
+LOG_PATH = os.getenv("LOG_PATH", "/logs/access.jsonl")
+
+def log_event(event, **fields):
+    os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
+    record = {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "event": event,
+        "request_id": "REQ-" + uuid.uuid4().hex[:10],
+        "remote": request.headers.get("X-Forwarded-For", request.remote_addr),
+        "user": session.get("user"),
+        "path": request.path,
+        "method": request.method,
+    }
+    record.update(fields)
+    with open(LOG_PATH, "a", encoding="utf-8") as fp:
+        fp.write(json.dumps(record) + "\n")
+    return record["request_id"]
 
 STYLE = "<style>\n:root{color-scheme:dark;--bg:#08111f;--panel:#0f1b2d;--panel2:#14243a;--text:#e8eef8;--muted:#9fb0c7;--accent:#66d9ef;--line:#273a55;--good:#7bd88f;--warn:#f2c14e}\n*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#07101d,#0b1524);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}\n.wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}.top{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:28px}\n.brand{font-weight:800;letter-spacing:.08em;text-transform:uppercase}.badge{font-size:.8rem;padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--accent)}\n.hero{padding:28px;background:var(--panel);border:1px solid var(--line);border-radius:16px;margin-bottom:18px}.hero h1{margin:0 0 8px;font-size:2rem}.hero p{color:var(--muted);max-width:760px}\n.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:18px}.card h2,.card h3{margin-top:0}\na{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#091524;border:1px solid var(--line);padding:2px 6px;border-radius:6px}\nnav a{margin-right:14px}.muted{color:var(--muted)}.ok{color:var(--good)}.warn{color:var(--warn)}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}\n.footer{margin-top:24px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:18px}\n</style>"
 
@@ -41,6 +61,7 @@ def login(user):
     if user not in {"alice","bob"}:
         abort(404)
     session["user"] = user
+    log_event("login", result="success")
     return redirect("/dashboard")
 
 @app.get("/dashboard")
@@ -65,10 +86,28 @@ def report(report_id):
     if not report:
         return jsonify(error="not found"), 404
 
-    body = {"requested_by": user, "owner": report["owner"], "title": report["title"], "classification": report["classification"], "content": report["content"]}
-    if user != report["owner"]:
+    cross_user = user != report["owner"]
+    request_id = log_event(
+        "report_access",
+        report_id=report_id,
+        owner=report["owner"],
+        cross_user=cross_user,
+        result="allowed"
+    )
+
+    body = {
+        "request_id": request_id,
+        "requested_by": user,
+        "owner": report["owner"],
+        "title": report["title"],
+        "classification": report["classification"],
+        "content": report["content"]
+    }
+    if cross_user:
         body["private_event_flag"] = os.getenv("WEB_FLAG_VALUE", "FLAG_NOT_CONFIGURED")
-    return jsonify(body)
+    response = jsonify(body)
+    response.headers["X-Request-ID"] = request_id
+    return response
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
