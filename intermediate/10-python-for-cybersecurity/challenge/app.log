@@ -1,0 +1,4 @@
+2026-09-23T18:00:25Z user=sam session=S-2201 action=VIEW_PROFILE result=success
+2026-09-23T18:00:31Z user=sam session=S-2201 action=EXPORT_REPORT object=quarterly.csv result=success
+2026-09-23T18:01:02Z user=sam session=S-2201 action=LOGOUT result=success
+2026-09-23T18:10:05Z user=lee session=S-3301 action=VIEW_PROFILE result=success
