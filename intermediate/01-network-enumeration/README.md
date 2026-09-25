@@ -23,21 +23,43 @@ Members should be able to:
 
 ## Enumeration Workflow
 
-```text
+~~~text
 Confirm scope
+   ↓
+Choose a discovery question
    ↓
 Identify exposed ports
    ↓
-Fingerprint services
+Fingerprint only discovered services
    ↓
 Manually validate
    ↓
-Record evidence
+Classify service role/sensitivity
+   ↓
+Record evidence and uncertainty
    ↓
 Prioritize
    ↓
 Recommend hardening
-```
+~~~
+
+Intermediate members should be able to explain **why** they chose a scan rather than only reproduce a provided command.
+
+A strong answer distinguishes:
+
+~~~text
+Observation:
+TCP 8140 is open.
+
+Tool inference:
+Nmap suggests HTTP.
+
+Manual validation:
+The service exposes observability metrics.
+
+Security interpretation:
+Metrics may reveal internal operational information and should be reviewed for exposure.
+~~~
 
 ## Guided Lab
 
@@ -78,11 +100,16 @@ curl -i http://127.0.0.1:<port>/
 For each service:
 
 1. What evidence identifies the service?
-2. Does it expose a banner/version?
-3. Does it require authentication?
-4. Is the traffic encrypted?
-5. Should it be exposed?
-6. What defensive improvement would you recommend?
+2. Which evidence came from Nmap and which came from manual validation?
+3. Does it expose operational or internal information?
+4. Does it appear administrative, monitoring-related, or lower sensitivity?
+5. Is authentication represented?
+6. Is the traffic encrypted?
+7. Should this audience/network be able to reach it?
+8. What is still unknown?
+9. What defensive improvement would you recommend?
+
+The challenge now contains four distinct service roles, including a machine-readable metrics endpoint.
 
 ## Challenge
 
