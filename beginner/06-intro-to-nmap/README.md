@@ -93,24 +93,72 @@ Press Enter twice.
 
 Observe the raw HTTP response.
 
+## Beginner Enumeration Workflow
+
+Use:
+
+~~~text
+Define scope
+   ↓
+Discover open ports
+   ↓
+Run targeted service detection
+   ↓
+Validate manually
+   ↓
+Document service purpose
+~~~
+
+Example:
+
+~~~bash
+nmap -p 8000-8100 127.0.0.1
+~~~
+
+Then scan only the ports you actually found:
+
+~~~bash
+nmap -sV -p <open-ports> 127.0.0.1
+~~~
+
+This is a better habit than repeatedly scanning everything.
+
 ## Discussion
 
-Nmap might identify a port as HTTP, but manual validation gives you additional evidence about what the service actually returns.
+Nmap gives evidence about open ports and service fingerprints.
+
+Manual validation answers different questions:
+
+~~~text
+What does the application actually return?
+What is the page/service for?
+What headers/content are visible?
+~~~
+
+An open port is not automatically a vulnerability.
 
 ## Documentation Exercise
 
-| Port | Nmap result | Manual validation | Evidence |
-|---:|---|---|---|
+| Port | State | Nmap result | Manual validation | Application role | Evidence |
+|---:|---|---|---|---|---|
 
 ## Challenge
 
 See:
 
-```text
+~~~text
 challenge/README.md
-```
+~~~
 
-Use Nmap first, then validate at least one discovered service with `curl` or `nc`.
+The expanded challenge now provides three local HTTP services with different roles:
+
+~~~text
+Inventory
+Monitoring / Status
+Documentation
+~~~
+
+Students must discover all three within the authorized range, run targeted service detection, validate them with curl, use raw HTTP with Netcat, and explain which evidence came from Nmap versus application content.
 
 ## Cleanup
 
