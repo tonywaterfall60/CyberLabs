@@ -1,0 +1,17 @@
+FROM python:3.13-slim
+
+ENV TRAINING_BUILD_TOKEN=embedded-training-token
+
+WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install -y curl iputils-ping && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY app/ /app/
+
+RUN echo "internal-build-note" > /root/build-note.txt
+
+EXPOSE 5000
+
+CMD ["python", "-m", "http.server", "5000"]
