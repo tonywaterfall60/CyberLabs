@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, make_response, request
 
 app = Flask(__name__)
 
@@ -11,7 +11,7 @@ def page(title, subtitle, body, level="Beginner"):
 <body><div class="wrap">
 <div class="top"><div class="brand">CyberLabs</div><div class="badge">{level} · Web Basics</div></div>
 <section class="hero"><h1>{title}</h1><p>{subtitle}</p>
-<nav><a href="/">Home</a><a href="/about">About</a><a href="/api/status">API Status</a><a href="/admin">Admin</a></nav></section>
+<nav><a href="/">Home</a><a href="/about">About</a><a href="/session-demo">Session Demo</a><a href="/api/status">API Status</a><a href="/admin">Admin</a></nav></section>
 {body}
 <div class="footer">Authorized local training service · SRU Cyber Club CyberLabs</div>
 </div></body></html>"""
@@ -33,7 +33,9 @@ def home():
   <div class="card"><h2>Access Control</h2><p>The <code>/admin</code> route demonstrates a forbidden response.</p></div>
 </div>
 """
-    return tagged(page("Training Portal","Practice normal HTTP behavior before moving into web security testing.",body))
+    resp = tagged(page("Training Portal","Practice normal HTTP behavior before moving into web security testing.",body))
+    resp.set_cookie("training_view", "beginner", httponly=True, samesite="Lax")
+    return resp
 
 @app.get("/about")
 def about():
@@ -45,6 +47,17 @@ def about():
 </div>
 """
     return tagged(page("About CyberLabs","A controlled local application for learning HTTP.",body))
+
+@app.get("/session-demo")
+def session_demo():
+    cookie_value = request.cookies.get("training_view", "(not present)")
+    body = f"""
+<div class="grid">
+  <div class="card"><h2>Cookie Observation</h2><p>Your request supplied <code>training_view={cookie_value}</code>.</p><p class="muted">This is a simple training cookie, not an authentication token.</p></div>
+  <div class="card"><h2>Request Method</h2><p><code>{request.method}</code></p><p class="muted">Use browser developer tools or curl to inspect the Cookie request header.</p></div>
+</div>
+"""
+    return tagged(page("Session & Cookie Demo","See how a server can read a value previously stored by the browser.",body))
 
 @app.get("/api/status")
 def status():
