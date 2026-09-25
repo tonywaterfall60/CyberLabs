@@ -1,3 +1,5 @@
-{"ts":"2026-09-23T21:01:00Z","host":"WS-01","Image":"powershell.exe","ParentImage":"explorer.exe","CommandLine":"powershell.exe Get-Date"}
-{"ts":"2026-09-23T21:02:00Z","host":"WS-03","Image":"powershell.exe","ParentImage":"winword.exe","CommandLine":"powershell.exe -EncodedCommand VHJhaW5pbmdPbmx5"}
-{"ts":"2026-09-23T21:04:00Z","host":"WS-04","Image":"cmd.exe","ParentImage":"explorer.exe","CommandLine":"cmd.exe /c whoami"}
+{"ts":"2026-09-23T21:01:00Z","host":"WS-01","user":"alice","Image":"powershell.exe","ParentImage":"explorer.exe","CommandLine":"powershell.exe Get-Date"}
+{"ts":"2026-09-23T21:02:00Z","host":"WS-03","user":"carol","Image":"powershell.exe","ParentImage":"winword.exe","CommandLine":"powershell.exe -EncodedCommand VHJhaW5pbmdPbmx5"}
+{"ts":"2026-09-23T21:02:30Z","host":"WS-05","user":"svc-deploy","Image":"powershell.exe","ParentImage":"winword.exe","CommandLine":"powershell.exe -File C:\\Automation\\report.ps1"}
+{"ts":"2026-09-23T21:03:00Z","host":"WS-06","user":"dana","Image":"powershell.exe","ParentImage":"excel.exe","CommandLine":"powershell.exe -enc VHJhaW5pbmdPbmx5"}
+{"ts":"2026-09-23T21:04:00Z","host":"WS-04","user":"lee","Image":"cmd.exe","ParentImage":"explorer.exe","CommandLine":"cmd.exe /c whoami"}
