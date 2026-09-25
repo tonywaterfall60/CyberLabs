@@ -1,0 +1,62 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: ep14_web
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+      - ./nginx/web.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      ep14_range:
+        ipv4_address: 172.28.14.10
+
+  api:
+    build: ./api
+    container_name: ep14_api
+    environment:
+      LOG_PATH: /logs/api.jsonl
+    volumes:
+      - ./runtime:/logs
+    networks:
+      ep14_range:
+        ipv4_address: 172.28.14.11
+
+  admin:
+    image: nginx:alpine
+    container_name: ep14_admin
+    volumes:
+      - ./admin:/usr/share/nginx/html:ro
+      - ./nginx/admin.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      ep14_range:
+        ipv4_address: 172.28.14.12
+
+  telemetry:
+    build: ./telemetry
+    container_name: ep14_telemetry
+    environment:
+      LOG_PATH: /logs/telemetry.jsonl
+    volumes:
+      - ./runtime:/logs
+    networks:
+      ep14_range:
+        ipv4_address: 172.28.14.13
+
+  activity:
+    build: ./activity
+    container_name: ep14_activity
+    depends_on:
+      - web
+      - api
+      - admin
+      - telemetry
+    networks:
+      ep14_range:
+        ipv4_address: 172.28.14.14
+
+networks:
+  ep14_range:
+    name: ep14_range
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.14.0/28
