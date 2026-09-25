@@ -1,0 +1,7 @@
+group,privileged,description
+Helpdesk,false,Front-line support
+Web Admins,false,Web platform administration
+Server Operators,true,Privileged server operations
+Domain Admins,true,Domain-wide administration
+Reporting Operators,false,Reporting platform access
+Finance App Admins,false,Finance application management
