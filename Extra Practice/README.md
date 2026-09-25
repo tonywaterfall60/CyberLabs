@@ -47,9 +47,9 @@ cat README.md
 | 01 | Linux Incident Investigation | Beginner → Intermediate | Linux, grep, find, logs, evidence handling | local generated filesystem |
 | 02 | Network Service Triage | Intermediate | Nmap, curl, Netcat, service prioritization | 3 local Docker services |
 | 03 | Web Application Mapping | Intermediate | Burp, curl, ffuf/Gobuster, route mapping | local Flask app |
-| 04 | Packet Investigation | Planned | Wireshark, tshark, timelines | generated PCAP |
-| 05 | Authentication Incident | Planned | log correlation, Python | synthetic logs |
-| 06 | Container Audit | Planned | Dockerfile/Compose review | local image/config |
+| 04 | Packet Investigation | Intermediate → Advanced | Wireshark, tshark, timelines | generated synthetic PCAP |
+| 05 | Authentication Incident | Intermediate → Advanced | auth/MFA/VPN/app correlation, Python | generated multi-source logs |
+| 06 | Container Security Audit | Advanced | Dockerfile/Compose review, hardening | local image + static runtime config |
 | 07 | Reverse Engineering Drill | Planned | GDB, radare2, strings | local binary |
 | 08 | Purple-Team Mini Range | Planned | web + logs + detection | multi-container range |
 
