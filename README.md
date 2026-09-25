@@ -9,6 +9,7 @@ The repository is organized into three tracks:
 - **Beginner** — core cybersecurity, Linux, networking, Wireshark, Nmap, web fundamentals, cryptography, and digital forensics
 - **Intermediate** — enumeration, Burp Suite, OWASP concepts, password security, privilege-escalation analysis, packet/log analysis, OSINT, Python, and reverse engineering
 - **Advanced** — advanced web security, binary analysis, enterprise environments, detection engineering, threat hunting, and red/blue exercises
+- **Extra Practice** — optional self-contained labs for repetition, remediation, and open-lab practice
 
 ---
 
@@ -67,6 +68,8 @@ Not every event uses every tool. The goal is to introduce tools when they suppor
 
 For a track-by-track tool reference, see [resources/KALI_TOOLS.md](resources/KALI_TOOLS.md).
 
+For optional independent practice, see [Extra Practice/README.md](Extra%20Practice/README.md).
+
 Docker is not guaranteed to be installed in Kali. Before running Docker-based challenges, follow [resources/DOCKER_SETUP.md](resources/DOCKER_SETUP.md).
 
 ---
@@ -86,6 +89,10 @@ CyberLabs/
 │   └── ...
 │
 ├── advanced/
+│
+├── Extra Practice/
+│   ├── README.md
+│   └── ...
 │
 ├── setup/
 │
