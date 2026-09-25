@@ -2,14 +2,29 @@
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "ReportingData",
       "Effect": "Allow",
-      "Action": ["s3:*"],
+      "Action": [
+        "s3:*"
+      ],
       "Resource": "*"
     },
     {
+      "Sid": "ComputeInventory",
       "Effect": "Allow",
-      "Action": ["ec2:DescribeInstances"],
+      "Action": [
+        "ec2:DescribeInstances"
+      ],
       "Resource": "*"
+    },
+    {
+      "Sid": "LegacyServiceIdentityAdmin",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GetUser",
+        "iam:CreateAccessKey"
+      ],
+      "Resource": "arn:aws:iam::123456789012:user/training-service"
     }
   ]
 }
