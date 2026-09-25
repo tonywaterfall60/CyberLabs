@@ -110,30 +110,89 @@ ps aux
 ss -tulpn
 ```
 
+## Build Pipelines Gradually
+
+Do not try to invent a five-command pipeline all at once.
+
+Start with the question:
+
+~~~text
+Which lines do I need?
+~~~
+
+Then refine:
+
+~~~text
+grep
+  ↓
+extract one field
+  ↓
+sort
+  ↓
+count duplicates
+  ↓
+sort by count
+~~~
+
+Example:
+
+~~~bash
+grep FAILED_LOGIN auth.log
+~~~
+
+Check the output first.
+
+Then add the next stage only when the first stage is correct.
+
 ## Mini Exercises
 
 Build commands that:
 
-1. count lines containing `INFO`
-2. save all failed-login events to a new file
-3. extract only hostnames from `hosts.csv`
-4. sort those hostnames alphabetically
+1. count lines containing `INFO`,
+2. save all failed-login events to a new file,
+3. extract only hostnames from `hosts.csv`,
+4. sort those hostnames alphabetically,
+5. count how often each failed-login source appears,
+6. explain what each stage of one pipeline does.
 
 ## Challenge
 
 Run:
 
-```bash
+~~~bash
 cd challenge
 ./setup.sh
 cat README.md
-```
+~~~
 
-The challenge gives you a larger authentication log. Solve it using pipelines instead of manually reading every line.
+The expanded challenge generates:
+
+~~~text
+auth.log
+hosts.csv
+~~~
+
+Students now practice:
+
+- filtering,
+- counting,
+- extracting fields,
+- sorting,
+- duplicate counting,
+- redirection,
+- CSV field extraction,
+- building a final summary file.
 
 ## Deliverable
 
-Provide the command pipelines used to answer the challenge questions.
+Provide:
+
+- answers,
+- command pipelines,
+- generated evidence files,
+- a short explanation of one multi-stage pipeline.
+
+A correct answer with an unexplained copied command is less useful than a slightly imperfect pipeline the student understands.
 
 ## Cleanup
 
