@@ -1,3 +1,5 @@
 principal,target,type
 Web Admins,svc_web,CanManage
 Server Operators,backup01,LocalAdmin
+Finance App Admins,svc_reports,CanManage
+Server Operators,svc_backup,CanResetPassword
