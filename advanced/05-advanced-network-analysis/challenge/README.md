@@ -1,35 +1,113 @@
-# Challenge — Synthetic Beacon Investigation
+# Challenge — Synthetic Network Behavior Investigation
 
-Generate:
+**Difficulty:** Advanced  
+**Estimated time:** 90–120 minutes
 
-```bash
+## Scenario
+
+A network analyst noticed recurring traffic from one workstation but does not know whether it represents benign telemetry, automation, or something requiring escalation.
+
+Everything in the PCAP is synthetic and uses private/documentation address space.
+
+## Generate
+
+~~~bash
 python3 generate_pcap.py
-```
+sha256sum advanced-network.pcap
+~~~
 
-Output:
+## Phase 1 — Conversation Baseline
 
-```text
-advanced-network.pcap
-```
+Use Wireshark/tshark to identify:
 
-## Tasks
+- all IP conversations,
+- top talkers,
+- destination ports,
+- DNS queries,
+- obvious internal application traffic.
 
-1. Identify all IP conversations.
-2. Identify DNS queries.
-3. Find recurring traffic with a regular interval.
-4. Identify the hostname associated with that traffic.
-5. Extract timestamps and destination ports with tshark.
-6. Build a concise timeline.
-7. Explain why periodic traffic alone does not prove malware.
-8. Recommend two endpoint or server-side data sources for validation.
+## Phase 2 — Periodicity
 
-## Suggested tshark
+Identify all recurring flows, not just the first one that looks unusual.
 
-```bash
-tshark -r advanced-network.pcap -Y dns
-tshark -r advanced-network.pcap -q -z conv,ip
-```
+For each recurring flow record:
 
-## Private Flag
+~~~text
+Source:
+Destination:
+Port:
+Count:
+First timestamp:
+Last timestamp:
+Approximate interval:
+Payload clue:
+~~~
 
-No real flag value is committed. The investigation itself is the primary deliverable.
+## Phase 3 — DNS Correlation
+
+Determine whether a DNS query occurs near the recurring traffic.
+
+Do not claim the DNS name definitively maps to every later packet unless the evidence supports that conclusion.
+
+## Phase 4 — Host-of-Interest Timeline
+
+Build a timeline for `10.30.0.25` containing:
+
+- DNS activity,
+- internal application access,
+- report/export-related request,
+- recurring external/documentation-range flow.
+
+## Phase 5 — Compare Against Benign Periodicity
+
+Compare the 60-second recurring flow with the slower printer-status flow.
+
+Explain why periodicity alone is not enough to classify behavior.
+
+## Phase 6 — tshark Extraction
+
+Produce at least two field-extraction commands showing:
+
+1. recurring connection timing,
+2. HTTP-like request paths or DNS query names.
+
+## Phase 7 — Hypotheses
+
+Write at least three hypotheses for the recurring 8443 traffic.
+
+Example categories:
+
+~~~text
+benign telemetry
+scheduled health check
+misconfigured software
+unauthorized remote communication
+~~~
+
+Do not decide among them without evidence.
+
+## Phase 8 — Validation Plan
+
+Request at least four additional evidence sources.
+
+For each state the exact question it would answer.
+
+## Deliverable
+
+~~~text
+PCAP SHA-256:
+Top talkers:
+Recurring flows:
+
+Host-of-interest timeline:
+DNS correlation:
+
+Primary hypothesis:
+Alternative hypotheses:
+Evidence supporting each:
+Evidence against each:
+
+Additional telemetry:
+Confidence:
+Unknowns:
+~~~
