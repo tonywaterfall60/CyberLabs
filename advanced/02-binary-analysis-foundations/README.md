@@ -37,6 +37,8 @@ cat README.md
 
 The challenge is an intentionally vulnerable local toy binary.
 
+Students now use a controlled set of local test inputs to characterize the transition from normal behavior to memory corruption/crash, inspect the crash in GDB, and compare the vulnerable build with a hardened build.
+
 This event stops at crash/control analysis; the dedicated Exploit Development event later goes further.
 
 ## Deliverable
@@ -45,12 +47,21 @@ This event stops at crash/control analysis; the dedicated Exploit Development ev
 Architecture:
 Protections:
 Unsafe function/pattern:
-Crash conditions:
+
+Normal-input behavior:
+Approximate crash threshold:
 Observed register/stack state:
-Exploitability questions:
-Source mitigation:
-Compiler/runtime mitigation:
+Instruction-pointer control demonstrated?
+Evidence:
+
+Hardened-build comparison:
+Root-cause source fixes:
+Compiler/runtime mitigations:
+Detection/diagnostic ideas:
+Remaining uncertainty:
 ```
+
+A crash alone is not a complete exploitability conclusion.
 
 ## Next Event
 
