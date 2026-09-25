@@ -1,0 +1,10 @@
+member,group,member_type
+alice,Helpdesk,user
+Helpdesk,Server Operators,group
+bob,Web Admins,user
+carol,Domain Admins,user
+dana,Reporting Operators,user
+svc_backup,Server Operators,user
+svc_web,Web Admins,user
+svc_reports,Reporting Operators,user
+Reporting Operators,Finance App Admins,group
