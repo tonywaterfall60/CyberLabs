@@ -52,6 +52,9 @@ cat README.md
 | 06 | Container Security Audit | Advanced | Dockerfile/Compose review, hardening | local image + static runtime config |
 | 07 | Reverse Engineering Drill | Intermediate → Advanced | GDB, radare2, strings, checksec | compiled stripped ELF artifact |
 | 08 | Purple-Team Mini Range | Advanced | Burp, web authz, logs, detection | Nginx + portal + API multi-container range |
+| 09 | SIEM / Detection Investigation | Advanced | jq, Python, detection tuning, correlation | generated normalized JSONL telemetry |
+| 10 | Cloud / IAM Review | Advanced | IAM, storage, security groups, audit logs | static fictional cloud exports |
+| 11 | Full Incident Response Case | Advanced | identity, endpoint, network, app correlation | generated case bundle + PCAP + host artifacts |
 
 More labs will be added in small batches.
 
