@@ -1,0 +1,15 @@
+services:
+  reporting:
+    build:
+      context: .
+      dockerfile: Dockerfile.review
+    privileged: true
+    network_mode: host
+    volumes:
+      - /:/host
+      - ./app:/app
+    environment:
+      REPORTING_ADMIN_PASSWORD: training-admin-password
+      REPORTING_MODE: internal
+    cap_add:
+      - SYS_ADMIN
