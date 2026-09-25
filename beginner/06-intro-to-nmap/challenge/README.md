@@ -1,94 +1,132 @@
 # Challenge — Local Service Enumeration
 
-Start the intentionally exposed local services:
+**Difficulty:** Beginner  
+**Estimated time:** 45–60 minutes
 
-```bash
+## Scenario
+
+A small training workstation is hosting several local services. You need to discover what is exposed, identify what each service appears to do, and manually validate the results.
+
+## Start
+
+~~~bash
 docker compose up -d
-```
+~~~
 
-Authorized scope:
+## Authorized Scope
 
-```text
+~~~text
 Target: 127.0.0.1
 Ports: 8000-8100
-```
+~~~
 
-## Kali Tools
+Do not scan outside this range.
 
-Use:
+## Phase 1 — Discovery
 
-- Nmap
-- curl
-- Netcat (`nc`)
-
-## Part 1 — Discovery
-
-```bash
+~~~bash
 nmap -p 8000-8100 127.0.0.1
-```
+~~~
 
-Identify all open TCP ports.
+Record every open TCP port.
 
-## Part 2 — Service Detection
+## Phase 2 — Targeted Service Detection
 
-Run service detection only within scope:
+After discovering the ports, scan only those ports with `-sV`.
 
-```bash
-nmap -sV -p 8000-8100 127.0.0.1
-```
+Example pattern:
 
-## Part 3 — HTTP Validation
+~~~bash
+nmap -sV -p <comma-separated-open-ports> 127.0.0.1
+~~~
 
-Visit each discovered HTTP service with:
+Ask yourself:
 
-```bash
+~~~text
+What does Nmap observe?
+What does Nmap infer?
+~~~
+
+## Phase 3 — Manual HTTP Validation
+
+For each discovered HTTP service:
+
+~~~bash
 curl -i http://127.0.0.1:<port>/
-```
+~~~
 
-## Part 4 — Raw TCP with Netcat
+Record:
 
-Choose one discovered HTTP port:
+- status code,
+- Server header,
+- page title,
+- application purpose.
 
-```bash
+## Phase 4 — Raw HTTP with Netcat
+
+Choose one port:
+
+~~~bash
 nc -nv 127.0.0.1 <port>
-```
+~~~
 
 Then type:
 
-```http
+~~~http
 GET / HTTP/1.0
+Host: localhost
 
-```
+~~~
 
-Press Enter twice.
+Press Enter after the blank line.
 
-Observe the server's raw response.
+## Phase 5 — Compare Service Roles
 
-## Tasks
+The challenge contains multiple services with different roles.
 
-1. Identify all open ports.
-2. Record Nmap's service guess.
-3. Validate each service with `curl`.
-4. Validate at least one with Netcat.
-5. Explain the difference between:
-   - open port
-   - service detection
-   - application content
-   - manual validation
+Create:
 
-## Deliverable
-
-| Port | State | Nmap service | curl evidence | nc evidence |
-|---:|---|---|---|---|
+~~~text
+Port | Nmap Guess | Application Role | Evidence
+~~~
 
 Then answer:
 
-1. Which service would you review first and why?
-2. Why is scanning outside the stated range unnecessary?
-3. Why should automated results be manually validated?
+1. Which service looks like inventory/data?
+2. Which looks like monitoring/status?
+3. Which looks like documentation/support?
+4. Which would you review first if this were a real internal system, and why?
+
+## Key Concepts
+
+Explain the difference between:
+
+~~~text
+Open port
+Service detection
+Application content
+Manual validation
+~~~
+
+An open port is an observation. It is not automatically a vulnerability.
+
+## Deliverable
+
+| Port | State | Nmap service | Application role | curl evidence | nc evidence |
+|---:|---|---|---|---|---|
+
+Then answer:
+
+~~~text
+Priority service:
+Reason:
+One thing Nmap told you:
+One thing manual validation told you:
+Why scope matters:
+~~~
 
 ## Cleanup
 
-```bash
+~~~bash
 docker compose down
-```
+~~~
