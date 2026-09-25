@@ -30,6 +30,26 @@ Members should be able to:
 | sha256sum | calculate SHA-256 |
 | hashid | identify possible hash formats |
 
+## Beginner Crypto Decision Model
+
+Before choosing a tool, ask what the goal is:
+
+~~~text
+Need to represent data differently?
+→ Encoding
+
+Need to detect whether data changed?
+→ Hashing
+
+Need confidentiality with a shared secret?
+→ Symmetric encryption
+
+Need public/private-key functionality?
+→ Asymmetric cryptography
+~~~
+
+This prevents the common mistake of treating Base64, hashes, and encryption as interchangeable.
+
 ## Guided Lab
 
 ### Base64
@@ -62,12 +82,37 @@ Discuss:
 
 ### File Integrity
 
-```bash
+~~~bash
 echo "original" > file.txt
 sha256sum file.txt
 echo "change" >> file.txt
 sha256sum file.txt
-```
+~~~
+
+Then compare two files directly:
+
+~~~bash
+cp file.txt copy.txt
+sha256sum file.txt copy.txt
+~~~
+
+Matching hashes are evidence that the file contents are identical for this exercise.
+
+### Verify a Provided Checksum
+
+A common real workflow is:
+
+~~~text
+publisher provides checksum
+        ↓
+you download/receive file
+        ↓
+you calculate checksum
+        ↓
+compare
+~~~
+
+The challenge includes this exact pattern.
 
 ## Password Storage Preview
 
@@ -87,13 +132,26 @@ Do not perform password cracking in this Beginner event. Intermediate Password S
 
 ## Challenge
 
-```bash
+~~~bash
 cd challenge
 ./setup.sh
 cat README.md
-```
+~~~
 
-Use `base64`, `sha256sum`, and optionally `hashid`.
+The expanded evidence package includes:
+
+~~~text
+message.b64
+operator-note.b64
+original.txt
+copy.txt
+modified.txt
+evidence.txt
+known.sha256
+concepts.txt
+~~~
+
+Students decode multiple Base64 messages, compare file integrity, verify a known SHA-256 digest, use hashid appropriately, modify a file and observe the digest change, and classify Base64/SHA-256/AES/RSA.
 
 ## Cleanup
 
