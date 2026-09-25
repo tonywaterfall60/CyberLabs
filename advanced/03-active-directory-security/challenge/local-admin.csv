@@ -1,0 +1,4 @@
+principal,computer,relationship
+Server Operators,backup01,LocalAdmin
+Web Admins,web01,LocalAdmin
+Reporting Operators,reporting01,LocalAdmin
