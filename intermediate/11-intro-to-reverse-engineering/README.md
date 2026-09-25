@@ -40,22 +40,26 @@ Members should be able to:
 ## Workflow
 
 ```text
-Identify
-  ↓
-Inspect metadata
-  ↓
+Identify format / architecture
+        ↓
 Inspect protections
-  ↓
-Inspect strings/imports
-  ↓
-Disassemble
-  ↓
-Run normally
-  ↓
-Debug
-  ↓
-Compare observations
+        ↓
+Inspect strings and imports
+        ↓
+Locate validation-related control flow
+        ↓
+Run with controlled inputs
+        ↓
+Observe execution dynamically
+        ↓
+Reconstruct pseudocode
+        ↓
+Recover accepted input
+        ↓
+State what was observed vs inferred
 ```
+
+The expanded binary is stripped and PIE-enabled, so students must rely more on structure, imported functions, and control flow instead of convenient symbols or a plaintext comparison string.
 
 ## Guided Commands
 
@@ -111,6 +115,16 @@ gdb ./training-bin
 ```
 
 Members should focus on understanding behavior, not turning this event into an exploitation lab.
+
+The intended result is:
+
+```text
+binary behavior
+→ validation pseudocode
+→ accepted input
+```
+
+not a crash, shell, or control-flow exploit.
 
 ## Challenge
 
