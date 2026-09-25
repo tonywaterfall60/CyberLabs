@@ -23,16 +23,39 @@ Threat hunting is a structured search for suspicious behavior based on a hypothe
 ## Hunting Workflow
 
 ~~~text
-Hypothesis → Required telemetry → Query → Correlate → Validate → Alternative explanation → Refine → Document
+Hypothesis
+   ↓
+Expected observable behavior
+   ↓
+Required telemetry / fields
+   ↓
+Baseline environment
+   ↓
+Query
+   ↓
+Correlate sequence
+   ↓
+Compare against benign cases
+   ↓
+Competing explanations
+   ↓
+Refine hunt
+   ↓
+Outcome / confidence
 ~~~
+
+Advanced hunting should begin with a falsifiable hypothesis and end with a defensible outcome—not with a keyword search.
 
 ## Dataset
 
 ~~~text
 challenge/events.jsonl
+challenge/HUNT_WORKSHEET.md
 ~~~
 
 Everything is synthetic.
+
+The dataset now includes process, DNS, network, file, registry, and comparison-case activity so students can evaluate a sequence rather than one suspicious string.
 
 ## Useful Commands
 
@@ -56,9 +79,9 @@ echo '<training-value>' | base64 -d
 
 ## Challenge Hypothesis
 
-A workstation may have executed unusual encoded PowerShell and then performed related network or file activity.
+A workstation may have executed unusual encoded PowerShell and then performed related network, file, child-process, DNS, or registry activity.
 
-Students should test the hypothesis rather than assume it is true.
+Students must compare that sequence against a separate PowerShell case that looks more like scheduled administration before deciding how strongly to classify the hunt result.
 
 ## Deliverable
 
