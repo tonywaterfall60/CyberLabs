@@ -1,0 +1,7 @@
+computer,role,tier
+backup01,backup-server,tier1
+web01,web-server,tier1
+reporting01,reporting-server,tier1
+dc01,domain-controller,tier0
+ws-alice,workstation,tier2
+ws-carol,admin-workstation,tier0
