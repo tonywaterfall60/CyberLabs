@@ -1,0 +1,9 @@
+{
+  "bucket": "training-report-exports",
+  "data_classification": "internal",
+  "public_access_block": false,
+  "acl": "public-read",
+  "encryption": "AES256",
+  "versioning": false,
+  "logging": false
+}
