@@ -34,31 +34,37 @@ advanced-network.pcap
 
 ## Suggested Workflow
 
-Conversation summary:
+~~~text
+Conversation baseline
+      ↓
+Top talkers
+      ↓
+DNS / protocol context
+      ↓
+Identify all periodic flows
+      ↓
+Compare suspicious-looking vs. known-benign periodicity
+      ↓
+Build host-specific timeline
+      ↓
+Generate competing hypotheses
+      ↓
+Request endpoint/server telemetry
+      ↓
+State confidence
+~~~
+
+Useful commands:
 
 ~~~bash
 tshark -r advanced-network.pcap -q -z conv,ip
-~~~
-
-DNS:
-
-~~~bash
 tshark -r advanced-network.pcap -Y dns
-~~~
-
-Extract endpoints and destination ports:
-
-~~~bash
 tshark -r advanced-network.pcap -T fields -e frame.time_epoch -e ip.src -e ip.dst -e tcp.dstport
 ~~~
 
-Open graphically:
+Open graphically with Wireshark to inspect timing and payload clues.
 
-~~~bash
-wireshark advanced-network.pcap
-~~~
-
-Ask: Which host repeatedly contacts the same destination? What is the interval? Which hostname appears near that activity? What other traffic looks normal?
+The expanded PCAP deliberately contains **more than one periodic flow**, so students must avoid the simplistic rule that periodic traffic automatically means beaconing or malware.
 
 ## Optional
 
@@ -67,16 +73,24 @@ If Zeek is already installed, process the synthetic PCAP and compare Zeek logs w
 ## Deliverable
 
 ~~~text
+PCAP SHA-256:
 Top talkers:
-Recurring flow:
-Interval:
-Associated DNS name:
-Timeline:
-Indicators:
-Alternative explanation:
-Additional telemetry needed:
+Recurring flows:
+
+Host-of-interest timeline:
+DNS correlation:
+
+Primary hypothesis:
+Competing hypotheses:
+Evidence supporting each:
+Evidence against each:
+
+Additional telemetry requested:
 Confidence:
+Unknowns:
 ~~~
+
+A strong Advanced answer explains what the PCAP can establish and what still requires endpoint/application context.
 
 ## Next Event
 
