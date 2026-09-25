@@ -31,12 +31,28 @@ What groups/rights do I have?
   ↓
 What runs with higher privilege?
   ↓
-What can I modify?
+What can I influence or modify?
   ↓
-What secrets are exposed?
+Where do those paths intersect?
   ↓
-What should be fixed?
+What evidence proves the boundary issue?
+  ↓
+What should be fixed first?
 ```
+
+The key Intermediate idea is not "find a root-owned thing."
+
+It is:
+
+```text
+higher-privileged execution
++
+lower-privileged influence
+=
+high-value review relationship
+```
+
+That relationship still needs evidence.
 
 ## Useful Commands
 
@@ -64,6 +80,24 @@ cd challenge
 ./setup.sh
 cat README.md
 ```
+
+The expanded snapshot now includes:
+
+- identity/group context
+- sudo policy excerpts
+- two root-run scheduled tasks
+- writable vs. non-writable privileged scripts
+- plaintext credentials
+- root service notes
+- a normal SUID inventory
+
+Students must separate:
+
+```text
+privileged != vulnerable
+```
+
+from actual lower-user control over privileged execution.
 
 ## Deliverable
 
