@@ -1,14 +1,22 @@
-title: Suspicious Encoded PowerShell From Office Parent
+title: Office Parent Launches Encoded PowerShell
 status: experimental
 logsource:
   category: process_creation
   product: windows
 detection:
-  selection:
-    Image: powershell.exe
-    ParentImage: winword.exe
-    CommandLineContains: EncodedCommand
-  condition: selection
+  powershell:
+    Image|endswith: '\\powershell.exe'
+  office_parent:
+    ParentImage|endswith:
+      - '\\winword.exe'
+      - '\\excel.exe'
+      - '\\powerpnt.exe'
+      - '\\outlook.exe'
+  encoded:
+    CommandLine|contains:
+      - 'EncodedCommand'
+      - ' -enc '
+  condition: powershell and office_parent and encoded
 falsepositives:
-  - TODO
-level: TODO
+  - Legitimate Office-triggered automation
+level: medium
