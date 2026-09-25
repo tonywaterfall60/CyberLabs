@@ -1,108 +1,88 @@
 # Challenge — Reconstruct the Web Session
 
-Start the local service:
+**Difficulty:** Intermediate  
+**Estimated time:** 75–105 minutes
 
-```bash
-docker compose up -d
-```
+## Scope
 
-Authorized traffic:
-
-```text
+~~~text
 127.0.0.1:8300
-```
+~~~
 
-## Kali Tools
+## Goal
 
-Use at least two:
+Reconstruct a short web session from network evidence and explain both what the packets prove and what they do not prove.
 
-- Wireshark
-- tcpdump
-- tshark
+## Capture
 
-## Option A — Wireshark
+Use Wireshark or:
 
-Begin a capture of your own local traffic.
+~~~bash
+sudo tcpdump -i lo tcp port 8300 -w session.pcap
+~~~
 
-Then run:
+Generate traffic in another terminal:
 
-```bash
+~~~bash
 ./generate-traffic.sh
-```
+~~~
 
-Useful filters:
+## Analysis Phases
 
-```text
-tcp.port == 8300
-http
-http.request
-tcp.flags.syn == 1
-```
+### 1 — Conversation Baseline
 
-## Option B — tcpdump
+Identify source, destination, TCP port, approximate packet count, and TCP handshake evidence.
 
-Capture the local session:
+### 2 — HTTP Sequence
 
-```bash
-sudo tcpdump   -i lo   tcp port 8300   -w session.pcap
-```
+Recover the order of:
 
-In another terminal:
+~~~text
+/
+/login
+/api/profile
+/api/profile
+/logout
+~~~
 
-```bash
-./generate-traffic.sh
-```
+Record response codes.
 
-Stop tcpdump after the requests finish.
+### 3 — Header Correlation
 
-Interface names may vary by environment. Use the interface that actually sees your authorized local traffic.
+Find the custom training/session header and determine which requests contain it.
 
-## Option C — tshark
+### 4 — Streams
 
-Read the capture:
+Follow at least two TCP streams and compare them.
 
-```bash
-tshark -r session.pcap
-```
+### 5 — tshark Reproduction
 
-Show HTTP requests:
+Produce command-line output showing timestamps, source/destination, method/path, and response code.
 
-```bash
-tshark   -r session.pcap   -Y http.request   -T fields   -e frame.time   -e ip.src   -e ip.dst   -e http.request.method   -e http.request.uri
-```
+### 6 — Timeline
 
-Show response codes:
+Build:
 
-```bash
-tshark   -r session.pcap   -Y http.response   -T fields   -e frame.time   -e http.response.code
-```
+~~~text
+Time | Stream | Source | Destination | Method/Path | Status | Evidence | Interpretation
+~~~
 
-## Tasks
+### 7 — Limitations
 
-1. Identify the destination port.
-2. Find requests to `/`, `/login`, `/api/profile`, and `/logout`.
-3. Identify the response status for each.
-4. Follow at least one TCP stream in Wireshark.
-5. Determine the order of application activity.
-6. Identify the custom header.
-7. Produce the same basic timeline using tshark output.
-8. Explain one advantage of Wireshark and one advantage of tshark.
+Answer:
+
+- What can the capture prove about HTTP requests?
+- What user identity can it prove?
+- What application state is missing?
+- How would HTTPS change visibility?
 
 ## Deliverable
 
-```text
-Timestamp:
-Source:
-Destination:
-Method/path:
-Status:
-Evidence source (Wireshark/tshark):
-Interpretation:
-```
+Submit the timeline, at least two filters, one tshark command, one stream observation, and a section labeled `Observed / Inferred / Unknown`.
 
 ## Cleanup
 
-```bash
+~~~bash
 docker compose down
 rm -f session.pcap
-```
+~~~
