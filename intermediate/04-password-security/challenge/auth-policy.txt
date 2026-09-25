@@ -1,0 +1,11 @@
+Fictional Training Authentication Policy
+
+Minimum password length: 8
+MFA for administrators: optional
+MFA for users: optional
+Failed-login rate limit: none
+Temporary lockout: none
+Breached-password screening: none
+Authentication logging: successes only
+Password reset: email link
+Password storage: legacy SHA-256 for older accounts
