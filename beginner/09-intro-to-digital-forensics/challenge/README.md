@@ -1,60 +1,119 @@
 # Challenge — Small Evidence Investigation
 
-Run:
+**Difficulty:** Beginner  
+**Estimated time:** 45–60 minutes
 
-```bash
+## Scenario
+
+You received a small evidence package from a fictional workstation review.
+
+Your job is to preserve the evidence, identify misleading filenames, inspect metadata, compare hashes, and document what you can actually support from the files.
+
+## Setup
+
+~~~bash
+chmod +x setup.sh reset.sh
 ./setup.sh
-```
+cd ~/cyberclub/forensics-challenge
+~~~
 
-Evidence is created in:
+## Evidence Layout
 
-```text
-~/cyberclub/forensics-challenge/evidence
-```
-
-## Kali Tools
-
-Use at least three:
-
-- `file`
-- `stat`
-- `sha256sum`
-- `strings`
-- `exiftool`
+~~~text
+forensics-challenge/
+├── evidence/
+│   ├── meeting-notes.txt
+│   ├── working-copy.txt
+│   ├── photo.jpg
+│   ├── auth.log
+│   └── archive.bin
+└── evidence-manifest.sha256
+~~~
 
 ## Rules
 
-Do not modify the evidence directory until you have recorded the original hashes. Modify only the working copy when instructed.
+- Do not modify anything in `evidence/` until original hashes are recorded.
+- Work from `working-copy.txt` when instructed.
+- Record the commands you use.
+- Do not claim a file is what its extension says; verify it.
 
-## Tasks
+## Phase 1 — Inventory and Integrity
 
-1. List every evidence item.
-2. Use `file` to identify the actual type of each item.
-3. Identify the file whose extension is misleading.
-4. Use `strings` on the misleading file and record any useful printable text.
-5. Record the SHA-256 hash of every evidence item.
-6. Use `stat` on `meeting-notes.txt`.
-7. Use `exiftool` on at least two evidence files.
-8. Compare `meeting-notes.txt` and `working-copy.txt` using hashes.
-9. Modify only `working-copy.txt`.
-10. Recalculate its hash.
-11. Explain what the changed hash demonstrates.
+List the evidence:
 
-## Suggested Commands
+~~~bash
+find evidence -maxdepth 1 -type f -printf '%f\n'
+~~~
 
-```bash
-cd ~/cyberclub/forensics-challenge/evidence
-file *
-strings photo.jpg
-sha256sum *
-stat meeting-notes.txt
-exiftool meeting-notes.txt
-exiftool photo.jpg
-```
+Verify the provided manifest:
 
-## Deliverable
+~~~bash
+sha256sum -c evidence-manifest.sha256
+~~~
 
-```text
+Explain what a successful check means.
+
+## Phase 2 — File Type
+
+Use:
+
+~~~bash
+file evidence/*
+~~~
+
+Identify any file whose extension is misleading.
+
+## Phase 3 — Metadata
+
+Use `stat` on at least two files.
+
+Record:
+
+~~~text
+Size
+Permissions
+Modification time
+Owner
+~~~
+
+Then use `exiftool` on at least two items and compare what information it provides.
+
+## Phase 4 — Strings
+
+Use `strings` on:
+
+~~~text
+photo.jpg
+archive.bin
+~~~
+
+Record useful printable text.
+
+Explain why printable strings are clues, not proof of the entire file's purpose.
+
+## Phase 5 — Working Copy
+
+Compare:
+
+~~~bash
+sha256sum evidence/meeting-notes.txt evidence/working-copy.txt
+~~~
+
+Then modify only:
+
+~~~text
+evidence/working-copy.txt
+~~~
+
+Recalculate its hash.
+
+Explain what the changed digest demonstrates.
+
+## Phase 6 — Evidence Worksheet
+
+For each item complete:
+
+~~~text
 Filename:
 Detected type:
 Size:
@@ -63,10 +122,21 @@ Interesting strings:
 Filesystem metadata:
 Embedded metadata:
 Observation:
-```
+Confidence:
+~~~
+
+## Deliverable
+
+Include:
+
+1. verified manifest result,
+2. misleading-extension finding,
+3. hash comparison before/after modification,
+4. at least three tool outputs,
+5. one paragraph distinguishing observation from interpretation.
 
 ## Cleanup
 
-```bash
+~~~bash
 ./reset.sh
-```
+~~~
