@@ -9,11 +9,14 @@
 
 Members should be able to:
 
-- read files in Python
-- parse structured text
-- count events
-- use dictionaries/lists
+- read multiple local files in Python
+- parse key=value structured text
+- write reusable parsing functions
+- count and group events
+- correlate events by session/user
+- use dictionaries, lists, Counter, and defaultdict
 - accept command-line arguments
+- tolerate imperfect input
 - produce useful analyst output
 - explain when automation is preferable to manual analysis
 
@@ -37,6 +40,17 @@ print(users)
 ## Challenge
 
 Complete the starter parser in `challenge/parser.py`.
+
+The parser now works across:
+
+```text
+auth.log
+app.log
+```
+
+and must correlate successful authentication sessions with later application actions.
+
+The objective is not simply to make the script run. Students should be able to explain the data model and why each structure was chosen.
 
 ## Deliverable
 
