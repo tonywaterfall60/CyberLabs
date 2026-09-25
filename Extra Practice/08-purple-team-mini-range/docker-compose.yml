@@ -1,0 +1,42 @@
+services:
+  portal:
+    build: ./portal
+    container_name: ep08_portal
+    environment:
+      SESSION_SECRET: ${SESSION_SECRET:-cyberlabs-ep08-session}
+      LOG_DIR: /logs
+    volumes:
+      - ./runtime:/logs
+    networks:
+      - ep08_range
+
+  api:
+    build: ./api
+    container_name: ep08_api
+    environment:
+      SESSION_SECRET: ${SESSION_SECRET:-cyberlabs-ep08-session}
+      LOG_DIR: /logs
+      PURPLE_FLAG_VALUE: ${PURPLE_FLAG_VALUE:-FLAG_NOT_CONFIGURED}
+    volumes:
+      - ./runtime:/logs
+    networks:
+      - ep08_range
+
+  edge:
+    image: nginx:alpine
+    container_name: ep08_edge
+    depends_on:
+      - portal
+      - api
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./runtime:/logs
+    ports:
+      - "127.0.0.1:8760:80"
+    networks:
+      - ep08_range
+
+networks:
+  ep08_range:
+    name: ep08_range
+    driver: bridge
