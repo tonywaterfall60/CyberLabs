@@ -1,18 +1,21 @@
 # Extra Practice 15 — Wireless Security Analysis
 
-**Difficulty:** Intermediate → Advanced  
-**Estimated time:** 90–120 minutes  
-**Environment:** Kali Linux  
-**Tools:** Wireshark, tshark, aircrack-ng, Python/Scapy  
-**Infrastructure:** generated synthetic IEEE 802.11 PCAP; no wireless adapter required
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate → Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux |
+| Infrastructure | Generated synthetic IEEE 802.11 PCAP; no wireless adapter required |
+| Tools | Wireshark, tshark, aircrack-ng, Python/Scapy |
 ## Scenario
 
 A security team provides a packet capture from a fictional training wireless environment. You need to inventory the access points, identify client behavior, compare security configurations, and explain which observations are useful for a wireless security review.
 
 Everything is synthetic.
 
-## Safety / Scope
+## Authorized Scope
 
 Use only:
 
@@ -28,14 +31,16 @@ This lab does **not** require or authorize:
 - password attacks against real networks,
 - connecting to any discovered wireless network.
 
-## Prerequisites
+## Setup
+
+### Prerequisites
 
 ~~~bash
 sudo apt update
 sudo apt install -y aircrack-ng wireshark tshark python3-scapy
 ~~~
 
-## Generate the Capture
+### Generate the Capture
 
 ~~~bash
 python3 generate_wifi_pcap.py
@@ -43,7 +48,9 @@ sha256sum wireless-training.pcap
 capinfos wireless-training.pcap
 ~~~
 
-## Phase 1 — Wireless Inventory
+## Investigation / Tasks
+
+### Phase 1 — Wireless Inventory
 
 Use Wireshark or tshark to identify:
 
@@ -67,7 +74,7 @@ wlan.fc.type_subtype == 0x00
 wlan.fc.type_subtype == 0x01
 ~~~
 
-## Phase 2 — Beacon Analysis
+### Phase 2 — Beacon Analysis
 
 For each AP build:
 
@@ -76,7 +83,7 @@ For each AP build:
 
 Explain why an SSID name alone does not prove who owns or operates an AP.
 
-## Phase 3 — Client Probe Behavior
+### Phase 3 — Client Probe Behavior
 
 Find probe requests from the synthetic client.
 
@@ -91,7 +98,7 @@ Timestamp:
 
 Discuss why probe behavior can create privacy concerns without claiming every probe is dangerous.
 
-## Phase 4 — Association Sequence
+### Phase 4 — Association Sequence
 
 Identify:
 
@@ -104,7 +111,7 @@ association response
 
 Build a short client/AP timeline.
 
-## Phase 5 — Aircrack-ng Offline Inspection
+### Phase 5 — Aircrack-ng Offline Inspection
 
 ~~~bash
 aircrack-ng wireless-training.pcap
@@ -114,7 +121,7 @@ Record which networks Aircrack-ng identifies and what security information it ca
 
 This synthetic capture is for **analysis**, not password recovery. If Aircrack-ng reports no crackable handshake/key material, that is expected and should be documented.
 
-## Phase 6 — tshark Extraction
+### Phase 6 — tshark Extraction
 
 Create at least two useful field-extraction commands using fields such as:
 
@@ -127,7 +134,7 @@ wlan_radio.channel
 wlan.fc.type_subtype
 ~~~
 
-## Phase 7 — Security Assessment
+### Phase 7 — Security Assessment
 
 For each AP answer:
 
@@ -136,7 +143,7 @@ For each AP answer:
 3. What would you need to know before judging whether its configuration is appropriate?
 4. Which additional evidence would a real wireless assessment require?
 
-## Phase 8 — Detection / Monitoring
+### Phase 8 — Detection / Monitoring
 
 Propose monitoring ideas for:
 
