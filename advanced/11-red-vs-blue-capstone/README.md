@@ -6,15 +6,10 @@
 |---|---|
 | Track | Advanced |
 | Difficulty | Advanced |
-| Estimated time | 120–150 minutes |
+| Estimated time | 2–3 hours |
 | Environment | Kali Linux / local CyberLabs environment |
 | Prerequisites | Advanced 01–10 |
 
-
-**Difficulty:** Advanced capstone  
-**Estimated time:** 2–3 hours  
-**Prerequisites:** Advanced 01–10  
-**Environment:** Kali Linux, Docker, Burp/curl, jq/Python
 
 ## Scenario
 
