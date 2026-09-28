@@ -175,3 +175,12 @@ Do not use these techniques against real password dumps, accounts, or credential
 ## Next Event
 
 [Intermediate 05 — Linux Privilege Escalation Foundations](../05-linux-privilege-escalation/)
+
+
+---
+
+## Event Navigation
+- Previous: [OWASP Top 10 Workshop](../03-owasp-top-10/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Linux Privilege Escalation Foundations](../05-linux-privilege-escalation/)
