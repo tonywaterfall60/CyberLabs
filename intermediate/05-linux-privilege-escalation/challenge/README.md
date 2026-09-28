@@ -1,11 +1,27 @@
 # Challenge — Linux Privilege Audit
 
-**Difficulty:** Intermediate  
-**Estimated time:** 75–105 minutes
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate |
+| Estimated time | 75–105 minutes |
+| Environment | Kali / generated static Linux audit |
+| Authorized scope | Generated ~/cyberclub/linux-privesc-audit evidence only |
+| Goal | Identify and prioritize privilege-boundary weaknesses without exploitation |
 ## Scenario
 
 You received a static snapshot from a fictional Linux server. Your job is to identify privilege-boundary weaknesses without modifying any real system configuration.
+
+## Authorized Scope
+
+This is a static audit challenge. Limit work to the generated evidence under:
+
+~~~text
+~/cyberclub/linux-privesc-audit/
+~~~
+
+Do not alter real sudoers, scheduled tasks, SUID binaries, or system configuration.
 
 ## Setup
 
@@ -14,7 +30,9 @@ You received a static snapshot from a fictional Linux server. Your job is to ide
 cd ~/cyberclub/linux-privesc-audit
 ~~~
 
-## Analysis Method
+## Objectives / Tasks
+
+### Analysis Method
 
 For every possible issue ask:
 
@@ -26,7 +44,7 @@ What additional validation would be needed?
 What fixes the root cause?
 ~~~
 
-## Tasks
+### Tasks
 
 1. Review identity/group context.
 2. Review sudo policy excerpts.
@@ -36,7 +54,7 @@ What fixes the root cause?
 6. Review SUID inventory and distinguish normal privileged binaries from evidence that needs more context.
 7. Prioritize the findings.
 
-## Required Finding Format
+### Required Finding Format
 
 ~~~text
 Finding:
@@ -49,7 +67,7 @@ Remediation:
 Priority:
 ~~~
 
-## Important
+### Important
 
 This is an audit challenge, not an exploitation walkthrough.
 
