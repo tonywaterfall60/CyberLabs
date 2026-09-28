@@ -1,5 +1,16 @@
 # Intermediate 09 — OSINT Workshop
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Intermediate |
+| Difficulty | Intermediate |
+| Estimated time | 75–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 08 — Log Analysis |
+
+
 **Difficulty:** Intermediate  
 **Estimated time:** 90 minutes  
 **Prerequisites:** Intermediate 08  
