@@ -16,11 +16,13 @@
 **Prerequisites:** Advanced 01–10  
 **Environment:** Kali Linux, Docker, Burp/curl, jq/Python
 
-## Purpose
+## Scenario
 
 This capstone connects offensive validation with defensive detection. The same local application produces structured logs so one team can validate a known authorization weakness while another team analyzes the resulting telemetry.
 
-## Learning Objectives
+## Objectives / Tasks
+
+### Learning Objectives
 
 - establish normal behavior for multiple users
 - validate a controlled authorization flaw
@@ -32,7 +34,7 @@ This capstone connects offensive validation with defensive detection. The same l
 - discuss false-positive/delegated-access context
 - conduct a structured purple-team debrief
 
-## Roles
+### Roles
 
 ### Red
 
@@ -66,6 +68,17 @@ detection
 prevention
 ~~~
 
+## Authorized Scope
+
+Authorized target and telemetry:
+
+~~~text
+http://127.0.0.1:8600
+runtime/app.log
+~~~
+
+Do not redirect the red-team workflow or detector toward unrelated services or logs.
+
 ## Setup
 
 ~~~bash
@@ -96,11 +109,11 @@ Purple-team worksheet:
 PURPLE_DEBRIEF.md
 ~~~
 
-## Flag Privacy
+### Flag Privacy
 
 The public repository contains no filled-in flag. The event lead injects `RED_FLAG_VALUE` at runtime from the private instructor repository.
 
-## Suggested Blue Tools
+### Suggested Blue Tools
 
 ~~~bash
 tail -f runtime/app.log
@@ -108,7 +121,7 @@ jq . runtime/app.log
 grep cross_user runtime/app.log
 ~~~
 
-## Deliverables
+## Deliverable
 
 ### Red report
 
