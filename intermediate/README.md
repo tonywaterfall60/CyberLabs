@@ -2,54 +2,143 @@
 
 The Intermediate track moves members from guided fundamentals into structured analysis, enumeration, security testing, automation, and multi-step problem solving.
 
+Members should increasingly be able to choose a tool because it answers a specific question, validate automated output, and explain what the available evidence does and does not prove.
+
+---
+
+## Who This Track Is For
+
+Intermediate is intended for members who can already:
+
+- navigate Kali/Linux comfortably,
+- explain basic networking and HTTP concepts,
+- use Wireshark and Nmap at a basic level,
+- follow lab scope without constant reminders,
+- document observations clearly.
+
+Completion of the Beginner track is the normal preparation.
+
+---
+
+## Prerequisites
+
+Recommended knowledge:
+
+- Linux command-line basics,
+- IP/DNS/TCP/UDP/ports,
+- basic packet analysis,
+- basic Nmap usage,
+- HTTP requests/responses,
+- hashing/encoding fundamentals,
+- evidence-handling basics.
+
+For setup and tool references, see:
+
+[../resources/README.md](../resources/README.md)
+
+---
+
+## Expected Independence
+
+Intermediate members are expected to:
+
+- define the question they are trying to answer,
+- select an appropriate tool or evidence source,
+- manually validate important automated findings,
+- correlate more than one source when needed,
+- explain security impact,
+- propose remediation or next steps,
+- identify uncertainty and missing evidence.
+
+Instructor guidance is still available, but the workflow should be increasingly student-driven.
+
+---
+
 ## Recommended Order
 
-| # | Event | Main Skill | Challenge |
+| # | Event | Main Focus | Lab / Environment |
 |---:|---|---|---|
-| 01 | [Network Enumeration](01-network-enumeration/) | Structured service discovery | Multi-service local target |
-| 02 | [Web Enumeration](02-web-enumeration/) | Application mapping | Local web app |
-| 03 | [OWASP Top 10 Workshop](03-owasp-top-10/) | Web risk categories | Vulnerability classification |
-| 04 | [Password Security](04-password-security/) | Password storage & auditing | Hash-analysis exercise |
-| 05 | [Linux Privilege Escalation Foundations](05-linux-privilege-escalation/) | Permission/misconfiguration review | Local Linux audit |
-| 06 | [Windows Privilege Escalation Foundations](06-windows-privilege-escalation/) | Windows security posture | Configuration triage |
-| 07 | [Packet Analysis Challenge](07-packet-analysis/) | PCAP investigation | Local generated traffic |
-| 08 | [Log Analysis](08-log-analysis/) | Event correlation | Authentication incident |
-| 09 | [OSINT Workshop](09-osint-workshop/) | Public-data methodology | Fictional investigation |
-| 10 | [Python for Cybersecurity](10-python-for-cybersecurity/) | Automation | Log parser |
-| 11 | [Intro to Reverse Engineering](11-intro-to-reverse-engineering/) | Binary inspection | Toy program analysis |
-| 12 | [Intermediate CTF](12-intermediate-ctf/) | Skill integration | Multi-category capstone |
-| 13 | [Advanced Capstone Prep](13-advanced-capstone-prep/) | Advancement readiness | Mock interview prep |
+| 01 | [Network Enumeration](01-network-enumeration/) | structured service discovery | multi-service local target |
+| 02 | [Web Enumeration](02-web-enumeration/) | application mapping and Burp workflow | local web app |
+| 03 | [OWASP Top 10 Workshop](03-owasp-top-10/) | web-risk analysis and prevention | vulnerability review |
+| 04 | [Password Security](04-password-security/) | password storage and auditing | toy hashes + policy evidence |
+| 05 | [Linux Privilege Escalation Foundations](05-linux-privilege-escalation/) | privilege-boundary analysis | safe static Linux audit |
+| 06 | [Windows Privilege Escalation Foundations](06-windows-privilege-escalation/) | Windows security posture | fictional evidence bundle |
+| 07 | [Packet Analysis Challenge](07-packet-analysis/) | PCAP investigation | generated local traffic |
+| 08 | [Log Analysis](08-log-analysis/) | multi-source event correlation | generated logs |
+| 09 | [OSINT Workshop](09-osint-workshop/) | provenance, corroboration, confidence | fictional OSINT case |
+| 10 | [Python for Cybersecurity](10-python-for-cybersecurity/) | analysis automation | log parser |
+| 11 | [Intro to Reverse Engineering](11-intro-to-reverse-engineering/) | static/dynamic binary analysis | toy ELF |
+| 12 | [Intermediate CTF](12-intermediate-ctf/) | cross-topic skill integration | multi-category capstone |
+| 13 | [Advanced Capstone Prep](13-advanced-capstone-prep/) | Advanced readiness | multi-domain practice case |
 
-## Member Workflow
+For a repository-wide view, see:
 
-Clone once:
+[../CURRICULUM_INDEX.md](../CURRICULUM_INDEX.md)
 
-```bash
-git clone https://github.com/tonywaterfall60/CyberLabs.git
-cd CyberLabs
-```
+---
 
-Before each meeting:
+## Skills and Tool Progression
 
-```bash
-git pull
-```
+Intermediate commonly uses:
 
-Then enter the event folder and read its `README.md`.
+~~~text
+Network / Services
+  Nmap
+  Netcat
+  curl
+  tshark
+  tcpdump
+
+Web
+  Burp Suite
+  Gobuster
+  ffuf
+  Nikto
+  curl
+
+Passwords
+  hashid
+  hashcat
+  John the Ripper where appropriate
+
+Analysis
+  jq
+  grep
+  Python
+
+Reverse Engineering
+  file
+  strings
+  readelf
+  objdump
+  checksec
+  GDB
+  radare2 / rabin2
+~~~
+
+The goal is not tool collection. Members should be able to explain **why a tool was selected and how its output was validated**.
+
+---
 
 ## Expected Outcomes
 
 By the end of Intermediate, a member should be able to:
 
-- perform structured network and web enumeration in an authorized lab
-- classify common web security weaknesses
-- explain secure password storage and basic password-auditing concepts
-- identify common Linux and Windows privilege-escalation conditions
-- analyze packets and logs to form an incident timeline
-- use ethical OSINT methodology on provided fictional/public training data
-- automate repetitive analysis with Python
-- inspect a simple compiled program using static-analysis tools
-- communicate findings, mitigations, and scope clearly
+- perform structured network and web enumeration in an authorized lab,
+- manually validate discovered services and web behavior,
+- classify common web weaknesses,
+- explain secure password storage and password-auditing concepts,
+- identify Linux and Windows privilege-escalation conditions,
+- analyze packet captures and logs to form timelines,
+- use ethical OSINT methodology on fictional/provided data,
+- automate repetitive analysis with Python,
+- inspect a compiled program using static and dynamic techniques,
+- separate observation from interpretation,
+- state missing evidence and uncertainty,
+- communicate impact, remediation, and scope clearly.
+
+---
 
 ## Typical Event Format
 
@@ -61,6 +150,47 @@ By the end of Intermediate, a member should be able to:
 | 45–75 min | Hands-on lab |
 | 75–90 min | Challenge / debrief |
 
-## Advancement
+Some Intermediate labs may run longer when correlation or troubleshooting is required.
 
-After the Intermediate CTF, members may take the Intermediate → Advanced mock interview.
+---
+
+## CTF and Advancement
+
+The Intermediate CTF is the primary cross-domain skill-integration event.
+
+After the CTF, members can use:
+
+[13 — Advanced Capstone Prep](13-advanced-capstone-prep/)
+
+to prepare for the Intermediate → Advanced readiness interview.
+
+Members moving into Advanced should be ready to transition from:
+
+~~~text
+structured analysis
+→ independent hypothesis-driven investigation
+~~~
+
+Continue with:
+
+[Advanced Track](../advanced/README.md)
+
+---
+
+## Extra Practice
+
+Useful Intermediate and Intermediate → Advanced independent labs are listed in:
+
+[../Extra%20Practice/README.md](../Extra%20Practice/README.md)
+
+Extra Practice is recommended when a member wants more repetition before advancement.
+
+---
+
+## Navigation
+
+- [CyberLabs Home](../README.md)
+- [Curriculum Index](../CURRICULUM_INDEX.md)
+- [Resources](../resources/README.md)
+- [Extra Practice](../Extra%20Practice/README.md)
+- [Roadmap](../ROADMAP.md)
