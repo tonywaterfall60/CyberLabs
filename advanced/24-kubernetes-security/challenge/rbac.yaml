@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: web-reader
+  namespace: training
+rules:
+- apiGroups: [""]
+  resources: ["configmaps","secrets"]
+  verbs: ["get","list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: web-bind
+  namespace: training
+subjects:
+- kind: ServiceAccount
+  name: web-sa
+  namespace: training
+roleRef:
+  kind: Role
+  name: web-reader
+  apiGroup: rbac.authorization.k8s.io
