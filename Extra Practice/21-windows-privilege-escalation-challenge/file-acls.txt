@@ -1,0 +1,3 @@
+C:\Program Files\Northstar\updater.exe  BUILTIN\Users:(M)
+C:\Program Files\Inventory\agent.exe  BUILTIN\Users:(RX)
+C:\Scripts\daily-report.ps1  NORTHSTAR\jordan:(M)
