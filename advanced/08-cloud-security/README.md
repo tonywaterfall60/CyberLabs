@@ -1,5 +1,16 @@
 # Advanced 08 — Cloud Security
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Advanced |
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 07 — Detection Engineering |
+
+
 **Difficulty:** Advanced  
 **Estimated time:** 120 minutes  
 **Prerequisites:** Intermediate security foundations  
