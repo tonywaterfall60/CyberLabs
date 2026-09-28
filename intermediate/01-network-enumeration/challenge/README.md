@@ -1,15 +1,21 @@
 # Challenge — Multi-Service Enumeration and Prioritization
 
-**Difficulty:** Intermediate  
-**Estimated time:** 75–105 minutes
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate |
+| Estimated time | 75–105 minutes |
+| Environment | Kali + Docker |
+| Authorized scope | 127.0.0.1 TCP ports 8100–8199 |
+| Goal | Discover, validate, classify, and prioritize exposed services |
 ## Scenario
 
 You have been given a localhost-only slice of a fictional internal environment. Several services are exposed, but you are not told which ports are open or which services are most sensitive.
 
 Your job is to perform scoped discovery, fingerprint only what you find, manually validate each service, and produce a prioritized enumeration report.
 
-## Start
+## Setup
 
 ~~~bash
 docker compose up -d
@@ -24,7 +30,9 @@ TCP ports: 8100-8199
 
 Do not scan outside this range.
 
-## Phase 1 — Discovery
+## Objectives / Tasks
+
+### Phase 1 — Discovery
 
 Choose an Nmap command that answers:
 
@@ -34,7 +42,7 @@ Which TCP ports in the authorized range are open?
 
 Record the command and result.
 
-## Phase 2 — Targeted Fingerprinting
+### Phase 2 — Targeted Fingerprinting
 
 Run service detection only against discovered ports.
 
@@ -47,7 +55,7 @@ Confidence:
 What still needs manual validation:
 ~~~
 
-## Phase 3 — Manual Validation
+### Phase 3 — Manual Validation
 
 Use `curl -i` against every HTTP service.
 
@@ -62,7 +70,7 @@ Collect:
 - interesting linked route,
 - whether the service exposes operational/internal details.
 
-## Phase 4 — Secondary Endpoints
+### Phase 4 — Secondary Endpoints
 
 Look for linked or obvious supporting endpoints such as:
 
@@ -73,7 +81,7 @@ Look for linked or obvious supporting endpoints such as:
 
 Do not brute-force arbitrary paths for this lab.
 
-## Phase 5 — Service Classification
+### Phase 5 — Service Classification
 
 Classify each discovered service as primarily:
 
@@ -86,7 +94,7 @@ metrics / observability
 
 Explain the evidence behind your classification.
 
-## Phase 6 — Prioritization
+### Phase 6 — Prioritization
 
 Rank the services by which you would review first in a real internal assessment.
 
@@ -101,7 +109,7 @@ Operational impact:
 Additional validation needed:
 ~~~
 
-## Phase 7 — Hardening
+### Phase 7 — Hardening
 
 Recommend one specific hardening action per service.
 
