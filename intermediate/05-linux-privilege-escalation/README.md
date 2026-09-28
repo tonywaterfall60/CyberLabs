@@ -119,3 +119,12 @@ Recommended remediation:
 ## Next Event
 
 [Intermediate 06 — Windows Privilege Escalation Foundations](../06-windows-privilege-escalation/)
+
+
+---
+
+## Event Navigation
+- Previous: [Password Security](../04-password-security/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Windows Privilege Escalation Foundations](../06-windows-privilege-escalation/)
