@@ -1,13 +1,23 @@
 # Challenge — Toy Password Security Assessment
 
-**Difficulty:** Intermediate  
-**Estimated time:** 75–105 minutes
+## Challenge Snapshot
 
-## Scope
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate |
+| Estimated time | 75–105 minutes |
+| Environment | Kali / local toy data |
+| Authorized scope | Files and toy hashes in this challenge directory only |
+| Goal | Assess password storage and authentication controls using provided training data |
+## Authorized Scope
 
 Use only the files in this challenge directory.
 
 Do not use these techniques against real password databases, accounts, or credentials.
+
+## Setup
+
+No service startup is required. Work from the files already provided in this challenge directory.
 
 ## Scenario
 
@@ -27,7 +37,9 @@ audit.py
 
 Your task is broader than recovering toy passwords. You must assess storage design and online authentication controls.
 
-## Part 1 — Hash Identification
+## Objectives / Tasks
+
+### Part 1 — Hash Identification
 
 ~~~bash
 hashid hashes-only.txt
@@ -39,7 +51,7 @@ Answer:
 2. Why can several algorithms share the same visual format/length?
 3. Why is hash identification not proof?
 
-## Part 2 — Understand the Audit Script
+### Part 2 — Understand the Audit Script
 
 Read:
 
@@ -60,7 +72,7 @@ Then run:
 python3 audit.py hashes.txt wordlist.txt
 ~~~
 
-## Part 3 — hashcat Validation
+### Part 3 — hashcat Validation
 
 Use only the provided toy hashes:
 
@@ -70,7 +82,7 @@ hashcat --username --potfile-disable -m 1400 hashes.txt wordlist.txt
 
 Compare hashcat results with the Python script.
 
-## Part 4 — Storage Design Review
+### Part 4 — Storage Design Review
 
 Inspect:
 
@@ -88,7 +100,7 @@ salted iterative password verifier
 
 Explain which design is strongest and why.
 
-## Part 5 — Salt Demonstration
+### Part 5 — Salt Demonstration
 
 Run:
 
@@ -100,7 +112,7 @@ Explain why the same password produces different stored values when unique salts
 
 Also explain what salts **do not** provide.
 
-## Part 6 — Online Authentication Controls
+### Part 6 — Online Authentication Controls
 
 Inspect:
 
@@ -119,7 +131,7 @@ Review:
 
 Recommend at least four improvements.
 
-## Part 7 — Online vs. Offline
+### Part 7 — Online vs. Offline
 
 Create a comparison:
 
@@ -150,3 +162,7 @@ Online vs offline comparison:
 ~~~
 
 No flag is required.
+
+## Cleanup
+
+No cleanup is required unless you created additional local output files.
