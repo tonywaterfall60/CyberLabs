@@ -1,0 +1,4 @@
+# fictional export
+Defaults env_reset
+root ALL=(ALL:ALL) ALL
+analyst ALL=(root) NOPASSWD: /usr/local/bin/report-backup
