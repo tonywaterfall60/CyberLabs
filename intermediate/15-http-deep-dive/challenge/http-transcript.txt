@@ -1,0 +1,39 @@
+REQUEST 1
+GET /redirect HTTP/1.1
+Host: training.local
+
+RESPONSE 1
+HTTP/1.1 302 Found
+Location: /api/data
+
+REQUEST 2
+GET /cache HTTP/1.1
+
+RESPONSE 2
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Cache-Control: public, max-age=60
+
+REQUEST 3
+GET /cookie HTTP/1.1
+
+RESPONSE 3
+HTTP/1.1 200 OK
+Set-Cookie: session=training-session; HttpOnly; SameSite=Lax
+
+REQUEST 4
+GET /cors HTTP/1.1
+Origin: https://portal.training.invalid
+
+RESPONSE 4
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: https://portal.training.invalid
+Content-Type: application/json
+
+REQUEST 5
+OPTIONS /cors HTTP/1.1
+Origin: https://portal.training.invalid
+
+RESPONSE 5
+HTTP/1.1 204 No Content
+Access-Control-Allow-Methods: GET, OPTIONS
