@@ -1,0 +1,21 @@
+TOKEN alice-token => user alice
+TOKEN bob-token => user bob
+
+GET /api/status
+200 {"status":"ok"}
+
+GET /api/me
+Authorization: Bearer alice-token
+200 {"user":"alice"}
+
+GET /api/notes/1
+Authorization: Bearer alice-token
+200 {"id":1,"owner":"alice","text":"Alice training note"}
+
+GET /api/notes/2
+Authorization: Bearer alice-token
+200 {"id":2,"owner":"bob","text":"Bob training note"}
+
+GET /api/notes/2
+Authorization: Bearer bob-token
+200 {"id":2,"owner":"bob","text":"Bob training note"}
