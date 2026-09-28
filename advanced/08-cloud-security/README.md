@@ -106,3 +106,11 @@ Validation still needed:
 ## Next Event
 
 [Advanced 09 — Container Security](../09-container-security/)
+
+---
+
+## Event Navigation
+- Previous: [Detection Engineering](../07-detection-engineering/)
+- Track Home: [Advanced Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Container Security](../09-container-security/)
