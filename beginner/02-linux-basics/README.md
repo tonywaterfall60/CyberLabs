@@ -232,3 +232,12 @@ The challenge has its own reset script.
 ## Next Event
 
 [Beginner 03 — Networking Fundamentals](../03-networking-fundamentals/)
+
+
+---
+
+## Event Navigation
+- Previous: [01-intro-to-cybersecurity](../01-intro-to-cybersecurity/)
+- Track Home: [Beginner Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [03-networking-fundamentals](../03-networking-fundamentals/)
