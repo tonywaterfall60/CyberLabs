@@ -88,3 +88,11 @@ Students must build a regression matrix, test expected alerts and non-alerts, do
 ## Next Event
 
 [Advanced 08 — Cloud Security](../08-cloud-security/)
+
+---
+
+## Event Navigation
+- Previous: [Threat Hunting](../06-threat-hunting/)
+- Track Home: [Advanced Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Cloud Security](../08-cloud-security/)
