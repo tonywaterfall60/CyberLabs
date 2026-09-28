@@ -1,5 +1,16 @@
 # Intermediate 10 — Python for Cybersecurity
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Intermediate |
+| Difficulty | Intermediate |
+| Estimated time | 75–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 09 — OSINT Workshop |
+
+
 **Difficulty:** Intermediate  
 **Estimated time:** 90 minutes  
 **Prerequisites:** Intermediate 08  
