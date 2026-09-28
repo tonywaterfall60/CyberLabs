@@ -10,22 +10,22 @@ Completed labs remain 01â€“15. The next expansion is intentionally numbered 16â€
 | 17 | Email / Phishing Forensics | Forensics / Blue | Complete |
 | 18 | Memory Forensics Foundations | Forensics / Blue | Complete |
 | 19 | Windows Event Log Investigation | DFIR / Blue | Complete |
-| 20 | Linux Privilege Escalation Challenge | Red Team | Planned |
-| 21 | Windows Privilege Escalation Challenge | Red Team | Planned |
-| 22 | API Exploitation Lab | Red Team | Planned |
-| 23 | SSRF and Internal Service Discovery | Red Team | Planned |
-| 24 | Web Exploitation Chain | Red Team | Planned |
-| 25 | Credential Attack Lab | Red Team | Planned |
-| 26 | Active Directory Red-Team Range | Red Team | Planned |
-| 27 | Vulnerability Management / Triage | Defensive / Assessment | Planned |
-| 28 | Pivoting and Lateral Movement Range | Red Team | Planned |
-| 29 | Red-Team Assessment Capstone | Red Team | Planned |
-| 30 | SOC Shift Challenge | Blue Team / SOC | Planned |
-| 31 | File Upload Security Challenge | Red Team / Web | Planned |
-| 32 | Path Traversal / LFI Investigation | Red Team / Web | Planned |
-| 33 | Command Injection Lab | Red Team / Web | Planned |
-| 34 | SQL Injection Deep Dive | Red Team / Web | Planned |
-| 35 | Purple-Team Operator Challenge | Purple Team | Planned |
+| 20 | Linux Privilege Escalation Challenge | Red Team | Complete |
+| 21 | Windows Privilege Escalation Challenge | Red Team | Complete |
+| 22 | API Exploitation Lab | Red Team | Complete |
+| 23 | SSRF and Internal Service Discovery | Red Team | Complete |
+| 24 | Web Exploitation Chain | Red Team | Complete |
+| 25 | Credential Attack Lab | Red Team | Complete |
+| 26 | Active Directory Red-Team Range | Red Team | Complete |
+| 27 | Vulnerability Management / Triage | Defensive / Assessment | Complete |
+| 28 | Pivoting and Lateral Movement Range | Red Team | Complete |
+| 29 | Red-Team Assessment Capstone | Red Team | Complete |
+| 30 | SOC Shift Challenge | Blue Team / SOC | Complete |
+| 31 | File Upload Security Challenge | Red Team / Web | Complete |
+| 32 | Path Traversal / LFI Investigation | Red Team / Web | Complete |
+| 33 | Command Injection Lab | Red Team / Web | Complete |
+| 34 | SQL Injection Deep Dive | Red Team / Web | Complete |
+| 35 | Purple-Team Operator Challenge | Purple Team | Complete |
 
 ## Build Order
 
