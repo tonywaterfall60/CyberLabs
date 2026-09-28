@@ -1,11 +1,27 @@
 # Challenge — Fictional AD Attack-Path Analysis
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Fictional exported AD/security data |
+| Authorized scope | Files in this challenge directory only |
+| Goal | Build defensible identity/privilege paths and distinguish observed from inferred relationships |
 Everything in this folder is fictional exported directory/security data.
 
-## Evidence
+## Authorized Scope
+
+Use only the provided fictional exports. Do not pivot names, accounts, domains, or relationships toward real university or public infrastructure.
+
+## Setup
+
+No live domain is required.
+
+## Objectives / Tasks
+
+### Evidence
 
 ~~~text
 users.csv
@@ -19,11 +35,11 @@ sessions.csv
 password-policy.txt
 ~~~
 
-## Goal
+### Goal
 
 Build a defensible identity/privilege graph, identify multiple paths to privileged systems or accounts, and distinguish observed relationships from assumptions.
 
-## Phase 1 — Inventory
+### Phase 1 — Inventory
 
 Identify:
 
@@ -33,13 +49,13 @@ Identify:
 - server/workstation roles,
 - service accounts with SPNs.
 
-## Phase 2 — Membership Graph
+### Phase 2 — Membership Graph
 
 Trace direct and nested group membership.
 
 Do not stop at direct membership.
 
-## Phase 3 — Host Relationships
+### Phase 3 — Host Relationships
 
 Use `local-admin.csv` and `sessions.csv` to connect principals to computers.
 
@@ -53,19 +69,19 @@ Which relationships could create credential/administrative exposure?
 
 Do not claim credential theft from session presence alone.
 
-## Phase 4 — Delegated Rights
+### Phase 4 — Delegated Rights
 
 Review `delegation.csv`.
 
 For every delegated right ask exactly what the relationship claims and what would still require live validation.
 
-## Phase 5 — Service Accounts
+### Phase 5 — Service Accounts
 
 Review SPNs and service-account privilege.
 
 An SPN is context, not proof of compromise or weakness.
 
-## Phase 6 — Build Attack/Exposure Paths
+### Phase 6 — Build Attack/Exposure Paths
 
 Build at least three graph paths.
 
@@ -93,13 +109,13 @@ carol / Domain Admin
 credential/administrative exposure
 ~~~
 
-## Phase 7 — Password / Identity Policy Context
+### Phase 7 — Password / Identity Policy Context
 
 Review `password-policy.txt`.
 
 Explain how identity policy affects attack-path risk without claiming the policy itself proves compromise.
 
-## Phase 8 — Prioritization
+### Phase 8 — Prioritization
 
 Rank the top three identity relationships to remediate.
 
@@ -112,7 +128,7 @@ Use:
 - path length,
 - evidence quality.
 
-## Phase 9 — Defensive Controls
+### Phase 9 — Defensive Controls
 
 For each top path provide:
 
@@ -145,6 +161,10 @@ Detection ideas:
 Policy observations:
 ~~~
 
-## Rule
+### Rule
 
 Do not use this dataset to pivot toward real university identities or infrastructure.
+
+## Cleanup
+
+No cleanup is required for this static-data challenge.
