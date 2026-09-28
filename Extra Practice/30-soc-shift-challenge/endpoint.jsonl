@@ -1,0 +1,4 @@
+{"ts":"2026-09-28T13:01:00Z","host":"WS-03","user":"carol","event":"process","parent":"WINWORD.EXE","image":"powershell.exe","cmd":"powershell.exe -EncodedCommand VHJhaW5pbmdPbmx5"}
+{"ts":"2026-09-28T13:01:20Z","host":"WS-03","user":"carol","event":"file_create","path":"C:\\Users\\carol\\AppData\\Local\\Temp\\sync.tmp"}
+{"ts":"2026-09-28T13:01:35Z","host":"WS-03","user":"carol","event":"process","parent":"powershell.exe","image":"cmd.exe","cmd":"cmd.exe /c whoami"}
+{"ts":"2026-09-28T13:05:00Z","host":"WS-04","user":"admin","event":"process","parent":"taskeng.exe","image":"powershell.exe","cmd":"powershell.exe -File C:\\Scripts\\inventory.ps1"}
