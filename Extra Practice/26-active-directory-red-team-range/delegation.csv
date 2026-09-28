@@ -1,0 +1,4 @@
+principal,relationship,target
+Web Admins,CanManageService,svc_web
+Backup Operators,CanManageService,svc_backup
+svc_reports,CanWriteGroup,Server Operators
