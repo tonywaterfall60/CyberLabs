@@ -1,0 +1,5 @@
+ssid,bssid,channel,security,event,client
+CyberLabs-Staff,02:11:22:33:44:10,6,WPA2,beacon,
+CyberLabs-Guest,02:11:22:33:44:20,11,Open,beacon,
+CyberLabs-IoT,02:11:22:33:44:30,1,WPA2,beacon,
+CyberLabs-Staff,02:11:22:33:44:10,6,WPA2,association,02:aa:bb:cc:dd:01
