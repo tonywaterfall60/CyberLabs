@@ -1,0 +1,8 @@
+pslist: 2240 WINWORD.EXE parent=explorer.exe
+pslist: 2388 powershell.exe parent=WINWORD.EXE
+pslist: 2444 cmd.exe parent=powershell.exe
+cmdline: powershell.exe -EncodedCommand VHJhaW5pbmdPbmx5
+cmdline: cmd.exe /c whoami
+netscan: PID 2388 10.70.0.44:49722 -> 198.51.100.25:443 ESTABLISHED
+filescan: C:\\Users\\morgan\\AppData\\Local\\Temp\\training.tmp
+malfind: PID 2388 PAGE_EXECUTE_READWRITE synthetic-region
