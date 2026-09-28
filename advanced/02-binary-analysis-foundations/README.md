@@ -66,3 +66,12 @@ A crash alone is not a complete exploitability conclusion.
 ## Next Event
 
 [Advanced 03 — Active Directory Security](../03-active-directory-security/)
+
+
+---
+
+## Event Navigation
+- Previous: [Advanced Web Security](../01-advanced-web-security/)
+- Track Home: [Advanced Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Active Directory Security](../03-active-directory-security/)
