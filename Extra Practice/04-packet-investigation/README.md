@@ -9,6 +9,7 @@
 | Environment | Kali Linux |
 | Infrastructure | Offline synthetic PCAP |
 | Tools | Wireshark, tshark, tcpdump concepts, Python/Scapy |
+
 ## Scenario
 
 A security analyst captured a short segment of network traffic from a training subnet after users reported intermittent account problems.
@@ -34,7 +35,7 @@ practice-investigation.pcap
 
 Do not pivot from IP addresses or hostnames in the PCAP to real systems. All addresses and domains are synthetic.
 
-### Setup
+## Setup
 
 ### Infrastructure
 
@@ -50,7 +51,7 @@ The PCAP represents:
 
 Traffic includes DNS queries, normal HTTP-like requests, a failed/successful login sequence, periodic traffic from one workstation, and unrelated background traffic.
 
-## Setup
+### Generate the Capture
 
 The generator requires Scapy.
 
