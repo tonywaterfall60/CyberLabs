@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8870:5000"
+    volumes:
+      - ./runtime:/app/runtime
+    environment:
+      PURPLE_OPERATOR_FLAG: ${PURPLE_OPERATOR_FLAG:-FLAG_NOT_CONFIGURED}
