@@ -6,14 +6,10 @@
 |---|---|
 | Track | Intermediate |
 | Difficulty | Intermediate |
-| Estimated time | 120–150 minutes |
+| Estimated time | 3–4 hours |
 | Environment | Kali Linux / local CyberLabs environment |
 | Prerequisites | Intermediate 01–11 |
 
-
-**Difficulty:** Intermediate capstone  
-**Estimated time:** 3–4 hours  
-**Prerequisites:** Intermediate 01–11
 
 ## Scenario
 
