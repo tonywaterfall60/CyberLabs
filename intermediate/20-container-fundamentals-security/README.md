@@ -22,9 +22,21 @@ Containers are common in CyberLabs and production systems. Members need to under
 - identify root/non-root execution,
 - recognize plaintext secret risks.
 
+## Concepts
+
+Review the protocol, platform, evidence, and control relationships named in the learning objectives.
+
+## Guided Lab
+
+Work through one representative finding together, including evidence selection, validation, interpretation, and remediation.
+
 ## Challenge
 
 [challenge/README.md](challenge/README.md)
+
+## Expected Outcomes
+
+Members should independently select relevant evidence, validate important findings, separate observation from interpretation, and explain remediation or next steps.
 
 ## Cleanup
 
