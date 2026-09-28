@@ -22,9 +22,21 @@ Deleting a secret from the latest file does not necessarily remove it from repos
 - explain .gitignore limitations,
 - recommend safe remediation.
 
+## Concepts
+
+Review the protocol, platform, evidence, and control relationships named in the learning objectives.
+
+## Guided Lab
+
+Work through one representative finding together, including evidence selection, validation, interpretation, and remediation.
+
 ## Challenge
 
 [challenge/README.md](challenge/README.md)
+
+## Expected Outcomes
+
+Members should independently select relevant evidence, validate important findings, separate observation from interpretation, and explain remediation or next steps.
 
 ## Cleanup
 
