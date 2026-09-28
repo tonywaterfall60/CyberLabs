@@ -1,0 +1,7 @@
+{"ts":"2026-09-23T13:00:00Z","source":"identity","event":"multiple_failures","user":"sam","src":"198.51.100.90"}
+{"ts":"2026-09-23T13:02:10Z","source":"identity","event":"login_success","user":"sam","src":"198.51.100.90"}
+{"ts":"2026-09-23T13:04:00Z","source":"endpoint","event":"powershell_start","host":"WS-17","user":"sam"}
+{"ts":"2026-09-23T13:05:12Z","source":"endpoint","event":"file_write","host":"WS-17","path":"C:\\Users\\sam\\AppData\\Local\\Temp\\update.ps1"}
+{"ts":"2026-09-23T13:08:31Z","source":"application","event":"bulk_export","user":"sam","records":250}
+{"ts":"2026-09-23T13:10:00Z","source":"network","event":"egress_connection","host":"WS-17","dst":"198.51.100.91","port":443}
+{"ts":"2026-09-23T13:18:00Z","source":"business","event":"reporting_service_slow","impact":"moderate"}
