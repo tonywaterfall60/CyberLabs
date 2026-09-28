@@ -64,3 +64,12 @@ Your script should report:
 ## Next Event
 
 [Intermediate 11 — Intro to Reverse Engineering](../11-intro-to-reverse-engineering/)
+
+
+---
+
+## Event Navigation
+- Previous: [OSINT Workshop](../09-osint-workshop/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Intro to Reverse Engineering](../11-intro-to-reverse-engineering/)
