@@ -1,5 +1,16 @@
 # Advanced 06 — Threat Hunting
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Advanced |
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 05 — Advanced Network Analysis |
+
+
 **Difficulty:** Advanced  
 **Estimated time:** 120 minutes  
 **Prerequisites:** Intermediate Log Analysis + Advanced Network Analysis  
