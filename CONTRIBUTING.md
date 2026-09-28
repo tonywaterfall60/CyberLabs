@@ -65,9 +65,10 @@ Use:
 
 ```text
 templates/LAB_TEMPLATE.md
+templates/CHALLENGE_README_TEMPLATE.md
 ```
 
-as a starting point.
+as the starting points for event and challenge documentation.
 
 ---
 
@@ -75,13 +76,15 @@ as a starting point.
 
 Each event README should include:
 
-### Event Information
+### Event Snapshot
 
-- title
+Use the standard snapshot table:
+
+- track
 - difficulty
 - estimated time
+- environment
 - prerequisites
-- environment/tools
 
 ### Why This Event Exists
 
@@ -127,7 +130,19 @@ Link to the next recommended event.
 
 ## Challenge Requirements
 
-A challenge should be reproducible from a fresh clone.
+A challenge should be reproducible from a fresh clone and should follow the standard documentation order:
+
+```text
+Challenge Snapshot
+Scenario
+Authorized Scope
+Setup
+Investigation / Tasks
+Deliverable
+Cleanup
+```
+
+Use `templates/CHALLENGE_README_TEMPLATE.md` as the starting point.
 
 Preferred startup styles:
 
@@ -180,15 +195,29 @@ The README must explain:
 
 ---
 
-## Flag Format
+## Flag Format and Privacy
 
-If a challenge uses a flag, use:
+If a challenge uses a flag, use the format:
 
 ```text
-SRU{}
+SRU{...}
 ```
 
-The E-board or instructor can later fill in the text between the braces.
+Do **not** commit a filled-in challenge flag to the student repository.
+
+Student-facing code should use a runtime variable or a placeholder such as:
+
+```text
+FLAG_NOT_CONFIGURED
+```
+
+Private values belong only in the private instructor repository and are injected at runtime when needed.
+
+See:
+
+```text
+resources/FLAG_PRIVACY.md
+```
 
 Do not use alternate flag prefixes.
 
@@ -268,12 +297,14 @@ Push and open a pull request.
 Before submitting:
 
 - [ ] Event fits the correct skill level
+- [ ] Event Snapshot is present
 - [ ] Prerequisites are listed
 - [ ] Learning objectives are clear
 - [ ] Commands were tested
 - [ ] Setup works from a fresh clone
 - [ ] Cleanup/reset works
 - [ ] Docker targets bind locally where appropriate
+- [ ] Challenge follows the standard README structure
 - [ ] Scope is explicitly documented
 - [ ] No real secrets are included
 - [ ] Flag format is `SRU{}`
