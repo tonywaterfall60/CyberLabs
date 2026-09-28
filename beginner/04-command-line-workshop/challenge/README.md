@@ -1,14 +1,29 @@
 # Challenge — Authentication Log Analysis
 
-**Difficulty:** Beginner  
-**Estimated time:** 40–55 minutes  
-**Goal:** Turn a raw authentication log into useful information using shell pipelines.
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Beginner |
+| Estimated time | 40–55 minutes |
+| Environment | Kali / Linux terminal |
+| Authorized scope | Generated auth.log and hosts.csv training files |
+| Goal | Turn raw authentication data into a reproducible summary using shell pipelines |
 ## Scenario
 
 A small help-desk team received a larger authentication log and needs a quick summary before escalating the case.
 
 Your job is to use small command-line tools together rather than manually counting lines.
+
+## Authorized Scope
+
+Limit analysis to the generated challenge directory:
+
+~~~text
+~/cyberclub/cli-challenge/
+~~~
+
+Do not substitute real authentication logs or credentials.
 
 ## Setup
 
@@ -32,14 +47,16 @@ hosts.csv
 - Build complex pipelines one command at a time.
 - Check intermediate output before adding another pipe.
 
-## Phase 1 — Basic Filtering
+## Objectives / Tasks
+
+### Phase 1 — Basic Filtering
 
 1. Display all `FAILED_LOGIN` events.
 2. Count failed-login events.
 3. Display all `LOGIN_SUCCESS` events.
 4. Count successful logins.
 
-## Phase 2 — Username Analysis
+### Phase 2 — Username Analysis
 
 Determine which username appears most often in failed logins.
 
@@ -55,14 +72,14 @@ sort -nr
 
 Do not hard-code the username.
 
-## Phase 3 — Source Analysis
+### Phase 3 — Source Analysis
 
 1. Display only source-IP fields from failed events.
 2. Remove the `source=` prefix.
 3. Sort the addresses.
 4. Count how often each source appears.
 
-## Phase 4 — Save Evidence
+### Phase 4 — Save Evidence
 
 Create:
 
@@ -78,7 +95,7 @@ failed-sources.txt
 
 `failed-sources.txt` should contain one source IP per line, sorted.
 
-## Phase 5 — CSV Practice
+### Phase 5 — CSV Practice
 
 Use `hosts.csv` to:
 
@@ -87,7 +104,7 @@ Use `hosts.csv` to:
 3. display only port numbers,
 4. sort the hostnames alphabetically.
 
-## Phase 6 — Build a Summary
+### Phase 6 — Build a Summary
 
 Create `summary.txt` containing:
 
