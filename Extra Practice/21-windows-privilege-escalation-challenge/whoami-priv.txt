@@ -1,0 +1,5 @@
+USER: NORTHSTAR\jordan
+GROUPS: Users, Remote Desktop Users
+PRIVILEGES:
+SeChangeNotifyPrivilege Enabled
+SeShutdownPrivilege Disabled
