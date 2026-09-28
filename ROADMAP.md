@@ -84,7 +84,7 @@ Planned/in progress:
 
 # Advanced Track
 
-**Status: Core local track built; shared-range upgrades remain**
+**Status: Core and expansion tracks built; shared-range upgrades remain**
 
 ## Planned Events
 
@@ -99,7 +99,7 @@ Planned/in progress:
 - [x] advanced network analysis
 - [x] threat hunting
 - [x] detection engineering
-- [ ] SIEM investigation
+- [x] SIEM investigation
 - [x] cloud security
 - [x] container security
 - [x] exploit-development / vulnerability-analysis foundations
@@ -232,23 +232,23 @@ independent tool selection
 
 Planned additions:
 
-- [ ] API Exploitation & Authorization Testing
-- [ ] Advanced Active Directory / Identity Attack Paths
-- [ ] Web Exploitation Chaining
-- [ ] SSRF & Internal Trust Boundaries
-- [ ] Pivoting & Segmented Networks
-- [ ] Advanced Windows Internals
-- [ ] Memory Forensics with a Real Training Image
-- [ ] Reverse Engineering II
-- [ ] Exploit Mitigations Deep Dive
-- [ ] Threat Emulation & Detection Validation
-- [ ] SIEM Engineering
-- [ ] Advanced Cloud Identity
-- [ ] Kubernetes Security
-- [ ] DevSecOps / Supply Chain II
-- [ ] Incident Command / Major Incident Response
-- [ ] Professional Penetration-Test Reporting
-- [ ] Threat Modeling / Architecture Review
+- [x] API Exploitation & Authorization Testing
+- [x] Advanced Active Directory / Identity Attack Paths
+- [x] Web Exploitation Chaining
+- [x] SSRF & Internal Trust Boundaries
+- [x] Pivoting & Segmented Networks
+- [x] Advanced Windows Internals
+- [x] Memory Forensics with a Real Training Image
+- [x] Reverse Engineering II
+- [x] Exploit Mitigations Deep Dive
+- [x] Threat Emulation & Detection Validation
+- [x] SIEM Engineering
+- [x] Advanced Cloud Identity
+- [x] Kubernetes Security
+- [x] DevSecOps / Supply Chain II
+- [x] Incident Command / Major Incident Response
+- [x] Professional Penetration-Test Reporting
+- [x] Threat Modeling / Architecture Review
 
 Design goal:
 
