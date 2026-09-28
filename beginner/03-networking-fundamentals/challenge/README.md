@@ -1,15 +1,33 @@
 # Challenge — Network Troubleshooting Desk
 
-**Difficulty:** Beginner  
-**Estimated time:** 35–50 minutes
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Beginner |
+| Estimated time | 35–50 minutes |
+| Environment | Written troubleshooting exercise |
+| Authorized scope | Fictional 192.168.56.0/24 training diagram only |
+| Goal | Choose the correct network component, test, and interpretation for each ticket |
 ## Scenario
 
 You are working the help desk for a small fictional training network.
 
 Several users report connectivity problems. Your job is to identify which networking component you would investigate first and which command could help test that hypothesis.
 
-## Network Diagram
+## Authorized Scope
+
+This is a fictional troubleshooting exercise. Do not probe or scan a real 192.168.56.0/24 network based on the diagram.
+
+## Setup
+
+No technical setup is required.
+
+## Objectives / Tasks
+
+Use the provided diagram and response template to work each ticket.
+
+### Network Diagram
 
 ~~~text
                 Remote Network
@@ -48,7 +66,7 @@ HTTPS: 443
 IP: 192.168.56.53
 ~~~
 
-## Response Template
+### Response Template
 
 For every ticket provide:
 
@@ -60,7 +78,7 @@ What result would support your hypothesis:
 What result would make you investigate somewhere else:
 ~~~
 
-## Ticket 1 — Name Works by IP Only
+### Ticket 1 — Name Works by IP Only
 
 The user can open:
 
@@ -76,19 +94,19 @@ http://training.local
 
 fails.
 
-## Ticket 2 — HTTPS Refused
+### Ticket 2 — HTTPS Refused
 
 The user can ping `192.168.56.20`, but the browser reports that the connection to TCP 443 is refused.
 
-## Ticket 3 — Local Only
+### Ticket 3 — Local Only
 
 The user can reach devices on `192.168.56.0/24`, but cannot reach any remote network.
 
-## Ticket 4 — Wrong DNS Answer
+### Ticket 4 — Wrong DNS Answer
 
 A DNS query for `training.local` returns `192.168.56.25`, but the actual web server is `192.168.56.20`.
 
-## Ticket 5 — HTTP 500
+### Ticket 5 — HTTP 500
 
 The browser resolves the correct address and reaches the server, but the application returns:
 
@@ -96,17 +114,17 @@ The browser resolves the correct address and reaches the server, but the applica
 HTTP/1.1 500 Internal Server Error
 ~~~
 
-## Ticket 6 — DNS Server Unreachable
+### Ticket 6 — DNS Server Unreachable
 
 The laptop cannot reach `192.168.56.53`, but it can still ping `192.168.56.20`.
 
-## Ticket 7 — Listening Port Check
+### Ticket 7 — Listening Port Check
 
 An administrator says the web server process is running, but users still cannot connect to port 80.
 
 What local server-side command could help confirm whether anything is actually listening?
 
-## Command Matching
+### Command Matching
 
 Match each command to the question it helps answer:
 
@@ -130,7 +148,7 @@ Questions:
 6. What HTTP status/headers come back?
 7. Which network hops respond along a route?
 
-## Bonus — Why Ping Is Not Enough
+### Bonus — Why Ping Is Not Enough
 
 Explain why:
 
@@ -149,3 +167,7 @@ Include at least two reasons.
 ## Deliverable
 
 Complete all seven tickets and the command-matching section.
+
+## Cleanup
+
+No cleanup is required for this challenge.
