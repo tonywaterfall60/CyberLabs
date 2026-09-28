@@ -1,0 +1,23 @@
+Internet
+  |
+Public Portal
+  |
+API Gateway
+  |--------------------|
+  v                    v
+Identity Provider   Student API
+                       |
+                       +------ Reporting Service
+                       |           |
+                       |           v
+                       |       Object Storage
+                       |
+                       +------ Admin API
+                                  |
+                             Admin Console
+
+Trust boundaries:
+1. Internet -> Public Portal
+2. Public Portal/API Gateway -> internal services
+3. Student API -> reporting/storage
+4. General internal services -> administrative services
