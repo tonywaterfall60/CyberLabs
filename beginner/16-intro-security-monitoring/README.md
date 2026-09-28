@@ -22,6 +22,14 @@ Security monitoring is the bridge between “something happened” and “we not
 - explain false positives,
 - identify what evidence is missing.
 
+## Concepts
+
+Review the core terminology, evidence types, and security controls named in the learning objectives. Members should be able to explain each concept in plain language before using it in the challenge.
+
+## Guided Lab
+
+Work one representative example as a group. The event lead should ask what question is being answered, what evidence supports the answer, and what remains unknown.
+
 ## Challenge
 
 [challenge/README.md](challenge/README.md)
