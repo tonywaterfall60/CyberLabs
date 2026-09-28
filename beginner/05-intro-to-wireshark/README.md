@@ -210,3 +210,12 @@ rm -f beginner.pcap
 ## Next Event
 
 [Beginner 06 — Intro to Nmap](../06-intro-to-nmap/)
+
+
+---
+
+## Event Navigation
+- Previous: [04-command-line-workshop](../04-command-line-workshop/)
+- Track Home: [Beginner Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [06-intro-to-nmap](../06-intro-to-nmap/)
