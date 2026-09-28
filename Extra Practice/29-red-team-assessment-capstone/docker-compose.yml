@@ -1,0 +1,27 @@
+services:
+  portal:
+    build: ./portal
+    networks:
+      range:
+        ipv4_address: 172.28.29.10
+  api:
+    build: ./api
+    environment:
+      RED_CAPSTONE_FLAG: ${RED_CAPSTONE_FLAG:-FLAG_NOT_CONFIGURED}
+    networks:
+      range:
+        ipv4_address: 172.28.29.11
+  docs:
+    image: nginx:alpine
+    networks:
+      range:
+        ipv4_address: 172.28.29.12
+    volumes:
+      - ./docs:/usr/share/nginx/html:ro
+
+networks:
+  range:
+    name: ep29_range
+    ipam:
+      config:
+        - subnet: 172.28.29.0/28
