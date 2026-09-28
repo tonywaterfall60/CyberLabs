@@ -1,0 +1,5 @@
+09:14 email user=taylor attachment=BenefitsReview.docx
+09:18 endpoint host=WS-12 user=taylor process="WINWORD.EXE -> powershell.exe"
+09:19 network host=WS-12 dst=198.51.100.25 port=443
+09:22 auth user=taylor src=198.51.100.25 result=success
+09:24 app user=taylor action=export_contacts result=success
