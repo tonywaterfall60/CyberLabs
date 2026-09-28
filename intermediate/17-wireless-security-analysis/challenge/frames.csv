@@ -1,0 +1,7 @@
+ts,type,ssid,bssid,client,channel,security
+10:00:00,beacon,CyberLabs-Staff,02:11:22:33:44:10,,6,WPA2
+10:00:01,beacon,CyberLabs-Guest,02:11:22:33:44:20,,11,Open
+10:00:02,probe_request,CyberLabs-Staff,,02:aa:bb:cc:dd:01,,
+10:00:03,probe_response,CyberLabs-Staff,02:11:22:33:44:10,02:aa:bb:cc:dd:01,6,WPA2
+10:00:04,authentication,CyberLabs-Staff,02:11:22:33:44:10,02:aa:bb:cc:dd:01,6,WPA2
+10:00:05,association,CyberLabs-Staff,02:11:22:33:44:10,02:aa:bb:cc:dd:01,6,WPA2
