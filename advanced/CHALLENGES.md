@@ -44,6 +44,23 @@ Then:
 | 09 | Container Security | `advanced/09-container-security/challenge` | Dockerfile/Compose/image review | static review / safe image build |
 | 10 | Exploit Development Foundations | `advanced/10-exploit-development/challenge` | GDB, pwntools, checksec | `./build.sh` |
 | 11 | Red vs. Blue Capstone | `advanced/11-red-vs-blue-capstone` | Burp, JSON logs, Python detector | `docker compose up --build -d` |
+| 12 | API Exploitation & Authorization Testing | `advanced/12-api-exploitation-authorization-testing/challenge` | API transcript | none |
+| 13 | Advanced AD / Identity Attack Paths | `advanced/13-advanced-ad-identity-attack-paths/challenge` | relationship CSV | none |
+| 14 | Web Exploitation Chaining | `advanced/14-web-exploitation-chaining/challenge` | web finding chain | none |
+| 15 | SSRF & Internal Trust Boundaries | `advanced/15-ssrf-internal-trust-boundaries/challenge` | architecture + requests | none |
+| 16 | Pivoting & Segmented Networks | `advanced/16-pivoting-segmented-networks/challenge` | routing/reachability evidence | none |
+| 17 | Advanced Windows Internals | `advanced/17-advanced-windows-internals/challenge` | process/token/service evidence | none |
+| 18 | Memory Forensics Training Image | `advanced/18-memory-forensics-training-image/challenge` | Volatility-style evidence | none |
+| 19 | Reverse Engineering II | `advanced/19-reverse-engineering-ii/challenge` | disassembly + strings | none |
+| 20 | Exploit Mitigations Deep Dive | `advanced/20-exploit-mitigations-deep-dive/challenge` | mitigation comparison | none |
+| 21 | Threat Emulation & Detection Validation | `advanced/21-threat-emulation-detection-validation/challenge` | emulation JSONL | none |
+| 22 | SIEM Engineering | `advanced/22-siem-engineering/challenge` | JSONL/CSV schemas | none |
+| 23 | Advanced Cloud Identity | `advanced/23-advanced-cloud-identity/challenge` | identity/trust/audit JSON | none |
+| 24 | Kubernetes Security | `advanced/24-kubernetes-security/challenge` | Kubernetes YAML | none |
+| 25 | DevSecOps / Supply Chain II | `advanced/25-devsecops-supply-chain-ii/challenge` | workflow/SBOM/provenance | none |
+| 26 | Incident Command / Major Incident Response | `advanced/26-incident-command-major-incident-response/challenge` | timeline/status/roles | none |
+| 27 | Professional Penetration-Test Reporting | `advanced/27-professional-pentest-reporting/challenge` | raw findings + business context | none |
+| 28 | Threat Modeling / Architecture Review | `advanced/28-threat-modeling-architecture-review/challenge` | architecture/data flows | none |
 
 ---
 
