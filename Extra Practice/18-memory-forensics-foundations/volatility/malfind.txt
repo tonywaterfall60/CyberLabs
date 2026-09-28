@@ -1,0 +1,10 @@
+PID: 2388  Process: powershell.exe
+Region: 0x000001f400000000-0x000001f400001000
+Protection: PAGE_EXECUTE_READWRITE
+Bytes: 90 90 90 90 54 52 41 49 4e 49 4e 47
+Note: Synthetic executable/writable region for analysis practice.
+
+PID: 1880  Process: chrome.exe
+Region: 0x0000021000000000-0x0000021000001000
+Protection: PAGE_EXECUTE_READ
+Note: Example non-RWX executable region.
