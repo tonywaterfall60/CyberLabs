@@ -112,3 +112,11 @@ Remove the locally built audit image if desired. Do not start the intentionally 
 ## Next Event
 
 [Advanced 10 — Exploit Development Foundations](../10-exploit-development/)
+
+---
+
+## Event Navigation
+- Previous: [Cloud Security](../08-cloud-security/)
+- Track Home: [Advanced Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Exploit Development Foundations](../10-exploit-development/)
