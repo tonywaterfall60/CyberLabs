@@ -1,5 +1,16 @@
 # Intermediate 07 — Packet Analysis Challenge
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Intermediate |
+| Difficulty | Intermediate |
+| Estimated time | 75–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 06 — Windows Privilege Escalation Foundations |
+
+
 **Difficulty:** Intermediate  
 **Estimated time:** 90 minutes  
 **Prerequisites:** Beginner Wireshark + Intermediate 01–02  
