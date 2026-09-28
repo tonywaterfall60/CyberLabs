@@ -1,0 +1,8 @@
+PID   PPID  ImageFileName       Threads  Handles
+640   520   winlogon.exe        4        120
+912   640   explorer.exe        38       980
+1880  912   chrome.exe          44       1400
+2240  912   winword.exe         21       710
+2388  2240  powershell.exe      12       420
+2444  2388  cmd.exe             4        105
+2700  912   OneDrive.exe        18       520
