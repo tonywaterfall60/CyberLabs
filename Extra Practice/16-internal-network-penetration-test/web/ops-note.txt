@@ -1,0 +1,5 @@
+Northstar migration note
+API host: 172.28.16.11:5000
+Service header: X-Service-Token
+Temporary training token: ep16-training-service-token
+TODO: remove this note before production.
