@@ -1,11 +1,14 @@
 # Extra Practice 01 — Linux Incident Investigation
 
-**Difficulty:** Beginner → Intermediate  
-**Estimated time:** 60–90 minutes  
-**Environment:** Kali Linux  
-**Infrastructure:** generated local filesystem and synthetic logs  
-**Tools:** grep, find, sort, uniq, cut/awk, stat, sha256sum
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Beginner → Intermediate |
+| Estimated time | 60–90 minutes |
+| Environment | Kali Linux |
+| Infrastructure | Generated local filesystem and synthetic logs |
+| Tools | grep, find, sort, uniq, cut/awk, stat, sha256sum |
 ## Scenario
 
 You are assisting with a small internal Linux incident review.
@@ -25,7 +28,7 @@ Everything is synthetic and generated under:
 ~/cyberclub/extra-practice/linux-incident
 ~~~
 
-## Scope
+## Authorized Scope
 
 You may inspect only:
 
@@ -35,7 +38,9 @@ You may inspect only:
 
 Do not investigate the actual Kali system logs for this exercise.
 
-## Learning Objectives
+## Investigation / Tasks
+
+### Learning Objectives
 
 Practice:
 
@@ -66,7 +71,7 @@ cd ~/cyberclub/extra-practice/linux-incident
 find . -maxdepth 2 -type f -print
 ~~~
 
-## Evidence Layout
+### Evidence Layout
 
 The setup script creates:
 
@@ -83,7 +88,7 @@ linux-incident/
 └── case-info.txt
 ~~~
 
-## Investigation Tasks
+### Investigation Tasks
 
 ### Task 1 — Authentication Activity
 
@@ -159,7 +164,7 @@ Additional evidence requested
 Recommended remediation
 ~~~
 
-## Flag
+### Flag
 
 One evidence item contains an instructor-injected practice flag when the lab is prepared for an event.
 
