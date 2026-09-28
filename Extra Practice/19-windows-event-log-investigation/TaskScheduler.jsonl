@@ -1,0 +1,2 @@
+{"ts":"2026-09-25T17:02:05Z","channel":"TaskScheduler","event_id":106,"host":"WS-31","user":"morgan","task_name":"\\CyberLabs\\UpdateCheck","action":"registered","command":"powershell.exe -File C:\\Users\\morgan\\AppData\\Local\\Temp\\update-check.ps1","logon_id":"0xA31"}
+{"ts":"2026-09-25T17:08:00Z","channel":"TaskScheduler","event_id":200,"host":"WS-31","user":"SYSTEM","task_name":"\\CyberLabs\\Inventory","action":"started","command":"powershell.exe -File C:\\ProgramData\\CyberLabs\\inventory.ps1","logon_id":"SYSTEM"}
