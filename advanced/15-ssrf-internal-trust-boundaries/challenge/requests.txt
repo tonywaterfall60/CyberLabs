@@ -1,0 +1,8 @@
+GET /preview?url=http://internal-api:5001/health
+200 body={"status":"ok","docs":"/docs"}
+
+GET /preview?url=http://internal-api:5001/inventory
+200 body={"admin_service":"admin-service:5002","route":"/objective"}
+
+GET /preview?url=http://admin-service:5002/objective
+200 body={"objective":"TRAINING_ONLY"}
