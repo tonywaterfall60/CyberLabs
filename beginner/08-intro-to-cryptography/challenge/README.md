@@ -1,13 +1,29 @@
 # Challenge — Encoding, Hashing, and Integrity Case
 
-**Difficulty:** Beginner  
-**Estimated time:** 40–55 minutes
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Beginner |
+| Estimated time | 40–55 minutes |
+| Environment | Kali / Linux terminal |
+| Authorized scope | Generated crypto-challenge files only |
+| Goal | Distinguish encoding, hashing, and encryption while verifying file integrity |
 ## Scenario
 
 You received several small files from a training evidence package. Some values are encoded, some are hashes, and some files should be identical.
 
 Your job is to classify each operation correctly and verify integrity using basic Kali tools.
+
+## Authorized Scope
+
+Limit analysis and modification to the generated challenge files under:
+
+~~~text
+~/cyberclub/crypto-challenge/
+~~~
+
+Do not use real credentials or sensitive data.
 
 ## Setup
 
@@ -18,7 +34,9 @@ cd ~/cyberclub/crypto-challenge
 ls -l
 ~~~
 
-## Phase 1 — Base64
+## Objectives / Tasks
+
+### Phase 1 — Base64
 
 Inspect and decode:
 
@@ -40,7 +58,7 @@ Answer:
 - Does decoding require a secret key?
 - Is Base64 encryption?
 
-## Phase 2 — File Integrity
+### Phase 2 — File Integrity
 
 Hash:
 
@@ -58,7 +76,7 @@ sha256sum original.txt copy.txt modified.txt
 
 Determine which files are identical without relying only on filenames.
 
-## Phase 3 — Verify a Known Digest
+### Phase 3 — Verify a Known Digest
 
 Inspect:
 
@@ -75,7 +93,7 @@ Integrity verified? yes/no
 Evidence:
 ~~~
 
-## Phase 4 — Hash Identification
+### Phase 4 — Hash Identification
 
 Create:
 
@@ -88,7 +106,7 @@ Record the likely types reported.
 
 Explain why hashid is making a format guess rather than recovering the original input.
 
-## Phase 5 — Modify and Recheck
+### Phase 5 — Modify and Recheck
 
 Append a line to `copy.txt`:
 
@@ -100,7 +118,7 @@ Hash it again.
 
 Explain why even a small content change produces a different digest.
 
-## Phase 6 — Classify the Concepts
+### Phase 6 — Classify the Concepts
 
 Classify each as encoding, hashing, symmetric encryption, or asymmetric encryption:
 
