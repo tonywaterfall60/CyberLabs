@@ -1,13 +1,29 @@
 # Challenge — Build a Multi-Source Analyst Parser
 
-**Difficulty:** Intermediate  
-**Estimated time:** 75–105 minutes
+## Challenge Snapshot
 
-## Goal
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate |
+| Estimated time | 75–105 minutes |
+| Environment | Kali + Python 3 + local logs |
+| Authorized scope | auth.log, app.log, and parser.py in this challenge |
+| Goal | Build a reusable parser for multi-source analyst summaries |
+## Scenario
 
 Complete a Python script that turns local authentication and application logs into a useful analyst summary.
 
-## Files
+## Authorized Scope
+
+Work only with the local challenge files. Do not add network activity or real log sources.
+
+## Setup
+
+No service startup is required. Python 3 is sufficient.
+
+## Objectives / Tasks
+
+### Files
 
 ~~~text
 auth.log
@@ -15,7 +31,7 @@ app.log
 parser.py
 ~~~
 
-## Requirements
+### Requirements
 
 Your script should:
 
@@ -27,13 +43,13 @@ Your script should:
 6. correlate successful sessions with application actions,
 7. print a short summary.
 
-## Phase 1 — Understand the Input
+### Phase 1 — Understand the Input
 
 Before coding, inspect both logs and write down their schemas.
 
 Identify shared correlation fields.
 
-## Phase 2 — Complete the Parser
+### Phase 2 — Complete the Parser
 
 Run:
 
@@ -43,7 +59,7 @@ python3 parser.py auth.log app.log
 
 Do not hard-code usernames, sources, or session IDs.
 
-## Phase 3 — Error Handling
+### Phase 3 — Error Handling
 
 Your script should tolerate:
 
@@ -52,7 +68,7 @@ Your script should tolerate:
 - lines without a session value,
 - extra whitespace.
 
-## Phase 4 — Output
+### Phase 4 — Output
 
 Default output should show:
 
@@ -64,7 +80,7 @@ Most common failed source
 Application actions per successful session
 ~~~
 
-## Stretch Goals
+### Stretch Goals
 
 - `--user <name>` filter
 - `--json` output
@@ -82,3 +98,7 @@ Submit:
 - one limitation of the script.
 
 Do not add network activity; this challenge is local file analysis only.
+
+## Cleanup
+
+No cleanup is required unless you created extra local output files.
