@@ -21,6 +21,14 @@ This event deepens Windows knowledge from endpoint orientation into services, sc
 - recognize useful Security/Sysmon/PowerShell telemetry,
 - separate configuration weakness from observed abuse.
 
+## Concepts
+
+Review the protocol, platform, evidence, and control relationships named in the learning objectives. The emphasis is on understanding why a tool or data source answers a specific security question.
+
+## Guided Lab
+
+Work through one representative finding together, including tool/evidence selection, manual validation, interpretation, and remediation.
+
 ## Challenge
 
 [challenge/README.md](challenge/README.md)
