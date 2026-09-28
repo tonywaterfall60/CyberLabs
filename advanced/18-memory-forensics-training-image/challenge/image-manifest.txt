@@ -1,0 +1,5 @@
+Case: ADV18-MEM
+Host: WS-44
+Acquisition: 2026-09-28T18:00:00Z
+Profile/OS: Windows 11 x64 training image
+Repository note: full memory image is not committed; instructor may provide one separately.
