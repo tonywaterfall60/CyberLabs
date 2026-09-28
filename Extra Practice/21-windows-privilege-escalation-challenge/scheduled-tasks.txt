@@ -1,0 +1,7 @@
+Task=DailyReport
+RunAs=SYSTEM
+Action=powershell.exe -File C:\Scripts\daily-report.ps1
+
+Task=Inventory
+RunAs=SYSTEM
+Action=C:\Program Files\Inventory\agent.exe
