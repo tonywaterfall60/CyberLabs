@@ -1,13 +1,29 @@
 # Challenge — Small Evidence Investigation
 
-**Difficulty:** Beginner  
-**Estimated time:** 45–60 minutes
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Beginner |
+| Estimated time | 45–60 minutes |
+| Environment | Kali / Linux terminal |
+| Authorized scope | Generated forensics-challenge evidence package only |
+| Goal | Preserve, identify, hash, and interpret a small evidence set |
 ## Scenario
 
 You received a small evidence package from a fictional workstation review.
 
 Your job is to preserve the evidence, identify misleading filenames, inspect metadata, compare hashes, and document what you can actually support from the files.
+
+## Authorized Scope
+
+Limit analysis to:
+
+~~~text
+~/cyberclub/forensics-challenge/
+~~~
+
+Do not substitute real personal files or production evidence.
 
 ## Setup
 
@@ -17,7 +33,9 @@ chmod +x setup.sh reset.sh
 cd ~/cyberclub/forensics-challenge
 ~~~
 
-## Evidence Layout
+## Objectives / Tasks
+
+### Evidence Layout
 
 ~~~text
 forensics-challenge/
@@ -30,14 +48,14 @@ forensics-challenge/
 └── evidence-manifest.sha256
 ~~~
 
-## Rules
+### Rules
 
 - Do not modify anything in `evidence/` until original hashes are recorded.
 - Work from `working-copy.txt` when instructed.
 - Record the commands you use.
 - Do not claim a file is what its extension says; verify it.
 
-## Phase 1 — Inventory and Integrity
+### Phase 1 — Inventory and Integrity
 
 List the evidence:
 
@@ -53,7 +71,7 @@ sha256sum -c evidence-manifest.sha256
 
 Explain what a successful check means.
 
-## Phase 2 — File Type
+### Phase 2 — File Type
 
 Use:
 
@@ -63,7 +81,7 @@ file evidence/*
 
 Identify any file whose extension is misleading.
 
-## Phase 3 — Metadata
+### Phase 3 — Metadata
 
 Use `stat` on at least two files.
 
@@ -78,7 +96,7 @@ Owner
 
 Then use `exiftool` on at least two items and compare what information it provides.
 
-## Phase 4 — Strings
+### Phase 4 — Strings
 
 Use `strings` on:
 
@@ -91,7 +109,7 @@ Record useful printable text.
 
 Explain why printable strings are clues, not proof of the entire file's purpose.
 
-## Phase 5 — Working Copy
+### Phase 5 — Working Copy
 
 Compare:
 
@@ -109,7 +127,7 @@ Recalculate its hash.
 
 Explain what the changed digest demonstrates.
 
-## Phase 6 — Evidence Worksheet
+### Phase 6 — Evidence Worksheet
 
 For each item complete:
 
