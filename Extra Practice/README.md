@@ -106,6 +106,20 @@ Good choices for members interested in enumeration, attack paths, web testing, a
 | [14 — Multi-Host Cyber Range Investigation](14-multi-host-cyber-range/) | multi-host enumeration and prioritization |
 | [15 — Wireless Security Analysis](15-wireless-security-analysis/) | offline wireless reconnaissance/analysis |
 | [16 — Internal Network Penetration Test](16-internal-network-penetration-test/) | scoped internal assessment and attack path |
+| [20 — Linux Privilege Escalation Challenge](20-linux-privilege-escalation-challenge/) | Linux privilege-boundary analysis |
+| [21 — Windows Privilege Escalation Challenge](21-windows-privilege-escalation-challenge/) | Windows privilege-boundary analysis |
+| [22 — API Exploitation Lab](22-api-exploitation-lab/) | API authorization and workflow weaknesses |
+| [23 — SSRF and Internal Service Discovery](23-ssrf-internal-service-discovery/) | server-side fetch and internal trust |
+| [24 — Web Exploitation Chain](24-web-exploitation-chain/) | multi-step web attack path |
+| [25 — Credential Attack Lab](25-credential-attack-lab/) | controlled credential auditing |
+| [26 — Active Directory Red-Team Range](26-active-directory-red-team-range/) | identity-path analysis |
+| [28 — Pivoting and Lateral Movement Range](28-pivoting-lateral-movement-range/) | segmented-network reachability |
+| [29 — Red-Team Assessment Capstone](29-red-team-assessment-capstone/) | end-to-end scoped assessment |
+| [31 — File Upload Security Challenge](31-file-upload-security-challenge/) | upload validation and storage |
+| [32 — Path Traversal / LFI Investigation](32-path-traversal-lfi-investigation/) | path handling |
+| [33 — Command Injection Lab](33-command-injection-lab/) | safe local command-injection analysis |
+| [34 — SQL Injection Deep Dive](34-sql-injection-deep-dive/) | SQL injection analysis |
+| [35 — Purple-Team Operator Challenge](35-purple-team-operator-challenge/) | adversary emulation + detection |
 
 Related main-track material:
 
@@ -130,6 +144,9 @@ Good choices for members interested in alert triage, correlation, detection, and
 | [11 — Full Incident Response Case](11-full-incident-response-case/) | multi-source incident analysis |
 | [15 — Wireless Security Analysis](15-wireless-security-analysis/) | wireless monitoring concepts |
 | [19 — Windows Event Log Investigation](19-windows-event-log-investigation/) | Windows telemetry correlation |
+| [27 — Vulnerability Management / Triage](27-vulnerability-management-triage/) | validation and remediation prioritization |
+| [30 — SOC Shift Challenge](30-soc-shift-challenge/) | alert triage, escalation, handoff |
+| [35 — Purple-Team Operator Challenge](35-purple-team-operator-challenge/) | detection validation against controlled actions |
 
 Related main-track material:
 
@@ -154,6 +171,7 @@ Good choices for members interested in evidence preservation, timelines, host/ne
 | [17 — Email / Phishing Forensics](17-email-phishing-forensics/) | raw-message and delivery-path analysis |
 | [18 — Memory Forensics Foundations](18-memory-forensics-foundations/) | Volatility-style memory evidence |
 | [19 — Windows Event Log Investigation](19-windows-event-log-investigation/) | Windows forensic telemetry |
+| [30 — SOC Shift Challenge](30-soc-shift-challenge/) | multi-alert triage and investigation |
 
 Related main-track material:
 
@@ -211,6 +229,8 @@ Good choices for members who want deeper network-analysis and service-enumeratio
 | [14 — Multi-Host Cyber Range Investigation](14-multi-host-cyber-range/) | multi-host network mapping |
 | [15 — Wireless Security Analysis](15-wireless-security-analysis/) | synthetic 802.11 analysis |
 | [16 — Internal Network Penetration Test](16-internal-network-penetration-test/) | isolated subnet assessment |
+| [28 — Pivoting and Lateral Movement Range](28-pivoting-lateral-movement-range/) | segmented network path analysis |
+| [29 — Red-Team Assessment Capstone](29-red-team-assessment-capstone/) | multi-host assessment |
 
 ---
 
@@ -224,6 +244,9 @@ Use these when you want a scenario that combines multiple skills.
 | [11 — Full Incident Response Case](11-full-incident-response-case/) | identity + endpoint + network + app |
 | [14 — Multi-Host Cyber Range Investigation](14-multi-host-cyber-range/) | network + services + evidence |
 | [16 — Internal Network Penetration Test](16-internal-network-penetration-test/) | enumeration + web + attack path + reporting |
+| [29 — Red-Team Assessment Capstone](29-red-team-assessment-capstone/) | discovery + attack path + reporting |
+| [30 — SOC Shift Challenge](30-soc-shift-challenge/) | triage + correlation + handoff |
+| [35 — Purple-Team Operator Challenge](35-purple-team-operator-challenge/) | emulation + telemetry + detection + remediation |
 
 ---
 
@@ -253,6 +276,10 @@ These are good bridges into more independent investigation:
 - [16 — Internal Network Penetration Test](16-internal-network-penetration-test/)
 - [17 — Email / Phishing Forensics](17-email-phishing-forensics/)
 - [19 — Windows Event Log Investigation](19-windows-event-log-investigation/)
+- [25 — Credential Attack Lab](25-credential-attack-lab/)
+- [27 — Vulnerability Management / Triage](27-vulnerability-management-triage/)
+- [31 — File Upload Security Challenge](31-file-upload-security-challenge/)
+- [32 — Path Traversal / LFI Investigation](32-path-traversal-lfi-investigation/)
 
 ## Advanced
 
@@ -267,6 +294,18 @@ These expect stronger methodology, evidence reasoning, and independence:
 - [13 — DevSecOps Pipeline Review](13-devsecops-pipeline-review/)
 - [14 — Multi-Host Cyber Range Investigation](14-multi-host-cyber-range/)
 - [18 — Memory Forensics Foundations](18-memory-forensics-foundations/)
+- [20 — Linux Privilege Escalation Challenge](20-linux-privilege-escalation-challenge/)
+- [21 — Windows Privilege Escalation Challenge](21-windows-privilege-escalation-challenge/)
+- [22 — API Exploitation Lab](22-api-exploitation-lab/)
+- [23 — SSRF and Internal Service Discovery](23-ssrf-internal-service-discovery/)
+- [24 — Web Exploitation Chain](24-web-exploitation-chain/)
+- [26 — Active Directory Red-Team Range](26-active-directory-red-team-range/)
+- [28 — Pivoting and Lateral Movement Range](28-pivoting-lateral-movement-range/)
+- [29 — Red-Team Assessment Capstone](29-red-team-assessment-capstone/)
+- [30 — SOC Shift Challenge](30-soc-shift-challenge/)
+- [33 — Command Injection Lab](33-command-injection-lab/)
+- [34 — SQL Injection Deep Dive](34-sql-injection-deep-dive/)
+- [35 — Purple-Team Operator Challenge](35-purple-team-operator-challenge/)
 
 ---
 
