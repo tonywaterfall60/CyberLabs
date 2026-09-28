@@ -1,0 +1,2 @@
+{"ts":"2026-09-25T17:01:23Z","channel":"PowerShell","event_id":4104,"host":"WS-31","user":"morgan","pid":4220,"script_block_id":"SB-91","script_text":"# training decoded marker: TrainingOnly","logon_id":"0xA31"}
+{"ts":"2026-09-25T17:08:01Z","channel":"PowerShell","event_id":4104,"host":"WS-31","user":"morgan","pid":4500,"script_block_id":"SB-92","script_text":"Get-ComputerInfo | Out-File C:\\ProgramData\\CyberLabs\\inventory.txt","logon_id":"0xA31"}
