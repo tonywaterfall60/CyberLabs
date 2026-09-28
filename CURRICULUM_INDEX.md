@@ -55,6 +55,16 @@ For future plans, use [ROADMAP.md](ROADMAP.md).
 | 11 | [Intro to Reverse Engineering](intermediate/11-intro-to-reverse-engineering/) | ELF inspection, static/dynamic analysis |
 | 12 | [Intermediate CTF](intermediate/12-intermediate-ctf/) | cross-topic practical capstone |
 | 13 | [Advanced Capstone Prep](intermediate/13-advanced-capstone-prep/) | Advanced-readiness assessment |
+| 14 | [Windows Security Fundamentals](intermediate/14-windows-security-fundamentals/) | Windows services, tasks, ACLs, telemetry |
+| 15 | [HTTP Deep Dive](intermediate/15-http-deep-dive/) | methods, redirects, cookies, caching, CORS |
+| 16 | [API Security Fundamentals](intermediate/16-api-security-fundamentals/) | JSON APIs, tokens, object authorization |
+| 17 | [Wireless Security Analysis](intermediate/17-wireless-security-analysis/) | management frames and client behavior |
+| 18 | [Vulnerability Assessment Fundamentals](intermediate/18-vulnerability-assessment-fundamentals/) | scanner validation and prioritization |
+| 19 | [Intro to Active Directory](intermediate/19-intro-active-directory/) | users, groups, SPNs, nesting |
+| 20 | [Container Fundamentals for Security](intermediate/20-container-fundamentals-security/) | images, ports, volumes, users, secrets |
+| 21 | [Cloud Security Fundamentals](intermediate/21-cloud-security-fundamentals/) | IAM, storage, network, audit |
+| 22 | [Intro to Detection Engineering](intermediate/22-intro-detection-engineering/) | fields, logic, testing, false positives |
+| 23 | [Git for Security / Secrets](intermediate/23-git-security-secrets/) | Git history and secret exposure |
 
 ---
 
@@ -107,6 +117,22 @@ For future plans, use [ROADMAP.md](ROADMAP.md).
 | 17 | [Email / Phishing Forensics](Extra%20Practice/17-email-phishing-forensics/) | Intermediate → Advanced | raw email, SPF/DKIM/DMARC, URL analysis |
 | 18 | [Memory Forensics Foundations](Extra%20Practice/18-memory-forensics-foundations/) | Advanced | Volatility-style process/network/memory evidence |
 | 19 | [Windows Event Log Investigation](Extra%20Practice/19-windows-event-log-investigation/) | Intermediate → Advanced | Security, Sysmon, PowerShell, task correlation |
+| 20 | [Linux Privilege Escalation Challenge](Extra%20Practice/20-linux-privilege-escalation-challenge/) | Advanced | Linux privilege-boundary analysis |
+| 21 | [Windows Privilege Escalation Challenge](Extra%20Practice/21-windows-privilege-escalation-challenge/) | Advanced | Windows services/tasks/ACLs |
+| 22 | [API Exploitation Lab](Extra%20Practice/22-api-exploitation-lab/) | Advanced | BOLA, mass assignment, token scope |
+| 23 | [SSRF and Internal Service Discovery](Extra%20Practice/23-ssrf-internal-service-discovery/) | Advanced | SSRF and internal trust boundaries |
+| 24 | [Web Exploitation Chain](Extra%20Practice/24-web-exploitation-chain/) | Advanced | chained information exposure and authorization |
+| 25 | [Credential Attack Lab](Extra%20Practice/25-credential-attack-lab/) | Intermediate → Advanced | password auditing and rate controls |
+| 26 | [Active Directory Red-Team Range](Extra%20Practice/26-active-directory-red-team-range/) | Advanced | AD graph/session/delegation paths |
+| 27 | [Vulnerability Management / Triage](Extra%20Practice/27-vulnerability-management-triage/) | Intermediate → Advanced | scanner validation and risk prioritization |
+| 28 | [Pivoting and Lateral Movement Range](Extra%20Practice/28-pivoting-lateral-movement-range/) | Advanced | SSH pivoting and segmentation |
+| 29 | [Red-Team Assessment Capstone](Extra%20Practice/29-red-team-assessment-capstone/) | Advanced Capstone | end-to-end assessment and reporting |
+| 30 | [SOC Shift Challenge](Extra%20Practice/30-soc-shift-challenge/) | Advanced | alert triage, correlation, handoff |
+| 31 | [File Upload Security Challenge](Extra%20Practice/31-file-upload-security-challenge/) | Intermediate → Advanced | upload validation and storage |
+| 32 | [Path Traversal / LFI Investigation](Extra%20Practice/32-path-traversal-lfi-investigation/) | Intermediate → Advanced | path normalization and traversal |
+| 33 | [Command Injection Lab](Extra%20Practice/33-command-injection-lab/) | Advanced | command injection and secure subprocess design |
+| 34 | [SQL Injection Deep Dive](Extra%20Practice/34-sql-injection-deep-dive/) | Advanced | UNION/boolean SQL injection |
+| 35 | [Purple-Team Operator Challenge](Extra%20Practice/35-purple-team-operator-challenge/) | Advanced Capstone | emulation, telemetry, detection |
 
 Future Extra Practice labs are tracked separately in:
 
