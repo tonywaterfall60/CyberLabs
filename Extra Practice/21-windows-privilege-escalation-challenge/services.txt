@@ -1,0 +1,7 @@
+Name=NorthstarUpdater
+RunAs=LocalSystem
+ImagePath=C:\Program Files\Northstar\updater.exe
+
+Name=InventoryAgent
+RunAs=LocalService
+ImagePath=C:\Program Files\Inventory\agent.exe
