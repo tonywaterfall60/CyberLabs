@@ -42,6 +42,12 @@ Enter the event, read its instructions, and only then start the challenge.
 | 09 | Intro to Digital Forensics | `beginner/09-intro-to-digital-forensics/challenge` | file, strings, stat, exiftool | `./setup.sh` |
 | 10 | Beginner CTF | `beginner/10-beginner-ctf` | multiple tools | `./setup.sh && docker compose up -d` |
 | 11 | Capstone Interview Prep | `beginner/11-capstone-interview-prep` | readiness workbook | none |
+| 12 | Lab Safety & Scoping | `beginner/12-lab-safety-and-scoping/challenge` | scope cards | none |
+| 13 | Windows Fundamentals | `beginner/13-windows-fundamentals/challenge` | Windows evidence | none |
+| 14 | Identity & Access Basics | `beginner/14-identity-access-basics/challenge` | identity/session logs | none |
+| 15 | Intro to Wireless Security | `beginner/15-intro-wireless-security/challenge` | synthetic wireless observations | none |
+| 16 | Intro to Security Monitoring | `beginner/16-intro-security-monitoring/challenge` | alert/event log | none |
+| 17 | Basic Incident Response | `beginner/17-basic-incident-response/challenge` | incident case evidence | none |
 
 ---
 
