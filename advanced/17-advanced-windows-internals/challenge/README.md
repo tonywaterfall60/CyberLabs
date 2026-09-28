@@ -10,6 +10,18 @@
 | Authorized scope | internals.txt |
 | Goal | Correlate process ancestry, tokens, integrity, and service context |
 
+## Scenario
+
+A fictional Windows endpoint export contains process, token, integrity, and service context that must be correlated.
+
+## Authorized Scope
+
+Use only internals.txt. No live Windows endpoint is authorized or required.
+
+## Setup
+
+No setup is required.
+
 ## Investigation / Tasks
 
 Identify:
