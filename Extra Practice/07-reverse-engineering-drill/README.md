@@ -9,6 +9,7 @@
 | Environment | Kali Linux |
 | Infrastructure | Precompiled stripped x86-64 ELF decoded locally from a repository artifact |
 | Tools | file, sha256sum, strings, readelf, objdump, checksec, GDB, rabin2/radare2; optional Ghidra |
+
 ## Scenario
 
 A small access-validation utility was recovered from a training system.
@@ -29,7 +30,7 @@ Authorized artifact:
 
 Do not use the workflow against unrelated software.
 
-### Setup
+## Setup
 
 Use the provided setup script to decode the local challenge artifact.
 
@@ -41,7 +42,7 @@ The repository contains access-validator.b64. The setup script decodes it into t
 
 Treat the decoded ELF as the challenge artifact.
 
-## Setup
+### Decode the Artifact
 
 ~~~bash
 chmod +x setup.sh reset.sh
