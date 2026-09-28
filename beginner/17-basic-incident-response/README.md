@@ -34,6 +34,10 @@ Recover
 Lessons learned
 ~~~
 
+## Guided Lab
+
+Work one representative example as a group. The event lead should ask what question is being answered, what evidence supports the answer, and what remains unknown.
+
 ## Challenge
 
 [challenge/README.md](challenge/README.md)
