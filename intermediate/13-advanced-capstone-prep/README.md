@@ -340,4 +340,4 @@ advanced/01-advanced-web-security
 - Previous: [Intermediate CTF](../12-intermediate-ctf/)
 - Track Home: [Intermediate Track](../README.md)
 - Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
-- Next: [Advanced Track](../../advanced/README.md)
+- Next: [Windows Security Fundamentals](../14-windows-security-fundamentals/)
