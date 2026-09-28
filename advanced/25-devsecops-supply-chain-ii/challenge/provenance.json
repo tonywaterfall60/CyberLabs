@@ -1,0 +1,6 @@
+{
+  "artifact_digest":"sha256:bbbb2222",
+  "source_commit":"7f7f7f7",
+  "builder":"ci-runner-03",
+  "signed":false
+}
