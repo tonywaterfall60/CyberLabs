@@ -1,5 +1,16 @@
 # Intermediate 08 — Log Analysis
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Intermediate |
+| Difficulty | Intermediate |
+| Estimated time | 75–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 07 — Packet Analysis Challenge |
+
+
 **Difficulty:** Intermediate  
 **Estimated time:** 90 minutes  
 **Prerequisites:** Command Line Workshop + Intermediate 07  
