@@ -1,0 +1,7 @@
+user,type
+alex,human
+jamie,human
+carol,human
+svc_web,service
+svc_backup,service
+svc_reports,service
