@@ -237,7 +237,7 @@ The challenge has its own reset script.
 ---
 
 ## Event Navigation
-- Previous: [01-intro-to-cybersecurity](../01-intro-to-cybersecurity/)
+- Previous: [Intro to Cybersecurity](../01-intro-to-cybersecurity/)
 - Track Home: [Beginner Track](../README.md)
 - Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
-- Next: [03-networking-fundamentals](../03-networking-fundamentals/)
+- Next: [Networking Fundamentals](../03-networking-fundamentals/)
