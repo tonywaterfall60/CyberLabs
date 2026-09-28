@@ -1,0 +1,3 @@
+account,spn
+svc_web,HTTP/web01.training.local
+svc_backup,BACKUP/app01.training.local
