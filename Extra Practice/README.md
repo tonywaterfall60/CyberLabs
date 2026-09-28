@@ -66,8 +66,24 @@ This numbered catalog is the canonical Extra Practice list.
 | 17 | [Email / Phishing Forensics](17-email-phishing-forensics/) | Intermediate → Advanced | raw email headers, SPF/DKIM/DMARC, URL analysis, timelines | fictional .eml evidence package |
 | 18 | [Memory Forensics Foundations](18-memory-forensics-foundations/) | Advanced | process trees, netscan, cmdline, filescan, malfind reasoning | synthetic Volatility-style exports |
 | 19 | [Windows Event Log Investigation](19-windows-event-log-investigation/) | Intermediate → Advanced | Security, Sysmon, PowerShell, Task Scheduler correlation | synthetic JSONL event exports |
+| 20 | [Linux Privilege Escalation Challenge](20-linux-privilege-escalation-challenge/) | Advanced | sudo/cron/permissions, privilege-boundary reasoning | static Linux evidence |
+| 21 | [Windows Privilege Escalation Challenge](21-windows-privilege-escalation-challenge/) | Advanced | services, tasks, ACLs, startup analysis | static Windows evidence |
+| 22 | [API Exploitation Lab](22-api-exploitation-lab/) | Advanced | BOLA, mass assignment, token scope | local Flask API |
+| 23 | [SSRF and Internal Service Discovery](23-ssrf-internal-service-discovery/) | Advanced | SSRF, trust boundaries, internal service mapping | multi-container range |
+| 24 | [Web Exploitation Chain](24-web-exploitation-chain/) | Advanced | information disclosure + authz chaining | local Flask app |
+| 25 | [Credential Attack Lab](25-credential-attack-lab/) | Intermediate → Advanced | password auditing, rate limits, spray reasoning | toy hashes + local simulator |
+| 26 | [Active Directory Red-Team Range](26-active-directory-red-team-range/) | Advanced | AD graph paths, sessions, delegation | fictional AD exports |
+| 27 | [Vulnerability Management / Triage](27-vulnerability-management-triage/) | Intermediate → Advanced | scanner validation, risk prioritization | scanner + asset evidence |
+| 28 | [Pivoting and Lateral Movement Range](28-pivoting-lateral-movement-range/) | Advanced | SSH SOCKS pivoting, segmented networks | dual-network Docker range |
+| 29 | [Red-Team Assessment Capstone](29-red-team-assessment-capstone/) | Advanced Capstone | full scoped assessment + reporting | isolated multi-host range |
+| 30 | [SOC Shift Challenge](30-soc-shift-challenge/) | Advanced | alert triage, correlation, handoff | synthetic SOC queue |
+| 31 | [File Upload Security Challenge](31-file-upload-security-challenge/) | Intermediate → Advanced | upload validation, storage, serving | local upload app |
+| 32 | [Path Traversal / LFI Investigation](32-path-traversal-lfi-investigation/) | Intermediate → Advanced | path normalization, bounded traversal | local document viewer |
+| 33 | [Command Injection Lab](33-command-injection-lab/) | Advanced | shell injection, secure subprocess design | isolated diagnostics app |
+| 34 | [SQL Injection Deep Dive](34-sql-injection-deep-dive/) | Advanced | UNION, boolean oracle, parameterization | local Flask + SQLite |
+| 35 | [Purple-Team Operator Challenge](35-purple-team-operator-challenge/) | Advanced Capstone | adversary emulation + telemetry + detection | local app + JSONL logs |
 
-Planned labs are tracked separately in:
+Expansion history and build status are tracked in:
 
 [EXPANSION_ROADMAP.md](EXPANSION_ROADMAP.md)
 
