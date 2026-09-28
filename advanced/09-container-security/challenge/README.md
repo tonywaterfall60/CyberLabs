@@ -1,9 +1,27 @@
 # Challenge — Container Security Audit and Hardening Review
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes
+## Challenge Snapshot
 
-## Files
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali + Docker + static Dockerfile/Compose review |
+| Authorized scope | Files and locally built audit image in this challenge |
+| Goal | Identify build/image/runtime/host-boundary risks and compare hardening controls |
+## Authorized Scope
+
+Review only the provided challenge definitions and the locally built training image.
+
+Do **not** run `compose.insecure.yml`.
+
+## Setup
+
+No insecure runtime should be started. Building the standalone image for inspection is allowed.
+
+## Objectives / Tasks
+
+### Files
 
 ~~~text
 Dockerfile.insecure
@@ -13,13 +31,13 @@ compose.hardened.example.yml
 AUDIT_WORKSHEET.md
 ~~~
 
-## Safety
+### Safety
 
 Do **not** run `compose.insecure.yml`.
 
 It intentionally includes host-level settings that are unsafe for a training workstation.
 
-## Phase 1 — Build-Time Review
+### Phase 1 — Build-Time Review
 
 Inspect `Dockerfile.insecure`.
 
@@ -31,7 +49,7 @@ Identify:
 - image/layer persistence concerns,
 - unnecessary metadata/exposure.
 
-## Phase 2 — Safe Image Inspection
+### Phase 2 — Safe Image Inspection
 
 Building the image itself is safe:
 
@@ -43,7 +61,7 @@ docker inspect cyberlabs-container-audit
 
 Determine whether embedded values are visible in image configuration/history.
 
-## Phase 3 — Static Runtime Review
+### Phase 3 — Static Runtime Review
 
 Review `compose.insecure.yml` only as text.
 
@@ -58,7 +76,7 @@ plaintext ADMIN_PASSWORD
 
 Explain how each changes the container/host trust boundary.
 
-## Phase 4 — Hardened Comparison
+### Phase 4 — Hardened Comparison
 
 Compare against the provided hardened examples.
 
@@ -68,7 +86,7 @@ Create a table:
 Risk | Insecure setting | Hardened setting | Why it matters | Residual risk
 ~~~
 
-## Phase 5 — Runtime-Control Reasoning
+### Phase 5 — Runtime-Control Reasoning
 
 For each hardened setting explain whether it primarily affects:
 
@@ -79,7 +97,7 @@ runtime
 host boundary
 ~~~
 
-## Phase 6 — Scanner Validation
+### Phase 6 — Scanner Validation
 
 If Trivy is available:
 
@@ -91,7 +109,7 @@ Pick two scanner findings and manually verify whether they are relevant to this 
 
 Do not equate CVE count with risk.
 
-## Phase 7 — Residual Risk
+### Phase 7 — Residual Risk
 
 Even after hardening, discuss:
 
