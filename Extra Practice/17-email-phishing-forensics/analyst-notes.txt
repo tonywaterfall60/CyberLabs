@@ -1,0 +1,5 @@
+Fictional case notes
+User account: taylor@example.edu
+Known newsletter vendor: updates.northstar.example
+Known identity domain: example.edu
+No real domains or addresses in this lab should be contacted.
