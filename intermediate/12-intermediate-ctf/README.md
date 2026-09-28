@@ -161,3 +161,11 @@ docker compose down
 ./reset.sh
 rm -f intermediate-ctf.pcap
 ~~~
+
+---
+
+## Event Navigation
+- Previous: [Intro to Reverse Engineering](../11-intro-to-reverse-engineering/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Advanced Capstone Prep](../13-advanced-capstone-prep/)
