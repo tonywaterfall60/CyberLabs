@@ -2,172 +2,238 @@
 
 Hands-on cybersecurity curriculum for the **SRU Cyber Club**.
 
-CyberLabs is designed as a practical learning environment where members progress from foundational cybersecurity concepts into structured enumeration, analysis, automation, reverse engineering, and advanced security exercises.
+CyberLabs is organized into four student-facing areas:
 
-The repository is organized into three tracks:
+- **Beginner** — guided foundations and first technical labs
+- **Intermediate** — structured analysis, enumeration, automation, and multi-step problem solving
+- **Advanced** — independent investigation, controlled exploitation, enterprise/security engineering, and red/blue work
+- **Extra Practice** — optional self-contained labs for repetition, specialization, and independent practice
 
-- **Beginner** — core cybersecurity, Linux, networking, Wireshark, Nmap, web fundamentals, cryptography, and digital forensics
-- **Intermediate** — enumeration, Burp Suite, OWASP concepts, password security, privilege-escalation analysis, packet/log analysis, OSINT, Python, and reverse engineering
-- **Advanced** — advanced web security, binary analysis, enterprise environments, detection engineering, threat hunting, and red/blue exercises
-- **Extra Practice** — optional self-contained labs for repetition, remediation, and open-lab practice
+---
+
+## Start Here
+
+### New to CyberLabs?
+
+Start with:
+
+[Beginner Track](beginner/README.md)
+
+### Finished Beginner?
+
+Continue with:
+
+[Intermediate Track](intermediate/README.md)
+
+### Ready for independent advanced work?
+
+Continue with:
+
+[Advanced Track](advanced/README.md)
+
+### Want optional practice?
+
+Browse:
+
+[Extra Practice](Extra%20Practice/README.md)
+
+### Want to see every current lab in one place?
+
+Use:
+
+[Curriculum Index](CURRICULUM_INDEX.md)
+
+### Need setup help or references?
+
+Use:
+
+[Resources](resources/README.md)
 
 ---
 
 ## Quick Start
 
-CyberLabs is intended to be used from a Kali Linux VM whenever possible.
+CyberLabs is designed primarily around a Kali Linux VM.
 
-Clone the repository once:
+Clone once:
 
-```bash
+~~~bash
 git clone https://github.com/tonywaterfall60/CyberLabs.git
 cd CyberLabs
-```
+~~~
 
-Before each club event:
+Before a club event:
 
-```bash
+~~~bash
 git pull
-```
+~~~
 
-Then enter the event directory:
+Then enter the assigned event and read its README:
 
-```bash
+~~~bash
 cd beginner/06-intro-to-nmap
 cat README.md
-```
+~~~
 
-or:
+For Docker-based labs, complete the setup guide first:
 
-```bash
-cd intermediate/02-web-enumeration/challenge
-cat README.md
-```
+[Docker Setup](resources/DOCKER_SETUP.md)
 
 ---
 
-## Recommended Kali Environment
+## Repository Map
 
-Most club exercises are designed around tools commonly available in Kali Linux.
-
-Frequently used tools include:
-
-| Area | Tools |
-|---|---|
-| Linux / CLI | bash, grep, find, awk, sed, cut |
-| Networking | ip, ss, ping, dig, traceroute |
-| Enumeration | Nmap, Netcat, curl |
-| Web | Burp Suite, Gobuster, ffuf, Nikto, curl |
-| Packet Analysis | Wireshark, tcpdump, tshark |
-| Password Security | hashid, hashcat, John the Ripper |
-| OSINT | dig, whois, metadata tools |
-| Reverse Engineering | file, strings, readelf, objdump, GDB, radare2/Ghidra |
-| Scripting | Python 3 |
-
-Not every event uses every tool. The goal is to introduce tools when they support the learning objective.
-
-For a track-by-track tool reference, see [resources/KALI_TOOLS.md](resources/KALI_TOOLS.md).
-
-For optional independent practice, see [Extra Practice/README.md](Extra%20Practice/README.md).
-
-Docker is not guaranteed to be installed in Kali. Before running Docker-based challenges, follow [resources/DOCKER_SETUP.md](resources/DOCKER_SETUP.md).
-
----
-
-## Repository Structure
-
-```text
+~~~text
 CyberLabs/
+├── README.md
+├── CURRICULUM_INDEX.md
+├── ROADMAP.md
+├── CONTRIBUTING.md
+├── SECURITY.md
+│
 ├── beginner/
 │   ├── README.md
 │   ├── CHALLENGES.md
-│   └── ...
+│   └── events...
 │
 ├── intermediate/
 │   ├── README.md
 │   ├── CHALLENGES.md
-│   └── ...
+│   └── events...
 │
 ├── advanced/
+│   ├── README.md
+│   └── events...
 │
 ├── Extra Practice/
 │   ├── README.md
-│   └── ...
-│
-├── setup/
+│   ├── EXPANSION_ROADMAP.md
+│   └── labs...
 │
 ├── resources/
+│   ├── README.md
+│   └── guides...
 │
-├── templates/
-│
-├── CONTRIBUTING.md
-├── ROADMAP.md
-└── SECURITY.md
-```
-
-Each event normally follows:
-
-```text
-event/
-├── README.md
-└── challenge/
-    ├── README.md
-    ├── setup files
-    ├── lab resources
-    └── cleanup/reset files
-```
+├── setup/
+└── templates/
+~~~
 
 ---
 
-## Challenge Workflow
+## Track Progression
 
-Challenges are self-contained whenever possible.
+~~~text
+Beginner
+   ↓
+Intermediate
+   ↓
+Advanced
+~~~
 
-### Script-based challenge
+Extra Practice can be used at any stage when the lab difficulty is appropriate.
 
-```bash
-cd intermediate/08-log-analysis/challenge
+### Beginner
+
+Members are generally given:
+
+- more explanation,
+- guided tool usage,
+- smaller evidence sets,
+- explicit workflows,
+- stronger hints.
+
+### Intermediate
+
+Members are increasingly expected to:
+
+- choose tools for a reason,
+- validate automated output,
+- correlate evidence,
+- explain impact and remediation,
+- work with less prompting.
+
+### Advanced
+
+Members should be able to:
+
+- define the question or hypothesis,
+- select appropriate evidence sources,
+- work independently,
+- distinguish observation from inference,
+- state uncertainty,
+- propose remediation and detection,
+- stop when evidence or authorization runs out.
+
+---
+
+## Standard Lab Workflow
+
+Not every event uses exactly the same files, but most challenges follow one of these patterns.
+
+### Script-based lab
+
+~~~bash
+cd <event>/challenge
+cat README.md
 ./setup.sh
-cat README.md
-```
+~~~
 
 When finished:
 
-```bash
+~~~bash
 ./reset.sh
-```
+~~~
 
-### Docker-based challenge
+if the lab provides a reset script.
 
-```bash
-cd intermediate/02-web-enumeration/challenge
-docker compose up --build -d
+### Docker-based lab
+
+~~~bash
+cd <event>/challenge
 cat README.md
-```
+docker compose up --build -d
+docker compose ps
+~~~
 
 When finished:
 
-```bash
+~~~bash
 docker compose down
-```
+~~~
+
+Always use the lab-specific instructions when they differ.
 
 ---
 
-## Flags
+## Core Resources
 
-Challenge flags use the format:
+| Need | Guide |
+|---|---|
+| Docker installation and troubleshooting | [Docker Setup](resources/DOCKER_SETUP.md) |
+| Kali tools used across CyberLabs | [Kali Tools](resources/KALI_TOOLS.md) |
+| Flag handling and privacy | [Flag Privacy](resources/FLAG_PRIVACY.md) |
+| Web-lab design standard | [Web Lab Standard](resources/WEB_LAB_STANDARD.md) |
+| Basic command reference | [Command Cheatsheet](resources/command-cheatsheet.md) |
 
-```text
+See [resources/README.md](resources/README.md) for the organized resource index.
+
+---
+
+## Challenge Flags
+
+Challenge flags use:
+
+~~~text
 SRU{...}
-```
+~~~
 
-Filled-in flag values are never stored in this student repository.
+Filled-in values are **not stored in this student repository**.
 
-Private values live only in the private `CyberLabs-Instructor` repository and are injected by the event lead when a challenge requires a flag.
+Private event values live only in the private instructor repository and are supplied at runtime when a lab requires them.
 
-Student challenge code may reference runtime variables such as `FLAG_VALUE`, `LINUX_FLAG_VALUE`, `REV_FLAG_VALUE`, or `WEB_FLAG_VALUE`, but the real values are instructor-only.
+See:
 
-If a private value is not injected, the challenge may show `FLAG_NOT_CONFIGURED` or use a non-flag success message.
+[Challenge Flag Privacy](resources/FLAG_PRIVACY.md)
 
 ---
 
@@ -175,12 +241,13 @@ If a private value is not injected, the challenge may show `FLAG_NOT_CONFIGURED`
 
 CyberLabs follows several principles:
 
-1. **Understand before automate.** Members should know what a tool is doing before relying on it.
-2. **Evidence before conclusions.** Findings should be supported by observable evidence.
-3. **Scope before testing.** Always verify authorization before scanning or testing.
-4. **Attack and defense together.** Offensive concepts should include mitigation and detection discussion.
-5. **Progressive difficulty.** Later events assume skills introduced earlier.
+1. **Understand before automate.** Know what a tool is doing before relying on it.
+2. **Evidence before conclusions.** Support findings with observable evidence.
+3. **Scope before testing.** Verify authorization before scanning or testing.
+4. **Attack and defense together.** Offensive findings should include mitigation and detection thinking.
+5. **Progressive difficulty.** Later events build on earlier skills.
 6. **Reproducible labs.** Challenges should be easy to start, reset, and repeat.
+7. **State uncertainty.** A strong answer can say when available evidence is insufficient.
 
 ---
 
@@ -190,21 +257,39 @@ Only perform security testing against:
 
 - systems you personally own,
 - systems intentionally provided by CyberLabs,
-- local challenge containers/VMs, or
+- local CyberLabs containers/VMs/ranges, or
 - systems for which you have explicit authorization.
 
-Do **not** scan, probe, intercept, exploit, or test:
+Do **not** redirect CyberLabs exercises toward:
 
 - university production infrastructure,
 - public Internet systems,
 - other students' devices,
 - third-party websites,
 - unrelated wireless networks,
-- real accounts or credentials,
+- real accounts or credentials.
 
-unless explicit authorization has been provided.
+A challenge-defined host, subnet, port range, file set, or application is part of the authorized scope.
 
-When a challenge defines a target or port range, that scope is part of the exercise.
+See:
+
+[SECURITY.md](SECURITY.md)
+
+---
+
+## Current Curriculum vs. Future Plans
+
+For current events and labs:
+
+[CURRICULUM_INDEX.md](CURRICULUM_INDEX.md)
+
+For future E-board development and planned features:
+
+[ROADMAP.md](ROADMAP.md)
+
+For Extra Practice expansion specifically:
+
+[Extra Practice Expansion Roadmap](Extra%20Practice/EXPANSION_ROADMAP.md)
 
 ---
 
@@ -215,17 +300,3 @@ Club members and E-board members are encouraged to improve labs and documentatio
 Before contributing, read:
 
 [CONTRIBUTING.md](CONTRIBUTING.md)
-
----
-
-## Curriculum Status
-
-See:
-
-[ROADMAP.md](ROADMAP.md)
-
-for current development status and planned additions.
-
-For responsible handling of secrets, challenge data, and security concerns, see:
-
-[SECURITY.md](SECURITY.md)
