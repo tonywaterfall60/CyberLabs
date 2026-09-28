@@ -22,9 +22,21 @@ Active Directory appears throughout enterprise security. Members need to underst
 - explain local admin vs domain admin conceptually,
 - recognize why nested groups affect privilege.
 
+## Concepts
+
+Review the protocol, platform, evidence, and control relationships named in the learning objectives.
+
+## Guided Lab
+
+Work through one representative finding together, including evidence selection, validation, interpretation, and remediation.
+
 ## Challenge
 
 [challenge/README.md](challenge/README.md)
+
+## Expected Outcomes
+
+Members should independently select relevant evidence, validate important findings, separate observation from interpretation, and explain remediation or next steps.
 
 ## Cleanup
 
