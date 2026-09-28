@@ -1,5 +1,16 @@
 # Advanced 07 — Detection Engineering
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Advanced |
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 06 — Threat Hunting |
+
+
 **Difficulty:** Advanced  
 **Estimated time:** 120 minutes  
 **Prerequisites:** Threat Hunting  
