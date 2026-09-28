@@ -1,5 +1,16 @@
 # Intermediate 12 — Intermediate CTF
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Intermediate |
+| Difficulty | Intermediate |
+| Estimated time | 120–150 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Intermediate 01–11 |
+
+
 **Difficulty:** Intermediate capstone  
 **Estimated time:** 3–4 hours  
 **Prerequisites:** Intermediate 01–11
