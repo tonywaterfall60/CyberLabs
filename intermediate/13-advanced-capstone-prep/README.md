@@ -1,5 +1,16 @@
 # Intermediate 13 — Advanced Capstone Prep
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Intermediate |
+| Difficulty | Intermediate |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 12 — Intermediate CTF |
+
+
 **Difficulty:** Intermediate capstone preparation  
 **Estimated review time:** 90–120 minutes  
 **Prerequisites:** Intermediate 01–12
