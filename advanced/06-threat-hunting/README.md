@@ -99,3 +99,11 @@ Confidence:
 ## Next Event
 
 [Advanced 07 — Detection Engineering](../07-detection-engineering/)
+
+---
+
+## Event Navigation
+- Previous: [Advanced Network Analysis](../05-advanced-network-analysis/)
+- Track Home: [Advanced Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Detection Engineering](../07-detection-engineering/)
