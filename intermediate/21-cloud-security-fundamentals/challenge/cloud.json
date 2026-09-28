@@ -1,0 +1,11 @@
+{
+  "iam": {"role":"reporting-role","actions":["s3:GetObject","s3:ListBucket","iam:CreateAccessKey"],"resource":"*"},
+  "bucket": {"name":"training-reports","public_read":true,"encryption":"AES256","logging":false},
+  "security_groups": [
+    {"port":443,"source":"0.0.0.0/0","purpose":"public web"},
+    {"port":22,"source":"0.0.0.0/0","purpose":"admin SSH"}
+  ],
+  "audit": [
+    {"principal":"anonymous","action":"GetObject","object":"quarterly.csv","result":"success"}
+  ]
+}
