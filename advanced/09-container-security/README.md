@@ -1,5 +1,16 @@
 # Advanced 09 — Container Security
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Advanced |
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 08 — Cloud Security |
+
+
 **Difficulty:** Advanced  
 **Estimated time:** 120 minutes  
 **Prerequisites:** Docker familiarity  
