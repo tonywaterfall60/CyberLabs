@@ -1,21 +1,31 @@
 # Extra Practice 17 — Email / Phishing Forensics
 
-**Difficulty:** Intermediate → Advanced  
-**Estimated time:** 90–120 minutes  
-**Environment:** Kali/Linux  
-**Infrastructure:** fictional `.eml` evidence package
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate → Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali / Linux |
+| Infrastructure | Fictional .eml evidence package |
+| Tools | sha256sum, text tools, mail-header analysis |
 ## Scenario
 
 A user reports a suspicious message after receiving several emails during the same afternoon. You are given three fictional raw email files and a small analyst notes file.
 
 Your job is to identify which message deserves escalation, reconstruct the delivery path, analyze authentication results, extract indicators, and explain what the evidence does and does not prove.
 
-## Scope
+## Authorized Scope
 
 Use only the files in this directory. Do not browse to or interact with any domains, IPs, URLs, or addresses found in the evidence.
 
-## Evidence
+## Setup
+
+No external mail service or browsing is required.
+
+## Investigation / Tasks
+
+### Evidence
 
 ~~~text
 messages/01-invoice.eml
@@ -24,11 +34,11 @@ messages/03-password-reset.eml
 analyst-notes.txt
 ~~~
 
-## Phase 1 — Preserve and Inventory
+### Phase 1 — Preserve and Inventory
 
 Hash all `.eml` files and record sizes.
 
-## Phase 2 — Header Analysis
+### Phase 2 — Header Analysis
 
 For each message identify:
 
@@ -47,7 +57,7 @@ Date
 
 Distinguish display-name identity from envelope/authentication evidence.
 
-## Phase 3 — Body / URL Analysis
+### Phase 3 — Body / URL Analysis
 
 Extract all URLs without visiting them.
 
@@ -61,19 +71,19 @@ scheme
 whether hostname matches the claimed organization
 ~~~
 
-## Phase 4 — Attachment / Content Clues
+### Phase 4 — Attachment / Content Clues
 
 Identify whether any message references an attachment or encourages credential entry.
 
 Do not execute or download anything external.
 
-## Phase 5 — Delivery Timeline
+### Phase 5 — Delivery Timeline
 
 Use `Date` and `Received` headers to build a timeline of message handling.
 
 Discuss why sender-controlled timestamps may be less trustworthy than receiving-system timestamps.
 
-## Phase 6 — Verdicts
+### Phase 6 — Verdicts
 
 Classify each message as:
 
@@ -86,7 +96,7 @@ insufficient evidence
 
 Support every verdict with header/body evidence.
 
-## Phase 7 — Detection Ideas
+### Phase 7 — Detection Ideas
 
 Write detection ideas for at least three of:
 
@@ -119,3 +129,7 @@ Unknown:
 Recommended user/SOC actions:
 Detection ideas:
 ~~~
+
+## Cleanup
+
+No cleanup is required for this static evidence lab.
