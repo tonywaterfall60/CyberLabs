@@ -1,9 +1,14 @@
 # Challenge — Linux Incident File Hunt
 
-**Difficulty:** Beginner  
-**Estimated time:** 35–50 minutes  
-**Environment:** Kali/Linux terminal
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Beginner |
+| Estimated time | 35–50 minutes |
+| Environment | Kali / Linux terminal |
+| Authorized scope | Generated training directory and local system-context commands |
+| Goal | Locate and document evidence using basic Linux commands |
 ## Scenario
 
 You are given a small training directory from a fictional Linux system after a suspicious login report.
@@ -20,6 +25,16 @@ The setup creates:
 └── hidden files
 ~~~
 
+## Authorized Scope
+
+Primary challenge data is limited to:
+
+~~~text
+~/cyberclub/linux-challenge/
+~~~
+
+The system-context commands in Phase 5 may inspect your own Kali VM only. Do not search unrelated files or systems.
+
 ## Setup
 
 ~~~bash
@@ -35,7 +50,9 @@ cd ~/cyberclub/linux-challenge
 - Record the command you used for each task.
 - If a command gives too much output, refine it rather than manually scrolling forever.
 
-## Phase 1 — Orientation
+## Objectives / Tasks
+
+### Phase 1 — Orientation
 
 1. Print your current directory.
 2. List normal files and directories.
@@ -50,7 +67,7 @@ ls
 ls -la
 ~~~
 
-## Phase 2 — Log Search
+### Phase 2 — Log Search
 
 1. Find which file contains `FAILED_LOGIN`.
 2. Display only the failed-login lines.
@@ -60,13 +77,13 @@ ls -la
 
 Try to answer using `grep` rather than opening every file manually.
 
-## Phase 3 — Hidden Evidence
+### Phase 3 — Hidden Evidence
 
 1. Find the hidden file in the challenge root.
 2. Display its contents.
 3. Explain what the leading dot means on Linux.
 
-## Phase 4 — File Search
+### Phase 4 — File Search
 
 1. Search the challenge tree for files containing `FLAG`.
 2. Identify the full path.
@@ -81,7 +98,7 @@ grep -R "FLAG" .
 ls -l <file>
 ~~~
 
-## Phase 5 — System Context
+### Phase 5 — System Context
 
 Identify:
 
@@ -102,7 +119,7 @@ ip addr
 ip route
 ~~~
 
-## Phase 6 — Evidence Summary
+### Phase 6 — Evidence Summary
 
 Complete:
 
