@@ -244,3 +244,11 @@ docker compose down
 ./reset.sh
 rm -f beginner-ctf.pcap
 ~~~
+
+---
+
+## Event Navigation
+- Previous: [09-intro-to-digital-forensics](../09-intro-to-digital-forensics/)
+- Track Home: [Beginner Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [11-capstone-interview-prep](../11-capstone-interview-prep/)
