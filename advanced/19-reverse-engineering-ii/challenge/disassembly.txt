@@ -1,0 +1,16 @@
+main:
+ call read_input
+ cmp eax,8
+ jne fail
+ xor ecx,ecx
+ xor edx,edx
+loop:
+ movzx eax,byte [input+rcx]
+ xor eax,0x23
+ add edx,eax
+ inc ecx
+ cmp ecx,8
+ jne loop
+ cmp edx,0x2f8
+ jne fail
+ call success
