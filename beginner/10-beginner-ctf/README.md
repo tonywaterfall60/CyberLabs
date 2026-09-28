@@ -1,5 +1,16 @@
 # Beginner 10 — Beginner CTF
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Beginner |
+| Difficulty | Beginner |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Beginner 01–09 |
+
+
 **Difficulty:** Beginner capstone  
 **Estimated time:** 2–3 hours  
 **Prerequisites:** Beginner 01–09  
