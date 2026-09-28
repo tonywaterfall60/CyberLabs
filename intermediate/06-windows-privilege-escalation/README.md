@@ -92,3 +92,12 @@ Also explain one item that appears interesting but still needs more evidence bef
 ## Next Event
 
 [Intermediate 07 — Packet Analysis Challenge](../07-packet-analysis/)
+
+
+---
+
+## Event Navigation
+- Previous: [Linux Privilege Escalation Foundations](../05-linux-privilege-escalation/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Packet Analysis Challenge](../07-packet-analysis/)
