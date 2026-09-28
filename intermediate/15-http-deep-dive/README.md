@@ -26,9 +26,21 @@ Web security becomes easier when members understand HTTP beyond GET/200. This ev
 
 Use curl and Burp against the local training server.
 
+## Concepts
+
+Review the protocol, platform, evidence, and control relationships named in the learning objectives. The emphasis is on understanding why a tool or data source answers a specific security question.
+
+## Guided Lab
+
+Work through one representative finding together, including tool/evidence selection, manual validation, interpretation, and remediation.
+
 ## Challenge
 
 [challenge/README.md](challenge/README.md)
+
+## Expected Outcomes
+
+Members should independently select relevant evidence, validate important findings, separate observation from interpretation, and explain remediation or next steps.
 
 ## Cleanup
 
