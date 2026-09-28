@@ -10,6 +10,18 @@
 | Authorized scope | network-map.txt |
 | Goal | Determine the minimum path needed to reach the internal subnet |
 
+## Scenario
+
+A fictional analyst host can reach a jump host, but the target application subnet is reachable only from the jump host.
+
+## Authorized Scope
+
+Use only network-map.txt and the documented training reachability. Do not tunnel through real systems.
+
+## Setup
+
+No live tunnel is required; reason from the provided network evidence.
+
 ## Investigation / Tasks
 
 From the evidence identify:
