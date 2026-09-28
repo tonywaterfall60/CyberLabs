@@ -15,11 +15,22 @@
 **Estimated time:** 3–4 hours  
 **Prerequisites:** Intermediate 01–11
 
-## Purpose
+## Scenario
 
 This capstone combines independent enumeration, web mapping, authorization analysis, password/crypto concepts, Linux privilege-audit reasoning, packet/log analysis, Python, forensics, and reverse engineering.
 
 Flags confirm challenge completion. Your **evidence and reasoning** are what demonstrate readiness.
+
+## Authorized Scope
+
+Authorized targets and files:
+
+~~~text
+127.0.0.1 ports 8400-8499
+~/cyberclub/intermediate-ctf/*
+~~~
+
+Do not scan, test, or inspect anything outside this range or generated directory.
 
 ## Setup
 
@@ -29,26 +40,21 @@ chmod +x setup.sh reset.sh
 docker compose up -d
 ~~~
 
-Authorized scope:
-
-~~~text
-127.0.0.1 ports 8400-8499
-~/cyberclub/intermediate-ctf/*
-~~~
-
 Web target:
 
 ~~~text
 http://127.0.0.1:8440
 ~~~
 
-## Challenge 1 — Network Enumeration
+## Objectives / Tasks
+
+### Challenge 1 — Network Enumeration
 
 Discover the authorized web service, fingerprint it, and manually validate the application.
 
 Submit discovery command, targeted fingerprinting command, and manual validation evidence.
 
-## Challenge 2 — Web Enumeration / Authorization
+### Challenge 2 — Web Enumeration / Authorization
 
 Map:
 
@@ -66,7 +72,7 @@ Login as Alice, establish the normal report request, then make **one controlled 
 
 Document baseline, modified request, observed response, impact, and server-side remediation.
 
-## Challenge 3 — Log Correlation
+### Challenge 3 — Log Correlation
 
 Analyze:
 
@@ -77,7 +83,7 @@ Analyze:
 
 Identify failed attempts, successful session, VPN assignment, and sensitive activity. Build a short timeline.
 
-## Challenge 4 — Linux Privilege Audit
+### Challenge 4 — Linux Privilege Audit
 
 Review:
 
@@ -91,7 +97,7 @@ Identify the strongest privilege-boundary concern and explain the higher-privile
 
 Do not attempt live privilege escalation.
 
-## Challenge 5 — Packet Analysis
+### Challenge 5 — Packet Analysis
 
 Capture only your own requests to port 8440.
 
@@ -99,19 +105,19 @@ Generate a normal login/dashboard/API sequence and identify request paths, respo
 
 Save and hash your PCAP.
 
-## Challenge 6 — Crypto / Integrity
+### Challenge 6 — Crypto / Integrity
 
 Decode `crypto/message.b64`, verify `known.sha256`, and explain encoding vs hashing vs encryption.
 
-## Challenge 7 — Digital Forensics
+### Challenge 7 — Digital Forensics
 
 Inspect `forensics/mystery.png` with `file`, `strings`, and hashing tools. Compare `original.txt` and `copy.txt`, then modify only the copy and re-hash.
 
-## Challenge 8 — Python Automation
+### Challenge 8 — Python Automation
 
 Write a short local parser that counts failed logins in the CTF auth log by user and source. Do not hard-code the answers.
 
-## Challenge 9 — Reverse Engineering
+### Challenge 9 — Reverse Engineering
 
 Analyze:
 
@@ -134,7 +140,7 @@ rabin2
 radare2
 ~~~
 
-## Submission Format
+## Deliverable
 
 For each challenge:
 
@@ -149,7 +155,7 @@ Uncertainty:
 Remediation/next step:
 ~~~
 
-## Readiness Reflection
+### Readiness Reflection
 
 ~~~text
 Which challenge required the most independent tool selection?
@@ -159,7 +165,7 @@ Where did you stop because scope did not authorize more testing?
 Which skill needs review before Advanced?
 ~~~
 
-## Completion
+### Completion
 
 Afterward, review:
 
