@@ -1,0 +1,4 @@
+PID 2240 winword.exe "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE" C:\\Users\\jordan\\Downloads\\QuarterlyReview.docx
+PID 2388 powershell.exe powershell.exe -NoProfile -EncodedCommand VHJhaW5pbmdPbmx5
+PID 2444 cmd.exe cmd.exe /c whoami
+PID 1880 chrome.exe chrome.exe --profile-directory=Default
