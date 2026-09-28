@@ -1,9 +1,14 @@
 # Challenge — Map the Local Web Application
 
-**Difficulty:** Beginner  
-**Estimated time:** 45–60 minutes  
-**Target:** `http://127.0.0.1:8070`
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Beginner |
+| Estimated time | 45–60 minutes |
+| Environment | Kali + Docker + browser / curl |
+| Authorized scope | http://127.0.0.1:8070 only |
+| Goal | Map normal HTTP behavior without exploitation |
 ## Scenario
 
 You are documenting a small local training web application before a more advanced assessment.
@@ -12,7 +17,7 @@ The goal is to understand normal HTTP behavior: routes, methods, status codes, h
 
 Do not exploit the app.
 
-## Start
+## Setup
 
 ~~~bash
 docker compose up --build -d
@@ -20,7 +25,7 @@ docker compose up --build -d
 
 The application uses port 8070 so Burp may keep its default proxy listener on 127.0.0.1:8080.
 
-## Scope
+## Authorized Scope
 
 Only interact with:
 
@@ -28,7 +33,9 @@ Only interact with:
 127.0.0.1:8070
 ~~~
 
-## Phase 1 — Normal Browser Mapping
+## Objectives / Tasks
+
+### Phase 1 — Normal Browser Mapping
 
 Visit:
 
@@ -54,7 +61,7 @@ One request header
 One response header
 ~~~
 
-## Phase 2 — curl
+### Phase 2 — curl
 
 Use:
 
@@ -68,7 +75,7 @@ curl -i http://127.0.0.1:8070/robots.txt
 
 Compare HTML, JSON, plain text, and error responses.
 
-## Phase 3 — Cookie Demonstration
+### Phase 3 — Cookie Demonstration
 
 Request the home page while saving cookies:
 
@@ -94,7 +101,7 @@ Answer:
 - Which request header later sends it?
 - Is `training_view` an authentication token? Why or why not?
 
-## Phase 4 — Authorization Response
+### Phase 4 — Authorization Response
 
 Request:
 
@@ -113,13 +120,13 @@ A 403 means the server understood the request but refused access.
 
 Do not attempt to bypass it in this Beginner lab.
 
-## Phase 5 — robots.txt
+### Phase 5 — robots.txt
 
 Inspect `/robots.txt`.
 
 Explain why listing `/admin` does not protect it.
 
-## Optional Burp Preview
+### Optional Burp Preview
 
 Launch Burp and configure Firefox HTTP proxy:
 
@@ -142,7 +149,7 @@ Forward it and review HTTP history.
 
 Do not use Repeater or automated discovery yet.
 
-## Application Map
+### Application Map
 
 Create:
 
