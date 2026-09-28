@@ -1,11 +1,14 @@
 # Extra Practice 06 — Container Security Audit
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes  
-**Environment:** Kali Linux + Docker  
-**Tools:** Docker, grep, docker history, docker inspect; optional Trivy  
-**Infrastructure:** deliberately insecure build/runtime configuration plus a safe review target
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux + Docker |
+| Infrastructure | Deliberately insecure build/runtime configuration plus safe review target |
+| Tools | Docker, grep, docker history, docker inspect; optional Trivy |
 ## Scenario
 
 A development team has provided a containerized internal reporting service for pre-production security review.
@@ -22,7 +25,7 @@ The configuration intentionally contains multiple security weaknesses.
 
 Your job is to review the container without running the unsafe Compose configuration.
 
-## Scope
+## Authorized Scope
 
 Authorized files:
 
@@ -34,7 +37,11 @@ You may build the review image using the documented safe command.
 
 Do not run compose.review.yml as-is.
 
-## Infrastructure Model
+## Setup
+
+Do not start the unsafe Compose configuration. The only runtime action permitted before the investigation is the documented safe image build.
+
+### Infrastructure Model
 
 ~~~text
 Host
@@ -54,7 +61,9 @@ Host
 
 The purpose is to distinguish Build-time risk, Image/layer risk, and Runtime risk.
 
-## Phase 1 — Dockerfile Review
+## Investigation / Tasks
+
+### Phase 1 — Dockerfile Review
 
 Inspect:
 
@@ -66,7 +75,7 @@ Identify base-image concerns, secrets, user context, unnecessary packages, expos
 
 Classify every finding as Build, Image, or Runtime.
 
-## Phase 2 — Safe Build
+### Phase 2 — Safe Build
 
 Build only the image:
 
@@ -76,7 +85,7 @@ docker build -f Dockerfile.review -t cyberlabs-extra-container-audit .
 
 Do not start the image yet.
 
-## Phase 3 — Image History
+### Phase 3 — Image History
 
 Inspect:
 
@@ -86,7 +95,7 @@ docker history cyberlabs-extra-container-audit
 
 Answer whether embedded build values can appear in layer metadata/history, which instructions created important layers, and whether deleting a file in a later layer erases it from earlier layers.
 
-## Phase 4 — Image Configuration
+### Phase 4 — Image Configuration
 
 Inspect:
 
@@ -96,7 +105,7 @@ docker inspect cyberlabs-extra-container-audit
 
 Look for configured user, environment variables, exposed ports, command, and image metadata.
 
-## Phase 5 — Runtime Configuration Review
+### Phase 5 — Runtime Configuration Review
 
 Read:
 
@@ -108,7 +117,7 @@ Identify privileged mode, host networking, host filesystem mounts, plaintext env
 
 Do not run it.
 
-## Phase 6 — Optional Vulnerability Scan
+### Phase 6 — Optional Vulnerability Scan
 
 If Trivy is installed:
 
@@ -120,7 +129,7 @@ Separate known package/image vulnerabilities from configuration/design risks.
 
 Do not let scanner severity replace manual analysis.
 
-## Phase 7 — Secure Redesign
+### Phase 7 — Secure Redesign
 
 Create Dockerfile.hardened and compose.hardened.yml.
 
@@ -128,7 +137,7 @@ The hardened design should avoid privileged mode, host networking, broad host mo
 
 Document where runtime secrets should come from rather than committing them.
 
-## Phase 8 — Compare
+### Phase 8 — Compare
 
 Create:
 
