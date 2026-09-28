@@ -105,3 +105,12 @@ docker compose down
 ## Next Event
 
 [Intermediate 08 — Log Analysis](../08-log-analysis/)
+
+
+---
+
+## Event Navigation
+- Previous: [Windows Privilege Escalation Foundations](../06-windows-privilege-escalation/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Log Analysis](../08-log-analysis/)
