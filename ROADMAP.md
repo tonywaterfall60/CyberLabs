@@ -115,7 +115,7 @@ Planned/in progress:
 - [x] local Bash-generated challenges
 - [x] local Docker challenges
 - [x] Kali VM workflow
-- [ ] standardized Kali VM setup guide
+- [x] standardized Kali VM setup guide
 - [ ] optional Windows VM guide
 
 ## Phase 2 — Shared Range
@@ -166,7 +166,7 @@ Planned additions:
 - [ ] GitHub issue labels
 - [ ] GitHub project board
 - [ ] automated Markdown/link checks
-- [ ] optional challenge validation scripts
+- [ ] automated flag/answer checker and challenge validation
 
 The roadmap should be updated as events are tested during real club meetings.
 
