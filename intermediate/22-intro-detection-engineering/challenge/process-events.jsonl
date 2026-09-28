@@ -1,0 +1,4 @@
+{"id":1,"parent":"explorer.exe","image":"powershell.exe","cmd":"powershell.exe -File profile.ps1"}
+{"id":2,"parent":"WINWORD.EXE","image":"powershell.exe","cmd":"powershell.exe -EncodedCommand VHJhaW5pbmdPbmx5"}
+{"id":3,"parent":"EXCEL.EXE","image":"powershell.exe","cmd":"powershell.exe -enc VHJhaW5pbmdPbmx5"}
+{"id":4,"parent":"taskeng.exe","image":"powershell.exe","cmd":"powershell.exe -File inventory.ps1"}
