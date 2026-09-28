@@ -205,16 +205,16 @@ foundations
 
 Planned additions:
 
-- [ ] Windows Security Fundamentals
-- [ ] HTTP Deep Dive
-- [ ] API Security Fundamentals
-- [ ] Wireless Security Analysis
-- [ ] Vulnerability Assessment Fundamentals
-- [ ] Intro to Active Directory
-- [ ] Container Fundamentals for Security
-- [ ] Cloud Security Fundamentals
-- [ ] Intro to Detection Engineering
-- [ ] Git for Security / Secrets in Repositories
+- [x] Windows Security Fundamentals
+- [x] HTTP Deep Dive
+- [x] API Security Fundamentals
+- [x] Wireless Security Analysis
+- [x] Vulnerability Assessment Fundamentals
+- [x] Intro to Active Directory
+- [x] Container Fundamentals for Security
+- [x] Cloud Security Fundamentals
+- [x] Intro to Detection Engineering
+- [x] Git for Security / Secrets in Repositories
 
 Design goal:
 
