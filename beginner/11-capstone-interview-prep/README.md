@@ -342,3 +342,11 @@ Continue with:
 ~~~text
 intermediate/01-network-enumeration
 ~~~
+
+---
+
+## Event Navigation
+- Previous: [Beginner CTF](../10-beginner-ctf/)
+- Track Home: [Beginner Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Intermediate Track](../../intermediate/README.md)
