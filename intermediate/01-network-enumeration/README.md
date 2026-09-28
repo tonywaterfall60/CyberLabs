@@ -136,3 +136,12 @@ docker compose down
 ## Next Event
 
 [Intermediate 02 — Web Enumeration](../02-web-enumeration/)
+
+
+---
+
+## Event Navigation
+- Previous: [Beginner Track](../../beginner/README.md)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Web Enumeration](../02-web-enumeration/)
