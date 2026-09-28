@@ -163,3 +163,12 @@ rm -f sample.hash file.txt
 ## Next Event
 
 [Beginner 09 — Intro to Digital Forensics](../09-intro-to-digital-forensics/)
+
+
+---
+
+## Event Navigation
+- Previous: [07-web-security-basics](../07-web-security-basics/)
+- Track Home: [Beginner Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [09-intro-to-digital-forensics](../09-intro-to-digital-forensics/)
