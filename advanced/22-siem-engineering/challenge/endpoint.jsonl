@@ -1,0 +1,2 @@
+{"ts":"2026-09-20T14:00:18Z","host":"WS-77","user":"riley","event_type":"process_start","process":"powershell.exe","parent":"WINWORD.EXE"}
+{"ts":"2026-09-20T14:00:25Z","host":"WS-77","user":"riley","event_type":"network_connect","process":"powershell.exe","destination_ip":"198.51.100.77"}
