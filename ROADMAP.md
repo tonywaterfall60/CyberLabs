@@ -511,23 +511,27 @@ This should be designed only after the lab-validation format is standardized.
 
 ---
 
-# Expansion Implementation Order
+# Expansion Implementation Status
 
-When work resumes, use small chunks.
-
-Recommended order:
+Completed:
 
 ~~~text
-1. Finish planned Extra Practice 20–35
-2. Add Beginner expansion events
-3. Add Intermediate expansion events
-4. Add Advanced expansion events
-5. Define specialization/badge requirements
-6. Standardize lab metadata and validation format
-7. Build automated flag/answer checker
-8. Add member progress tracking
-9. Add badge engine
-10. Add optional leaderboard
+1. Extra Practice 20–35
+2. Beginner expansion events
+3. Intermediate expansion events
+4. Advanced expansion events
+5. Standardized event/challenge documentation format
 ~~~
 
-The checker/leaderboard should come **after** lab metadata and answer formats are standardized so existing labs do not require repeated migrations.
+Next platform phases:
+
+~~~text
+6. Define specialization/badge requirements
+7. Standardize machine-readable validation metadata
+8. Build automated flag/answer checker
+9. Add member progress tracking
+10. Add badge engine
+11. Add optional leaderboard
+~~~
+
+The checker/leaderboard should come after validation metadata and answer formats are standardized so existing labs do not require repeated migrations.
