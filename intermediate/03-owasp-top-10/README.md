@@ -125,3 +125,12 @@ Detection/logging idea:
 ## Next Event
 
 [Intermediate 04 — Password Security](../04-password-security/)
+
+
+---
+
+## Event Navigation
+- Previous: [Web Enumeration](../02-web-enumeration/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Password Security](../04-password-security/)
