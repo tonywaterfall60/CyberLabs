@@ -16,7 +16,7 @@
 **Prerequisites:** Beginner 01–09  
 **Environment:** Kali/Linux, Docker, Wireshark, Nmap, curl
 
-## Purpose
+## Scenario
 
 This CTF combines the entire Beginner track into one authorized local environment.
 
@@ -58,7 +58,7 @@ Web target:
 http://127.0.0.1:8090
 ~~~
 
-## Scope
+## Authorized Scope
 
 Authorized targets only:
 
@@ -71,7 +71,9 @@ Do not scan or test anything else.
 
 ---
 
-# Challenge 1 — Linux Evidence Hunt
+## Objectives / Tasks
+
+### Challenge 1 — Linux Evidence Hunt
 
 Find the private Linux flag somewhere under:
 
@@ -88,7 +90,7 @@ File permissions:
 Flag:
 ~~~
 
-# Challenge 2 — Authentication Log Analysis
+### Challenge 2 — Authentication Log Analysis
 
 Analyze:
 
@@ -105,7 +107,7 @@ Determine:
 
 Use pipelines rather than manual counting.
 
-# Challenge 3 — Networking Fundamentals
+### Challenge 3 — Networking Fundamentals
 
 Explain:
 
@@ -115,7 +117,7 @@ Explain:
 4. expected services for ports 22 and 443,
 5. why a successful ping does not prove HTTP is working.
 
-# Challenge 4 — Nmap Enumeration
+### Challenge 4 — Nmap Enumeration
 
 Scan only:
 
@@ -132,7 +134,7 @@ Manual validation command:
 Application evidence:
 ~~~
 
-# Challenge 5 — Web Mapping
+### Challenge 5 — Web Mapping
 
 Map:
 
@@ -148,7 +150,7 @@ Record status, content type, and one custom header for each route.
 
 Explain why discovering `/training-admin` through `robots.txt` is not the same thing as bypassing authorization.
 
-# Challenge 6 — Packet Analysis
+### Challenge 6 — Packet Analysis
 
 Start a Wireshark capture of your own local traffic.
 
@@ -168,7 +170,7 @@ Identify:
 
 Save the capture as `beginner-ctf.pcap` and calculate its SHA-256.
 
-# Challenge 7 — Cryptography
+### Challenge 7 — Cryptography
 
 Use the files under:
 
@@ -184,7 +186,7 @@ Tasks:
 4. compare it with `known.sha256`,
 5. explain the difference between hashing and encryption.
 
-# Challenge 8 — Digital Forensics
+### Challenge 8 — Digital Forensics
 
 Use:
 
@@ -201,7 +203,7 @@ Tasks:
 5. inspect `mystery.jpg` with `file` and `strings`,
 6. explain what the evidence supports.
 
-# Challenge 9 — Security Reasoning
+### Challenge 9 — Security Reasoning
 
 Scenario:
 
@@ -217,7 +219,7 @@ Likely impact:
 Server-side mitigation:
 ~~~
 
-# Final Submission
+## Deliverable
 
 For every challenge use:
 
@@ -230,7 +232,7 @@ Answer:
 Reasoning:
 ~~~
 
-## Beginner Readiness Check
+### Beginner Readiness Check
 
 Before finishing, answer:
 
@@ -242,7 +244,7 @@ Which conclusion required interpretation rather than direct observation?
 How did you stay within scope?
 ~~~
 
-## Completion
+### Completion
 
 After the CTF, continue to:
 
