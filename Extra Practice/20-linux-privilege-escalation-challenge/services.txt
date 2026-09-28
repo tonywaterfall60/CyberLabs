@@ -1,0 +1,9 @@
+report-api.service
+User=root
+ExecStart=/usr/bin/python3 /opt/cyberlabs/report-api.py
+WorkingDirectory=/opt/cyberlabs
+Restart=on-failure
+
+inventory-agent.service
+User=inventory
+ExecStart=/usr/local/bin/inventory-agent
