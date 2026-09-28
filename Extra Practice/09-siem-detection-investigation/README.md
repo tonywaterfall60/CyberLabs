@@ -9,6 +9,7 @@
 | Environment | Kali Linux |
 | Infrastructure | Synthetic normalized JSONL security events + starter detection engine |
 | Tools | jq, grep, Python 3 |
+
 ## Scenario
 
 You are working a SOC queue after two alerts fired during the same shift.
@@ -25,7 +26,7 @@ Use only the generated files under:
 ~/cyberclub/extra-practice/siem-investigation
 ~~~
 
-### Setup
+## Setup
 
 ### Data Model
 
@@ -40,7 +41,7 @@ network-events.jsonl
 detections.py
 ~~~
 
-## Setup
+### Generate the Evidence
 
 ~~~bash
 chmod +x setup.sh reset.sh
