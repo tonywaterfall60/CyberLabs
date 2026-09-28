@@ -1,11 +1,14 @@
 # Extra Practice 02 — Network Service Triage
 
-**Difficulty:** Intermediate  
-**Estimated time:** 75–105 minutes  
-**Environment:** Kali Linux + Docker  
-**Tools:** Nmap, curl, Netcat, browser optional  
-**Infrastructure:** three local services on a dedicated Docker network
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate |
+| Estimated time | 75–105 minutes |
+| Environment | Kali Linux + Docker |
+| Infrastructure | Three local services on a dedicated Docker network |
+| Tools | Nmap, curl, Netcat, browser optional |
 ## Scenario
 
 A small internal application environment has been handed to you for a security review.
@@ -28,7 +31,7 @@ You must:
 5. prioritize review,
 6. recommend hardening.
 
-## Scope
+## Authorized Scope
 
 Authorized target:
 
@@ -46,7 +49,9 @@ Do not scan outside that range for this exercise.
 
 ---
 
-## Infrastructure
+## Setup
+
+### Infrastructure
 
 The lab launches three Nginx services:
 
@@ -68,7 +73,7 @@ The lab launches three Nginx services:
 
 Services are isolated in Docker but published only to the local Kali VM.
 
-## Start the Lab
+### Start the Lab
 
 ~~~bash
 docker compose up -d
@@ -84,7 +89,9 @@ Do not inspect the Compose file for service answers until after completing the e
 
 ---
 
-## Investigation Phase 1 — Discovery
+## Investigation / Tasks
+
+### Phase 1 — Discovery
 
 Perform a scoped TCP scan.
 
@@ -96,7 +103,7 @@ Answer:
 
 Record the exact command used.
 
-## Phase 2 — Fingerprinting
+### Phase 2 — Fingerprinting
 
 Perform targeted service detection only against the ports you discovered.
 
@@ -111,7 +118,7 @@ Confidence:
 
 Do not treat Nmap's label as final proof.
 
-## Phase 3 — Manual Validation
+### Phase 3 — Manual Validation
 
 Use curl against every discovered HTTP service.
 
@@ -145,7 +152,7 @@ Host: localhost
 
 ~~~
 
-## Phase 4 — Operational Mapping
+### Phase 4 — Operational Mapping
 
 Build a service table:
 
@@ -164,7 +171,7 @@ Consider:
 - Is the service expected to be reachable?
 - Is version information exposed?
 
-## Phase 5 — Prioritization
+### Phase 5 — Prioritization
 
 Rank the three services in the order you would review them further.
 
@@ -176,7 +183,7 @@ What evidence supports the decision
 What additional validation would be needed
 ~~~
 
-## Phase 6 — Hardening
+### Phase 6 — Hardening
 
 Provide at least one realistic hardening recommendation per service.
 
