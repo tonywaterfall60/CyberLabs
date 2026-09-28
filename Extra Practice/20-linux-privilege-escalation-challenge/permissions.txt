@@ -1,0 +1,4 @@
+-rwxr-xr-x root root /usr/local/bin/report-backup
+-rwxrwxr-x root analysts /opt/cyberlabs/scripts/rotate-report.sh
+-rw-r----- root analysts /etc/cyberlabs/report.conf
+drwxrwxr-x root analysts /opt/cyberlabs/scripts
