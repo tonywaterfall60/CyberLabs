@@ -1,0 +1,6 @@
+name,type
+alice,human
+bob,human
+carol,human
+svc_web,service
+svc_backup,service
