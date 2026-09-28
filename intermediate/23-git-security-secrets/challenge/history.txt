@@ -1,0 +1,4 @@
+a1 Initial application
+b2 Add deployment configuration
+c3 Remove token from deployment configuration
+d4 Add .gitignore
