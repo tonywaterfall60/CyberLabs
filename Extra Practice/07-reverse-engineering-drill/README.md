@@ -1,11 +1,14 @@
 # Extra Practice 07 — Reverse Engineering Drill
 
-**Difficulty:** Intermediate → Advanced  
-**Estimated time:** 90–120 minutes  
-**Environment:** Kali Linux  
-**Tools:** file, sha256sum, strings, readelf, objdump, checksec, GDB, rabin2/radare2; optional Ghidra  
-**Infrastructure:** precompiled stripped x86-64 ELF decoded locally from a repository artifact
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate → Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux |
+| Infrastructure | Precompiled stripped x86-64 ELF decoded locally from a repository artifact |
+| Tools | file, sha256sum, strings, readelf, objdump, checksec, GDB, rabin2/radare2; optional Ghidra |
 ## Scenario
 
 A small access-validation utility was recovered from a training system.
@@ -16,7 +19,7 @@ Your task is to determine what kind of binary it is, which libraries/functions i
 
 The goal is reverse engineering, not exploitation.
 
-## Scope
+## Authorized Scope
 
 Authorized artifact:
 
@@ -26,7 +29,11 @@ Authorized artifact:
 
 Do not use the workflow against unrelated software.
 
-## Why the Repository Contains a .b64 File
+### Setup
+
+Use the provided setup script to decode the local challenge artifact.
+
+### Why the Repository Contains a .b64 File
 
 Git-based curriculum distribution works best with text artifacts.
 
@@ -43,7 +50,9 @@ cd ~/cyberclub/extra-practice/reverse-drill
 ls -lh
 ~~~
 
-## Phase 1 — Identify the Artifact
+## Investigation / Tasks
+
+### Phase 1 — Identify the Artifact
 
 ~~~bash
 file access-validator
@@ -53,7 +62,7 @@ checksec --file=access-validator
 
 Record architecture, ELF type, PIE status, NX, stack canary, and whether symbols appear stripped.
 
-## Phase 2 — Low-Cost Static Analysis
+### Phase 2 — Low-Cost Static Analysis
 
 ~~~bash
 strings access-validator | less
@@ -63,7 +72,7 @@ Identify prompts, success/failure messages, environment-variable names, and usef
 
 Do not assume every visible string is directly compared with user input.
 
-## Phase 3 — ELF Metadata
+### Phase 3 — ELF Metadata
 
 ~~~bash
 readelf -h access-validator
@@ -73,7 +82,7 @@ objdump -T access-validator
 
 Answer whether the file is dynamically or statically linked, which libc functions are imported, and which imports might participate in validation.
 
-## Phase 4 — Disassembly
+### Phase 4 — Disassembly
 
 ~~~bash
 objdump -d -M intel access-validator | less
@@ -91,7 +100,7 @@ Look for logic associated with input length, character checks, a loop over input
 
 Create pseudocode in your own words. Perfect decompilation is not required.
 
-## Phase 5 — Dynamic Analysis
+### Phase 5 — Dynamic Analysis
 
 Run the program with an incorrect phrase, then open:
 
@@ -103,7 +112,7 @@ Useful commands may include starti, break __libc_start_main, run, info functions
 
 Because the binary is stripped and PIE-enabled, addresses may change between runs. Use relative structure and call behavior rather than relying on one copied address.
 
-## Phase 6 — Recover the Accepted Phrase
+### Phase 6 — Recover the Accepted Phrase
 
 Use static and dynamic evidence to derive the phrase that reaches:
 
@@ -113,7 +122,7 @@ Access accepted.
 
 The phrase is local challenge data.
 
-## Phase 7 — Private Flag
+### Phase 7 — Private Flag
 
 After successful validation, the program reads:
 
