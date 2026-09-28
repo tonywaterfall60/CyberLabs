@@ -1,37 +1,62 @@
-# Lab Title
+# Event Title
 
-**Level:** Beginner / Intermediate / Advanced  
-**Time:** 45–90 minutes  
-**Prerequisites:**  
-**Environment:**  
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Beginner / Intermediate / Advanced |
+| Difficulty | Beginner / Intermediate / Advanced |
+| Estimated time | 60–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Previous event or required skills |
+
+## Why This Event Exists
+
+Explain how this event fits into the curriculum and what earlier knowledge it builds on.
 
 ## Learning Objectives
-By the end of this lab, members should be able to:
-1.
-2.
-3.
 
-## Safety / Scope
-This exercise is limited to the provided local lab environment.
+By the end of this event, members should be able to:
 
-## Setup
-1.
-2.
-3.
+1. use an observable verb,
+2. apply the skill in a bounded lab,
+3. explain evidence, limitations, and remediation where appropriate.
 
-## Tasks
-### Task 1
-### Task 2
-### Task 3
+## Concepts
 
-## Deliverables
--
+Explain the theory members need before starting the hands-on portion.
+
+## Guided Lab
+
+Provide the instructor-guided workflow, commands, and expected observations.
+
+## Challenge
+
+Challenge instructions live in:
+
+~~~text
+challenge/README.md
+~~~
+
+The challenge should use the standard structure from:
+
+~~~text
+templates/CHALLENGE_README_TEMPLATE.md
+~~~
+
+## Expected Outcomes
+
+Members should be able to explain what they observed, how they validated it, and what remains uncertain.
 
 ## Cleanup
-1.
-2.
 
-## Reflection
-1. What did you observe?
-2. What would a defender see?
-3. How would you mitigate the issue?
+Document event-specific cleanup or point to the challenge cleanup instructions.
+
+---
+
+## Event Navigation
+
+- Previous: [Previous Event](../previous-event/)
+- Track Home: [Track Name](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Next Event](../next-event/)
