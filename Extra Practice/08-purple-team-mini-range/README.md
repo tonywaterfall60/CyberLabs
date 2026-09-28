@@ -1,11 +1,14 @@
 # Extra Practice 08 — Purple-Team Mini Range
 
-**Difficulty:** Advanced  
-**Estimated time:** 2–3 hours  
-**Environment:** Kali Linux + Docker  
-**Tools:** Burp Suite, curl, jq, grep, Python  
-**Infrastructure:** Nginx edge proxy + portal + internal API + shared structured telemetry
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 2–3 hours |
+| Environment | Kali Linux + Docker |
+| Infrastructure | Nginx edge proxy + portal + internal API + structured telemetry |
+| Tools | Burp Suite, curl, jq, grep, Python |
 ## Scenario
 
 A small internal document portal is being reviewed by both offensive and defensive analysts.
@@ -14,7 +17,7 @@ The environment has a user-facing portal, a separate internal API, an edge rever
 
 The red side must validate a controlled authorization weakness. The blue side must determine what the same activity looks like in telemetry and design a detection. The purple-team objective is to connect the two views.
 
-## Scope
+## Authorized Scope
 
 Authorized target:
 
@@ -30,7 +33,9 @@ runtime/
 
 Do not scan unrelated ports or systems.
 
-## Infrastructure
+### Setup
+
+### Infrastructure
 
 ~~~text
 Browser / Burp / curl
@@ -85,7 +90,9 @@ If an instructor injects a private event flag, it is provided at runtime and is 
 
 The portal provides links for alice and bob. Password mechanics are intentionally out of scope.
 
-# Phase 1 — Establish Normal Behavior
+## Investigation / Tasks
+
+### Phase 1 — Establish Normal Behavior
 
 Before modifying anything, log in as Alice, open Alice's normal document, capture the request in Burp, record object ID and owner, and observe the resulting logs.
 
@@ -103,13 +110,13 @@ API log event
 Edge log event
 ~~~
 
-## Phase 2 — Application Mapping
+### Phase 2 — Application Mapping
 
 Map visible portal routes, API status, document API route, cookies, headers, and response formats.
 
 Do not brute-force broad content.
 
-## Phase 3 — Controlled Authorization Test
+### Phase 3 — Controlled Authorization Test
 
 Send Alice's normal document request to Burp Repeater.
 
@@ -128,7 +135,7 @@ If cross-user content is returned, preserve the exact request, exact response, a
 
 Do not enumerate large ranges of IDs.
 
-## Phase 4 — Red-Team Finding
+### Phase 4 — Red-Team Finding
 
 Write:
 
@@ -144,7 +151,7 @@ Remediation:
 
 The completion flag, if configured, is supporting challenge evidence—not the vulnerability itself.
 
-# Phase 5 — Blue-Team Baseline
+### Phase 5 — Blue-Team Baseline
 
 Inspect:
 
@@ -156,13 +163,13 @@ less runtime/edge-access.jsonl
 
 Determine what normal login, API access, and document access look like.
 
-## Phase 6 — Correlate the Red Action
+### Phase 6 — Correlate the Red Action
 
 Find the cross-user request across edge-access.jsonl and api.jsonl.
 
 Answer which user made the request, which document was requested, who owned it, whether the API allowed it, approximate request timestamp, and HTTP status observed at the edge.
 
-## Phase 7 — Detection Design
+### Phase 7 — Detection Design
 
 Create detection logic for an authenticated user accessing a document owned by another user while the API allows it.
 
@@ -179,13 +186,13 @@ Recommended response:
 
 Consider whether legitimate delegated or admin access could exist in a real system.
 
-## Phase 8 — Starter Detector
+### Phase 8 — Starter Detector
 
 Open blue/detect.py and complete the TODO sections so it reads runtime/api.jsonl and prints an alert for allowed cross-user document access.
 
 Do not hard-code a username or document ID.
 
-## Phase 9 — Purple-Team Review
+### Phase 9 — Purple-Team Review
 
 Build this chain:
 
