@@ -59,6 +59,10 @@ cat README.md
 | 13 | DevSecOps Pipeline Review | Advanced | CI/CD, secrets, containers, supply-chain controls | fictional repository + pipeline snapshot |
 | 14 | Multi-Host Cyber Range Investigation | Advanced | subnet enumeration, service mapping, logs, prioritization | 5-host dedicated Docker subnet |
 | 15 | Wireless Security Analysis | Intermediate → Advanced | 802.11 frames, Wireshark, tshark, aircrack-ng | generated synthetic Wi-Fi PCAP |
+| 16 | Internal Network Penetration Test | Intermediate → Advanced | subnet discovery, service enumeration, attack-path validation | isolated 4-host Docker subnet |
+| 17 | Email / Phishing Forensics | Intermediate → Advanced | raw email headers, SPF/DKIM/DMARC, URL analysis, timelines | fictional .eml evidence package |
+| 18 | Memory Forensics Foundations | Advanced | process trees, netscan, cmdline, filescan, malfind reasoning | synthetic Volatility-style exports |
+| 19 | Windows Event Log Investigation | Intermediate → Advanced | Security, Sysmon, PowerShell, Task Scheduler correlation | synthetic JSONL event exports |
 
 More labs will be added in small batches.
 
