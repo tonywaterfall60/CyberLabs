@@ -71,6 +71,16 @@ Instructor guidance is still available, but the workflow should be increasingly 
 | 11 | [Intro to Reverse Engineering](11-intro-to-reverse-engineering/) | static/dynamic binary analysis | toy ELF |
 | 12 | [Intermediate CTF](12-intermediate-ctf/) | cross-topic skill integration | multi-category capstone |
 | 13 | [Advanced Capstone Prep](13-advanced-capstone-prep/) | Advanced readiness | multi-domain practice case |
+| 14 | [Windows Security Fundamentals](14-windows-security-fundamentals/) | Windows services, tasks, ACLs, telemetry | static Windows evidence |
+| 15 | [HTTP Deep Dive](15-http-deep-dive/) | methods, redirects, cookies, cache, CORS | HTTP transcript |
+| 16 | [API Security Fundamentals](16-api-security-fundamentals/) | JSON APIs, tokens, object authorization | API transcript |
+| 17 | [Wireless Security Analysis](17-wireless-security-analysis/) | management frames and client behavior | synthetic wireless export |
+| 18 | [Vulnerability Assessment Fundamentals](18-vulnerability-assessment-fundamentals/) | scanner validation and prioritization | scanner + context evidence |
+| 19 | [Intro to Active Directory](19-intro-active-directory/) | users, groups, SPNs, nesting | fictional AD exports |
+| 20 | [Container Fundamentals for Security](20-container-fundamentals-security/) | images, containers, ports, volumes | Dockerfile/Compose review |
+| 21 | [Cloud Security Fundamentals](21-cloud-security-fundamentals/) | IAM, storage, network, audit | fictional cloud JSON |
+| 22 | [Intro to Detection Engineering](22-intro-detection-engineering/) | fields, detections, positive/negative tests | synthetic process events |
+| 23 | [Git for Security / Secrets](23-git-security-secrets/) | Git history, secret exposure, rotation | static Git evidence |
 
 For a repository-wide view, see:
 
@@ -171,7 +181,9 @@ structured analysis
 → independent hypothesis-driven investigation
 ~~~
 
-Continue with:
+After the core readiness event, the Intermediate expansion continues through Events 14–23.
+
+Continue to Advanced after completing the expansion or when the event lead confirms readiness:
 
 [Advanced Track](../advanced/README.md)
 
