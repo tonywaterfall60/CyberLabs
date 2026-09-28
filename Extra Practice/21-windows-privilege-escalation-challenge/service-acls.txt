@@ -1,0 +1,3 @@
+NorthstarUpdater SERVICE_CHANGE_CONFIG: Administrators
+NorthstarUpdater START/STOP: Administrators, Helpdesk
+InventoryAgent SERVICE_CHANGE_CONFIG: Administrators
