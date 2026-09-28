@@ -1,19 +1,31 @@
 # Challenge — Reconstruct the Web Session
 
-**Difficulty:** Intermediate  
-**Estimated time:** 75–105 minutes
+## Challenge Snapshot
 
-## Scope
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate |
+| Estimated time | 75–105 minutes |
+| Environment | Kali + Docker + Wireshark/tcpdump/tshark |
+| Authorized scope | 127.0.0.1:8300 and your own generated capture |
+| Goal | Reconstruct a local web session and state evidence limitations |
+## Authorized Scope
 
 ~~~text
 127.0.0.1:8300
 ~~~
 
-## Goal
+## Scenario
 
 Reconstruct a short web session from network evidence and explain both what the packets prove and what they do not prove.
 
-## Capture
+## Setup
+
+Start the challenge service using the event instructions before capturing traffic.
+
+## Objectives / Tasks
+
+### Capture
 
 Use Wireshark or:
 
@@ -27,7 +39,7 @@ Generate traffic in another terminal:
 ./generate-traffic.sh
 ~~~
 
-## Analysis Phases
+### Analysis Phases
 
 ### 1 — Conversation Baseline
 
