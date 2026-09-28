@@ -1,9 +1,25 @@
 # Challenge — Hypothesis-Driven Script Execution Hunt
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes
+## Challenge Snapshot
 
-## Dataset
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali + synthetic JSONL telemetry |
+| Authorized scope | events.jsonl in this challenge only |
+| Goal | Test a hunting hypothesis using correlated endpoint/network evidence |
+## Authorized Scope
+
+Everything in the dataset is synthetic. Do not pivot hostnames, users, domains, or IP addresses to real systems.
+
+## Setup
+
+No service startup is required.
+
+## Objectives / Tasks
+
+### Dataset
 
 ~~~text
 events.jsonl
@@ -11,17 +27,17 @@ events.jsonl
 
 Everything is synthetic.
 
-## Initial Hypothesis
+### Initial Hypothesis
 
 An Office-launched encoded PowerShell process may be associated with follow-on network, file, process, DNS, or registry activity on the same host.
 
 Treat this as a hypothesis to test—not a conclusion.
 
-## Phase 1 — Define Required Telemetry
+### Phase 1 — Define Required Telemetry
 
 Before querying, write which event types and fields would support or refute the hypothesis.
 
-## Phase 2 — Broad Baseline
+### Phase 2 — Broad Baseline
 
 Determine:
 
@@ -31,35 +47,35 @@ Determine:
 - PowerShell usage across hosts,
 - normal examples of PowerShell.
 
-## Phase 3 — Narrow the Hunt
+### Phase 3 — Narrow the Hunt
 
 Find encoded PowerShell and correlate events on the same host/user within a short time window.
 
 Decode only the harmless Base64 value present in the dataset.
 
-## Phase 4 — Sequence Reconstruction
+### Phase 4 — Sequence Reconstruction
 
 Build the full `WS-03` sequence, including DNS, network, file, child-process, and registry events.
 
-## Phase 5 — Compare a Benign-Looking PowerShell Case
+### Phase 5 — Compare a Benign-Looking PowerShell Case
 
 Compare `WS-03` with the scheduled inventory-style PowerShell on `WS-04`.
 
 List the behavioral differences that make one case more interesting.
 
-## Phase 6 — Alternative Explanations
+### Phase 6 — Alternative Explanations
 
 Write at least two benign or administrative explanations for the `WS-03` sequence.
 
 State what evidence would support or reject each.
 
-## Phase 7 — Hunt Expansion
+### Phase 7 — Hunt Expansion
 
 Convert the initial host-specific hunt into a broader reusable query idea.
 
 Do not hard-code `WS-03`, `carol`, or one destination IP.
 
-## Phase 8 — Hunt Outcome
+### Phase 8 — Hunt Outcome
 
 Classify the hunt result as:
 
@@ -91,3 +107,7 @@ Reusable hunt logic:
 Hunt outcome:
 Confidence:
 ~~~
+
+## Cleanup
+
+No cleanup is required for this static-data challenge.
