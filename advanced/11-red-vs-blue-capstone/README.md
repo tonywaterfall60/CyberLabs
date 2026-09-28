@@ -1,5 +1,16 @@
 # Advanced 11 — Red vs. Blue Capstone
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Advanced |
+| Difficulty | Advanced |
+| Estimated time | 120–150 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Advanced 01–10 |
+
+
 **Difficulty:** Advanced capstone  
 **Estimated time:** 2–3 hours  
 **Prerequisites:** Advanced 01–10  
