@@ -87,6 +87,23 @@ For future plans, use [ROADMAP.md](ROADMAP.md).
 | 09 | [Container Security](advanced/09-container-security/) | build/image/runtime/host-boundary review |
 | 10 | [Exploit Development Foundations](advanced/10-exploit-development/) | controlled local ret2win workflow |
 | 11 | [Red vs. Blue Capstone](advanced/11-red-vs-blue-capstone/) | offensive validation, detection, purple debrief |
+| 12 | [API Exploitation & Authorization Testing](advanced/12-api-exploitation-authorization-testing/) | BOLA, function authorization, mass assignment, token scope |
+| 13 | [Advanced AD / Identity Attack Paths](advanced/13-advanced-ad-identity-attack-paths/) | privilege paths, sessions, delegated rights |
+| 14 | [Web Exploitation Chaining](advanced/14-web-exploitation-chaining/) | multi-finding web attack chains |
+| 15 | [SSRF & Internal Trust Boundaries](advanced/15-ssrf-internal-trust-boundaries/) | server-side fetch and internal reachability |
+| 16 | [Pivoting & Segmented Networks](advanced/16-pivoting-segmented-networks/) | routing, tunnels, segmented reachability |
+| 17 | [Advanced Windows Internals](advanced/17-advanced-windows-internals/) | processes, tokens, integrity, services |
+| 18 | [Memory Forensics Training Image](advanced/18-memory-forensics-training-image/) | memory-evidence correlation |
+| 19 | [Reverse Engineering II](advanced/19-reverse-engineering-ii/) | control-flow and validation reconstruction |
+| 20 | [Exploit Mitigations Deep Dive](advanced/20-exploit-mitigations-deep-dive/) | canaries, PIE, RELRO, NX, FORTIFY |
+| 21 | [Threat Emulation & Detection Validation](advanced/21-threat-emulation-detection-validation/) | action-to-telemetry validation |
+| 22 | [SIEM Engineering](advanced/22-siem-engineering/) | normalization, schema drift, correlation |
+| 23 | [Advanced Cloud Identity](advanced/23-advanced-cloud-identity/) | trust policies, role chaining, workload identity |
+| 24 | [Kubernetes Security](advanced/24-kubernetes-security/) | workload security, RBAC, secrets, network policy |
+| 25 | [DevSecOps / Supply Chain II](advanced/25-devsecops-supply-chain-ii/) | SBOM, provenance, release trust |
+| 26 | [Incident Command / Major Incident Response](advanced/26-incident-command-major-incident-response/) | incident roles, decisions, communications |
+| 27 | [Professional Penetration-Test Reporting](advanced/27-professional-pentest-reporting/) | findings, executive summary, retest criteria |
+| 28 | [Threat Modeling / Architecture Review](advanced/28-threat-modeling-architecture-review/) | trust boundaries, data flows, abuse cases |
 
 ---
 
