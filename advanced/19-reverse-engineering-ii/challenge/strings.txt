@@ -1,0 +1,4 @@
+Enter code:
+Access denied.
+Access accepted.
+TRAINING_STAGE_TWO
