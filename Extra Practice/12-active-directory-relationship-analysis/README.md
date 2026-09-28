@@ -1,11 +1,14 @@
 # Extra Practice 12 — Active Directory Relationship Analysis
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes  
-**Environment:** Kali Linux  
-**Tools:** csvkit optional, grep, awk, Python, graphing on paper or diagrams  
-**Infrastructure:** fictional exported Active Directory relationship data
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux |
+| Infrastructure | Fictional exported Active Directory relationship data |
+| Tools | csvkit optional, grep, awk, Python, graphing/diagrams |
 ## Scenario
 
 An identity team exported a subset of Active Directory relationship data after noticing that several ordinary users may inherit more privilege than intended.
@@ -14,13 +17,19 @@ You are not working against a live domain.
 
 Your job is to reconstruct privilege relationships and determine which paths deserve remediation.
 
-## Scope
+## Authorized Scope
 
 Use only the CSV files in this directory.
 
 Do not pivot names, SPNs, hosts, or domains to real environments.
 
-## Evidence
+## Setup
+
+No live domain or directory service is required.
+
+## Investigation / Tasks
+
+### Evidence
 
 ~~~text
 users.csv
@@ -31,25 +40,25 @@ delegation.csv
 local-admin.csv
 ~~~
 
-## Phase 1 — Inventory
+### Phase 1 — Inventory
 
 Identify all users, service accounts, privileged groups, and systems.
 
 Separate human users from service identities.
 
-## Phase 2 — Direct Membership
+### Phase 2 — Direct Membership
 
 Map direct user-to-group relationships.
 
 Do not stop at direct membership.
 
-## Phase 3 — Nested Groups
+### Phase 3 — Nested Groups
 
 Trace nested membership paths.
 
 Create a graph where each edge is labeled with the relationship that caused it.
 
-## Phase 4 — Service Accounts
+### Phase 4 — Service Accounts
 
 Review SPN-bearing accounts and their group memberships.
 
@@ -59,7 +68,7 @@ Answer:
 - Which service accounts are managed by other groups?
 - Which relationships would require validation in a real domain?
 
-## Phase 5 — Delegation / Management Paths
+### Phase 5 — Delegation / Management Paths
 
 Review delegation.csv and local-admin.csv.
 
@@ -73,7 +82,7 @@ Inferred
 Requires validation
 ~~~
 
-## Phase 6 — Prioritization
+### Phase 6 — Prioritization
 
 Prioritize paths based on:
 
@@ -83,7 +92,7 @@ Prioritize paths based on:
 - nested membership,
 - breadth of affected systems.
 
-## Phase 7 — Remediation
+### Phase 7 — Remediation
 
 Recommend concrete changes such as removing unnecessary nesting, reducing service-account privilege, separating admin identities, narrowing delegated rights, and monitoring privileged-group changes.
 
@@ -105,3 +114,7 @@ Validation required:
 Highest-priority remediation:
 Monitoring recommendations:
 ~~~
+
+## Cleanup
+
+No cleanup is required for this static-data lab.
