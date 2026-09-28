@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+  namespace: training
+spec:
+  serviceAccountName: web-sa
+  containers:
+  - name: web
+    image: example/web:latest
+    securityContext:
+      runAsUser: 0
+      allowPrivilegeEscalation: true
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: maintenance
+  namespace: training
+spec:
+  serviceAccountName: maintenance-sa
+  hostPID: true
+  containers:
+  - name: maint
+    image: example/maint:latest
+    securityContext:
+      privileged: true
