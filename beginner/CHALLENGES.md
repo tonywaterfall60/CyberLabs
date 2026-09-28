@@ -1,50 +1,81 @@
 # Beginner Challenge Index
 
-All Beginner challenges are stored directly in GitHub with their event.
+This page lists the hands-on challenge location and startup method for each Beginner event.
 
-## One-Time Setup
+For the full Beginner curriculum, see:
 
-```bash
+[README.md](README.md)
+
+---
+
+## Standard Workflow
+
+Clone once:
+
+~~~bash
 git clone https://github.com/tonywaterfall60/CyberLabs.git
 cd CyberLabs
-```
+~~~
 
 Before each event:
 
-```bash
+~~~bash
 git pull
-```
+~~~
 
-## Challenge Locations
+Enter the event, read its instructions, and only then start the challenge.
 
-| Event | Challenge Path | Setup |
-|---|---|---|
-| Intro to Cybersecurity | `beginner/01-intro-to-cybersecurity/challenge` | none |
-| Linux Basics | `beginner/02-linux-basics/challenge` | `./setup.sh` |
-| Networking | `beginner/03-networking-fundamentals/challenge` | none |
-| Command Line | `beginner/04-command-line-workshop/challenge` | `./setup.sh` |
-| Wireshark | `beginner/05-intro-to-wireshark/challenge` | `docker compose up -d` |
-| Nmap | `beginner/06-intro-to-nmap/challenge` | `docker compose up -d` |
-| Web Security | `beginner/07-web-security-basics/challenge` | `docker compose up --build -d` |
-| Cryptography | `beginner/08-intro-to-cryptography/challenge` | `./setup.sh` |
-| Digital Forensics | `beginner/09-intro-to-digital-forensics/challenge` | `./setup.sh` |
-| Beginner CTF | `beginner/10-beginner-ctf` | `./setup.sh && docker compose up -d` |
+---
 
-## Recommended Student Workflow
+## Challenges
 
-Example:
+| # | Event | Challenge Path | Main Tools / Evidence | Startup |
+|---:|---|---|---|---|
+| 01 | Intro to Cybersecurity | `beginner/01-intro-to-cybersecurity/challenge` | case file, written analysis | none |
+| 02 | Linux Basics | `beginner/02-linux-basics/challenge` | bash, grep, find | `./setup.sh` |
+| 03 | Networking Fundamentals | `beginner/03-networking-fundamentals/challenge` | dig, ss, curl | none |
+| 04 | Command Line Workshop | `beginner/04-command-line-workshop/challenge` | grep, cut, sort, wc | `./setup.sh` |
+| 05 | Intro to Wireshark | `beginner/05-intro-to-wireshark/challenge` | Wireshark, tshark | `docker compose up -d` |
+| 06 | Intro to Nmap | `beginner/06-intro-to-nmap/challenge` | Nmap, Netcat, curl | `docker compose up -d` |
+| 07 | Web Security Basics | `beginner/07-web-security-basics/challenge` | curl, browser, Burp preview | `docker compose up --build -d` |
+| 08 | Intro to Cryptography | `beginner/08-intro-to-cryptography/challenge` | base64, sha256sum, hashid | `./setup.sh` |
+| 09 | Intro to Digital Forensics | `beginner/09-intro-to-digital-forensics/challenge` | file, strings, stat, exiftool | `./setup.sh` |
+| 10 | Beginner CTF | `beginner/10-beginner-ctf` | multiple tools | `./setup.sh && docker compose up -d` |
+| 11 | Capstone Interview Prep | `beginner/11-capstone-interview-prep` | readiness workbook | none |
 
-```bash
-git pull
-cd beginner/06-intro-to-nmap/challenge
-cat README.md
-docker compose up -d
-```
+---
 
-When finished:
+## Cleanup
 
-```bash
+Use the cleanup instructions in the event README.
+
+Typical Docker cleanup:
+
+~~~bash
 docker compose down
-```
+~~~
 
-This design means the E-board does not need to email challenge files or manually copy them to each member.
+Typical script-based cleanup:
+
+~~~bash
+./reset.sh
+~~~
+
+if the challenge provides a reset script.
+
+---
+
+## Scope
+
+Every Beginner target is local, synthetic, fictional, or intentionally provided.
+
+Do not redirect challenge commands toward university systems, public systems, unrelated devices, or real accounts.
+
+---
+
+## Navigation
+
+- [Beginner Track](README.md)
+- [Curriculum Index](../CURRICULUM_INDEX.md)
+- [Resources](../resources/README.md)
+- [Extra Practice](../Extra%20Practice/README.md)
