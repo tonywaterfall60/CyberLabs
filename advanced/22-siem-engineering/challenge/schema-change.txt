@@ -1,0 +1,5 @@
+Proxy schema version 2.1 changed:
+account -> principal_name
+device -> endpoint_name
+
+A detection written against account/device will stop matching unless the parser or mapping is updated.
