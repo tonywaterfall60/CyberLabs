@@ -1,11 +1,14 @@
 # Extra Practice 13 — DevSecOps Pipeline Review
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes  
-**Environment:** Kali Linux  
-**Tools:** grep, jq/yq optional, shell, Dockerfile review  
-**Infrastructure:** fictional application repository + CI workflow + build artifacts
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux |
+| Infrastructure | Fictional application repository + CI workflow + build artifacts |
+| Tools | grep, jq/yq optional, shell, Dockerfile review |
 ## Scenario
 
 A development team asks for a security review of its CI/CD pipeline before production deployment.
@@ -29,13 +32,19 @@ The training workflow is stored under this lab directory. It is **not an active 
 
 Do not copy the intentionally weak workflow into a real repository without fixing it first.
 
-## Scope
+## Authorized Scope
 
 Review only this local training repository snapshot.
 
 Do not connect it to a real CI provider or cloud account.
 
-## Phase 1 — Pipeline Map
+## Setup
+
+No CI provider, registry, or cloud account is required.
+
+## Investigation / Tasks
+
+### Phase 1 — Pipeline Map
 
 Read the workflow and draw:
 
@@ -57,7 +66,7 @@ deployment
 
 Mark where credentials/secrets are used.
 
-## Phase 2 — Workflow Review
+### Phase 2 — Workflow Review
 
 Look for:
 
@@ -68,7 +77,7 @@ Look for:
 - lack of security gates,
 - artifact integrity gaps.
 
-## Phase 3 — Dependency Review
+### Phase 3 — Dependency Review
 
 Inspect requirements.txt and scan-results.json.
 
@@ -76,19 +85,19 @@ Determine which findings are relevant and which require version/context validati
 
 Do not treat scanner severity as proof of exploitability.
 
-## Phase 4 — Container Build Review
+### Phase 4 — Container Build Review
 
 Inspect Dockerfile.
 
 Identify root execution, floating base image tags, copied secrets, unnecessary packages, and reproducibility concerns.
 
-## Phase 5 — Secret Handling
+### Phase 5 — Secret Handling
 
 Inspect deployment.env.example and workflow usage.
 
 Determine whether any values belong in source control at all.
 
-## Phase 6 — Supply-Chain Controls
+### Phase 6 — Supply-Chain Controls
 
 Recommend improvements covering:
 
@@ -101,7 +110,7 @@ Recommend improvements covering:
 - artifact scanning,
 - deployment approval gates.
 
-## Phase 7 — Prioritized Remediation Plan
+### Phase 7 — Prioritized Remediation Plan
 
 Create:
 
@@ -126,3 +135,7 @@ Top 3 risks:
 Recommended security gates:
 Residual risks:
 ~~~
+
+## Cleanup
+
+No cleanup is required for this static review lab.
