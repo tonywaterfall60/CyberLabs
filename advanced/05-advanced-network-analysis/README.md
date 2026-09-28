@@ -95,3 +95,11 @@ A strong Advanced answer explains what the PCAP can establish and what still req
 ## Next Event
 
 [Advanced 06 — Threat Hunting](../06-threat-hunting/)
+
+---
+
+## Event Navigation
+- Previous: [Malware Analysis](../04-malware-analysis/)
+- Track Home: [Advanced Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Threat Hunting](../06-threat-hunting/)
