@@ -1,0 +1,14 @@
+{
+  "identities": [
+    {"name":"alex","type":"human","role":"security-engineer"},
+    {"name":"reporting-app","type":"workload","service_account":"reporting-sa"},
+    {"name":"reporting-role","type":"role","purpose":"read reports"},
+    {"name":"credential-admin","type":"role","purpose":"service credential administration"},
+    {"name":"training-service","type":"service_identity","purpose":"batch reporting"}
+  ],
+  "relationships": [
+    {"from":"reporting-app","to":"reporting-role","type":"assumes"},
+    {"from":"reporting-role","to":"credential-admin","type":"can_assume"},
+    {"from":"credential-admin","to":"training-service","type":"can_create_access_key_for"}
+  ]
+}
