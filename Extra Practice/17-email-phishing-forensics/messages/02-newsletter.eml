@@ -1,0 +1,16 @@
+From: "Northstar Updates" <news@updates.northstar.example>
+Reply-To: news@updates.northstar.example
+Return-Path: <mailer@updates.northstar.example>
+To: taylor@example.edu
+Subject: September training newsletter
+Date: Thu, 24 Sep 2026 15:00:00 -0400
+Message-ID: <sept-news@updates.northstar.example>
+Received: from newsletter.updates.northstar.example (192.0.2.55) by mx.example.edu with ESMTPS id TRAINING02; Thu, 24 Sep 2026 15:00:05 -0400
+Authentication-Results: mx.example.edu; spf=pass smtp.mailfrom=updates.northstar.example; dkim=pass header.d=updates.northstar.example; dmarc=pass header.from=updates.northstar.example
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Monthly training updates:
+https://updates.northstar.example/september
+
+Thank you.
