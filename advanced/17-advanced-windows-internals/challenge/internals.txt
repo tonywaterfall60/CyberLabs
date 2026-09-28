@@ -1,0 +1,8 @@
+PROCESS 100 explorer.exe user=morgan integrity=Medium parent=winlogon.exe
+PROCESS 220 WINWORD.EXE user=morgan integrity=Medium parent=explorer.exe
+PROCESS 240 powershell.exe user=morgan integrity=Medium parent=WINWORD.EXE
+PROCESS 300 services.exe user=SYSTEM integrity=System parent=wininit.exe
+PROCESS 340 northstar-updater.exe user=SYSTEM integrity=System parent=services.exe
+TOKEN powershell.exe groups=Users,RemoteDesktopUsers privileges=SeChangeNotifyPrivilege
+TOKEN northstar-updater.exe groups=SYSTEM,Administrators privileges=SeDebugPrivilege,SeImpersonatePrivilege
+SERVICE NorthstarUpdater RunAs=LocalSystem Image=northstar-updater.exe
