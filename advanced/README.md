@@ -73,6 +73,23 @@ Advanced members should consistently be able to answer:
 | 09 | [Container Security](09-container-security/) | build/image/runtime/host-boundary review | Docker definitions |
 | 10 | [Exploit Development Foundations](10-exploit-development/) | controlled local ret2win | toy vulnerable binary |
 | 11 | [Red vs. Blue Capstone](11-red-vs-blue-capstone/) | attack/detect/remediate correlation | local Docker app + telemetry |
+| 12 | [API Exploitation & Authorization Testing](12-api-exploitation-authorization-testing/) | BOLA, function auth, mass assignment, token scope | synthetic API evidence |
+| 13 | [Advanced AD / Identity Attack Paths](13-advanced-ad-identity-attack-paths/) | privilege paths, sessions, delegated rights | synthetic relationship graph |
+| 14 | [Web Exploitation Chaining](14-web-exploitation-chaining/) | chaining multiple web weaknesses | synthetic web evidence |
+| 15 | [SSRF & Internal Trust Boundaries](15-ssrf-internal-trust-boundaries/) | server-side fetch and internal reachability | architecture + request evidence |
+| 16 | [Pivoting & Segmented Networks](16-pivoting-segmented-networks/) | routing, tunnels, segmented reachability | static network map |
+| 17 | [Advanced Windows Internals](17-advanced-windows-internals/) | process, token, integrity, service context | static Windows evidence |
+| 18 | [Memory Forensics Training Image](18-memory-forensics-training-image/) | memory evidence correlation | Volatility-style evidence / optional image |
+| 19 | [Reverse Engineering II](19-reverse-engineering-ii/) | control-flow and validation reconstruction | synthetic disassembly |
+| 20 | [Exploit Mitigations Deep Dive](20-exploit-mitigations-deep-dive/) | canaries, PIE, RELRO, NX, FORTIFY | mitigation comparison |
+| 21 | [Threat Emulation & Detection Validation](21-threat-emulation-detection-validation/) | action-to-telemetry validation | synthetic emulation events |
+| 22 | [SIEM Engineering](22-siem-engineering/) | normalization, schema drift, correlation | JSONL/CSV telemetry |
+| 23 | [Advanced Cloud Identity](23-advanced-cloud-identity/) | trust policies, role chaining, workload identity | cloud identity evidence |
+| 24 | [Kubernetes Security](24-kubernetes-security/) | workload, RBAC, secrets, network policy | Kubernetes YAML |
+| 25 | [DevSecOps / Supply Chain II](25-devsecops-supply-chain-ii/) | provenance, SBOM, release trust | CI/SBOM/provenance evidence |
+| 26 | [Incident Command / Major Incident Response](26-incident-command-major-incident-response/) | roles, decisions, containment, communication | incident case |
+| 27 | [Professional Penetration-Test Reporting](27-professional-pentest-reporting/) | findings, executive summary, retest criteria | raw assessment notes |
+| 28 | [Threat Modeling / Architecture Review](28-threat-modeling-architecture-review/) | trust boundaries, data flows, abuse cases | architecture evidence |
 
 For a repository-wide view, see:
 
@@ -187,9 +204,11 @@ Advanced events commonly run longer than Beginner or Intermediate.
 
 ## Capstone
 
-The track culminates in:
+The core track culminates in:
 
 [11 — Red vs. Blue Capstone](11-red-vs-blue-capstone/)
+
+The Advanced expansion then continues through Events 12–28, adding deeper specialization in API security, identity, web chaining, segmented networks, Windows internals, memory, reverse engineering, detection/SIEM, cloud/Kubernetes, supply chain, incident command, reporting, and architecture review.
 
 The capstone connects:
 
