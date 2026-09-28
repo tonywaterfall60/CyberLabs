@@ -360,4 +360,4 @@ intermediate/01-network-enumeration
 - Previous: [Beginner CTF](../10-beginner-ctf/)
 - Track Home: [Beginner Track](../README.md)
 - Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
-- Next: [Intermediate Track](../../intermediate/README.md)
+- Next: [Lab Safety & Scoping](../12-lab-safety-and-scoping/)
