@@ -1,22 +1,31 @@
 # Extra Practice 10 — Cloud / IAM Review
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes  
-**Environment:** Kali Linux  
-**Tools:** jq, grep, Python optional  
-**Infrastructure:** fictional exported IAM, object-storage, security-group, and audit-log configuration
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux |
+| Infrastructure | Fictional exported IAM, storage, security-group, and audit-log configuration |
+| Tools | jq, grep, Python optional |
 ## Scenario
 
 You are reviewing a fictional cloud environment after an internal security assessment identified overly broad permissions and possible public exposure.
 
 No cloud credentials are used. Everything is static local evidence.
 
-## Scope
+## Authorized Scope
 
 Use only files in this lab directory.
 
-## Evidence
+## Setup
+
+No cloud account or credentials are required. Work only with the local fictional exports.
+
+## Investigation / Tasks
+
+### Evidence
 
 ~~~text
 iam-policy.json
@@ -25,7 +34,7 @@ security-groups.json
 audit-events.jsonl
 ~~~
 
-## Phase 1 — IAM
+### Phase 1 — IAM
 
 Inspect the IAM policy and identify wildcard actions/resources, unnecessary administrative scope, and least-privilege opportunities.
 
@@ -35,13 +44,13 @@ Use:
 jq . iam-policy.json
 ~~~
 
-## Phase 2 — Storage
+### Phase 2 — Storage
 
 Inspect bucket.json.
 
 Determine whether public access controls are enabled or disabled, whether the bucket ACL permits public read, whether encryption/versioning are configured, and what data-sensitivity context would matter.
 
-## Phase 3 — Network Rules
+### Phase 3 — Network Rules
 
 Inspect security-groups.json.
 
@@ -49,7 +58,7 @@ Evaluate public HTTPS, public SSH, and database exposure separately.
 
 Do not treat every 0.0.0.0/0 rule as equally risky.
 
-## Phase 4 — Audit Events
+### Phase 4 — Audit Events
 
 Inspect audit-events.jsonl.
 
@@ -57,7 +66,7 @@ Determine whether any events show use of the overly broad identity or public obj
 
 Separate exposure from confirmed use.
 
-## Phase 5 — Prioritization
+### Phase 5 — Prioritization
 
 Create:
 
@@ -65,7 +74,7 @@ Create:
 Finding | Evidence | Impact | Priority | Remediation | Validation Needed
 ~~~
 
-## Phase 6 — Least-Privilege Rewrite
+### Phase 6 — Least-Privilege Rewrite
 
 Create iam-policy-hardened.json that narrows actions/resources for the reporting role.
 
@@ -84,3 +93,7 @@ Hardened IAM policy:
 Additional telemetry requested:
 Residual risk:
 ~~~
+
+## Cleanup
+
+No cleanup is required beyond removing any local hardened-policy file you created.
