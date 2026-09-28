@@ -1,0 +1,7 @@
+{
+  "artifact":"registry.training/app@sha256:aaaa1111",
+  "components":[
+    {"name":"flask","version":"3.1.2"},
+    {"name":"requests","version":"2.32.4"}
+  ]
+}
