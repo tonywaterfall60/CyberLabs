@@ -1,0 +1,11 @@
+commit b2
++ API_TOKEN=TRAINING_TOKEN_EXAMPLE
++ API_URL=https://api.training.invalid
+
+commit c3
+- API_TOKEN=TRAINING_TOKEN_EXAMPLE
++ API_TOKEN=<runtime environment value>
+
+commit d4
++ .env
++ secrets/
