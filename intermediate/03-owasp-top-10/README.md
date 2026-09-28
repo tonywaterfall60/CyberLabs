@@ -1,5 +1,16 @@
 # Intermediate 03 — OWASP Top 10 Workshop
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Intermediate |
+| Difficulty | Intermediate |
+| Estimated time | 75–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 02 — Web Enumeration |
+
+
 **Difficulty:** Intermediate  
 **Estimated time:** 90 minutes  
 **Prerequisites:** Intermediate 02  
