@@ -21,6 +21,14 @@ Members use Wi-Fi daily but often do not know the difference between SSID, BSSID
 - identify common management-frame activity,
 - explain why offline analysis is safer for introductory wireless practice.
 
+## Concepts
+
+Review the core terminology, evidence types, and security controls named in the learning objectives. Members should be able to explain each concept in plain language before using it in the challenge.
+
+## Guided Lab
+
+Work one representative example as a group. The event lead should ask what question is being answered, what evidence supports the answer, and what remains unknown.
+
 ## Challenge
 
 [challenge/README.md](challenge/README.md)
