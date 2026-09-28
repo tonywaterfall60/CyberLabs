@@ -1,5 +1,16 @@
 # Beginner 02 — Linux Basics
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Beginner |
+| Difficulty | Beginner |
+| Estimated time | 60–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 01 — Intro to Cybersecurity |
+
+
 **Difficulty:** Beginner  
 **Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 01  
