@@ -1,0 +1,2 @@
+{"timestamp":"2026-09-20T14:00:01Z","hostname":"WS-77","username":"riley","event":"login_failure","source_ip":"198.51.100.44"}
+{"timestamp":"2026-09-20T14:00:12Z","hostname":"WS-77","username":"riley","event":"login_success","source_ip":"198.51.100.44"}
