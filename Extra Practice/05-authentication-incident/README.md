@@ -1,11 +1,14 @@
 # Extra Practice 05 — Authentication Incident
 
-**Difficulty:** Intermediate → Advanced  
-**Estimated time:** 90–120 minutes  
-**Environment:** Kali Linux  
-**Tools:** grep, awk, sort, uniq, jq, Python 3  
-**Infrastructure:** generated authentication, MFA, VPN, and application logs
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate → Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux |
+| Infrastructure | Generated authentication, MFA, VPN, and application logs |
+| Tools | grep, awk, sort, uniq, jq, Python 3 |
 ## Scenario
 
 The security team received an alert that one employee account may have been used from an unusual source.
@@ -23,7 +26,7 @@ Your goal is to determine whether the evidence supports normal user error, passw
 
 Do not jump directly to “compromised account.”
 
-## Scope
+## Authorized Scope
 
 Generated evidence directory:
 
@@ -33,7 +36,9 @@ Generated evidence directory:
 
 Use only those files.
 
-## Infrastructure Model
+### Setup
+
+### Infrastructure Model
 
 ~~~text
 Internet Client
@@ -61,23 +66,25 @@ cd ~/cyberclub/extra-practice/auth-incident
 ls -l
 ~~~
 
-## Phase 1 — Understand the Schema
+## Investigation / Tasks
+
+### Phase 1 — Understand the Schema
 
 Read a few lines from every source and identify timestamp, username, source, result, device/session, and action fields.
 
 Write down which fields are shared between sources.
 
-## Phase 2 — Authentication Failures
+### Phase 2 — Authentication Failures
 
 Determine which account has the most failures, which source generated them, the time range, and whether another account also received failures from that source.
 
 Use command-line aggregation rather than manual counting.
 
-## Phase 3 — Successful Authentication
+### Phase 3 — Successful Authentication
 
 Determine whether the targeted account later succeeded and record source IP, device ID, session ID, and timestamp.
 
-## Phase 4 — MFA
+### Phase 4 — MFA
 
 Use jq against mfa.jsonl.
 
@@ -85,19 +92,19 @@ Determine whether MFA was challenged, approved or denied, which device was assoc
 
 Do not assume MFA approval proves the user intentionally approved it.
 
-## Phase 5 — VPN Correlation
+### Phase 5 — VPN Correlation
 
 Inspect vpn.log and determine whether a VPN session was established.
 
 Record user, source, device, session, assigned internal IP, and timestamp.
 
-## Phase 6 — Application Activity
+### Phase 6 — Application Activity
 
 Inspect application.log and determine what the authenticated session did after VPN access.
 
 Identify activity with higher impact.
 
-## Phase 7 — Build a Unified Timeline
+### Phase 7 — Build a Unified Timeline
 
 Create:
 
@@ -107,7 +114,7 @@ Timestamp | Source Log | User | Source/Device | Event | Interpretation
 
 Include events from all four evidence sources.
 
-## Phase 8 — Confidence Assessment
+### Phase 8 — Confidence Assessment
 
 Write:
 
@@ -121,7 +128,7 @@ Confidence:
 
 Explain any Low/Medium/High confidence label.
 
-## Phase 9 — Python Correlation
+### Phase 9 — Python Correlation
 
 Open correlate.py and complete the TODO sections so it counts authentication failures per user/source, finds successful authentications, prints MFA results, VPN sessions, and important application actions.
 
