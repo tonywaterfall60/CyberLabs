@@ -1,0 +1,7 @@
+SERVICE NorthstarUpdater RunAs=LocalSystem Path=C:\Program Files\Northstar\update.exe
+ACL C:\Program Files\Northstar\update.exe Users=RX Administrators=F
+TASK Inventory RunAs=SYSTEM Action=powershell.exe -File C:\Scripts\inventory.ps1
+ACL C:\Scripts\inventory.ps1 Users=R Administrators=F
+SECURITY 4624 user=morgan logon_type=10 src=10.20.0.55
+SYSMON 1 parent=WINWORD.EXE image=powershell.exe user=morgan
+POWERSHELL 4104 script="Get-ComputerInfo"
