@@ -256,3 +256,12 @@ Close Burp or return the browser proxy settings to normal before using the brows
 ## Next Event
 
 [Intermediate 03 — OWASP Top 10 Workshop](../03-owasp-top-10/)
+
+
+---
+
+## Event Navigation
+- Previous: [Network Enumeration](../01-network-enumeration/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [OWASP Top 10 Workshop](../03-owasp-top-10/)
