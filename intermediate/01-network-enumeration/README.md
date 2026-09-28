@@ -1,5 +1,16 @@
 # Intermediate 01 — Network Enumeration
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Intermediate |
+| Difficulty | Intermediate |
+| Estimated time | 75–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Beginner track readiness |
+
+
 **Difficulty:** Intermediate  
 **Estimated time:** 90 minutes  
 **Prerequisites:** Beginner track completion  
