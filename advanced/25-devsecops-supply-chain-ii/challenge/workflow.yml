@@ -1,0 +1,11 @@
+name: build
+on: [push]
+permissions: write-all
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - run: pip install -r requirements.txt
+      - run: docker build -t registry.training/app:$GITHUB_SHA .
+      - run: docker push registry.training/app:$GITHUB_SHA
