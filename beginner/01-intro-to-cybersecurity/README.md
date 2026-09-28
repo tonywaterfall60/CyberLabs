@@ -171,3 +171,12 @@ Cybersecurity is not just exploitation. It includes prevention, detection, respo
 ## Next Event
 
 [Beginner 02 — Linux Basics](../02-linux-basics/)
+
+
+---
+
+## Event Navigation
+- Previous: — Start of track
+- Track Home: [Beginner Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [02-linux-basics](../02-linux-basics/)
