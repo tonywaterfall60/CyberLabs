@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8900:5000"
+    environment:
+      TRAINING_PASSWORD: example-only
+    volumes:
+      - ./:/app/data
