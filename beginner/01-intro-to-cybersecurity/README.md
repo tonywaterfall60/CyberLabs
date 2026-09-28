@@ -1,5 +1,16 @@
 # Beginner 01 — Intro to Cybersecurity
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Beginner |
+| Difficulty | Beginner |
+| Estimated time | 60–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | None |
+
+
 **Difficulty:** Beginner  
 **Estimated time:** 60–75 minutes  
 **Prerequisites:** None  
