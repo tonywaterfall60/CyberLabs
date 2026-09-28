@@ -22,9 +22,21 @@ Enterprise identity risk emerges from relationships between users, groups, hosts
 - prioritize remediation by blast radius,
 - identify useful identity telemetry.
 
+## Concepts
+
+Review the trust boundaries, evidence relationships, attack/defense assumptions, and control decisions named in the learning objectives.
+
+## Guided Lab
+
+The event lead should model one complete evidence-to-conclusion chain, including an alternative explanation, validation step, and defensive remediation.
+
 ## Challenge
 
 [challenge/README.md](challenge/README.md)
+
+## Expected Outcomes
+
+Members should independently form and test hypotheses, support conclusions with evidence, identify limitations, and connect findings to remediation and detection.
 
 ## Cleanup
 
