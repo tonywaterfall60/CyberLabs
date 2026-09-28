@@ -1,0 +1,18 @@
+From: "Accounts Payable" <billing@northstar-payments.example>
+Reply-To: invoices@reply-northstar.example
+Return-Path: <bounce@northstar-payments.example>
+To: taylor@example.edu
+Subject: Invoice 4821 available
+Date: Thu, 24 Sep 2026 14:10:00 -0400
+Message-ID: <4821.20260924@northstar-payments.example>
+Received: from mail.northstar-payments.example (192.0.2.30) by mx.example.edu with ESMTPS id TRAINING01; Thu, 24 Sep 2026 14:10:08 -0400
+Authentication-Results: mx.example.edu; spf=pass smtp.mailfrom=northstar-payments.example; dkim=pass header.d=northstar-payments.example; dmarc=pass header.from=northstar-payments.example
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Hello Taylor,
+
+Your training invoice 4821 is available at:
+https://portal.northstar-payments.example/invoices/4821
+
+This fictional message contains no executable attachment.
