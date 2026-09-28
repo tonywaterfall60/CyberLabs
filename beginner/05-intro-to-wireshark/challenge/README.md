@@ -1,16 +1,21 @@
 # Challenge — Local Packet Investigation
 
-**Difficulty:** Beginner  
-**Estimated time:** 40–55 minutes  
-**Target:** `127.0.0.1:8085`
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Beginner |
+| Estimated time | 40–55 minutes |
+| Environment | Kali, Docker, Wireshark / tshark |
+| Authorized scope | 127.0.0.1:8085 only |
+| Goal | Capture and reconstruct one repeatable local HTTP session |
 ## Scenario
 
 You are given a small local diagnostics service and asked to capture one short session so another analyst can verify what happened on the wire.
 
 Your goal is to identify requests, responses, TCP setup, and a simple sequence of activity—not to inspect unrelated traffic.
 
-## Start the Service
+## Setup
 
 ~~~bash
 docker compose up -d
@@ -22,7 +27,7 @@ Verify:
 curl http://127.0.0.1:8085/
 ~~~
 
-## Capture Scope
+## Authorized Scope
 
 Capture only traffic for:
 
@@ -32,7 +37,9 @@ Capture only traffic for:
 
 On Kali, loopback traffic normally appears on interface `lo`.
 
-## Generate Repeatable Traffic
+## Objectives / Tasks
+
+### Generate Repeatable Traffic
 
 Use the included script:
 
@@ -52,7 +59,7 @@ It requests:
 
 with short pauses so the sequence is easier to recognize.
 
-## Phase 1 — Wireshark
+### Phase 1 — Wireshark
 
 Useful display filters:
 
@@ -74,7 +81,7 @@ Identify:
 6. GET `/help`,
 7. HTTP response status codes.
 
-## Phase 2 — Follow a Conversation
+### Phase 2 — Follow a Conversation
 
 Choose one HTTP packet and use **Follow → TCP Stream**.
 
@@ -87,7 +94,7 @@ Response status:
 One response header:
 ~~~
 
-## Phase 3 — Save Evidence
+### Phase 3 — Save Evidence
 
 Save the capture as:
 
@@ -103,7 +110,7 @@ sha256sum challenge.pcap
 
 This introduces the idea that packet captures are evidence files too.
 
-## Phase 4 — tshark
+### Phase 4 — tshark
 
 Show HTTP requests:
 
@@ -117,7 +124,7 @@ Show HTTP responses:
 tshark -r challenge.pcap -Y http.response -T fields -e frame.number -e http.response.code
 ~~~
 
-## Timeline Task
+### Timeline Task
 
 Create:
 
