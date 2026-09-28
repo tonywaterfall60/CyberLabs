@@ -1,0 +1,11 @@
+source,relationship,target
+alex,MemberOf,Helpdesk
+Helpdesk,MemberOf,Web Admins
+Web Admins,LocalAdmin,WEB01
+carol,HasSession,WEB01
+carol,MemberOf,Domain Admins
+jamie,MemberOf,Backup Operators
+Backup Operators,LocalAdmin,BACKUP01
+Backup Operators,CanManage,svc_backup
+svc_reports,CanWriteGroup,Server Operators
+Server Operators,LocalAdmin,APP01
