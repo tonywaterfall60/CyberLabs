@@ -1,0 +1,10 @@
+{
+  "reporting-role": {
+    "trusted_principals": ["reporting-sa"],
+    "permissions": ["reports:Read","sts:AssumeRole:credential-admin"]
+  },
+  "credential-admin": {
+    "trusted_principals": ["reporting-role","alex"],
+    "permissions": ["iam:CreateAccessKey:training-service","iam:GetUser:training-service"]
+  }
+}
