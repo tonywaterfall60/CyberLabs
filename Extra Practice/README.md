@@ -58,6 +58,7 @@ cat README.md
 | 12 | Active Directory Relationship Analysis | Advanced | nested groups, SPNs, delegation, graph reasoning | fictional AD export dataset |
 | 13 | DevSecOps Pipeline Review | Advanced | CI/CD, secrets, containers, supply-chain controls | fictional repository + pipeline snapshot |
 | 14 | Multi-Host Cyber Range Investigation | Advanced | subnet enumeration, service mapping, logs, prioritization | 5-host dedicated Docker subnet |
+| 15 | Wireless Security Analysis | Intermediate → Advanced | 802.11 frames, Wireshark, tshark, aircrack-ng | generated synthetic Wi-Fi PCAP |
 
 More labs will be added in small batches.
 
