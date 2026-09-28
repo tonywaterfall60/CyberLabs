@@ -72,3 +72,12 @@ Create:
 ## Next Event
 
 [Intermediate 10 — Python for Cybersecurity](../10-python-for-cybersecurity/)
+
+
+---
+
+## Event Navigation
+- Previous: [Log Analysis](../08-log-analysis/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Python for Cybersecurity](../10-python-for-cybersecurity/)
