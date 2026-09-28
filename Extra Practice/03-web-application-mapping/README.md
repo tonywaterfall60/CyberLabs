@@ -1,11 +1,14 @@
 # Extra Practice 03 — Web Application Mapping
 
-**Difficulty:** Intermediate  
-**Estimated time:** 90–120 minutes  
-**Environment:** Kali Linux + Docker  
-**Tools:** Burp Suite, curl, Gobuster or ffuf, browser developer tools  
-**Infrastructure:** Nginx reverse proxy + Flask application on an internal Docker network
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux + Docker |
+| Infrastructure | Nginx reverse proxy + Flask app on an internal Docker network |
+| Tools | Burp Suite, curl, Gobuster/ffuf, browser developer tools |
 ## Scenario
 
 You have been asked to map a small internal support portal before a deeper security assessment.
@@ -21,7 +24,7 @@ Your job is to understand:
 - what information is exposed,
 - which parts of the application deserve deeper review.
 
-## Scope
+## Authorized Scope
 
 Authorized target:
 
@@ -33,7 +36,9 @@ Do not scan other ports or hosts for this lab.
 
 ---
 
-## Infrastructure
+## Setup
+
+### Infrastructure
 
 The lab uses two containers:
 
@@ -55,7 +60,7 @@ The Flask application is reachable only through the internal Docker network.
 
 This is intentionally closer to how many real web environments are structured.
 
-## Start the Lab
+### Start the Lab
 
 ~~~bash
 docker compose up --build -d
@@ -70,7 +75,9 @@ curl -I http://127.0.0.1:8740/
 
 ---
 
-## Phase 1 — Normal Browsing
+## Investigation / Tasks
+
+### Phase 1 — Normal Browsing
 
 Before using content-discovery tools:
 
@@ -88,7 +95,7 @@ Build a table:
 Method | Route | Parameters | Status | Discovery Source | Notes
 ~~~
 
-## Phase 2 — Burp Proxy
+### Phase 2 — Burp Proxy
 
 Proxy your browser through Burp.
 
@@ -111,7 +118,7 @@ Response status
 Response headers
 ~~~
 
-## Phase 3 — Repeater
+### Phase 3 — Repeater
 
 Send the search request to Repeater.
 
@@ -127,7 +134,7 @@ Do not add unrelated attack payloads.
 
 The objective is controlled request manipulation.
 
-## Phase 4 — Content Discovery
+### Phase 4 — Content Discovery
 
 Use the included:
 
@@ -155,7 +162,7 @@ Record:
 - whether the route was already visible,
 - whether it deserves manual review.
 
-## Phase 5 — robots.txt
+### Phase 5 — robots.txt
 
 Inspect:
 
@@ -170,7 +177,7 @@ Answer:
 - whether the listed routes are reachable,
 - what their responses reveal.
 
-## Phase 6 — Restricted Route
+### Phase 6 — Restricted Route
 
 Inspect the administrative route.
 
@@ -183,7 +190,7 @@ Document:
 - whether the route existence itself is a vulnerability,
 - what additional evidence would be needed for a real finding.
 
-## Phase 7 — API Mapping
+### Phase 7 — API Mapping
 
 Inspect:
 
@@ -199,7 +206,7 @@ Record:
 - object identifiers,
 - whether the API reveals more information than the HTML interface.
 
-## Phase 8 — Architecture Inference
+### Phase 8 — Architecture Inference
 
 Using only application evidence, describe what you can reasonably infer about the infrastructure.
 
