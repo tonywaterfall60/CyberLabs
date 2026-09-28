@@ -1,0 +1,5 @@
+{"step":1,"action":"office_launches_powershell","telemetry":"process","parent":"WINWORD.EXE","image":"powershell.exe","cmd":"-EncodedCommand VHJhaW5pbmdPbmx5"}
+{"step":2,"action":"dns_lookup","telemetry":"dns","query":"sync.training.invalid","answer":"198.51.100.25"}
+{"step":3,"action":"outbound_connection","telemetry":"network","dst":"198.51.100.25","port":443}
+{"step":4,"action":"temp_file_create","telemetry":"file","path":"C:\\Temp\\training.tmp"}
+{"step":5,"action":"scheduled_inventory","telemetry":"process","parent":"taskeng.exe","image":"powershell.exe","cmd":"-File inventory.ps1"}
