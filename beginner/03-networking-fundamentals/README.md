@@ -280,7 +280,7 @@ Write a short explanation of what happens when a browser visits a website, using
 ---
 
 ## Event Navigation
-- Previous: [02-linux-basics](../02-linux-basics/)
+- Previous: [Linux Basics](../02-linux-basics/)
 - Track Home: [Beginner Track](../README.md)
 - Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
-- Next: [04-command-line-workshop](../04-command-line-workshop/)
+- Next: [Command Line Workshop](../04-command-line-workshop/)
