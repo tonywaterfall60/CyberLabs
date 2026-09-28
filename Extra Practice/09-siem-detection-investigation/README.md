@@ -1,11 +1,14 @@
 # Extra Practice 09 — SIEM / Detection Investigation
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes  
-**Environment:** Kali Linux  
-**Tools:** jq, grep, Python 3  
-**Infrastructure:** synthetic normalized JSONL security events + starter detection engine
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux |
+| Infrastructure | Synthetic normalized JSONL security events + starter detection engine |
+| Tools | jq, grep, Python 3 |
 ## Scenario
 
 You are working a SOC queue after two alerts fired during the same shift.
@@ -14,7 +17,7 @@ One alert concerns suspicious process execution. The other concerns repeated aut
 
 Your job is to determine whether the detections are useful, what evidence supports them, which false positives are plausible, and how you would tune or triage the rules.
 
-## Scope
+## Authorized Scope
 
 Use only the generated files under:
 
@@ -22,7 +25,9 @@ Use only the generated files under:
 ~/cyberclub/extra-practice/siem-investigation
 ~~~
 
-## Data Model
+### Setup
+
+### Data Model
 
 All telemetry uses one-event-per-line JSON.
 
@@ -43,7 +48,9 @@ chmod +x setup.sh reset.sh
 cd ~/cyberclub/extra-practice/siem-investigation
 ~~~
 
-## Phase 1 — Learn the Schema
+## Investigation / Tasks
+
+### Phase 1 — Learn the Schema
 
 Use jq to inspect sample records.
 
@@ -59,7 +66,7 @@ Identify which fields are available for:
 - result
 - destination IP/port
 
-## Phase 2 — Process Detection
+### Phase 2 — Process Detection
 
 Investigate a process chain involving an Office-like parent and PowerShell.
 
@@ -74,19 +81,19 @@ Determine:
 
 Do not treat PowerShell itself as malicious.
 
-## Phase 3 — Authentication Detection
+### Phase 3 — Authentication Detection
 
 Determine whether the same user/source produced multiple failures followed by success.
 
 Record the time window and any later activity.
 
-## Phase 4 — Correlation
+### Phase 4 — Correlation
 
 Correlate process, authentication, and network evidence by host/user/time.
 
 Build a timeline with at least six events.
 
-## Phase 5 — Starter Detection Engine
+### Phase 5 — Starter Detection Engine
 
 Complete detections.py so it emits alerts for:
 
@@ -95,7 +102,7 @@ Complete detections.py so it emits alerts for:
 
 Do not hard-code one username or host.
 
-## Phase 6 — Tuning
+### Phase 6 — Tuning
 
 For each detection document:
 
