@@ -322,3 +322,11 @@ Continue with:
 ~~~text
 advanced/01-advanced-web-security
 ~~~
+
+---
+
+## Event Navigation
+- Previous: [Intermediate CTF](../12-intermediate-ctf/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Advanced Track](../../advanced/README.md)
