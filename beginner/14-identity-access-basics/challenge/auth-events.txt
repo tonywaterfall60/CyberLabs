@@ -1,0 +1,5 @@
+10:00 user=alice action=login password=valid mfa=approved result=success session=S100
+10:02 user=alice session=S100 action=view_grade object=alice result=allowed
+10:03 user=alice session=S100 action=view_grade object=bob result=allowed
+10:10 user=bob action=login password=invalid result=fail
+10:11 user=bob action=login password=valid mfa=denied result=blocked
