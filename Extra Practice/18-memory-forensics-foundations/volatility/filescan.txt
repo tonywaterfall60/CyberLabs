@@ -1,0 +1,4 @@
+0x1000 \Users\jordan\Downloads\QuarterlyReview.docx
+0x1200 \Users\jordan\AppData\Local\Temp\training.tmp
+0x1400 \Users\jordan\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+0x1600 \Windows\System32\WindowsPowerShell\v1.0\powershell.exe
