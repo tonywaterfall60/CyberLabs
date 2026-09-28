@@ -1,5 +1,16 @@
 # Intermediate 11 — Intro to Reverse Engineering
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Intermediate |
+| Difficulty | Intermediate |
+| Estimated time | 75–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 10 — Python for Cybersecurity |
+
+
 **Difficulty:** Intermediate  
 **Estimated time:** 90–120 minutes  
 **Prerequisites:** Linux + Python + command-line comfort  
