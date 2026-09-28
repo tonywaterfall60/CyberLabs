@@ -100,3 +100,12 @@ using shared user/session/time fields.
 ## Next Event
 
 [Intermediate 09 — OSINT Workshop](../09-osint-workshop/)
+
+
+---
+
+## Event Navigation
+- Previous: [Packet Analysis Challenge](../07-packet-analysis/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [OSINT Workshop](../09-osint-workshop/)
