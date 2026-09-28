@@ -9,6 +9,7 @@
 | Environment | Kali Linux |
 | Infrastructure | Generated authentication, MFA, VPN, and application logs |
 | Tools | grep, awk, sort, uniq, jq, Python 3 |
+
 ## Scenario
 
 The security team received an alert that one employee account may have been used from an unusual source.
@@ -36,7 +37,7 @@ Generated evidence directory:
 
 Use only those files.
 
-### Setup
+## Setup
 
 ### Infrastructure Model
 
@@ -57,7 +58,7 @@ Internal App -----> application.log
 
 Each source has different visibility. The exercise is about correlation across telemetry, not searching one log.
 
-## Setup
+### Generate the Evidence
 
 ~~~bash
 chmod +x setup.sh reset.sh
