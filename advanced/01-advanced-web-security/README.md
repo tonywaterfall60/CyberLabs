@@ -101,3 +101,12 @@ docker compose down
 ## Next Event
 
 [Advanced 02 — Binary Analysis Foundations](../02-binary-analysis-foundations/)
+
+
+---
+
+## Event Navigation
+- Previous: [Intermediate Track](../../intermediate/README.md)
+- Track Home: [Advanced Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Binary Analysis Foundations](../02-binary-analysis-foundations/)
