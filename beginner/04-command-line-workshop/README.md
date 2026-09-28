@@ -210,7 +210,7 @@ Use `challenge/reset.sh` for the challenge data.
 ---
 
 ## Event Navigation
-- Previous: [03-networking-fundamentals](../03-networking-fundamentals/)
+- Previous: [Networking Fundamentals](../03-networking-fundamentals/)
 - Track Home: [Beginner Track](../README.md)
 - Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
-- Next: [05-intro-to-wireshark](../05-intro-to-wireshark/)
+- Next: [Intro to Wireshark](../05-intro-to-wireshark/)
