@@ -1,13 +1,19 @@
 # Challenge — Local Service Enumeration
 
-**Difficulty:** Beginner  
-**Estimated time:** 45–60 minutes
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Beginner |
+| Estimated time | 45–60 minutes |
+| Environment | Kali + Docker |
+| Authorized scope | 127.0.0.1 ports 8000–8100 |
+| Goal | Discover, fingerprint, and manually validate local services |
 ## Scenario
 
 A small training workstation is hosting several local services. You need to discover what is exposed, identify what each service appears to do, and manually validate the results.
 
-## Start
+## Setup
 
 ~~~bash
 docker compose up -d
@@ -22,7 +28,9 @@ Ports: 8000-8100
 
 Do not scan outside this range.
 
-## Phase 1 — Discovery
+## Objectives / Tasks
+
+### Phase 1 — Discovery
 
 ~~~bash
 nmap -p 8000-8100 127.0.0.1
@@ -30,7 +38,7 @@ nmap -p 8000-8100 127.0.0.1
 
 Record every open TCP port.
 
-## Phase 2 — Targeted Service Detection
+### Phase 2 — Targeted Service Detection
 
 After discovering the ports, scan only those ports with `-sV`.
 
@@ -47,7 +55,7 @@ What does Nmap observe?
 What does Nmap infer?
 ~~~
 
-## Phase 3 — Manual HTTP Validation
+### Phase 3 — Manual HTTP Validation
 
 For each discovered HTTP service:
 
@@ -62,7 +70,7 @@ Record:
 - page title,
 - application purpose.
 
-## Phase 4 — Raw HTTP with Netcat
+### Phase 4 — Raw HTTP with Netcat
 
 Choose one port:
 
@@ -80,7 +88,7 @@ Host: localhost
 
 Press Enter after the blank line.
 
-## Phase 5 — Compare Service Roles
+### Phase 5 — Compare Service Roles
 
 The challenge contains multiple services with different roles.
 
@@ -97,7 +105,7 @@ Then answer:
 3. Which looks like documentation/support?
 4. Which would you review first if this were a real internal system, and why?
 
-## Key Concepts
+### Key Concepts
 
 Explain the difference between:
 
