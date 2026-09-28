@@ -1,0 +1,5 @@
+10:00 auth user=sam src=198.51.100.44 result=fail
+10:01 auth user=sam src=198.51.100.44 result=fail
+10:02 auth user=sam src=198.51.100.44 result=fail
+10:03 auth user=sam src=198.51.100.44 result=success session=S220
+10:05 app user=sam session=S220 action=view_reports result=success
