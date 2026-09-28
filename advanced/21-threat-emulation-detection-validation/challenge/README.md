@@ -10,6 +10,18 @@
 | Authorized scope | emulation-events.jsonl |
 | Goal | Determine whether planned actions are observable and detectable |
 
+## Scenario
+
+A synthetic adversary-emulation sequence has been converted into telemetry events. Your task is to validate visibility and detection coverage.
+
+## Authorized Scope
+
+Use only emulation-events.jsonl. No live emulation against external systems is authorized.
+
+## Setup
+
+No service startup is required.
+
 ## Investigation / Tasks
 
 For each sequence identify:
