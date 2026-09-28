@@ -1,13 +1,29 @@
 # Challenge — Windows Privilege Audit
 
-**Difficulty:** Intermediate  
-**Estimated time:** 75–105 minutes
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate |
+| Estimated time | 75–105 minutes |
+| Environment | Static fictional Windows evidence |
+| Authorized scope | Evidence files in this challenge directory only |
+| Goal | Identify and prioritize privilege-boundary weaknesses without exploitation |
 ## Scenario
 
 You are reviewing exported configuration evidence from a fictional Windows workstation. No live Windows host is required.
 
-## Evidence Files
+## Authorized Scope
+
+This is a static evidence-review challenge. Do not reproduce the findings against a real Windows host unless explicitly authorized.
+
+## Setup
+
+No live Windows VM or service startup is required.
+
+## Objectives / Tasks
+
+### Evidence Files
 
 - `whoami_priv.txt`
 - `services.txt`
@@ -15,7 +31,7 @@ You are reviewing exported configuration evidence from a fictional Windows works
 - `permissions.txt`
 - `config.txt`
 
-## Analysis Method
+### Analysis Method
 
 For each lead ask:
 
@@ -28,7 +44,7 @@ What is directly observed vs. inferred?
 How would I validate safely on an authorized host?
 ~~~
 
-## Tasks
+### Tasks
 
 1. Interpret the token privileges.
 2. Identify service configurations that deserve review.
@@ -37,7 +53,7 @@ How would I validate safely on an authorized host?
 5. Separate strong findings from weak leads.
 6. Prioritize remediation.
 
-## Required Format
+### Required Format
 
 ~~~text
 Finding:
@@ -50,7 +66,7 @@ Remediation:
 Priority:
 ~~~
 
-## Important Concepts
+### Important Concepts
 
 `SeImpersonatePrivilege` is a **lead**, not proof of privilege escalation by itself.
 
@@ -61,3 +77,7 @@ The strongest relationship in this dataset should come from correlating a privil
 ## Deliverable
 
 Identify at least five review items, rank the top three, and explain one item that looks interesting but needs more evidence before it becomes a finding.
+
+## Cleanup
+
+No cleanup is required for this challenge.
