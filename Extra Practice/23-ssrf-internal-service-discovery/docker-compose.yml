@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:8780:5000"
+    networks: [range]
+  internal-api:
+    build: ./internal-api
+    networks: [range]
+  admin-service:
+    build: ./admin-service
+    environment:
+      SSRF_FLAG_VALUE: ${SSRF_FLAG_VALUE:-FLAG_NOT_CONFIGURED}
+    networks: [range]
+networks:
+  range:
+    internal: false
