@@ -10,6 +10,18 @@
 | Authorized scope | image-manifest.txt and volatility-summary.txt |
 | Goal | Build a defensible memory-forensics hypothesis |
 
+## Scenario
+
+A fictional Windows memory acquisition was pre-processed into a small set of Volatility-style findings for repository use.
+
+## Authorized Scope
+
+Use only image-manifest.txt and volatility-summary.txt unless an instructor separately supplies an authorized training image.
+
+## Setup
+
+No full memory image is required for the repository version.
+
 ## Investigation / Tasks
 
 Correlate:
