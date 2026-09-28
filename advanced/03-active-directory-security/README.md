@@ -138,3 +138,11 @@ When the club has an isolated AD lab, add BloodHound, bloodhound-python, LDAP qu
 ## Next Event
 
 [Advanced 04 — Malware Analysis](../04-malware-analysis/)
+
+---
+
+## Event Navigation
+- Previous: [Binary Analysis Foundations](../02-binary-analysis-foundations/)
+- Track Home: [Advanced Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Malware Analysis](../04-malware-analysis/)
