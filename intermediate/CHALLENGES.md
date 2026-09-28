@@ -44,6 +44,16 @@ Enter the event, read its README, identify the scope, and then start the challen
 | 11 | Intro to Reverse Engineering | `intermediate/11-intro-to-reverse-engineering/challenge` | file, strings, GDB, radare2 | `./build.sh` |
 | 12 | Intermediate CTF | `intermediate/12-intermediate-ctf` | multiple tools | `./setup.sh && docker compose up --build -d` |
 | 13 | Advanced Capstone Prep | `intermediate/13-advanced-capstone-prep` | readiness case + checklist | none |
+| 14 | Windows Security Fundamentals | `intermediate/14-windows-security-fundamentals/challenge` | Windows services/tasks/ACLs | none |
+| 15 | HTTP Deep Dive | `intermediate/15-http-deep-dive/challenge` | HTTP request/response transcript | none |
+| 16 | API Security Fundamentals | `intermediate/16-api-security-fundamentals/challenge` | API transcript | none |
+| 17 | Wireless Security Analysis | `intermediate/17-wireless-security-analysis/challenge` | wireless event export | none |
+| 18 | Vulnerability Assessment Fundamentals | `intermediate/18-vulnerability-assessment-fundamentals/challenge` | scan/context evidence | none |
+| 19 | Intro to Active Directory | `intermediate/19-intro-active-directory/challenge` | AD CSV exports | none |
+| 20 | Container Fundamentals for Security | `intermediate/20-container-fundamentals-security/challenge` | Dockerfile/Compose review | none |
+| 21 | Cloud Security Fundamentals | `intermediate/21-cloud-security-fundamentals/challenge` | cloud JSON evidence | none |
+| 22 | Intro to Detection Engineering | `intermediate/22-intro-detection-engineering/challenge` | process events | none |
+| 23 | Git for Security / Secrets | `intermediate/23-git-security-secrets/challenge` | Git history/diff evidence | none |
 
 ---
 
