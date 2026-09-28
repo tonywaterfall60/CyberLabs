@@ -10,6 +10,18 @@
 | Authorized scope | architecture.txt and requests.txt |
 | Goal | Validate SSRF impact and propose layered controls |
 
+## Scenario
+
+A fictional frontend can fetch URLs on behalf of users and has network access to services that clients cannot reach directly.
+
+## Authorized Scope
+
+Use only architecture.txt and requests.txt. No external or real internal services are authorized.
+
+## Setup
+
+No service startup is required.
+
 ## Investigation / Tasks
 
 1. Draw the client/frontend/internal-service trust boundaries.
