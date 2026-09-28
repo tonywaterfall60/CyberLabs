@@ -25,6 +25,12 @@ For future plans, use [ROADMAP.md](ROADMAP.md).
 | 09 | [Intro to Digital Forensics](beginner/09-intro-to-digital-forensics/) | evidence preservation, hashes, metadata, strings |
 | 10 | [Beginner CTF](beginner/10-beginner-ctf/) | multi-topic skill integration |
 | 11 | [Capstone Interview Prep](beginner/11-capstone-interview-prep/) | Intermediate-readiness review |
+| 12 | [Lab Safety & Scoping](beginner/12-lab-safety-and-scoping/) | authorization, scope, stop conditions |
+| 13 | [Windows Fundamentals](beginner/13-windows-fundamentals/) | Windows endpoint orientation |
+| 14 | [Identity & Access Basics](beginner/14-identity-access-basics/) | authentication, authorization, MFA, sessions |
+| 15 | [Intro to Wireless Security](beginner/15-intro-wireless-security/) | wireless fundamentals and offline analysis |
+| 16 | [Intro to Security Monitoring](beginner/16-intro-security-monitoring/) | events, alerts, correlation, triage |
+| 17 | [Basic Incident Response](beginner/17-basic-incident-response/) | containment, preservation, recovery |
 
 ---
 
