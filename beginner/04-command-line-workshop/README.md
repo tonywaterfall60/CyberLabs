@@ -1,5 +1,16 @@
 # Beginner 04 — Command Line Workshop
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Beginner |
+| Difficulty | Beginner |
+| Estimated time | 60–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 03 — Networking Fundamentals |
+
+
 **Difficulty:** Beginner  
 **Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 02–03  
