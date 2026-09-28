@@ -1,5 +1,16 @@
 # Beginner 06 — Intro to Nmap
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Beginner |
+| Difficulty | Beginner |
+| Estimated time | 60–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 05 — Intro to Wireshark |
+
+
 **Difficulty:** Beginner  
 **Estimated time:** 75–90 minutes  
 **Prerequisites:** Beginner 03–05  
