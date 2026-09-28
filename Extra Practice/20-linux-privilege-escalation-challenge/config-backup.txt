@@ -1,0 +1,4 @@
+# fictional training backup
+service_user=reporting
+service_password=TRAINING_ONLY_NOT_REAL
+database=reports.training.invalid
