@@ -169,3 +169,12 @@ docker compose down
 ## Next Event
 
 [Beginner 07 — Web Security Basics](../07-web-security-basics/)
+
+
+---
+
+## Event Navigation
+- Previous: [05-intro-to-wireshark](../05-intro-to-wireshark/)
+- Track Home: [Beginner Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [07-web-security-basics](../07-web-security-basics/)
