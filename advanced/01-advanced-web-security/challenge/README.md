@@ -1,22 +1,28 @@
 # Challenge — Object Authorization Review
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali + Docker + Burp + structured telemetry |
+| Authorized scope | http://127.0.0.1:8500 and runtime/access.jsonl |
+| Goal | Validate object-level authorization and correlate the result with application telemetry |
 ## Scenario
 
 You are reviewing a local reports portal with two training users: alice and bob.
 
 The application authenticates users correctly, but object-level authorization must be validated.
 
-## Scope
+## Authorized Scope
 
 ~~~text
 http://127.0.0.1:8500
 runtime/access.jsonl
 ~~~
 
-## Start
+## Setup
 
 ~~~bash
 mkdir -p runtime
@@ -24,7 +30,9 @@ chmod 777 runtime
 docker compose up --build -d
 ~~~
 
-## Phase 1 — Threat Model
+## Objectives / Tasks
+
+### Phase 1 — Threat Model
 
 Before testing, write:
 
@@ -37,19 +45,19 @@ Expected secure decision:
 Evidence that would prove failure:
 ~~~
 
-## Phase 2 — Establish Baselines
+### Phase 2 — Establish Baselines
 
 Login as Alice and capture her normal report request in Burp. Repeat with Bob.
 
 Record user, normal object ID, expected owner, request, response, status, and request ID.
 
-## Phase 3 — Controlled Authorization Test
+### Phase 3 — Controlled Authorization Test
 
 Send Alice's normal request to Repeater. Change only the report object ID to Bob's known report ID and send once.
 
 Repeat in the opposite direction. Do not enumerate arbitrary ID ranges.
 
-## Phase 4 — Correlate Application Telemetry
+### Phase 4 — Correlate Application Telemetry
 
 Inspect:
 
@@ -71,19 +79,19 @@ timestamp
 
 Compare the API response X-Request-ID header with the log entry.
 
-## Phase 5 — Root Cause
+### Phase 5 — Root Cause
 
 Explain the difference between authentication, resource lookup, ownership check, and authorization enforcement.
 
 Identify the missing server-side decision.
 
-## Phase 6 — Remediation Design
+### Phase 6 — Remediation Design
 
 Write pseudocode for a fixed authorization decision.
 
 Explain where the check should live and why hiding links or randomizing IDs would not fix the root cause.
 
-## Phase 7 — Detection Design
+### Phase 7 — Detection Design
 
 Design one alert using the structured logs.
 
@@ -124,7 +132,7 @@ False positives:
 Residual risk:
 ~~~
 
-## Private Flag
+### Private Flag
 
 If configured by the event lead, successful cross-user access includes the private event flag. The real value is not stored here.
 
