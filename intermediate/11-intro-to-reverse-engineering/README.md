@@ -137,3 +137,12 @@ challenge/README.md
 ## Next Event
 
 [Intermediate 12 — Intermediate CTF](../12-intermediate-ctf/)
+
+
+---
+
+## Event Navigation
+- Previous: [Python for Cybersecurity](../10-python-for-cybersecurity/)
+- Track Home: [Intermediate Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Intermediate CTF](../12-intermediate-ctf/)
