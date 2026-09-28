@@ -182,7 +182,7 @@ cd challenge
 ---
 
 ## Event Navigation
-- Previous: [08-intro-to-cryptography](../08-intro-to-cryptography/)
+- Previous: [Intro to Cryptography](../08-intro-to-cryptography/)
 - Track Home: [Beginner Track](../README.md)
 - Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
-- Next: [10-beginner-ctf](../10-beginner-ctf/)
+- Next: [Beginner CTF](../10-beginner-ctf/)
