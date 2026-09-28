@@ -1,0 +1,2 @@
+{"ts":"2026-09-22T12:00:00Z","event":"approval","commit":"7f7f7f7","approver":"release-manager"}
+{"ts":"2026-09-22T12:05:00Z","event":"deploy","artifact_digest":"sha256:aaaa1111","environment":"production-training"}
