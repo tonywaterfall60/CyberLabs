@@ -1,0 +1,44 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: ep16_web
+    networks:
+      ep16_range:
+        ipv4_address: 172.28.16.10
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+      - ./nginx/web.conf:/etc/nginx/conf.d/default.conf:ro
+
+  api:
+    build: ./api
+    container_name: ep16_api
+    environment:
+      RANGE_ARTIFACT: ${RANGE_ARTIFACT:-TRAINING_ARTIFACT_NOT_CONFIGURED}
+      SERVICE_TOKEN: ep16-training-service-token
+    networks:
+      ep16_range:
+        ipv4_address: 172.28.16.11
+
+  admin:
+    image: nginx:alpine
+    container_name: ep16_admin
+    networks:
+      ep16_range:
+        ipv4_address: 172.28.16.12
+    volumes:
+      - ./admin:/usr/share/nginx/html:ro
+      - ./nginx/admin.conf:/etc/nginx/conf.d/default.conf:ro
+
+  telemetry:
+    build: ./telemetry
+    container_name: ep16_telemetry
+    networks:
+      ep16_range:
+        ipv4_address: 172.28.16.13
+
+networks:
+  ep16_range:
+    name: ep16_range
+    ipam:
+      config:
+        - subnet: 172.28.16.0/28
