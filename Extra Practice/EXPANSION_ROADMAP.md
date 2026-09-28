@@ -2,7 +2,7 @@
 
 This roadmap combines the selected defensive/forensics labs with the red-team labs discussed for the next CyberLabs expansion.
 
-Completed labs remain 01–15. The next expansion is intentionally numbered 16–35 so every planned lab has a unique slot.
+The Extra Practice expansion is now complete through Lab 35. The numbered catalog remains the canonical order.
 
 | # | Lab | Type | Status |
 |---:|---|---|---|
@@ -27,7 +27,7 @@ Completed labs remain 01–15. The next expansion is intentionally numbered 16�
 | 34 | SQL Injection Deep Dive | Red Team / Web | Complete |
 | 35 | Purple-Team Operator Challenge | Purple Team | Complete |
 
-## Build Order
+## Completed Build Order
 
 Work in small chunks:
 
