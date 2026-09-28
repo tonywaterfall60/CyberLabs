@@ -1,0 +1,6 @@
+Case: EP18-MEM-001
+Host: WS-23
+Primary user: jordan
+Acquisition time: 2026-09-25T18:45:00Z
+All evidence is fictional/synthetic.
+Volatility-style outputs are provided instead of a full memory image for repository portability.
