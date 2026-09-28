@@ -9,6 +9,7 @@
 | Environment | Kali Linux + Docker |
 | Infrastructure | Nginx edge proxy + portal + internal API + structured telemetry |
 | Tools | Burp Suite, curl, jq, grep, Python |
+
 ## Scenario
 
 A small internal document portal is being reviewed by both offensive and defensive analysts.
@@ -33,7 +34,7 @@ runtime/
 
 Do not scan unrelated ports or systems.
 
-### Setup
+## Setup
 
 ### Infrastructure
 
@@ -57,7 +58,7 @@ Browser / Burp / curl
 
 Only the Nginx edge is exposed to the Kali host. Portal and API containers are internal-only.
 
-## Telemetry
+### Telemetry
 
 After activity begins, runtime/ contains:
 
@@ -69,7 +70,7 @@ edge-access.jsonl
 
 Each log answers a different question.
 
-## Setup
+### Start the Range
 
 ~~~bash
 chmod +x setup.sh reset.sh
@@ -86,7 +87,7 @@ ls -l runtime
 
 If an instructor injects a private event flag, it is provided at runtime and is not stored in this repository.
 
-## Training Accounts
+### Training Accounts
 
 The portal provides links for alice and bob. Password mechanics are intentionally out of scope.
 
