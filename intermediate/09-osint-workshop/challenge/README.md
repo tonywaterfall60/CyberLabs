@@ -1,21 +1,33 @@
 # Challenge — Fictional OSINT Investigation
 
-**Difficulty:** Intermediate  
-**Estimated time:** 75–105 minutes
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Intermediate |
+| Estimated time | 75–105 minutes |
+| Environment | Local fictional artifact set |
+| Authorized scope | Provided fictional OSINT artifacts only |
+| Goal | Build sourced conclusions while preserving provenance and uncertainty |
 ## Scenario
 
 A fictional organization called **Northstar Robotics Club** has several public artifacts in this folder.
 
 Your job is to answer specific intelligence questions using only those artifacts, document where each fact came from, and avoid conclusions the evidence cannot support.
 
-## Scope
+## Authorized Scope
 
 Everything is fictional.
 
 Do **not** pivot usernames, names, domains, email addresses, or event details to real services or people.
 
-## Files
+## Setup
+
+No external browsing is required. Work only with the provided local artifacts.
+
+## Objectives / Tasks
+
+### Files
 
 ~~~text
 website.txt
@@ -26,7 +38,7 @@ event-flyer.txt
 repository-profile.txt
 ~~~
 
-## Phase 1 — Define the Questions
+### Phase 1 — Define the Questions
 
 Answer:
 
@@ -36,7 +48,7 @@ Answer:
 4. What is the likely showcase date and time?
 5. Which facts are corroborated by more than one source?
 
-## Phase 2 — Provenance Table
+### Phase 2 — Provenance Table
 
 Create:
 
@@ -45,7 +57,7 @@ Create:
 
 Do not write a conclusion unless you can point to a source.
 
-## Phase 3 — Entity Map
+### Phase 3 — Entity Map
 
 Build an entity map connecting:
 
@@ -60,13 +72,13 @@ repository/project
 
 Label each connection with the artifact that supports it.
 
-## Phase 4 — Timeline
+### Phase 4 — Timeline
 
 Create a timeline of public activity from the artifacts.
 
 Include source provenance for each entry.
 
-## Phase 5 — Corroboration
+### Phase 5 — Corroboration
 
 Choose three claims and classify each as:
 
@@ -77,7 +89,7 @@ conflicting
 unresolved
 ~~~
 
-## Phase 6 — Analytical Restraint
+### Phase 6 — Analytical Restraint
 
 Write one conclusion that is strongly supported and one conclusion that would be irresponsible to make from the available data.
 
@@ -103,3 +115,7 @@ Unresolved uncertainty:
 Unsupported/irresponsible conclusion:
 Confidence notes:
 ~~~
+
+## Cleanup
+
+No cleanup is required for this challenge.
