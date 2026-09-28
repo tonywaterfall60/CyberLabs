@@ -1,9 +1,14 @@
 # Challenge — Security Triage Case File
 
-**Difficulty:** Beginner  
-**Estimated time:** 30–45 minutes  
-**Goal:** Classify fictional incidents using core cybersecurity concepts and recommend practical controls.
+## Challenge Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Beginner |
+| Estimated time | 30–45 minutes |
+| Environment | Written analysis / fictional case file |
+| Authorized scope | The five incident scenarios in this challenge only |
+| Goal | Classify incidents and recommend practical controls |
 ## Scenario
 
 You are helping a small organization's security team review five short incident reports.
@@ -16,7 +21,19 @@ For each case, your job is not to “hack” anything. Your job is to decide:
 - which security property is affected,
 - what control would reduce risk.
 
-## Analysis Template
+## Authorized Scope
+
+This challenge is analysis-only. Do not test, scan, or interact with any real system based on the scenarios.
+
+## Setup
+
+No technical setup is required.
+
+## Objectives / Tasks
+
+Use the following analysis template for each incident.
+
+### Analysis Template
 
 For every incident complete:
 
@@ -136,3 +153,7 @@ Submit or discuss:
 ## Key Takeaway
 
 A security finding is stronger when you can explain the asset, weakness, impact, and control instead of only naming a cybersecurity term.
+
+## Cleanup
+
+No cleanup is required for this challenge.
