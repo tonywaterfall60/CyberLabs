@@ -1,9 +1,15 @@
 # Challenge — Characterize the Crash
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes
+## Challenge Snapshot
 
-## Scope
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali + local toy C/ELF binary |
+| Authorized scope | vuln-bin, vuln.c, generated inputs, and hardened comparison build |
+| Goal | Characterize memory corruption evidence without overstating exploitability |
+## Authorized Scope
 
 Only the provided local toy binary:
 
@@ -13,13 +19,19 @@ vuln-bin
 
 Do not reuse the workflow against unrelated software.
 
-## Goal
+## Scenario
 
 Determine exactly what has been demonstrated: safe execution, memory corruption, a crash, or evidence of controlled state.
 
 Do not jump directly from `segmentation fault` to `exploitable`.
 
-## Phase 1 — Build and Baseline
+## Setup
+
+Use the local build and generated inputs only.
+
+## Objectives / Tasks
+
+### Phase 1 — Build and Baseline
 
 ~~~bash
 chmod +x build.sh generate-inputs.py
@@ -30,7 +42,7 @@ checksec --file=vuln-bin
 
 Run with a short input and record normal behavior.
 
-## Phase 2 — Source and Binary Review
+### Phase 2 — Source and Binary Review
 
 Inspect `vuln.c` and the compiled binary.
 
@@ -41,7 +53,7 @@ Identify:
 - compiler protections intentionally disabled by build.sh,
 - protections that still exist.
 
-## Phase 3 — Controlled Input Set
+### Phase 3 — Controlled Input Set
 
 Generate labeled local test inputs:
 
@@ -63,7 +75,7 @@ Crash? yes/no
 
 Your goal is to identify the approximate transition from normal processing to corruption/crash.
 
-## Phase 4 — GDB Crash Characterization
+### Phase 4 — GDB Crash Characterization
 
 Open:
 
@@ -87,7 +99,7 @@ Answer:
 - Which stack values contain recognizable input bytes?
 - What evidence supports only a crash versus stronger control?
 
-## Phase 5 — Pattern Experiment
+### Phase 5 — Pattern Experiment
 
 `inputs/pattern.txt` contains a recognizable repeating pattern.
 
@@ -95,7 +107,7 @@ Use it only to make corrupted bytes easier to identify in GDB.
 
 Do not build a payload or redirect execution in this event.
 
-## Phase 6 — Compare Builds
+### Phase 6 — Compare Builds
 
 Build a hardened comparison binary:
 
@@ -108,7 +120,7 @@ Compare behavior and protections.
 
 Explain which controls reduce exploitability and which source bug still remains.
 
-## Phase 7 — Remediation
+### Phase 7 — Remediation
 
 Propose at least two source-level changes and two build/runtime mitigations.
 
@@ -142,3 +154,7 @@ Remaining uncertainty:
 ~~~
 
 No flag is required.
+
+## Cleanup
+
+Remove locally generated binaries and input files only if you want to reset the challenge.
