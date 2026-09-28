@@ -1,31 +1,32 @@
 # Docker Setup
 
-Docker is used for lightweight web and service labs.
+The canonical CyberLabs Docker installation, permissions, troubleshooting, and cleanup guide is:
 
-## Verify
-```bash
+[../resources/DOCKER_SETUP.md](../resources/DOCKER_SETUP.md)
+
+Use that guide rather than maintaining separate Docker instructions in this directory.
+
+## Quick Verification
+
+~~~bash
 docker --version
 docker compose version
-```
+docker ps
+~~~
 
-## Start a Lab
-```bash
-docker compose up -d
-```
+## Standard Lab Pattern
 
-## Check Status
-```bash
+~~~bash
+docker compose up --build -d
 docker compose ps
-```
+~~~
 
-## Stop a Lab
-```bash
+When finished:
+
+~~~bash
 docker compose down
-```
+~~~
 
-## Full Reset
-```bash
-docker compose down -v
-```
+Always follow the individual lab README when its startup or cleanup differs.
 
-Only bind intentionally vulnerable services to localhost unless a lab explicitly requires another arrangement.
+Do not expose intentionally vulnerable training services beyond the scope defined by the lab.
