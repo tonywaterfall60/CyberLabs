@@ -1,5 +1,16 @@
 # Intermediate 05 — Linux Privilege Escalation Foundations
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Intermediate |
+| Difficulty | Intermediate |
+| Estimated time | 75–90 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 04 — Password Security |
+
+
 **Difficulty:** Intermediate  
 **Estimated time:** 90 minutes  
 **Prerequisites:** Linux Basics, Command Line, Intermediate 01  
