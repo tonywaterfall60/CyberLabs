@@ -1,11 +1,14 @@
 # Extra Practice 14 — Multi-Host Cyber Range Investigation
 
-**Difficulty:** Advanced  
-**Estimated time:** 2–3 hours  
-**Environment:** Kali Linux + Docker  
-**Tools:** Nmap, curl, Netcat, jq, grep, browser/Burp optional  
-**Infrastructure:** dedicated Docker subnet with four service hosts and generated telemetry
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 2–3 hours |
+| Environment | Kali Linux + Docker |
+| Infrastructure | Dedicated Docker subnet with four service hosts and generated telemetry |
+| Tools | Nmap, curl, Netcat, jq, grep, browser/Burp optional |
 ## Scenario
 
 You have been assigned a small isolated training subnet after an architecture review found that several internal services may be exposed more broadly than intended.
@@ -21,7 +24,7 @@ Your job is to:
 
 This is a range investigation, not a flag race.
 
-## Scope
+## Authorized Scope
 
 Authorized subnet:
 
@@ -33,7 +36,9 @@ Authorized services are created only by this lab.
 
 Do not scan outside this subnet.
 
-## Infrastructure
+## Setup
+
+### Infrastructure
 
 ~~~text
                     Kali / Docker Host
@@ -53,7 +58,7 @@ Do not scan outside this subnet.
 
 An additional activity generator briefly creates normal and suspicious-looking requests so the range has telemetry to investigate.
 
-## Start
+### Start
 
 ~~~bash
 chmod +x setup.sh reset.sh
@@ -67,7 +72,9 @@ docker compose ps
 docker network inspect ep14_range
 ~~~
 
-## Phase 1 — Host Discovery
+## Investigation / Tasks
+
+### Phase 1 — Host Discovery
 
 Discover live hosts only inside the authorized /28.
 
@@ -80,13 +87,13 @@ Service guesses
 Initial role hypothesis
 ~~~
 
-## Phase 2 — Targeted Fingerprinting
+### Phase 2 — Targeted Fingerprinting
 
 Perform targeted version/service detection only against discovered ports.
 
 Do not run broad scans against unrelated interfaces.
 
-## Phase 3 — Manual Validation
+### Phase 3 — Manual Validation
 
 Use curl or Netcat to validate each HTTP service.
 
@@ -99,7 +106,7 @@ Collect:
 - interesting routes,
 - whether authentication is represented.
 
-## Phase 4 — Application Mapping
+### Phase 4 — Application Mapping
 
 Review normal routes and APIs.
 
@@ -107,7 +114,7 @@ Interesting routes may include health, status, inventory, debug/build, admin, an
 
 Do not assume an unlinked route is automatically a vulnerability.
 
-## Phase 5 — Telemetry Review
+### Phase 5 — Telemetry Review
 
 Inspect:
 
@@ -123,7 +130,7 @@ Determine:
 - whether one request exposed more information than expected,
 - which event should be prioritized for follow-up.
 
-## Phase 6 — Architecture Assessment
+### Phase 6 — Architecture Assessment
 
 Create a network/service diagram based on what you observed.
 
@@ -138,7 +145,7 @@ Monitoring/telemetry service:
 
 Discuss whether each service belongs on the same reachable subnet.
 
-## Phase 7 — Prioritization
+### Phase 7 — Prioritization
 
 Rank findings using:
 
@@ -149,7 +156,7 @@ Rank findings using:
 - operational impact,
 - evidence of actual use.
 
-## Phase 8 — Hardening Plan
+### Phase 8 — Hardening Plan
 
 Recommend:
 
