@@ -177,3 +177,12 @@ cd challenge
 ## Next Event
 
 [Beginner 10 — Beginner CTF](../10-beginner-ctf/)
+
+
+---
+
+## Event Navigation
+- Previous: [08-intro-to-cryptography](../08-intro-to-cryptography/)
+- Track Home: [Beginner Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [10-beginner-ctf](../10-beginner-ctf/)
