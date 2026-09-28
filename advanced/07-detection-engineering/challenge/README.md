@@ -1,13 +1,29 @@
 # Challenge — Build, Test, and Tune Detection Logic
 
-**Difficulty:** Advanced  
-**Estimated time:** 90–120 minutes
+## Challenge Snapshot
 
-## Goal
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali + YAML/JSONL + Python test harness |
+| Authorized scope | Provided synthetic process/auth events and starter detection files |
+| Goal | Treat detections like code: define, test, tune, and document |
+## Scenario
 
 Treat detections like code: define behavior, write logic, test positive and negative cases, tune, and document triage requirements.
 
-## Evidence
+## Authorized Scope
+
+Use only the provided synthetic telemetry and local detection files. No live endpoint or production SIEM is required.
+
+## Setup
+
+No service startup is required. Python 3 is sufficient to run the local test harness.
+
+## Objectives / Tasks
+
+### Evidence
 
 ~~~text
 process_events.jsonl
@@ -16,7 +32,7 @@ starter-rule.yml
 test_detections.py
 ~~~
 
-## Detection A — Encoded PowerShell from Office Parent
+### Detection A — Encoded PowerShell from Office Parent
 
 Requirements:
 
@@ -34,7 +50,7 @@ Requirements:
 5. Explain the known false-positive class.
 6. Decide whether medium severity is appropriate.
 
-## Detection B — Failures Followed by Success
+### Detection B — Failures Followed by Success
 
 Requirements:
 
@@ -53,7 +69,7 @@ within 120 seconds
 3. Explain why failures across multiple users from one source are a different detection problem.
 4. State the correlation keys and time semantics explicitly.
 
-## Test Harness
+### Test Harness
 
 Run:
 
@@ -63,7 +79,7 @@ python3 test_detections.py
 
 Treat the script as a reference implementation, not the only acceptable answer.
 
-## Regression Matrix
+### Regression Matrix
 
 Create:
 
@@ -76,7 +92,7 @@ Create:
 | 2 fails then success >120s | | | |
 | many users fail from same source | | | |
 
-## Tuning
+### Tuning
 
 For each rule document:
 
@@ -92,7 +108,7 @@ Triage steps
 Response
 ~~~
 
-## Detection-as-Code Discussion
+### Detection-as-Code Discussion
 
 Explain:
 
@@ -104,3 +120,7 @@ Explain:
 ## Deliverable
 
 Submit updated rule logic, regression matrix, test output, false-positive analysis, coverage gaps, severity rationale, and analyst triage steps.
+
+## Cleanup
+
+No cleanup is required unless you created additional local test output.
