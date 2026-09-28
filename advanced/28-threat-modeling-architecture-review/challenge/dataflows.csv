@@ -1,0 +1,7 @@
+flow_id,source,destination,data,authentication,authorization,logging
+F1,Public Portal,API Gateway,session token,yes,n/a,request log
+F2,API Gateway,Student API,user claims,yes,route scope,api log
+F3,Student API,Reporting Service,student_id and report_id,service identity,application check,partial
+F4,Reporting Service,Object Storage,report object,workload identity,bucket policy,object access logging disabled
+F5,Admin Console,Admin API,admin session,yes,admin role,admin log
+F6,Student API,Admin API,internal request,service identity,network trust only,partial
