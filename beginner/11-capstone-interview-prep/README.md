@@ -1,5 +1,16 @@
 # Beginner 11 — Intermediate Advancement Capstone Prep
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Beginner |
+| Difficulty | Beginner |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | 10 — Beginner CTF |
+
+
 **Difficulty:** Beginner capstone preparation  
 **Estimated review time:** 60–90 minutes  
 **Prerequisites:** Beginner 01–10
