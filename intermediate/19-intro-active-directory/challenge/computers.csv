@@ -1,0 +1,4 @@
+host,role
+WEB01,web server
+APP01,application server
+DC01,domain controller
