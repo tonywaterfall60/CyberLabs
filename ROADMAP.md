@@ -175,18 +175,18 @@ The roadmap should be updated as events are tested during real club meetings.
 
 # Future Curriculum Expansion
 
-These items are approved for future planning only. They are **not yet implemented**.
+These items track the curriculum expansion. Completed items are marked below.
 
 ## Beginner Expansion
 
 Planned additions:
 
-- [ ] Cybersecurity Lab Safety & Scoping
-- [ ] Windows Fundamentals for Cybersecurity
-- [ ] Identity & Access Basics
-- [ ] Intro to Wireless Security
-- [ ] Intro to Security Monitoring
-- [ ] Basic Incident Response
+- [x] Cybersecurity Lab Safety & Scoping
+- [x] Windows Fundamentals for Cybersecurity
+- [x] Identity & Access Basics
+- [x] Intro to Wireless Security
+- [x] Intro to Security Monitoring
+- [x] Basic Incident Response
 
 Design goal:
 
