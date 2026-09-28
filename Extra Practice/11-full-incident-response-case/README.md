@@ -1,11 +1,14 @@
 # Extra Practice 11 — Full Incident Response Case
 
-**Difficulty:** Advanced  
-**Estimated time:** 2–4 hours  
-**Environment:** Kali Linux  
-**Tools:** grep/awk/jq, Wireshark/tshark, sha256sum, file, strings, Python optional  
-**Infrastructure:** generated case directory + synthetic multi-source logs + offline PCAP + host artifacts
+## Lab Snapshot
 
+| Item | Details |
+|---|---|
+| Difficulty | Advanced |
+| Estimated time | 2–4 hours |
+| Environment | Kali Linux |
+| Infrastructure | Generated case directory + synthetic logs + offline PCAP + host artifacts |
+| Tools | grep/awk/jq, Wireshark/tshark, sha256sum, file, strings, Python optional |
 ## Scenario
 
 An internal security team is investigating a possible account and endpoint incident involving user `sam` and workstation `WS-17`.
@@ -14,7 +17,7 @@ You are given a collected evidence package. You are **not** given a conclusion.
 
 Your job is to reconstruct the incident, identify what is confirmed, identify what remains uncertain, scope the activity, and recommend containment/remediation steps.
 
-## Scope
+## Authorized Scope
 
 Generated case directory:
 
@@ -26,7 +29,9 @@ Use only evidence in that directory.
 
 All public IPs/domains are documentation/training values and must not be contacted.
 
-## Case Layout
+## Setup
+
+### Case Layout
 
 ~~~text
 full-ir-case/
@@ -46,7 +51,9 @@ full-ir-case/
 └── evidence-manifest.sha256
 ~~~
 
-## Investigation Objectives
+## Investigation / Tasks
+
+### Investigation Objectives
 
 Determine:
 
@@ -59,7 +66,7 @@ Determine:
 7. likely incident scope,
 8. recommended containment and next evidence collection.
 
-## Prerequisite
+### Prerequisite
 
 The case setup generates a local PCAP with Scapy.
 
@@ -70,7 +77,7 @@ sudo apt update
 sudo apt install -y python3-scapy
 ~~~
 
-## Phase 1 — Preserve and Verify
+### Phase 1 — Preserve and Verify
 
 Start by reviewing:
 
@@ -81,13 +88,13 @@ sha256sum -c evidence-manifest.sha256
 
 Do not execute suspicious-update.ps1.
 
-## Phase 2 — Identity Timeline
+### Phase 2 — Identity Timeline
 
 Review auth.log and mfa.jsonl.
 
 Determine whether failures preceded success, whether MFA succeeded, and which source/device/session fields can be correlated.
 
-## Phase 3 — Endpoint Timeline
+### Phase 3 — Endpoint Timeline
 
 Review process.jsonl and files.jsonl.
 
@@ -97,7 +104,7 @@ Inspect the PowerShell artifact with file, sha256sum, and strings/cat only.
 
 Do not run it.
 
-## Phase 4 — Network Investigation
+### Phase 4 — Network Investigation
 
 Review dns.log and incident.pcap.
 
@@ -108,13 +115,13 @@ Use tshark/Wireshark to identify:
 - HTTP-like activity
 - timing relationships with endpoint events
 
-## Phase 5 — Application Impact
+### Phase 5 — Application Impact
 
 Review application/access.log.
 
 Determine whether the user's session accessed or exported sensitive information.
 
-## Phase 6 — Unified Timeline
+### Phase 6 — Unified Timeline
 
 Build:
 
@@ -124,7 +131,7 @@ Timestamp | Evidence Source | User/Host | Event | Observation | Interpretation |
 
 Include at least ten events from at least four evidence categories.
 
-## Phase 7 — Incident Scoping
+### Phase 7 — Incident Scoping
 
 Answer:
 
@@ -141,7 +148,7 @@ Other potentially affected users/hosts:
 
 Use `unknown` when evidence is insufficient.
 
-## Phase 8 — Incident Classification
+### Phase 8 — Incident Classification
 
 Write separate sections:
 
@@ -154,7 +161,7 @@ Evidence gaps
 
 Do not state malware infection or credential theft as fact unless your evidence supports that exact claim.
 
-## Phase 9 — Response Plan
+### Phase 9 — Response Plan
 
 Recommend actions in order:
 
