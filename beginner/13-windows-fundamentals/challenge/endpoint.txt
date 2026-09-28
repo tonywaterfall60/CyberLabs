@@ -1,0 +1,18 @@
+HOSTNAME: WS-BEG-13
+USER: NORTHSTAR\taylor
+GROUPS: Users, Remote Desktop Users
+IPv4: 10.13.0.25
+Gateway: 10.13.0.1
+LISTENING:
+TCP 0.0.0.0:135
+TCP 0.0.0.0:445
+TCP 127.0.0.1:5000
+PROCESSES:
+explorer.exe
+MsMpEng.exe
+powershell.exe
+chrome.exe
+SERVICES:
+WinDefend Running Automatic
+Spooler Running Automatic
+NorthstarTraining Running Manual
