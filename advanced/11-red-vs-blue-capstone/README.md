@@ -143,3 +143,11 @@ Red action
 docker compose down
 rm -rf runtime
 ~~~
+
+---
+
+## Event Navigation
+- Previous: [Exploit Development Foundations](../10-exploit-development/)
+- Track Home: [Advanced Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [Extra Practice](../../Extra%20Practice/README.md)
