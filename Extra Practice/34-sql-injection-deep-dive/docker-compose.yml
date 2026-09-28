@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8860:5000"
+    environment:
+      SQL_FLAG_VALUE: ${SQL_FLAG_VALUE:-FLAG_NOT_CONFIGURED}
