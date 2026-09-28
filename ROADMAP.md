@@ -169,3 +169,365 @@ Planned additions:
 - [ ] optional challenge validation scripts
 
 The roadmap should be updated as events are tested during real club meetings.
+
+
+---
+
+# Future Curriculum Expansion
+
+These items are approved for future planning only. They are **not yet implemented**.
+
+## Beginner Expansion
+
+Planned additions:
+
+- [ ] Cybersecurity Lab Safety & Scoping
+- [ ] Windows Fundamentals for Cybersecurity
+- [ ] Identity & Access Basics
+- [ ] Intro to Wireless Security
+- [ ] Intro to Security Monitoring
+- [ ] Basic Incident Response
+
+Design goal:
+
+~~~text
+foundations
+→ safe lab habits
+→ Linux + Windows familiarity
+→ networking/web/identity
+→ monitoring/IR awareness
+→ Beginner CTF
+~~~
+
+---
+
+## Intermediate Expansion
+
+Planned additions:
+
+- [ ] Windows Security Fundamentals
+- [ ] HTTP Deep Dive
+- [ ] API Security Fundamentals
+- [ ] Wireless Security Analysis
+- [ ] Vulnerability Assessment Fundamentals
+- [ ] Intro to Active Directory
+- [ ] Container Fundamentals for Security
+- [ ] Cloud Security Fundamentals
+- [ ] Intro to Detection Engineering
+- [ ] Git for Security / Secrets in Repositories
+
+Design goal:
+
+~~~text
+independent tool selection
+→ deeper protocol/application understanding
+→ enterprise identity/platform fundamentals
+→ validation and prioritization
+→ Intermediate CTF
+~~~
+
+---
+
+## Advanced Expansion
+
+Planned additions:
+
+- [ ] API Exploitation & Authorization Testing
+- [ ] Advanced Active Directory / Identity Attack Paths
+- [ ] Web Exploitation Chaining
+- [ ] SSRF & Internal Trust Boundaries
+- [ ] Pivoting & Segmented Networks
+- [ ] Advanced Windows Internals
+- [ ] Memory Forensics with a Real Training Image
+- [ ] Reverse Engineering II
+- [ ] Exploit Mitigations Deep Dive
+- [ ] Threat Emulation & Detection Validation
+- [ ] SIEM Engineering
+- [ ] Advanced Cloud Identity
+- [ ] Kubernetes Security
+- [ ] DevSecOps / Supply Chain II
+- [ ] Incident Command / Major Incident Response
+- [ ] Professional Penetration-Test Reporting
+- [ ] Threat Modeling / Architecture Review
+
+Design goal:
+
+~~~text
+hypothesis
+→ multi-source evidence
+→ attack/defense validation
+→ system-level reasoning
+→ remediation/detection
+→ professional reporting
+~~~
+
+---
+
+# Specialization Badges / Mini Paths
+
+Planned specialization system. Members would still be able to complete the normal Beginner → Intermediate → Advanced progression, but could also earn focused badges by completing selected main-track and Extra Practice labs.
+
+## Red Team Badge
+
+Planned path:
+
+~~~text
+Web
+→ API
+→ privilege escalation
+→ Active Directory
+→ pivoting
+→ exploit development
+→ red-team assessment
+~~~
+
+- [ ] define required core events
+- [ ] define required Extra Practice labs
+- [ ] define capstone requirement
+- [ ] define badge completion standard
+
+## Blue Team Badge
+
+Planned path:
+
+~~~text
+logs
+→ packet analysis
+→ threat hunting
+→ detection engineering
+→ incident response
+→ SIEM
+~~~
+
+- [ ] define required core events
+- [ ] define required Extra Practice labs
+- [ ] define SOC/IR capstone requirement
+- [ ] define badge completion standard
+
+## DFIR Badge
+
+Planned path:
+
+~~~text
+disk/file forensics
+→ Windows logs
+→ memory
+→ network
+→ full incident response
+~~~
+
+- [ ] define required evidence-handling standard
+- [ ] define required forensic labs
+- [ ] define case-report requirement
+
+## Cloud / DevSecOps Badge
+
+Planned path:
+
+~~~text
+containers
+→ IAM
+→ cloud security
+→ CI/CD
+→ supply chain
+→ Kubernetes
+~~~
+
+- [ ] define required platform labs
+- [ ] define architecture-review requirement
+- [ ] define hardening capstone
+
+## Reverse Engineering Badge
+
+Planned path:
+
+~~~text
+intro reverse engineering
+→ binary analysis
+→ malware analysis
+→ exploit development
+→ Reverse Engineering II
+~~~
+
+- [ ] define required reversing labs
+- [ ] define static/dynamic analysis requirement
+- [ ] define final reversing challenge
+
+## Badge Platform Requirements
+
+Future badge support should eventually include:
+
+- [ ] member identity/profile
+- [ ] prerequisite tracking
+- [ ] completed-lab tracking
+- [ ] badge progress
+- [ ] badge award history
+- [ ] instructor override/approval
+- [ ] ability to earn multiple badges
+- [ ] public/private profile controls
+
+---
+
+# Automated Lab Validation
+
+Goal: allow members to complete many CyberLabs exercises independently without an instructor being present.
+
+**Status: planned only. No checker is implemented yet.**
+
+## Planned Capabilities
+
+- [ ] standardized per-lab validation interface
+- [ ] flag submission
+- [ ] short-answer validation where appropriate
+- [ ] multiple-answer / normalized-answer support
+- [ ] case-insensitive or whitespace-normalized answers where appropriate
+- [ ] partial completion tracking
+- [ ] hints without immediately revealing solutions
+- [ ] attempt history
+- [ ] local/offline validation option
+- [ ] instructor-hosted validation option
+- [ ] private expected answers kept outside the student repository
+- [ ] private flags kept outside the student repository
+- [ ] compatibility with runtime-injected flags
+- [ ] validation for non-flag labs using evidence-derived answers
+- [ ] completion event emitted for future leaderboard/profile system
+
+## Important Design Constraint
+
+The checker should not reduce labs to only finding a flag.
+
+Where practical, completion should support several categories:
+
+~~~text
+objective/flag
++ key evidence questions
++ required analysis answers
++ optional instructor review for reports
+~~~
+
+Examples:
+
+~~~text
+What host exposed the service?
+What user/session was involved?
+What vulnerability class was demonstrated?
+What was the derived offset?
+What BSSID belonged to the open training AP?
+~~~
+
+## Possible Architecture
+
+Future options to evaluate:
+
+~~~text
+Student lab
+   ↓
+local checker CLI or web UI
+   ↓
+submission API
+   ↓
+private answer/flag store
+   ↓
+completion record
+~~~
+
+No architecture choice has been finalized.
+
+## Security Requirements
+
+- [ ] never ship real answer keys in the student repository
+- [ ] never expose private flags through client-side validation
+- [ ] rate-limit hosted submissions
+- [ ] prevent one user from submitting completion for another user
+- [ ] separate instructor/admin privileges from member privileges
+- [ ] log validation events
+- [ ] support flag rotation
+- [ ] avoid storing real passwords or unnecessary personal information
+- [ ] document threat model before implementation
+
+---
+
+# Member Progress / Leaderboard Platform
+
+Goal: eventually track what members have completed and provide an optional club leaderboard.
+
+**Status: planned only. No leaderboard or member-tracking service is implemented yet.**
+
+## Planned Member Progress
+
+- [ ] member profile
+- [ ] Beginner completion count
+- [ ] Intermediate completion count
+- [ ] Advanced completion count
+- [ ] Extra Practice completion count
+- [ ] individual lab completion history
+- [ ] specialization badge progress
+- [ ] capstone completion
+- [ ] total challenges completed
+
+## Planned Leaderboard Views
+
+Potential views:
+
+~~~text
+Overall labs completed
+Extra Practice completed
+Track completion
+Current semester
+Specialization badges
+CTF/challenge completions
+~~~
+
+The leaderboard should reward **participation and completion**, not encourage unsafe behavior or competition against systems outside CyberLabs.
+
+## Privacy / Fairness Considerations
+
+Before implementation:
+
+- [ ] decide whether leaderboard participation is opt-in
+- [ ] allow members to hide their profile/rank
+- [ ] minimize stored personal data
+- [ ] define how aliases/display names work
+- [ ] decide how instructor/manual completions are recorded
+- [ ] prevent duplicate/fraudulent completion submissions
+- [ ] decide whether hints affect scoring
+- [ ] avoid rewarding brute-force submission volume
+- [ ] define semester resets vs. lifetime statistics
+
+## Potential Future Integration
+
+~~~text
+Lab checker
+   ↓
+validated completion
+   ↓
+member progress database
+   ├── track progress
+   ├── badge engine
+   └── leaderboard
+~~~
+
+This should be designed only after the lab-validation format is standardized.
+
+---
+
+# Expansion Implementation Order
+
+When work resumes, use small chunks.
+
+Recommended order:
+
+~~~text
+1. Finish planned Extra Practice 20–35
+2. Add Beginner expansion events
+3. Add Intermediate expansion events
+4. Add Advanced expansion events
+5. Define specialization/badge requirements
+6. Standardize lab metadata and validation format
+7. Build automated flag/answer checker
+8. Add member progress tracking
+9. Add badge engine
+10. Add optional leaderboard
+~~~
+
+The checker/leaderboard should come **after** lab metadata and answer formats are standardized so existing labs do not require repeated migrations.
