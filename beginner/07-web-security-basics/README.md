@@ -200,3 +200,12 @@ If Burp was used, return browser proxy settings to normal.
 ## Next Event
 
 [Beginner 08 — Intro to Cryptography](../08-intro-to-cryptography/)
+
+
+---
+
+## Event Navigation
+- Previous: [06-intro-to-nmap](../06-intro-to-nmap/)
+- Track Home: [Beginner Track](../README.md)
+- Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
+- Next: [08-intro-to-cryptography](../08-intro-to-cryptography/)
