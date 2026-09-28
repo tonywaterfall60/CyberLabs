@@ -1,0 +1,9 @@
+ANALYST 127.0.0.1
+JUMP01 dmz=172.28.27.10 internal=172.28.28.10 ssh=127.0.0.1:8822
+API01 internal=172.28.28.11:80
+ADMIN01 internal=172.28.28.12:80
+
+ANALYST can reach JUMP01 SSH.
+ANALYST has no direct route to 172.28.28.0/28.
+JUMP01 can reach 172.28.28.0/28.
+TRAINING CREDENTIAL: trainee / training-only
