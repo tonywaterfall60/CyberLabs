@@ -1,0 +1,4 @@
+account,spn
+svc_web,HTTP/web01.northstar.training
+svc_backup,BACKUP/backup01.northstar.training
+svc_reports,HTTP/app01.northstar.training
