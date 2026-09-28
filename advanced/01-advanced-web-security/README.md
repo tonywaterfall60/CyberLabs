@@ -1,5 +1,16 @@
 # Advanced 01 — Advanced Web Security
 
+## Event Snapshot
+
+| Item | Details |
+|---|---|
+| Track | Advanced |
+| Difficulty | Advanced |
+| Estimated time | 90–120 minutes |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Intermediate track readiness |
+
+
 **Difficulty:** Advanced  
 **Estimated time:** 120 minutes  
 **Prerequisites:** Intermediate Web Enumeration + OWASP workshop  
