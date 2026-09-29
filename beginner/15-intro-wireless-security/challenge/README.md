@@ -49,16 +49,6 @@ Unknown:
 
 State what additional evidence or authorization would be needed before taking action beyond this lab.
 
-## Flag
-
-After completing the wireless evidence analysis, run:
-
-~~~bash
-chmod +x check-wireless.sh
-./check-wireless.sh
-~~~
-
-**Flag count:** 1
 
 ## Deliverable
 
