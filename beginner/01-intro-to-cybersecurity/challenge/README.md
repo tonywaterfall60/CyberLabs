@@ -27,7 +27,12 @@ This challenge is analysis-only. Do not test, scan, or interact with any real sy
 
 ## Setup
 
-No technical setup is required.
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+~~~
+
+This creates a local triage workspace under `~/cyberclub/security-triage/`.
 
 ## Objectives / Tasks
 
@@ -150,12 +155,18 @@ Submit or discuss:
 1. completed analysis for all five incidents,
 2. your priority order,
 3. your attacker/defender analysis for one case,
-4. the completion flag.
+4. the completion flag from the generated closure note.
 
 ## Key Takeaway
 
 A security finding is stronger when you can explain the asset, weakness, impact, and control instead of only naming a cybersecurity term.
 
+## Flag Discovery
+
+After finishing the case analysis, inspect the generated triage workspace. The case closure artifact contains the event flag to submit to the CyberLabs dashboard.
+
 ## Cleanup
 
-No cleanup is required for this challenge.
+~~~bash
+./reset.sh
+~~~
