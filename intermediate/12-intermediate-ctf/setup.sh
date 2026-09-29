@@ -42,8 +42,37 @@ printf 'normal report copy\n' > "$BASE/forensics/original.txt"
 cp "$BASE/forensics/original.txt" "$BASE/forensics/copy.txt"
 printf 'This file is text despite the png extension.\n' > "$BASE/forensics/mystery.png"
 
+NETWORK_FLAG="${INTERMEDIATE_CTF_NETWORK_FLAG:-FLAG_NOT_CONFIGURED}"
+LOG_FLAG="${INTERMEDIATE_CTF_LOG_FLAG:-FLAG_NOT_CONFIGURED}"
+LINUX_FLAG="${INTERMEDIATE_CTF_LINUX_FLAG:-FLAG_NOT_CONFIGURED}"
+EVIDENCE_FLAG="${INTERMEDIATE_CTF_EVIDENCE_FLAG:-FLAG_NOT_CONFIGURED}"
+REV_FLAG="${INTERMEDIATE_CTF_REV_FLAG:-FLAG_NOT_CONFIGURED}"
+
+cat > "$BASE/network-note.txt" <<EOF
+authorized_range=8400-8499
+network_flag=$NETWORK_FLAG
+EOF
+
+cat > "$BASE/logs/correlation-note.txt" <<EOF
+session=CTF-S-1
+log_flag=$LOG_FLAG
+EOF
+
+cat > "$BASE/linux-audit/.privilege-review" <<EOF
+focus=/opt/reporting/export.sh
+linux_flag=$LINUX_FLAG
+EOF
+
+printf '%s' "$EVIDENCE_FLAG" | base64 > "$BASE/crypto/evidence-flag.b64"
+
 base64 -d "$SRC/intermediate-validator.b64" | gzip -d > "$BASE/reversing/intermediate-validator"
 chmod 755 "$BASE/reversing/intermediate-validator"
+
+cat > "$BASE/reversing/run-validator.sh" <<EOF
+#!/usr/bin/env bash
+REV_FLAG_VALUE='$REV_FLAG' "$(dirname "$0")/intermediate-validator"
+EOF
+chmod 755 "$BASE/reversing/run-validator.sh"
 
 echo "[+] Intermediate CTF files created at $BASE"
 echo "[+] Web target will be http://127.0.0.1:8440 after docker compose up -d"
