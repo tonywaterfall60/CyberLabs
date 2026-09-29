@@ -69,7 +69,7 @@ Verify the provided manifest:
 sha256sum -c evidence-manifest.sha256
 ~~~
 
-Explain what a successful check means.
+Explain what a successful check means. Then inspect the evidence directory with hidden files included and record the preservation flag from the hidden preservation note.
 
 ### Phase 2 — File Type
 
@@ -107,7 +107,7 @@ archive.bin
 
 Record useful printable text.
 
-Explain why printable strings are clues, not proof of the entire file's purpose.
+One of the printable strings in `archive.bin` contains the analysis flag. Record it, then explain why printable strings are clues, not proof of the entire file's purpose.
 
 ### Phase 5 — Working Copy
 
@@ -146,7 +146,7 @@ Confidence:
 
 ## Deliverable
 
-Submit both flags and include:
+Submit both recovered flags to the CyberLabs dashboard and include:
 
 1. verified manifest result,
 2. misleading-extension finding,
