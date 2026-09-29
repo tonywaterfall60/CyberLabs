@@ -49,7 +49,27 @@ Unknown:
 
 State what additional evidence or authorization would be needed before taking action beyond this lab.
 
+## Flags
+
+This challenge contains **2 flags**.
+
+### Flag 1 — Incident Triage
+
+~~~bash
+chmod +x check-triage.sh
+./check-triage.sh
+~~~
+
+### Flag 2 — Response Workflow
+
+~~~bash
+chmod +x check-response.sh
+./check-response.sh
+~~~
+
 ## Deliverable
+
+Submit both flags plus:
 
 ~~~text
 Scope:
