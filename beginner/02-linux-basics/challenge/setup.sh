@@ -37,7 +37,8 @@ else
   printf "FLAG_NOT_CONFIGURED\n" > "$BASE/archive/2026-09/evidence.txt"
 fi
 
-printf "Remember: hidden files begin with a dot. Search carefully.\n" > "$BASE/.analyst-note"
+HIDDEN_FLAG="${BEGINNER_LINUX_COMPLETE_FLAG:-FLAG_NOT_CONFIGURED}"
+printf "Remember: hidden files begin with a dot. Search carefully.\nsecondary_flag=%s\n" "$HIDDEN_FLAG" > "$BASE/.analyst-note"
 
 chmod 600 "$BASE/archive/2026-09/evidence.txt"
 touch -t 202609240915 "$BASE/archive/2026-09/evidence.txt"
