@@ -15,7 +15,11 @@ A small training workstation is hosting several local services. You need to disc
 
 ## Setup
 
+The event lead loads the private flag environment, then prepares the runtime service artifacts:
+
 ~~~bash
+chmod +x prepare-flags.sh
+./prepare-flags.sh
 docker compose up -d
 ~~~
 
@@ -70,6 +74,8 @@ Record:
 - page title,
 - application purpose.
 
+After discovering and validating the inventory service, inspect its `/runtime/discovery.txt` resource and record the first dashboard flag.
+
 ### Phase 4 — Raw HTTP with Netcat
 
 Choose one port:
@@ -105,6 +111,8 @@ Then answer:
 3. Which looks like documentation/support?
 4. Which would you review first if this were a real internal system, and why?
 
+After correctly mapping the service roles, inspect `/runtime/validation.txt` on the documentation service and record the second dashboard flag.
+
 ### Key Concepts
 
 Explain the difference between:
@@ -121,7 +129,7 @@ An open port is an observation. It is not automatically a vulnerability.
 
 ## Deliverable
 
-Submit both flags plus:
+Submit both discovered flags to the CyberLabs dashboard plus:
 
 | Port | State | Nmap service | Application role | curl evidence | nc evidence |
 |---:|---|---|---|---|---|
@@ -140,4 +148,5 @@ Why scope matters:
 
 ~~~bash
 docker compose down
+rm -rf runtime
 ~~~
