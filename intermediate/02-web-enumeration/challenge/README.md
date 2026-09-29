@@ -27,9 +27,11 @@ Do not point Burp, Gobuster, ffuf, Nikto, or other scanners at unrelated systems
 
 ## Setup
 
-From this challenge directory:
+The event lead loads the private flag registry, then prepares runtime artifacts before starting the app:
 
 ~~~bash
+chmod +x prepare-flags.sh
+./prepare-flags.sh
 docker compose up --build -d
 ~~~
 
@@ -112,6 +114,8 @@ Important routes include:
 /robots.txt
 ~~~
 
+The route-discovery process should also reveal a training map-note endpoint. Record the flag returned there after you validate it manually.
+
 Do not label a route vulnerable solely because it is hidden or internal-looking.
 
 ### Phase 6 — Trust Boundary Map
@@ -134,6 +138,8 @@ Label:
 - cookie state,
 - restricted functionality,
 - unlinked/internal-style functionality.
+
+The internal build/debug surface links to a trust-boundary review artifact. Inspect it after completing the trust-boundary map and record the second dashboard flag.
 
 ### Phase 7 — Prioritize Further Testing
 
@@ -159,6 +165,8 @@ If used, run only against the challenge and manually validate anything interesti
 | Method | Route | Parameters | Discovery source | Status | Cookie/Header | Purpose | Security question |
 |---|---|---|---|---:|---|---|---|
 
+Submit both discovered flags to the CyberLabs dashboard.
+
 Also submit:
 
 ~~~text
@@ -174,6 +182,7 @@ One unknown:
 
 ~~~bash
 docker compose down
+rm -rf runtime
 ~~~
 
 Restore browser proxy settings.
