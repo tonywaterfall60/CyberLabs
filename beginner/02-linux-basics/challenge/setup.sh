@@ -29,8 +29,10 @@ cat > "$BASE/tmp/readme.txt" <<'EOF'
 This directory contains temporary training files.
 EOF
 
-if [[ -n "${FLAG_VALUE:-}" ]]; then
-  printf "%s\n" "$FLAG_VALUE" > "$BASE/archive/2026-09/evidence.txt"
+EVIDENCE_FLAG="${BEGINNER_LINUX_EVIDENCE_FLAG:-${FLAG_VALUE:-}}"
+
+if [[ -n "$EVIDENCE_FLAG" ]]; then
+  printf "%s\n" "$EVIDENCE_FLAG" > "$BASE/archive/2026-09/evidence.txt"
 else
   printf "FLAG_NOT_CONFIGURED\n" > "$BASE/archive/2026-09/evidence.txt"
 fi
