@@ -272,6 +272,10 @@ What would cause them to investigate elsewhere
 
 This is designed to teach hypothesis-based troubleshooting rather than command memorization.
 
+## Flags
+
+This event contains **1 challenge flag** earned after completing the troubleshooting exercise and passing the networking concept checker.
+
 ## Deliverable
 
 Write a short explanation of what happens when a browser visits a website, using:
@@ -282,6 +286,8 @@ Write a short explanation of what happens when a browser visits a website, using
 - TCP
 - port
 - HTTP or HTTPS
+
+Also submit the challenge completion flag.
 
 ## Next Event
 
