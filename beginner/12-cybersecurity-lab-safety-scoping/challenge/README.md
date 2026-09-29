@@ -26,14 +26,15 @@ No service startup is required.
 
 ### Phase 1 — Baseline
 
-Read `evidence.txt` and identify the evidence types and important fields.
+Read `evidence.txt` and `scope-cards.md`. Identify the evidence types, important fields, and the exact authorization boundaries represented in each scenario.
 
 ### Phase 2 — Core Analysis
 
-1. Show that you can identify an authorized target, port range, file set, or subnet.
-2. Show that you can distinguish in-scope from out-of-scope actions.
-3. Show that you can write a short rules-of-engagement statement.
-4. Show that you can recognize when to stop and request additional authorization.
+1. For each scope card, identify allowed targets, ports/files, allowed actions, prohibited actions, and the stop condition.
+2. Show that you can identify an authorized target, port range, file set, or subnet.
+3. Show that you can distinguish in-scope from out-of-scope actions.
+4. Show that you can write a short rules-of-engagement statement.
+5. Show that you can recognize when to stop and request additional authorization.
 
 ### Phase 3 — Evidence vs. Interpretation
 
