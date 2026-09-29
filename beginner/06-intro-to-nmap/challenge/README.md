@@ -118,7 +118,33 @@ Manual validation
 
 An open port is an observation. It is not automatically a vulnerability.
 
+## Flags
+
+This challenge contains **2 flags**.
+
+### Flag 1 — Service Discovery
+
+After your scoped scan, run:
+
+~~~bash
+chmod +x check-discovery.sh
+./check-discovery.sh
+~~~
+
+Enter all discovered open TCP ports when prompted.
+
+### Flag 2 — Manual Validation
+
+After validating each service with application content, run:
+
+~~~bash
+chmod +x check-validation.sh
+./check-validation.sh
+~~~
+
 ## Deliverable
+
+Submit both flags plus:
 
 | Port | State | Nmap service | Application role | curl evidence | nc evidence |
 |---:|---|---|---|---|---|
