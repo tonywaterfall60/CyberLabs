@@ -23,7 +23,15 @@ Do **not** pivot usernames, names, domains, email addresses, or event details to
 
 ## Setup
 
-No external browsing is required. Work only with the provided local artifacts.
+The event lead loads the private flag registry, then create the fictional investigation workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/osint-workshop
+~~~
+
+No external browsing is required. Work only with the generated local copies.
 
 ## Objectives / Tasks
 
@@ -56,6 +64,8 @@ Create:
 |---|---|---|---|---|
 
 Do not write a conclusion unless you can point to a source.
+
+After completing the provenance table and linking every conclusion to a source, inspect `provenance-note.txt` and record the first dashboard flag.
 
 ### Phase 3 — Entity Map
 
@@ -95,7 +105,11 @@ Write one conclusion that is strongly supported and one conclusion that would be
 
 Explain why.
 
+After completing the corroboration/confidence assessment and unsupported-conclusion exercise, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
+
+Submit both discovered flags to the CyberLabs dashboard.
 
 ~~~text
 Domain:
@@ -118,4 +132,6 @@ Confidence notes:
 
 ## Cleanup
 
-No cleanup is required for this challenge.
+~~~bash
+./reset.sh
+~~~
