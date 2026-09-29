@@ -21,7 +21,12 @@ This challenge is analysis-only. Do not reproduce the findings against real appl
 
 ## Setup
 
-No technical setup is required.
+The event lead loads the private flag registry, then create the local review workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+~~~
 
 ## Objectives / Tasks
 
@@ -79,6 +84,8 @@ A deployment system downloads a build artifact from shared storage but performs 
 
 A PDF-generation feature accepts a URL from the user and the server retrieves that URL on the user's behalf. The application does not restrict destination addresses.
 
+After classifying all ten findings, inspect `~/cyberclub/owasp-risk-review/classification-note.txt` and record the first dashboard flag.
+
 ### Part 2 — Evidence vs. Assumption
 
 Choose three findings and write:
@@ -110,7 +117,11 @@ Existing controls
 Evidence quality
 ~~~
 
+After completing the top-three remediation priority, inspect hidden files in the review workspace and record the second dashboard flag.
+
 ## Deliverable
+
+Submit both discovered flags to the CyberLabs dashboard.
 
 Complete the analysis template for all ten findings plus:
 
@@ -120,4 +131,6 @@ Complete the analysis template for all ten findings plus:
 
 ## Cleanup
 
-No cleanup is required for this challenge.
+~~~bash
+./reset.sh
+~~~
