@@ -156,9 +156,31 @@ Create:
 | Route | Method | Status | Content Type | Interesting Header/Cookie | Purpose |
 |---|---|---:|---|---|---|
 
+## Flags
+
+This challenge contains **2 flags**.
+
+### Flag 1 — Application Map
+
+After starting the app and mapping all required routes, run:
+
+~~~bash
+chmod +x check-map.sh
+./check-map.sh
+~~~
+
+### Flag 2 — Cookie / Authorization Concepts
+
+After completing the cookie, admin, and robots.txt analysis, run:
+
+~~~bash
+chmod +x check-state.sh
+./check-state.sh
+~~~
+
 ## Deliverable
 
-Also answer:
+Submit both flags. Also answer:
 
 ~~~text
 One custom X-CyberLabs header:
