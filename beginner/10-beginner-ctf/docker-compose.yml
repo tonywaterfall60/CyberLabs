@@ -4,7 +4,7 @@ services:
     working_dir: /app
     command: ["python","app.py"]
     environment:
-      WEB_FLAG_VALUE: ${WEB_FLAG_VALUE:-FLAG_NOT_CONFIGURED}
+      WEB_FLAG_VALUE: ${BEGINNER_CTF_WEB_FLAG:-FLAG_NOT_CONFIGURED}
     ports:
       - "127.0.0.1:8090:8000"
     volumes:
