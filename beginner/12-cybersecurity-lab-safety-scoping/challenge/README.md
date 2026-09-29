@@ -16,17 +16,21 @@ You are given a fictional training case related to **Cybersecurity Lab Safety & 
 
 ## Authorized Scope
 
-Only files in this challenge directory are authorized. Do not pivot identifiers, IP addresses, names, or examples toward real systems.
+Only the provided challenge files and generated local workspace are authorized. Do not pivot identifiers, IP addresses, names, or examples toward real systems.
 
 ## Setup
 
-No service startup is required.
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/scope-challenge
+~~~
 
 ## Investigation / Tasks
 
 ### Phase 1 — Baseline
 
-Read `evidence.txt` and `scope-cards.md`. Identify the evidence types, important fields, and the exact authorization boundaries represented in each scenario.
+Read the generated copies of `evidence.txt` and `scope-cards.md`. Identify the evidence types, important fields, and the exact authorization boundaries represented in each scenario.
 
 ### Phase 2 — Core Analysis
 
@@ -53,7 +57,7 @@ State what additional evidence or authorization would be needed before taking ac
 
 ## Deliverable
 
-Submit the flag plus:
+After completing the scope analysis, inspect hidden files in the generated workspace. Submit the scope flag from the authorization-closure artifact to the CyberLabs dashboard plus:
 
 ~~~text
 Scope:
@@ -67,4 +71,6 @@ Recommended next step:
 
 ## Cleanup
 
-No cleanup is required for this static-data challenge.
+~~~bash
+./reset.sh
+~~~
