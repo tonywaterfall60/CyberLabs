@@ -1,6 +1,16 @@
 from flask import Flask, request, jsonify, make_response
+from pathlib import Path
 
 app = Flask(__name__)
+
+RUNTIME = Path("/app/runtime")
+
+def runtime_value(name):
+    p = RUNTIME / name
+    if not p.exists():
+        return "FLAG_NOT_CONFIGURED"
+    text = p.read_text(encoding="utf-8").strip()
+    return text.split("=",1)[-1] if "=" in text else text
 
 STYLE = "<style>\n:root{color-scheme:dark;--bg:#08111f;--panel:#0f1b2d;--panel2:#14243a;--text:#e8eef8;--muted:#9fb0c7;--accent:#66d9ef;--line:#273a55;--good:#7bd88f;--warn:#f2c14e}\n*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#07101d,#0b1524);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}\n.wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}.top{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:28px}\n.brand{font-weight:800;letter-spacing:.08em;text-transform:uppercase}.badge{font-size:.8rem;padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--accent)}\n.hero{padding:28px;background:var(--panel);border:1px solid var(--line);border-radius:16px;margin-bottom:18px}.hero h1{margin:0 0 8px;font-size:2rem}.hero p{color:var(--muted);max-width:760px}\n.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:18px}.card h2,.card h3{margin-top:0}\na{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#091524;border:1px solid var(--line);padding:2px 6px;border-radius:6px}\nnav a{margin-right:14px}.muted{color:var(--muted)}.ok{color:var(--good)}.warn{color:var(--warn)}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}\n.footer{margin-top:24px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:18px}\n</style>"
 
@@ -98,15 +108,24 @@ def admin():
     body = """<div class="card"><h2 class="warn">Restricted Administration</h2><p>Your current training session is not authorized for administrative functions.</p></div>"""
     return resp(page("Admin","A restricted route discovered during application mapping.",body),403)
 
+@app.get("/training/map-note")
+def map_note():
+    return resp(f"map_flag={runtime_value('map.txt')}\n",200,"text/plain")
+
+@app.get("/training/trust-note")
+def trust_note():
+    return resp(f"trust_flag={runtime_value('trust.txt')}\n",200,"text/plain")
+
 @app.get("/robots.txt")
 def robots():
-    return resp("User-agent: *\nDisallow: /admin\nDisallow: /debug-info\nDisallow: /internal/build\n",200,"text/plain")
+    return resp("User-agent: *\nDisallow: /admin\nDisallow: /debug-info\nDisallow: /internal/build\nDisallow: /training/map-note\n",200,"text/plain")
 
 @app.get("/debug-info")
 def debug_info():
     body = """<div class="card"><h2>Debug Information</h2>
 <table><tr><th>Environment</th><td>training</td></tr><tr><th>Build</th><td>intermediate</td></tr><tr><th>Feature</th><td>enumeration-lab</td></tr></table>
-<p class="muted">An unlinked route is additional attack surface; it is not automatically a vulnerability.</p></div>"""
+<p class="muted">An unlinked route is additional attack surface; it is not automatically a vulnerability.</p>
+<p><a href="/training/trust-note">Trust-boundary review artifact</a></p></div>"""
     return resp(page("Debug Information","A route intended to be discovered through enumeration.",body))
 
 if __name__ == "__main__":
