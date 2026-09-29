@@ -21,7 +21,13 @@ Reconstruct a short web session from network evidence and explain both what the 
 
 ## Setup
 
-Start the challenge service using the event instructions before capturing traffic.
+The event lead loads the private flag registry, then prepares runtime traffic artifacts before starting the service:
+
+~~~bash
+chmod +x prepare-flags.sh generate-traffic.sh
+./prepare-flags.sh
+docker compose up -d
+~~~
 
 ## Objectives / Tasks
 
@@ -53,11 +59,15 @@ Recover the order of:
 /
 /login
 /api/profile
+/runtime/timeline.txt
 /api/profile
 /logout
+/runtime/limitations.txt
 ~~~
 
 Record response codes.
+
+The runtime timeline artifact carries the first dashboard flag inside the HTTP session.
 
 ### 3 — Header Correlation
 
@@ -88,13 +98,16 @@ Answer:
 - What application state is missing?
 - How would HTTPS change visibility?
 
+The final runtime limitations artifact carries the second dashboard flag. Recover both from the capture rather than from a local verifier.
+
 ## Deliverable
 
-Submit the timeline, at least two filters, one tshark command, one stream observation, and a section labeled `Observed / Inferred / Unknown`.
+Submit both recovered flags to the CyberLabs dashboard, plus the timeline, at least two filters, one tshark command, one stream observation, and a section labeled `Observed / Inferred / Unknown`.
 
 ## Cleanup
 
 ~~~bash
 docker compose down
+rm -rf runtime
 rm -f session.pcap
 ~~~
