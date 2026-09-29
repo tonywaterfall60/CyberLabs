@@ -1,0 +1,21 @@
+services:
+  inventory:
+    image: nginx:alpine
+    ports:
+      - "127.0.0.1:8401:80"
+    volumes:
+      - ./services/inventory:/usr/share/nginx/html:ro
+
+  status:
+    image: nginx:alpine
+    ports:
+      - "127.0.0.1:8404:80"
+    volumes:
+      - ./services/status:/usr/share/nginx/html:ro
+
+  documentation:
+    image: nginx:alpine
+    ports:
+      - "127.0.0.1:8408:80"
+    volumes:
+      - ./services/documentation:/usr/share/nginx/html:ro
