@@ -103,6 +103,7 @@ CyberLabs/
 │
 ├── advanced/
 │   ├── README.md
+│   ├── CHALLENGES.md
 │   └── events...
 │
 ├── Extra Practice/
