@@ -143,9 +143,31 @@ Observation:
 Confidence:
 ~~~
 
+## Flags
+
+This challenge contains **2 flags**.
+
+### Flag 1 — Preservation / File Type
+
+Before modifying the working copy, verify the manifest and misleading extension, then run:
+
+~~~bash
+chmod +x check-preservation.sh
+./check-preservation.sh
+~~~
+
+### Flag 2 — Analysis
+
+After modifying only `working-copy.txt` and completing the strings analysis, run:
+
+~~~bash
+chmod +x check-analysis.sh
+./check-analysis.sh
+~~~
+
 ## Deliverable
 
-Include:
+Submit both flags and include:
 
 1. verified manifest result,
 2. misleading-extension finding,
