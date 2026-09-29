@@ -16,9 +16,17 @@ A fictional notes API captured several authenticated requests for review.
 
 ## Authorized Scope
 
-Analyze only the provided transcript.
+Analyze only the provided transcript and generated local workspace.
 
 ## Setup
+
+The event lead loads the private flag registry, then create the local review workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/api-security
+~~~
 
 No live API is required.
 
@@ -32,10 +40,16 @@ No live API is required.
 6. Explain whether authorization succeeded.
 7. Recommend server-side ownership validation and useful logging.
 
+After mapping the endpoints/tokens and establishing Alice's baseline request, inspect `endpoint-map-note.txt` and record the first dashboard flag.
+
+After identifying the cross-user object access and explaining the authorization failure, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
 
-Submit endpoint map, baseline, authorization finding, impact, evidence, remediation, and detection idea.
+Submit both discovered flags to the CyberLabs dashboard plus the endpoint map, baseline, authorization finding, impact, evidence, remediation, and detection idea.
 
 ## Cleanup
 
-No cleanup is required.
+~~~bash
+./reset.sh
+~~~
