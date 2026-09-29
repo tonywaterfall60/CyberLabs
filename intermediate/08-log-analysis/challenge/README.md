@@ -53,9 +53,13 @@ Count failed logins by user and source. Determine whether a success follows the 
 
 Trace session `S-2201` across all files without manually reading every line.
 
+After completing the cross-source correlation, inspect `correlation-note.txt` and record the first dashboard flag.
+
 ### Phase 4 — Impact
 
 Identify the highest-impact application action and any related host/file activity.
+
+After identifying and defending your highest-impact event, inspect hidden files in the generated log workspace and record the second dashboard flag.
 
 ### Phase 5 — Timeline
 
@@ -84,6 +88,8 @@ Answer whether the logs prove account compromise, and explain why or why not.
 Request at least four additional sources and state what question each would answer.
 
 ## Deliverable
+
+Submit both discovered flags to the CyberLabs dashboard.
 
 ~~~text
 Most targeted account:
