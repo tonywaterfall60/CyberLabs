@@ -10,6 +10,10 @@
 | Authorized scope | frames.csv only |
 | Goal | Reconstruct AP/client behavior and security posture |
 
+## Scenario
+
+A fictional wireless event export contains management-frame activity from several training access points and clients. Reconstruct what happened without interacting with any live wireless network.
+
 ## Authorized Scope
 
 Offline evidence only. No live wireless scanning, monitor mode, deauthentication, or password attacks.
