@@ -64,7 +64,7 @@ Instructor guidance is expected and normal.
 | 09 | [Intro to Digital Forensics](09-intro-to-digital-forensics/) | evidence, hashing, metadata | file, strings, stat, exiftool |
 | 10 | [Beginner CTF](10-beginner-ctf/) | skill integration | multiple tools |
 | 11 | [Capstone Interview Prep](11-capstone-interview-prep/) | Intermediate readiness | review + practical drill |
-| 12 | [Lab Safety & Scoping](12-lab-safety-and-scoping/) | authorization, scope, stop conditions | written scope cases |
+| 12 | [Cybersecurity Lab Safety & Scoping](12-cybersecurity-lab-safety-scoping/) | authorization, scope, stop conditions | written scope cases |
 | 13 | [Windows Fundamentals](13-windows-fundamentals/) | Windows endpoint orientation | static Windows evidence |
 | 14 | [Identity & Access Basics](14-identity-access-basics/) | authentication, authorization, MFA, sessions | identity logs |
 | 15 | [Intro to Wireless Security](15-intro-wireless-security/) | SSID/BSSID/channel/security basics | offline synthetic observations |
