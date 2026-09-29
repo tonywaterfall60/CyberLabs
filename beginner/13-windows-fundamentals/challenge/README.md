@@ -16,17 +16,21 @@ You are given a fictional training case related to **Windows Fundamentals for Cy
 
 ## Authorized Scope
 
-Only files in this challenge directory are authorized. Do not pivot identifiers, IP addresses, names, or examples toward real systems.
+Only the provided challenge files and generated local workspace are authorized. Do not pivot identifiers, IP addresses, names, or examples toward real systems.
 
 ## Setup
 
-No service startup is required.
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/windows-fundamentals
+~~~
 
 ## Investigation / Tasks
 
 ### Phase 1 — Baseline
 
-Read `evidence.txt` and identify the evidence types and important fields.
+Read the generated `evidence.txt` and identify the evidence types and important fields.
 
 ### Phase 2 — Core Analysis
 
@@ -34,6 +38,8 @@ Read `evidence.txt` and identify the evidence types and important fields.
 2. Show that you can explain the difference between a process and a service.
 3. Show that you can recognize common Windows paths and security contexts.
 4. Show that you can use PowerShell-style output as evidence.
+
+After identifying the process chain, inspect `process-context.txt` and record the first flag. After analyzing the scheduled task and security context, inspect hidden files in the workspace and record the second flag.
 
 ### Phase 3 — Evidence vs. Interpretation
 
@@ -52,7 +58,7 @@ State what additional evidence or authorization would be needed before taking ac
 
 ## Deliverable
 
-Submit both flags plus:
+Submit both discovered flags to the CyberLabs dashboard plus:
 
 ~~~text
 Scope:
@@ -66,4 +72,6 @@ Recommended next step:
 
 ## Cleanup
 
-No cleanup is required for this static-data challenge.
+~~~bash
+./reset.sh
+~~~
