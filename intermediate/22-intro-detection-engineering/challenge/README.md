@@ -10,6 +10,18 @@
 | Authorized scope | process-events.jsonl |
 | Goal | Detect Office launching encoded PowerShell without alerting on normal PowerShell |
 
+## Scenario
+
+A SOC team wants a first-pass analytic for a suspicious Office-to-PowerShell pattern while avoiding alerts on ordinary PowerShell use.
+
+## Authorized Scope
+
+Use only `process-events.jsonl`. This is offline synthetic telemetry.
+
+## Setup
+
+No service startup is required.
+
 ## Investigation / Tasks
 
 Create logic using parent process, child process, and command line.
