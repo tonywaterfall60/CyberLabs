@@ -15,11 +15,17 @@ You are reviewing exported configuration evidence from a fictional Windows works
 
 ## Authorized Scope
 
-This is a static evidence-review challenge. Do not reproduce the findings against a real Windows host unless explicitly authorized.
+This is a static evidence-review challenge. Use only the provided files and generated local workspace. Do not reproduce the findings against a real Windows host unless explicitly authorized.
 
 ## Setup
 
-No live Windows VM or service startup is required.
+The event lead loads the private flag registry, then create the generated case workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/windows-privesc-audit
+~~~
 
 ## Objectives / Tasks
 
@@ -53,6 +59,10 @@ How would I validate safely on an authorized host?
 5. Separate strong findings from weak leads.
 6. Prioritize remediation.
 
+After correlating the SYSTEM scheduled task with the user-modifiable `C:\\Tools\\backup.ps1`, inspect `privilege-correlation.txt` and record the first dashboard flag.
+
+After documenting the root-cause remediation, inspect hidden files in the workspace and record the second dashboard flag.
+
 ### Required Format
 
 ~~~text
@@ -76,8 +86,12 @@ The strongest relationship in this dataset should come from correlating a privil
 
 ## Deliverable
 
+Submit both discovered flags to the CyberLabs dashboard.
+
 Identify at least five review items, rank the top three, and explain one item that looks interesting but needs more evidence before it becomes a finding.
 
 ## Cleanup
 
-No cleanup is required for this challenge.
+~~~bash
+./reset.sh
+~~~
