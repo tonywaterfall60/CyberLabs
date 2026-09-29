@@ -272,9 +272,6 @@ What would cause them to investigate elsewhere
 
 This is designed to teach hypothesis-based troubleshooting rather than command memorization.
 
-## Flags
-
-This event contains **1 challenge flag** earned after completing the troubleshooting exercise and passing the networking concept checker.
 
 ## Deliverable
 
