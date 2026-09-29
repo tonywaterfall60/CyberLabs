@@ -32,4 +32,18 @@ cat > "$BASE/host.log" <<'EOF'
 2026-09-23T18:00:40Z host=WS-44 user=sam event=FILE_CREATE path=/tmp/quarterly.csv session=S-2201
 2026-09-23T18:10:04Z host=WS-12 user=lee event=PROCESS_START process=browser.exe session=S-3301
 EOF
+
+CORRELATION_FLAG="${INTERMEDIATE_LOG_CORRELATION_FLAG:-FLAG_NOT_CONFIGURED}"
+IMPACT_FLAG="${INTERMEDIATE_LOG_IMPACT_FLAG:-FLAG_NOT_CONFIGURED}"
+
+cat > "$BASE/correlation-note.txt" <<EOF
+session=S-2201
+correlation_flag=$CORRELATION_FLAG
+EOF
+
+cat > "$BASE/.impact-review" <<EOF
+highest_impact=EXPORT_REPORT quarterly.csv
+impact_flag=$IMPACT_FLAG
+EOF
+
 echo "[+] Logs created at $BASE"
