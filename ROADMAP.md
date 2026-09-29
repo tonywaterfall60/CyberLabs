@@ -173,7 +173,7 @@ The roadmap should be updated as events are tested during real club meetings.
 
 ---
 
-# Future Curriculum Expansion
+# Curriculum Expansion — Implemented
 
 These items track the curriculum expansion. Completed items are marked below.
 
