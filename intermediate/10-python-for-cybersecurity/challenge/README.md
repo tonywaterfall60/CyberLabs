@@ -19,7 +19,14 @@ Work only with the local challenge files. Do not add network activity or real lo
 
 ## Setup
 
-No service startup is required. Python 3 is sufficient.
+The event lead loads the private flag registry, then prepares ignored runtime artifacts:
+
+~~~bash
+chmod +x prepare-flags.sh
+./prepare-flags.sh
+~~~
+
+Python 3 is sufficient.
 
 ## Objectives / Tasks
 
@@ -80,6 +87,8 @@ Most common failed source
 Application actions per successful session
 ~~~
 
+Once your parser produces the required analyst summary, inspect `runtime/parser-complete.txt` and record the first dashboard flag.
+
 ### Stretch Goals
 
 - `--user <name>` filter
@@ -88,9 +97,11 @@ Application actions per successful session
 - flag sessions containing sensitive actions such as export/download
 - write a reusable `parse_kv_fields()` function
 
+After documenting one example where automation improved the analysis and one limitation of the script, inspect `runtime/automation-note.txt` and record the second dashboard flag.
+
 ## Deliverable
 
-Submit:
+Submit both discovered flags to the CyberLabs dashboard, plus:
 
 - completed parser.py,
 - sample output,
@@ -101,4 +112,8 @@ Do not add network activity; this challenge is local file analysis only.
 
 ## Cleanup
 
-No cleanup is required unless you created extra local output files.
+Remove generated runtime material when finished:
+
+~~~bash
+rm -rf runtime
+~~~
