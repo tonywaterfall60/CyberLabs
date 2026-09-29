@@ -215,6 +215,10 @@ The expanded challenge creates a small incident-style filesystem with:
 
 Students locate and summarize evidence using only Linux terminal tools.
 
+## Flags
+
+This event contains **2 challenge flags**: one evidence-discovery flag and one final completion flag.
+
 ## Deliverable
 
 Record both the **answer and command** used to determine:
@@ -227,6 +231,8 @@ Record both the **answer and command** used to determine:
 6. current user and groups,
 7. one local interface/IP,
 8. default route if present.
+
+Also submit both challenge flags.
 
 The goal is command familiarity plus evidence handling, not speed.
 
