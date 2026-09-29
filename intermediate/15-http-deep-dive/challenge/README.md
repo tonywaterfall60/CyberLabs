@@ -16,11 +16,17 @@ A fictional application produced a captured set of HTTP exchanges.
 
 ## Authorized Scope
 
-Analyze only the provided transcript.
+Analyze only the provided transcript and generated local review workspace.
 
 ## Setup
 
-No live web service is required.
+The event lead loads the private flag registry, then create the local review workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/http-deep-dive
+~~~
 
 ## Investigation / Tasks
 
@@ -36,10 +42,16 @@ For each exchange identify:
 
 Then explain why CORS is not authentication or authorization.
 
+After completing the method/status/header/cookie/cache/redirect matrix, inspect `behavior-note.txt` and record the first dashboard flag.
+
+After explaining the CORS/browser-policy boundary and its difference from server-side authorization, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
 
-Submit a route/method matrix and three security implications.
+Submit both discovered flags to the CyberLabs dashboard plus a route/method matrix and three security implications.
 
 ## Cleanup
 
-No cleanup is required.
+~~~bash
+./reset.sh
+~~~
