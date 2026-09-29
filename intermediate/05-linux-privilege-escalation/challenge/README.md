@@ -54,6 +54,10 @@ What fixes the root cause?
 6. Review SUID inventory and distinguish normal privileged binaries from evidence that needs more context.
 7. Prioritize the findings.
 
+After identifying the writable root-run backup script and explaining the privilege boundary, inspect `var/log/privilege-review.txt` and record the first dashboard flag.
+
+After writing the remediation for that root cause, inspect hidden files under `home/appuser/` and record the second dashboard flag.
+
 ### Required Finding Format
 
 ~~~text
@@ -80,6 +84,8 @@ privileged execution + lower-user control = high-value review area
 but that relationship still needs evidence.
 
 ## Deliverable
+
+Submit both discovered flags to the CyberLabs dashboard.
 
 Identify at least five conditions worth discussing, then rank the top three.
 
