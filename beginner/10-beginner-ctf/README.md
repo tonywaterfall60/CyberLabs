@@ -102,6 +102,8 @@ Determine:
 
 Use pipelines rather than manual counting.
 
+After completing the log analysis, inspect the supplied analyst note in the logs directory and record its flag.
+
 ### Challenge 3 — Networking Fundamentals
 
 Explain:
@@ -179,7 +181,10 @@ Tasks:
 2. classify Base64,
 3. hash `evidence.txt`,
 4. compare it with `known.sha256`,
-5. explain the difference between hashing and encryption.
+5. decode `evidence-flag.b64`,
+6. explain the difference between hashing and encryption.
+
+The decoded evidence flag is shared across the crypto/forensics milestone.
 
 ### Challenge 8 — Digital Forensics
 
@@ -214,10 +219,14 @@ Likely impact:
 Server-side mitigation:
 ~~~
 
+After answering the reasoning scenario, inspect `~/cyberclub/beginner-ctf/reasoning/case-closure.txt` and record the reasoning flag.
+
 
 ## Deliverable
 
-Submit all flags earned. For every challenge use:
+Submit all five flags earned to the CyberLabs dashboard. The Linux and web flags are exposed by their existing challenge artifacts; the log, evidence, and reasoning flags are exposed by the generated case materials described above.
+
+For every challenge use:
 
 ~~~text
 Challenge:
