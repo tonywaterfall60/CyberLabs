@@ -7,11 +7,8 @@ mkdir -p "$BASE/linux/archive" "$BASE/logs" "$BASE/crypto" "$BASE/forensics"
 
 printf 'normal training notes\n' > "$BASE/linux/readme.txt"
 
-if [[ -n "${LINUX_FLAG_VALUE:-}" ]]; then
-  printf '%s\n' "$LINUX_FLAG_VALUE" > "$BASE/linux/archive/evidence.txt"
-else
-  printf 'FLAG_NOT_CONFIGURED\n' > "$BASE/linux/archive/evidence.txt"
-fi
+LINUX_FLAG="${BEGINNER_CTF_LINUX_FLAG:-${LINUX_FLAG_VALUE:-FLAG_NOT_CONFIGURED}}"
+printf '%s\n' "$LINUX_FLAG" > "$BASE/linux/archive/evidence.txt"
 chmod 600 "$BASE/linux/archive/evidence.txt"
 
 cat > "$BASE/logs/auth.log" <<'EOF'
@@ -25,12 +22,25 @@ cat > "$BASE/logs/auth.log" <<'EOF'
 2026-09-24T14:00:41Z INFO user=sam action=LOGIN_SUCCESS source=192.168.56.50
 EOF
 
+LOG_FLAG="${BEGINNER_CTF_LOG_FLAG:-FLAG_NOT_CONFIGURED}"
+EVIDENCE_FLAG="${BEGINNER_CTF_EVIDENCE_FLAG:-FLAG_NOT_CONFIGURED}"
+REASONING_FLAG="${BEGINNER_CTF_REASONING_FLAG:-FLAG_NOT_CONFIGURED}"
+
+printf 'analysis_scope=auth.log\nlog_flag=%s\n' "$LOG_FLAG" > "$BASE/logs/analyst-note.txt"
+
 printf 'QmVnaW5uZXIgQ1RGOiBlbmNvZGluZyBpcyBub3QgZW5jcnlwdGlvbi4K' > "$BASE/crypto/message.b64"
 printf 'CyberLabs beginner CTF evidence\n' > "$BASE/crypto/evidence.txt"
 (cd "$BASE/crypto" && sha256sum evidence.txt > known.sha256)
+printf '%s' "$EVIDENCE_FLAG" | base64 > "$BASE/crypto/evidence-flag.b64"
 
 printf 'Evidence integrity matters.\n' > "$BASE/forensics/original.txt"
 cp "$BASE/forensics/original.txt" "$BASE/forensics/copy.txt"
 printf 'This is text despite the jpg extension.\n' > "$BASE/forensics/mystery.jpg"
+
+mkdir -p "$BASE/reasoning"
+cat > "$BASE/reasoning/case-closure.txt" <<EOF
+scenario=broken_object_authorization
+reasoning_flag=$REASONING_FLAG
+EOF
 
 echo "[+] Beginner CTF files created at $BASE"
