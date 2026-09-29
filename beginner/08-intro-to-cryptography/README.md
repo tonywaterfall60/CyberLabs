@@ -164,9 +164,6 @@ concepts.txt
 
 Students decode multiple Base64 messages, compare file integrity, verify a known SHA-256 digest, use hashid appropriately, modify a file and observe the digest change, and classify Base64/SHA-256/AES/RSA.
 
-## Flags
-
-This event contains **2 challenge flags**: one for Base64 decoding and one for integrity verification.
 
 ## Cleanup
 
