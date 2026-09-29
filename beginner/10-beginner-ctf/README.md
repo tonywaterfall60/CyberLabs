@@ -214,34 +214,6 @@ Likely impact:
 Server-side mitigation:
 ~~~
 
-## Flags
-
-The Beginner CTF now contains **5 leaderboard flags** distributed across major milestones:
-
-1. Linux evidence flag from Challenge 1.
-2. Web flag from `/training-admin` during the scoped web-mapping work.
-3. Log-analysis checkpoint:
-
-~~~bash
-chmod +x check-logs.sh
-./check-logs.sh
-~~~
-
-4. Crypto/forensics checkpoint:
-
-~~~bash
-chmod +x check-crypto-forensics.sh
-./check-crypto-forensics.sh
-~~~
-
-5. Security-reasoning checkpoint:
-
-~~~bash
-chmod +x check-reasoning.sh
-./check-reasoning.sh
-~~~
-
-This allows partial CTF progress to count toward the leaderboard instead of making the entire event all-or-nothing.
 
 ## Deliverable
 
