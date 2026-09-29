@@ -1,5 +1,7 @@
 services:
   app:
     build: .
+    volumes:
+      - ./runtime:/app/runtime:ro
     ports:
       - "127.0.0.1:8200:5000"
