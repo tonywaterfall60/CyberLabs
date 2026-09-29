@@ -49,23 +49,6 @@ Unknown:
 
 State what additional evidence or authorization would be needed before taking action beyond this lab.
 
-## Flags
-
-This challenge contains **2 flags**.
-
-### Flag 1 — Evidence Identification
-
-~~~bash
-chmod +x check-evidence.sh
-./check-evidence.sh
-~~~
-
-### Flag 2 — Windows Analysis
-
-~~~bash
-chmod +x check-analysis.sh
-./check-analysis.sh
-~~~
 
 ## Deliverable
 
