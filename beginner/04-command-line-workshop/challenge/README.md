@@ -117,29 +117,6 @@ Most common failed source: <ip>
 
 You may use `echo`, command substitution, and redirection if comfortable.
 
-## Flags
-
-This challenge contains **2 flags**.
-
-### Flag 1 — Analysis Checkpoint
-
-After determining the four core answers, run:
-
-~~~bash
-chmod +x check-core.sh
-./check-core.sh
-~~~
-
-### Flag 2 — Evidence/summary Checkpoint
-
-After creating `failed.txt`, `failed-count.txt`, `failed-sources.txt`, and `summary.txt`, run:
-
-~~~bash
-chmod +x check-summary.sh
-./check-summary.sh
-~~~
-
-The second checker validates the required evidence files and the contents of `summary.txt`.
 
 ## Deliverable
 
