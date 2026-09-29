@@ -177,6 +177,10 @@ Students:
 
 Use at least three Kali tools, but explain what question each tool answered.
 
+## Flags
+
+This event contains **2 challenge flags**: one for evidence preservation/type validation and one for working-copy analysis.
+
 ## Cleanup
 
 ```bash
