@@ -169,9 +169,13 @@ For each one, students now identify:
 
 Students also prioritize the incidents and compare attacker/defender perspectives.
 
+## Flags
+
+This event contains **1 challenge flag**. Complete the challenge analysis and use the challenge checker to earn it.
+
 ## Deliverable
 
-Submit or discuss the completed challenge template for all five cases plus one attacker/defender analysis.
+Submit or discuss the completed challenge template for all five cases plus one attacker/defender analysis and the challenge flag.
 
 A strong Beginner answer explains **why** a term applies rather than only naming it.
 
