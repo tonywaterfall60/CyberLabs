@@ -17,7 +17,11 @@ Your job is to perform scoped discovery, fingerprint only what you find, manuall
 
 ## Setup
 
+The event lead loads the private flag registry, then prepares the ignored runtime artifacts:
+
 ~~~bash
+chmod +x prepare-flags.sh
+./prepare-flags.sh
 docker compose up -d
 ~~~
 
@@ -70,6 +74,8 @@ Collect:
 - interesting linked route,
 - whether the service exposes operational/internal details.
 
+After discovering and validating the inventory service, inspect its `/runtime/discovery.txt` resource and record the first dashboard flag.
+
 ### Phase 4 — Secondary Endpoints
 
 Look for linked or obvious supporting endpoints such as:
@@ -109,6 +115,8 @@ Operational impact:
 Additional validation needed:
 ~~~
 
+After completing your service classification and prioritization, inspect `/runtime/priority.txt` on the metrics/observability service and record the second dashboard flag.
+
 ### Phase 7 — Hardening
 
 Recommend one specific hardening action per service.
@@ -126,6 +134,8 @@ Examples of categories:
 
 | Port | Nmap result | Manual evidence | Role | Security question | Priority | Hardening |
 |---:|---|---|---|---|---:|---|
+
+Submit both discovered flags to the CyberLabs dashboard.
 
 Then include:
 
@@ -147,4 +157,5 @@ One thing still unknown:
 
 ~~~bash
 docker compose down
+rm -rf runtime
 ~~~
