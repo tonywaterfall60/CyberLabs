@@ -42,6 +42,10 @@ Use the local challenge in `challenge/`. Start by identifying scope, then collec
 
 [Open the challenge](challenge/README.md)
 
+## Flags
+
+This event contains **2 challenge flags**: one for locating the important Windows evidence and one for interpreting process, task, user, and connection context.
+
 ## Expected Outcomes
 
 Members should be able to explain the topic in their own words and support conclusions with specific local evidence.
