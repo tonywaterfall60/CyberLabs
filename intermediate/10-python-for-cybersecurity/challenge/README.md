@@ -1,4 +1,4 @@
-# Challenge — Build a Multi-Source Analyst Parser
+# Challenge — Build a Scoped TCP Port Scanner
 
 ## Challenge Snapshot
 
@@ -6,16 +6,25 @@
 |---|---|
 | Difficulty | Intermediate |
 | Estimated time | 75–105 minutes |
-| Environment | Kali + Python 3 + local logs |
-| Authorized scope | auth.log, app.log, and parser.py in this challenge |
-| Goal | Build a reusable parser for multi-source analyst summaries |
+| Environment | Kali + Python 3 + local Docker services |
+| Authorized scope | 127.0.0.1 TCP ports 8400–8410 only |
+| Goal | Build a reusable Python TCP scanner and compare its results with Nmap |
 ## Scenario
 
-Complete a Python script that turns local authentication and application logs into a useful analyst summary.
+Complete a Python script that checks a small authorized localhost range and reports which TCP ports accept connections.
+
+The goal is to understand how a basic scanner works rather than replace Nmap.
 
 ## Authorized Scope
 
-Work only with the local challenge files. Do not add network activity or real log sources.
+Only scan:
+
+~~~text
+127.0.0.1
+TCP ports 8400-8410
+~~~
+
+Do not change the target to another host or expand the range for this club challenge.
 
 ## Setup
 
@@ -24,6 +33,7 @@ The event lead loads the private flag registry, then prepares ignored runtime ar
 ~~~bash
 chmod +x prepare-flags.sh
 ./prepare-flags.sh
+docker compose up -d
 ~~~
 
 Python 3 is sufficient.
@@ -33,87 +43,143 @@ Python 3 is sufficient.
 ### Files
 
 ~~~text
-auth.log
-app.log
-parser.py
+scanner.py
+docker-compose.yml
+runtime/
+services/
 ~~~
 
 ### Requirements
 
 Your script should:
 
-1. parse key=value fields safely,
-2. count failed logins by user,
-3. count failed logins by source IP,
-4. collect successful login events,
-5. identify the most frequent failed-login source,
-6. correlate successful sessions with application actions,
-7. print a short summary.
+1. accept a host, start port, and end port as command-line arguments,
+2. restrict this training version to localhost,
+3. validate that the port range is valid,
+4. create a TCP socket,
+5. apply a short timeout,
+6. use `connect_ex()` or equivalent logic to test each port,
+7. record and print open ports,
+8. print a final summary.
 
 ### Phase 1 — Understand the Input
 
-Before coding, inspect both logs and write down their schemas.
+Before coding, identify:
 
-Identify shared correlation fields.
+~~~text
+Target host:
+Start port:
+End port:
+Expected data type for ports:
+Authorized range:
+~~~
 
-### Phase 2 — Complete the Parser
+Explain why accepting user input requires validation.
+
+### Phase 2 — Complete the Scanner
 
 Run:
 
 ~~~bash
-python3 parser.py auth.log app.log
+python3 scanner.py 127.0.0.1 8400 8410
 ~~~
 
-Do not hard-code usernames, sources, or session IDs.
+Do not hard-code the open ports.
+
+The starter script already restricts the training target to localhost. Complete the TODO sections so it iterates through the requested range and reports successful TCP connections.
 
 ### Phase 3 — Error Handling
 
-Your script should tolerate:
+Your script should handle or reject:
 
-- blank lines,
-- unknown fields,
-- lines without a session value,
-- extra whitespace.
+- non-integer port arguments,
+- a start port greater than the end port,
+- ports outside the valid TCP range,
+- targets other than localhost,
+- connection failures,
+- timeouts.
+
+Explain why a closed or filtered port should not crash the entire scan.
 
 ### Phase 4 — Output
 
 Default output should show:
 
 ~~~text
-Failed logins by user
-Failed logins by source
-Successful sessions
-Most common failed source
-Application actions per successful session
+Target
+Port range
+Open ports as they are discovered
+Final list of open ports
+Total open-port count
 ~~~
 
-Once your parser produces the required analyst summary, inspect `runtime/parser-complete.txt` and record the first dashboard flag.
+Once your scanner produces the required results, inspect `runtime/scanner-complete.txt` and record the first dashboard flag.
+
+### Phase 5 — Validate with Nmap
+
+Use Nmap against the exact same authorized scope:
+
+~~~bash
+nmap -p 8400-8410 127.0.0.1
+~~~
+
+Compare:
+
+~~~text
+Python result:
+Nmap result:
+Ports both identified:
+Differences:
+What Nmap tells you that your script does not:
+~~~
+
+Your Python scanner answers whether a TCP connection can be established. Nmap provides a much richer scanning and service-enumeration framework.
 
 ### Stretch Goals
 
-- `--user <name>` filter
-- `--json` output
-- sort counters by count
-- flag sessions containing sensitive actions such as export/download
-- write a reusable `parse_kv_fields()` function
+- add elapsed scan time,
+- sort the final port list,
+- add a configurable timeout,
+- attempt a simple banner read from an already-discovered open port,
+- print results as JSON,
+- separate scanning logic from output formatting with reusable functions.
 
-After documenting one example where automation improved the analysis and one limitation of the script, inspect `runtime/automation-note.txt` and record the second dashboard flag.
+### Other Useful Cybersecurity Python Projects
+
+#### Blue Team
+
+- parse local logs and summarize failed authentication activity,
+- hash a directory and alert when files change,
+- match local indicators against an approved IOC list,
+- transform security-tool output into a consistent incident report.
+
+#### Red Team / Authorized Assessment
+
+- grab banners from already-discovered authorized services,
+- validate a provided list of HTTP routes and status codes,
+- automate repetitive evidence collection during an authorized assessment,
+- parse Nmap XML and prioritize discovered services for manual review.
+
+After documenting one example where Python automation improves a cybersecurity workflow and one limitation or risk of custom automation, inspect `runtime/automation-note.txt` and record the second dashboard flag.
 
 ## Deliverable
 
 Submit both discovered flags to the CyberLabs dashboard, plus:
 
-- completed parser.py,
-- sample output,
-- one example where automation was better than manual analysis,
-- one limitation of the script.
+- completed `scanner.py`,
+- sample scanner output,
+- Nmap validation output,
+- explanation of `connect_ex()`,
+- one difference between the Python scanner and Nmap,
+- one limitation of the scanner,
+- one useful blue-team Python script idea,
+- one useful red-team/authorized-assessment Python script idea.
 
-Do not add network activity; this challenge is local file analysis only.
+Do not scan outside the localhost range defined by this challenge.
 
 ## Cleanup
 
-Remove generated runtime material when finished:
-
 ~~~bash
+docker compose down
 rm -rf runtime
 ~~~
