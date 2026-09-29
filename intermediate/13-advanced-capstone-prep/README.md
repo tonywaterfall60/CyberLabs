@@ -110,11 +110,12 @@ Score yourself:
 
 ### Python
 
-- parse structured text
-- use Counter/dictionaries/defaultdict
-- correlate events
-- handle imperfect input
-- explain when automation is appropriate
+- use sockets for scoped TCP connectivity checks
+- validate host and port-range input
+- handle timeouts and connection failures
+- compare custom scanner output with Nmap
+- explain limitations of custom automation
+- identify useful blue-team and authorized assessment scripts
 
 ### Reverse Engineering
 
@@ -283,6 +284,23 @@ One tool I still rely on instructions for:
 
 How I verify scope:
 How I decide when to stop testing:
+~~~
+
+## Runtime Readiness Flag
+
+The event lead loads the private flag registry. From this directory:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+~~~
+
+After completing the self-score, practical evidence drill, and readiness reflection, inspect `~/cyberclub/advanced-readiness/readiness-card.txt` and submit its flag to the CyberLabs dashboard.
+
+## Cleanup
+
+~~~bash
+./reset.sh
 ~~~
 
 ## Recommended Review
