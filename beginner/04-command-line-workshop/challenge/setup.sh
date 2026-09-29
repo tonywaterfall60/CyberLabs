@@ -26,5 +26,20 @@ dns01,192.168.56.22,53
 api01,192.168.56.23,8080
 EOF
 
+ANALYSIS_FLAG="${BEGINNER_CLI_ANALYSIS_FLAG:-FLAG_NOT_CONFIGURED}"
+SUMMARY_FLAG="${BEGINNER_CLI_SUMMARY_FLAG:-FLAG_NOT_CONFIGURED}"
+
+cat > "$BASE/analyst-notes.log" <<EOF
+review=failed_login_analysis
+focus_user=sam
+analysis_flag=$ANALYSIS_FLAG
+EOF
+
+mkdir -p "$BASE/reports"
+cat > "$BASE/reports/.handoff" <<EOF
+required_artifact=summary.txt
+summary_flag=$SUMMARY_FLAG
+EOF
+
 echo "[+] Challenge created at $BASE"
-echo "[+] Files: auth.log hosts.csv"
+echo "[+] Files: auth.log hosts.csv analyst-notes.log reports/"
