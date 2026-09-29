@@ -192,9 +192,13 @@ Students then:
 - reconstruct the request order,
 - reproduce observations with tshark.
 
+## Flags
+
+This event contains **2 challenge flags**: one for reconstructing the HTTP session and one for validating the saved PCAP.
+
 ## Deliverable
 
-Record:
+Record both flags plus:
 
 ~~~text
 Capture interface:
