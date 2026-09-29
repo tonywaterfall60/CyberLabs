@@ -314,6 +314,17 @@ How I make sure a security activity is in scope:
 ~~~
 
 
+## Runtime Readiness Flag
+
+Before the session, the event lead loads the private flag environment. From this directory, create the local readiness workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+~~~
+
+After completing the self-assessment and practice prompts, inspect `~/cyberclub/interview-prep/readiness-card.txt` and submit its flag to the CyberLabs dashboard.
+
 ## If You Need More Practice
 
 Use the repository's:
@@ -346,6 +357,12 @@ If the evidence were incomplete, I would ask for __.
 ~~~
 
 That reasoning is more important than reciting a memorized command.
+
+## Cleanup
+
+~~~bash
+./reset.sh
+~~~
 
 ## After Passing
 
