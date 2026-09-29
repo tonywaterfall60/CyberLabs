@@ -16,11 +16,17 @@ A fictional endpoint generated several configuration and event records during an
 
 ## Authorized Scope
 
-Use only the provided evidence.
+Use only the provided evidence and generated local review workspace.
 
 ## Setup
 
-No live Windows host is required.
+The event lead loads the private flag registry, then create the local review workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/windows-security-review
+~~~
 
 ## Investigation / Tasks
 
@@ -33,10 +39,16 @@ Identify:
 - one PowerShell event,
 - one item that is suspicious but not proof of compromise.
 
+After correlating service, task, ACL, Security, Sysmon, and PowerShell evidence, inspect `evidence-correlation.txt` and record the first dashboard flag.
+
+After writing two defensible remediation ideas and separating configuration weakness from observed abuse, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
 
-Submit an evidence table with `Observed / Inferred / Unknown` and two remediation ideas.
+Submit both discovered flags to the CyberLabs dashboard plus an evidence table with `Observed / Inferred / Unknown` and two remediation ideas.
 
 ## Cleanup
 
-No cleanup is required.
+~~~bash
+./reset.sh
+~~~
