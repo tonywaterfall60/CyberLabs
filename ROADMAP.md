@@ -38,7 +38,7 @@ Members progress through hands-on events, challenge nights, CTFs, and capstone i
 
 - [x] add more Kali-specific tool practice
 - [ ] expand PCAP challenge variety
-- [ ] add optional Windows equivalents
+- [x] add optional Windows equivalents
 - [ ] improve diagrams/screenshots
 - [ ] add event presentation links
 
