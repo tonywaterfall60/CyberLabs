@@ -188,7 +188,13 @@ The challenge now covers:
 
 Exploitation remains intentionally out of scope.
 
+## Flags
+
+This event contains **2 challenge flags**: one for the completed route map and one for cookie/authorization understanding.
+
 ## Deliverable
+
+Submit both flags plus:
 
 ```text
 Route:
