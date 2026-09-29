@@ -16,17 +16,21 @@ You are given a fictional training case related to **Intro to Wireless Security*
 
 ## Authorized Scope
 
-Only files in this challenge directory are authorized. Do not pivot identifiers, IP addresses, names, or examples toward real systems.
+Only the provided challenge files and generated local workspace are authorized. Do not pivot identifiers, IP addresses, names, or examples toward real systems.
 
 ## Setup
 
-No service startup is required.
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/wireless-security
+~~~
 
 ## Investigation / Tasks
 
 ### Phase 1 — Baseline
 
-Read `evidence.txt` and identify the evidence types and important fields.
+Read `wireless-evidence.csv` and identify the evidence types and important fields.
 
 ### Phase 2 — Core Analysis
 
@@ -34,6 +38,8 @@ Read `evidence.txt` and identify the evidence types and important fields.
 2. Show that you can distinguish open from protected wireless networks from provided evidence.
 3. Show that you can recognize beacon and probe behavior.
 4. Show that you can explain why an SSID name does not prove ownership.
+
+After mapping the protected network, BSSID, channel, and client behavior, inspect `capture-notes.txt` and record the dashboard flag.
 
 ### Phase 3 — Evidence vs. Interpretation
 
@@ -52,7 +58,7 @@ State what additional evidence or authorization would be needed before taking ac
 
 ## Deliverable
 
-Submit the flag plus:
+Submit the discovered flag to the CyberLabs dashboard plus:
 
 ~~~text
 Scope:
@@ -66,4 +72,6 @@ Recommended next step:
 
 ## Cleanup
 
-No cleanup is required for this static-data challenge.
+~~~bash
+./reset.sh
+~~~
