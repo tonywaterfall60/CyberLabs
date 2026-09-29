@@ -133,9 +133,23 @@ Current Linux user:
 Local IP:
 ~~~
 
+## Flags
+
+This challenge contains **2 flags**:
+
+1. **Evidence flag** — locate it during Phase 4 using Linux search commands.
+2. **Completion flag** — after finishing the investigation, run:
+
+~~~bash
+chmod +x check.sh
+./check.sh
+~~~
+
+The checker validates the core incident findings before printing the completion flag.
+
 ## Deliverable
 
-Submit the command used for each answer—not only the final value.
+Submit the command used for each answer—not only the final value—and submit both flags.
 
 ## Cleanup
 
