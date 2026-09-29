@@ -50,7 +50,20 @@ Unknown:
 
 State what additional evidence or authorization would be needed before taking action beyond this lab.
 
+## Flag
+
+After completing the scope-card analysis, run:
+
+~~~bash
+chmod +x check-scope.sh
+./check-scope.sh
+~~~
+
+**Flag count:** 1
+
 ## Deliverable
+
+Submit the flag plus:
 
 ~~~text
 Scope:
