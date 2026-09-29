@@ -17,7 +17,11 @@ Your goal is to identify requests, responses, TCP setup, and a simple sequence o
 
 ## Setup
 
+The event lead loads the private flag environment, then prepares runtime artifacts before starting the service:
+
 ~~~bash
+chmod +x prepare-flags.sh generate-traffic.sh
+./prepare-flags.sh
 docker compose up -d
 ~~~
 
@@ -48,13 +52,15 @@ chmod +x generate-traffic.sh
 ./generate-traffic.sh
 ~~~
 
-It requests:
+It requests a repeatable sequence that includes normal application routes plus two runtime evidence objects:
 
 ~~~text
 /
 /status
 /help
+/runtime/analysis-note.txt
 /status
+/runtime/pcap-marker.txt
 ~~~
 
 with short pauses so the sequence is easier to recognize.
@@ -79,7 +85,8 @@ Identify:
 4. GET `/`,
 5. GET `/status`,
 6. GET `/help`,
-7. HTTP response status codes.
+7. HTTP response status codes,
+8. both runtime evidence responses containing dashboard flags.
 
 ### Phase 2 — Follow a Conversation
 
@@ -134,10 +141,12 @@ Frame | Method | Path | Response Status | Observation
 
 Put the requests in order.
 
+The two flag values should be recovered from the captured HTTP traffic rather than from a local checker.
+
 
 ## Deliverable
 
-Submit both flags plus:
+Submit both flags recovered from the packet capture to the CyberLabs dashboard plus:
 
 ~~~text
 Capture interface:
@@ -158,5 +167,6 @@ Timeline:
 
 ~~~bash
 docker compose down
+rm -rf runtime
 rm -f challenge.pcap
 ~~~
