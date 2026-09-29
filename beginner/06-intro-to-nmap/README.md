@@ -171,6 +171,10 @@ Documentation
 
 Students must discover all three within the authorized range, run targeted service detection, validate them with curl, use raw HTTP with Netcat, and explain which evidence came from Nmap versus application content.
 
+## Flags
+
+This event contains **2 challenge flags**: one for discovering all authorized services and one for manually validating their application roles.
+
 ## Cleanup
 
 ```bash
