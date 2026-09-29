@@ -49,7 +49,27 @@ Unknown:
 
 State what additional evidence or authorization would be needed before taking action beyond this lab.
 
+## Flags
+
+This challenge contains **2 flags**.
+
+### Flag 1 — Identity Timeline
+
+~~~bash
+chmod +x check-timeline.sh
+./check-timeline.sh
+~~~
+
+### Flag 2 — Access-Control Analysis
+
+~~~bash
+chmod +x check-access.sh
+./check-access.sh
+~~~
+
 ## Deliverable
+
+Submit both flags plus:
 
 ~~~text
 Scope:
