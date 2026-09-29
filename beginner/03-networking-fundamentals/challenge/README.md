@@ -21,7 +21,12 @@ This is a fictional troubleshooting exercise. Do not probe or scan a real 192.16
 
 ## Setup
 
-No technical setup is required.
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+~~~
+
+This creates a local troubleshooting case under `~/cyberclub/network-troubleshooting/`.
 
 ## Objectives / Tasks
 
@@ -167,8 +172,14 @@ Include at least two reasons.
 
 ## Deliverable
 
-Complete all seven tickets and the command-matching section, then submit the completion flag.
+Complete all seven tickets and the command-matching section. Then inspect the generated closure ticket and submit its flag to the CyberLabs dashboard.
+
+## Flag Discovery
+
+The generated troubleshooting workspace includes a closure ticket. Treat it as the final artifact in the fictional case and record the flag it contains.
 
 ## Cleanup
 
-No cleanup is required for this challenge.
+~~~bash
+./reset.sh
+~~~
