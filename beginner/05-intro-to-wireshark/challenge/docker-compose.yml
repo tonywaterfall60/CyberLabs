@@ -5,3 +5,4 @@ services:
       - "127.0.0.1:8085:80"
     volumes:
       - ./site:/usr/share/nginx/html:ro
+      - ./runtime:/usr/share/nginx/html/runtime:ro
