@@ -1,5 +1,8 @@
 services:
   app:
     build: .
+    environment:
+      BEGINNER_WEB_MAP_FLAG: ${BEGINNER_WEB_MAP_FLAG:-FLAG_NOT_CONFIGURED}
+      BEGINNER_WEB_STATE_FLAG: ${BEGINNER_WEB_STATE_FLAG:-FLAG_NOT_CONFIGURED}
     ports:
       - "127.0.0.1:8070:5000"
