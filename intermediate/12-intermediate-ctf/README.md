@@ -48,7 +48,7 @@ http://127.0.0.1:8440
 
 Discover the authorized web service, fingerprint it, and manually validate the application.
 
-Submit discovery command, targeted fingerprinting command, and manual validation evidence.
+Submit discovery command, targeted fingerprinting command, and manual validation evidence. After completing the scoped enumeration, inspect the generated `network-note.txt` and record the network milestone flag.
 
 ### Challenge 2 — Web Enumeration / Authorization
 
@@ -77,7 +77,7 @@ Analyze:
 ~/cyberclub/intermediate-ctf/logs/vpn.log
 ~~~
 
-Identify failed attempts, successful session, VPN assignment, and sensitive activity. Build a short timeline.
+Identify failed attempts, successful session, VPN assignment, and sensitive activity. Build a short timeline. Then inspect `logs/correlation-note.txt` and record the log-correlation flag.
 
 ### Challenge 4 — Linux Privilege Audit
 
@@ -93,6 +93,8 @@ Identify the strongest privilege-boundary concern and explain the higher-privile
 
 Do not attempt live privilege escalation.
 
+After identifying the strongest privilege-boundary relationship, inspect hidden files in `linux-audit/` and record the privilege-audit flag.
+
 ### Challenge 5 — Packet Analysis
 
 Capture only your own requests to port 8440.
@@ -103,7 +105,7 @@ Save and hash your PCAP.
 
 ### Challenge 6 — Crypto / Integrity
 
-Decode `crypto/message.b64`, verify `known.sha256`, and explain encoding vs hashing vs encryption.
+Decode `crypto/message.b64`, verify `known.sha256`, decode `crypto/evidence-flag.b64`, and explain encoding vs hashing vs encryption. The decoded value is the evidence-analysis milestone flag.
 
 ### Challenge 7 — Digital Forensics
 
@@ -123,6 +125,8 @@ Analyze:
 
 Use static and dynamic analysis to recover the accepted phrase. The success path reads `REV_FLAG_VALUE` from the environment.
 
+Use the generated `reversing/run-validator.sh` when testing candidate phrases so the runtime flag is available to the success path.
+
 Use at least four tools from:
 
 ~~~text
@@ -136,9 +140,13 @@ rabin2
 radare2
 ~~~
 
+## Flags
+
+This CTF contains **6 dashboard flags** distributed across network enumeration, web authorization, log correlation, Linux privilege auditing, evidence analysis, and reverse engineering. Partial completion therefore earns partial leaderboard credit.
+
 ## Deliverable
 
-For each challenge:
+Submit all six flags earned to the CyberLabs dashboard. For each challenge:
 
 ~~~text
 Question:
