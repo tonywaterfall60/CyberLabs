@@ -82,13 +82,15 @@ Try to answer using `grep` rather than opening every file manually.
 1. Find the hidden file in the challenge root.
 2. Display its contents.
 3. Explain what the leading dot means on Linux.
+4. Record the flag stored with the hidden analyst note.
 
 ### Phase 4 — File Search
 
-1. Search the challenge tree for files containing `FLAG`.
+1. Search the challenge tree for files containing the primary evidence flag.
 2. Identify the full path.
 3. Display the file contents.
 4. Identify who owns the file.
+5. Record the flag.
 
 Useful commands may include:
 
@@ -136,7 +138,7 @@ Local IP:
 
 ## Deliverable
 
-Submit the command used for each answer—not only the final value—and submit both flags.
+Submit the command used for each answer—not only the final value—and submit both discovered flags to the CyberLabs dashboard.
 
 ## Cleanup
 
