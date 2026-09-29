@@ -43,6 +43,7 @@ Inspect and decode:
 ~~~text
 message.b64
 operator-note.b64
+flag-message.b64
 ~~~
 
 Use:
@@ -57,6 +58,7 @@ Answer:
 - Is Base64 reversible?
 - Does decoding require a secret key?
 - Is Base64 encryption?
+- Record the flag recovered from `flag-message.b64`.
 
 ### Phase 2 — File Integrity
 
@@ -118,6 +120,8 @@ Hash it again.
 
 Explain why even a small content change produces a different digest.
 
+After confirming the digest behavior, list all files including hidden files. Decode the hidden integrity note and record the second dashboard flag.
+
 ### Phase 6 — Classify the Concepts
 
 Classify each as encoding, hashing, symmetric encryption, or asymmetric encryption:
@@ -140,7 +144,7 @@ Which are intended for integrity checks?
 
 ## Deliverable
 
-Submit both flags plus:
+Submit both recovered flags to the CyberLabs dashboard plus:
 
 ~~~text
 Decoded message:
