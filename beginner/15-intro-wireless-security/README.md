@@ -42,6 +42,10 @@ Use the local challenge in `challenge/`. Start by identifying scope, then collec
 
 [Open the challenge](challenge/README.md)
 
+## Flags
+
+This event contains **1 challenge flag** for correctly identifying the protected/open networks, channel, BSSID, and observed client.
+
 ## Expected Outcomes
 
 Members should be able to explain the topic in their own words and support conclusions with specific local evidence.
