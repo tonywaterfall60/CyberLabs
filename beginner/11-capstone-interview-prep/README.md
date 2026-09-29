@@ -313,16 +313,6 @@ One way I manually validated a tool result:
 How I make sure a security activity is in scope:
 ~~~
 
-## Flag
-
-This event contains **1 readiness flag**. After completing the self-assessment and practice questions, run:
-
-~~~bash
-chmod +x check-readiness.sh
-./check-readiness.sh
-~~~
-
-The checker validates core Beginner tool-selection and security concepts before printing the flag.
 
 ## If You Need More Practice
 
