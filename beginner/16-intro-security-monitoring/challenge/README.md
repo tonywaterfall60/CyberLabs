@@ -49,23 +49,6 @@ Unknown:
 
 State what additional evidence or authorization would be needed before taking action beyond this lab.
 
-## Flags
-
-This challenge contains **2 flags**.
-
-### Flag 1 — Timeline Reconstruction
-
-~~~bash
-chmod +x check-timeline.sh
-./check-timeline.sh
-~~~
-
-### Flag 2 — Detection / Correlation Reasoning
-
-~~~bash
-chmod +x check-detection.sh
-./check-detection.sh
-~~~
 
 ## Deliverable
 
