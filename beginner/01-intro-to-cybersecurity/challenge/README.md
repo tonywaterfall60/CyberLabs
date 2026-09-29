@@ -142,18 +142,6 @@ Defender detection:
 Defender recovery:
 ~~~
 
-## Flag
-
-After completing the case analysis, run:
-
-~~~bash
-chmod +x check.sh
-./check.sh
-~~~
-
-The checker asks three short concept questions. When the event flag is configured and all three answers are correct, it prints the lab completion flag.
-
-**Flag count:** 1
 
 ## Deliverable
 
