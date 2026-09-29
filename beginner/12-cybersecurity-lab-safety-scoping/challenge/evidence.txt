@@ -1,0 +1,7 @@
+case_id,asset,allowed,reason
+1,127.0.0.1:9000,yes,explicit local training target
+2,192.0.2.44,no,not listed in authorized scope
+3,~/cyberclub/training-case/,yes,provided evidence directory
+4,university production portal,no,production system
+5,172.28.50.0/28,yes,authorized isolated range
+6,172.28.51.0/24,no,neighboring subnet not authorized

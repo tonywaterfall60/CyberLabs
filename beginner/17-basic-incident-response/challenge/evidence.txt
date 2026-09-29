@@ -1,0 +1,5 @@
+2026-09-28T16:10:00Z auth failure user=morgan src=10.40.0.77
+2026-09-28T16:10:10Z auth failure user=morgan src=10.40.0.77
+2026-09-28T16:10:18Z auth success user=morgan src=10.40.0.77
+2026-09-28T16:11:00Z app export user=morgan object=quarterly.csv
+2026-09-28T16:11:20Z endpoint file_create host=WS-44 path=C:\Users\morgan\Downloads\quarterly.csv

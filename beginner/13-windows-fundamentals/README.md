@@ -7,55 +7,54 @@
 | Track | Beginner |
 | Difficulty | Beginner |
 | Estimated time | 75–90 minutes |
-| Environment | Static Windows command/output bundle; optional Windows VM |
-| Prerequisites | 12 — Lab Safety & Scoping |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Cybersecurity Lab Safety & Scoping |
 
 ## Why This Event Exists
 
-Cybersecurity work regularly involves Windows endpoints. Members should recognize basic Windows identity, process, network, service, and event-log information even if their primary lab VM is Kali.
+CyberLabs is Kali-heavy, so this event gives beginners the Windows vocabulary they need for later Windows security and DFIR work.
 
 ## Learning Objectives
 
-- identify current user/groups,
-- interpret IP/network information,
-- list processes/services,
-- recognize common PowerShell equivalents,
-- understand where Windows logs come from.
+- identify users, processes, services, connections, and scheduled tasks from provided Windows-style output
+- explain the difference between a process and a service
+- recognize common Windows paths and security contexts
+- use PowerShell-style output as evidence
 
 ## Concepts
 
-~~~text
-PowerShell
-Command Prompt
-services
-processes
-registry
-event logs
-NTFS permissions
-Windows Defender / firewall
-~~~
+- **Processes:** Running program instances.
+- **Services:** Background components managed by the Service Control Manager.
+- **Registry:** Hierarchical configuration database.
+- **Event logs:** Structured Windows telemetry.
+- **PowerShell:** Administrative shell and scripting environment.
 
 ## Guided Lab
 
-Compare common Linux and Windows commands and inspect the provided fictional outputs.
+Use the local challenge in `challenge/`. Start by identifying scope, then collect evidence, explain what it means, identify uncertainty, and recommend a safe next step.
+
+### Tools
+
+- provided PowerShell-style evidence
+- grep/less for local analysis
 
 ## Challenge
 
-[challenge/README.md](challenge/README.md)
+[Open the challenge](challenge/README.md)
 
 ## Expected Outcomes
 
-Members should be able to orient themselves on a Windows endpoint and identify what evidence each command provides.
+Members should be able to explain the topic in their own words and support conclusions with specific local evidence.
 
 ## Cleanup
 
-No cleanup is required.
+Follow the challenge-specific cleanup section.
 
 ---
 
 ## Event Navigation
 
-- Previous: [Lab Safety & Scoping](../12-lab-safety-and-scoping/)
+- Previous: [Cybersecurity Lab Safety & Scoping](../12-cybersecurity-lab-safety-scoping/)
 - Track Home: [Beginner Track](../README.md)
 - Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
 - Next: [Identity & Access Basics](../14-identity-access-basics/)

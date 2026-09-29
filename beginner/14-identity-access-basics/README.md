@@ -7,46 +7,54 @@
 | Track | Beginner |
 | Difficulty | Beginner |
 | Estimated time | 60–75 minutes |
-| Environment | Static identity/session evidence |
-| Prerequisites | 13 — Windows Fundamentals |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Windows Fundamentals for Cybersecurity |
 
 ## Why This Event Exists
 
-Many security failures involve identity rather than malware. Members need to distinguish authentication, authorization, MFA, sessions, and least privilege.
+Authentication and authorization failures appear throughout CyberLabs. This event builds a clear beginner mental model before deeper web and enterprise labs.
 
 ## Learning Objectives
 
-- distinguish authentication from authorization,
-- explain sessions/tokens,
-- interpret MFA events,
-- identify over-privileged access,
-- recommend least-privilege controls.
+- distinguish identity, authentication, authorization, and accounting
+- explain MFA and session concepts
+- identify least-privilege failures in simple scenarios
+- recognize the difference between a stolen password and a stolen session
 
 ## Concepts
 
-Review the core terminology, evidence types, and security controls named in the learning objectives. Members should be able to explain each concept in plain language before using it in the challenge.
+- **Authentication:** Proves who a user is.
+- **Authorization:** Determines what an authenticated identity may do.
+- **Session:** Represents authenticated state after login.
+- **MFA:** Requires more than one factor category.
+- **Least privilege:** Grants only the access required.
 
 ## Guided Lab
 
-Work one representative example as a group. The event lead should ask what question is being answered, what evidence supports the answer, and what remains unknown.
+Use the local challenge in `challenge/`. Start by identifying scope, then collect evidence, explain what it means, identify uncertainty, and recommend a safe next step.
+
+### Tools
+
+- local JSONL authentication evidence
+- jq or cat
 
 ## Challenge
 
-[challenge/README.md](challenge/README.md)
+[Open the challenge](challenge/README.md)
 
 ## Expected Outcomes
 
-Members should be able to explain why “logged in successfully” does not mean every requested action is authorized.
+Members should be able to explain the topic in their own words and support conclusions with specific local evidence.
 
 ## Cleanup
 
-No cleanup is required.
+Follow the challenge-specific cleanup section.
 
 ---
 
 ## Event Navigation
 
-- Previous: [Windows Fundamentals](../13-windows-fundamentals/)
+- Previous: [Windows Fundamentals for Cybersecurity](../13-windows-fundamentals/)
 - Track Home: [Beginner Track](../README.md)
 - Curriculum Index: [All CyberLabs Events](../../CURRICULUM_INDEX.md)
 - Next: [Intro to Wireless Security](../15-intro-wireless-security/)

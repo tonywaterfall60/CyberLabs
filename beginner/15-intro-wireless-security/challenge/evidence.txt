@@ -1,0 +1,6 @@
+frame,subtype,ssid,bssid,channel,privacy,client
+1,beacon,CyberLabs-Staff,02:11:22:33:44:10,6,RSN,
+2,beacon,CyberLabs-Guest,02:11:22:33:44:20,11,OPEN,
+3,probe-request,CyberLabs-Staff,,,,02:aa:bb:cc:dd:01
+4,probe-response,CyberLabs-Staff,02:11:22:33:44:10,6,RSN,02:aa:bb:cc:dd:01
+5,association,CyberLabs-Staff,02:11:22:33:44:10,6,RSN,02:aa:bb:cc:dd:01

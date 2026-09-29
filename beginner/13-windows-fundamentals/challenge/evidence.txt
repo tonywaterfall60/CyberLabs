@@ -1,0 +1,17 @@
+[whoami]
+training\alex
+
+[processes]
+PID=4112 Image=WINWORD.EXE User=training\alex
+PID=4220 Image=powershell.exe Parent=WINWORD.EXE User=training\alex
+PID=4500 Image=explorer.exe User=training\alex
+
+[services]
+CyberBackup Running LocalSystem
+PrintSpooler Running LocalSystem
+
+[connections]
+powershell.exe 10.0.0.25:49822 -> 198.51.100.25:443 ESTABLISHED
+
+[scheduled_tasks]
+InventoryCheck RunAs=SYSTEM Command=C:\ProgramData\CyberLabs\inventory.ps1

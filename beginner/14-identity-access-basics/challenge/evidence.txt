@@ -1,0 +1,5 @@
+{"ts":"2026-09-28T14:00:00Z","event":"login_failure","user":"alex","src":"10.20.0.55"}
+{"ts":"2026-09-28T14:00:12Z","event":"login_success","user":"alex","src":"10.20.0.55"}
+{"ts":"2026-09-28T14:00:15Z","event":"mfa_challenge","user":"alex","device":"phone-1"}
+{"ts":"2026-09-28T14:00:20Z","event":"mfa_approved","user":"alex","device":"phone-1"}
+{"ts":"2026-09-28T14:01:00Z","event":"object_access","user":"alex","object":"report-2","owner":"sam","result":"allowed"}

@@ -7,39 +7,48 @@
 | Track | Beginner |
 | Difficulty | Beginner |
 | Estimated time | 60–75 minutes |
-| Environment | Offline wireless evidence only |
-| Prerequisites | 14 — Identity & Access Basics |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Identity & Access Basics |
 
 ## Why This Event Exists
 
-Members use Wi-Fi daily but often do not know the difference between SSID, BSSID, channel, association, or network security mode.
+This event introduces Wi-Fi terminology and management-frame evidence without requiring a wireless adapter or interacting with nearby networks.
 
 ## Learning Objectives
 
-- define SSID/BSSID/channel,
-- recognize open vs protected networks,
-- identify common management-frame activity,
-- explain why offline analysis is safer for introductory wireless practice.
+- identify SSID, BSSID, channel, and client addresses
+- distinguish open from protected wireless networks from provided evidence
+- recognize beacon and probe behavior
+- explain why an SSID name does not prove ownership
 
 ## Concepts
 
-Review the core terminology, evidence types, and security controls named in the learning objectives. Members should be able to explain each concept in plain language before using it in the challenge.
+- **SSID:** Human-readable wireless network name.
+- **BSSID:** MAC address identifying an AP radio.
+- **Channel:** Radio-frequency channel used by the AP.
+- **Management frames:** Frames used for discovery and association.
+- **Privacy indicators:** Frame/configuration evidence that protection is configured.
 
 ## Guided Lab
 
-Work one representative example as a group. The event lead should ask what question is being answered, what evidence supports the answer, and what remains unknown.
+Use the local challenge in `challenge/`. Start by identifying scope, then collect evidence, explain what it means, identify uncertainty, and recommend a safe next step.
+
+### Tools
+
+- Wireshark/tshark concepts
+- offline synthetic evidence only
 
 ## Challenge
 
-[challenge/README.md](challenge/README.md)
+[Open the challenge](challenge/README.md)
 
 ## Expected Outcomes
 
-Members should be able to read a simple wireless inventory without performing live wireless attacks.
+Members should be able to explain the topic in their own words and support conclusions with specific local evidence.
 
 ## Cleanup
 
-No cleanup is required.
+Follow the challenge-specific cleanup section.
 
 ---
 

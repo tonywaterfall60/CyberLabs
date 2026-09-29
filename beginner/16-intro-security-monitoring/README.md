@@ -7,40 +7,48 @@
 | Track | Beginner |
 | Difficulty | Beginner |
 | Estimated time | 60–75 minutes |
-| Environment | Static security logs |
-| Prerequisites | 15 — Intro to Wireless Security |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Intro to Wireless Security |
 
 ## Why This Event Exists
 
-Security monitoring is the bridge between “something happened” and “we noticed it.” Members learn what telemetry is and why alerts still require human interpretation.
+This event shows beginners what defenders actually monitor: authentication, process, network, and application events collected over time.
 
 ## Learning Objectives
 
-- identify common telemetry sources,
-- distinguish event from alert,
-- correlate a small sequence,
-- explain false positives,
-- identify what evidence is missing.
+- identify the purpose of common security telemetry
+- build a simple event timeline
+- separate a single suspicious event from a correlated sequence
+- describe one reasonable detection idea
 
 ## Concepts
 
-Review the core terminology, evidence types, and security controls named in the learning objectives. Members should be able to explain each concept in plain language before using it in the challenge.
+- **Telemetry:** Recorded activity used for visibility.
+- **Alert:** A rule-generated signal that requires validation.
+- **Correlation:** Connecting events through fields such as user, host, source, and time.
+- **False positive:** Benign behavior that matches a detection condition.
 
 ## Guided Lab
 
-Work one representative example as a group. The event lead should ask what question is being answered, what evidence supports the answer, and what remains unknown.
+Use the local challenge in `challenge/`. Start by identifying scope, then collect evidence, explain what it means, identify uncertainty, and recommend a safe next step.
+
+### Tools
+
+- jq
+- grep
+- local JSONL events
 
 ## Challenge
 
-[challenge/README.md](challenge/README.md)
+[Open the challenge](challenge/README.md)
 
 ## Expected Outcomes
 
-Members should be able to triage a small alert without assuming it proves compromise.
+Members should be able to explain the topic in their own words and support conclusions with specific local evidence.
 
 ## Cleanup
 
-No cleanup is required.
+Follow the challenge-specific cleanup section.
 
 ---
 

@@ -1,4 +1,4 @@
-# Challenge — Intro to Security Monitoring
+# Challenge — Cybersecurity Lab Safety & Scoping
 
 ## Challenge Snapshot
 
@@ -12,7 +12,7 @@
 
 ## Scenario
 
-You are given a fictional training case related to **Intro to Security Monitoring**. Use only the provided evidence and document how you reached each answer.
+You are given a fictional training case related to **Cybersecurity Lab Safety & Scoping**. Use only the provided evidence and document how you reached each answer.
 
 ## Authorized Scope
 
@@ -30,10 +30,10 @@ Read `evidence.txt` and identify the evidence types and important fields.
 
 ### Phase 2 — Core Analysis
 
-1. Show that you can identify the purpose of common security telemetry.
-2. Show that you can build a simple event timeline.
-3. Show that you can separate a single suspicious event from a correlated sequence.
-4. Show that you can describe one reasonable detection idea.
+1. Show that you can identify an authorized target, port range, file set, or subnet.
+2. Show that you can distinguish in-scope from out-of-scope actions.
+3. Show that you can write a short rules-of-engagement statement.
+4. Show that you can recognize when to stop and request additional authorization.
 
 ### Phase 3 — Evidence vs. Interpretation
 

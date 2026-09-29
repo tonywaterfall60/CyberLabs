@@ -1,0 +1,5 @@
+{"ts":"2026-09-28T15:00:00Z","type":"auth","host":"WS-10","user":"sam","result":"failure","src":"10.30.0.8"}
+{"ts":"2026-09-28T15:00:06Z","type":"auth","host":"WS-10","user":"sam","result":"failure","src":"10.30.0.8"}
+{"ts":"2026-09-28T15:00:12Z","type":"auth","host":"WS-10","user":"sam","result":"success","src":"10.30.0.8"}
+{"ts":"2026-09-28T15:00:20Z","type":"process","host":"WS-10","user":"sam","process":"powershell.exe","parent":"WINWORD.EXE"}
+{"ts":"2026-09-28T15:00:26Z","type":"network","host":"WS-10","process":"powershell.exe","dst":"198.51.100.50:443"}

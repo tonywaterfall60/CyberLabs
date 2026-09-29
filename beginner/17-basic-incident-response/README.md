@@ -7,48 +7,48 @@
 | Track | Beginner |
 | Difficulty | Beginner |
 | Estimated time | 75–90 minutes |
-| Environment | Static incident evidence + worksheet |
-| Prerequisites | 16 — Intro to Security Monitoring |
+| Environment | Kali Linux / local CyberLabs environment |
+| Prerequisites | Intro to Security Monitoring |
 
 ## Why This Event Exists
 
-Members should understand what happens after an alert: triage, containment, evidence preservation, remediation, recovery, and lessons learned.
+This event gives beginners a practical incident-response workflow before later full DFIR cases.
 
 ## Learning Objectives
 
-- build a basic incident timeline,
-- separate containment from eradication,
-- preserve evidence before changing systems,
-- choose proportionate response actions,
-- document uncertainty.
+- describe detect, triage, contain, preserve, recover, and lessons-learned phases
+- prioritize containment actions from evidence
+- distinguish containment from eradication
+- write a short incident summary with uncertainty
 
 ## Concepts
 
-~~~text
-Detect
-Triage
-Contain
-Preserve
-Eradicate
-Recover
-Lessons learned
-~~~
+- **Triage:** Determine severity, scope, and immediate priorities.
+- **Containment:** Limit ongoing impact while preserving evidence.
+- **Eradication:** Remove the root cause after evidence collection.
+- **Recovery:** Return systems safely to operation.
+- **Lessons learned:** Improve controls and procedures after the incident.
 
 ## Guided Lab
 
-Work one representative example as a group. The event lead should ask what question is being answered, what evidence supports the answer, and what remains unknown.
+Use the local challenge in `challenge/`. Start by identifying scope, then collect evidence, explain what it means, identify uncertainty, and recommend a safe next step.
+
+### Tools
+
+- local case files
+- timeline worksheet
 
 ## Challenge
 
-[challenge/README.md](challenge/README.md)
+[Open the challenge](challenge/README.md)
 
 ## Expected Outcomes
 
-Members should be able to propose an evidence-based first response to a small fictional incident.
+Members should be able to explain the topic in their own words and support conclusions with specific local evidence.
 
 ## Cleanup
 
-No cleanup is required.
+Follow the challenge-specific cleanup section.
 
 ---
 
