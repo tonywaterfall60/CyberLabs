@@ -61,4 +61,17 @@ Not every privileged binary or root-owned service is a vulnerability.
 Focus on lower-privileged influence over higher-privileged execution.
 EOF
 
+EVIDENCE_FLAG="${INTERMEDIATE_LINUX_PRIVESC_EVIDENCE_FLAG:-FLAG_NOT_CONFIGURED}"
+REMEDIATION_FLAG="${INTERMEDIATE_LINUX_PRIVESC_REMEDIATION_FLAG:-FLAG_NOT_CONFIGURED}"
+
+cat > "$BASE/var/log/privilege-review.txt" <<EOF
+focus=/opt/backup/backup.sh
+evidence_flag=$EVIDENCE_FLAG
+EOF
+
+cat > "$BASE/home/appuser/.remediation-note" <<EOF
+fix=remove lower-user write access from root-run script
+remediation_flag=$REMEDIATION_FLAG
+EOF
+
 echo "[+] Audit snapshot created at $BASE"
