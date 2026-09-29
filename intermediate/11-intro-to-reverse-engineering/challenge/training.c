@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
+#include "generated_flags.h"
 
 static uint32_t mix(const char *s) {
     uint32_t h = 0x2468ACE1u;
@@ -21,12 +22,14 @@ static int valid(const char *s) {
 int main(void) {
     char buf[64];
     puts("CyberLabs Intermediate Validator");
+    puts("Static review marker: " STATIC_ANALYSIS_FLAG);
     printf("Enter access phrase: ");
     if (!fgets(buf, sizeof(buf), stdin)) return 1;
     buf[strcspn(buf, "\r\n")] = 0;
 
     if (valid(buf)) {
         puts("SUCCESS: validation path reached.");
+        puts(DYNAMIC_SUCCESS_FLAG);
         return 0;
     }
 
