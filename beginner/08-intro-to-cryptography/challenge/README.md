@@ -137,27 +137,6 @@ Which require a key?
 Which are intended for integrity checks?
 ~~~
 
-## Flags
-
-This challenge contains **2 flags**.
-
-### Flag 1 — Encoding
-
-After decoding both Base64 files, run:
-
-~~~bash
-chmod +x check-encoding.sh
-./check-encoding.sh
-~~~
-
-### Flag 2 — Integrity
-
-After verifying the known digest and modifying only `copy.txt`, run:
-
-~~~bash
-chmod +x check-integrity.sh
-./check-integrity.sh
-~~~
 
 ## Deliverable
 
