@@ -10,6 +10,14 @@
 | Authorized scope | Dockerfile.training and compose.training.yml |
 | Goal | Identify container boundaries and basic security concerns |
 
+## Scenario
+
+A development team provided a training Dockerfile and Compose definition for review. Identify the container boundaries and basic security implications before anything is deployed.
+
+## Authorized Scope
+
+Use only `Dockerfile.training` and `compose.training.yml`. No live container or host modification is required.
+
 ## Setup
 
 No runtime is required.
