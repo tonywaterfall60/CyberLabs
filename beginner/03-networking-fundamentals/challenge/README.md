@@ -164,9 +164,22 @@ the website is healthy
 
 Include at least two reasons.
 
+## Flag
+
+After completing all seven tickets and the command-matching section, run:
+
+~~~bash
+chmod +x check.sh
+./check.sh
+~~~
+
+The checker validates four core networking concepts before printing the completion flag.
+
+**Flag count:** 1
+
 ## Deliverable
 
-Complete all seven tickets and the command-matching section.
+Complete all seven tickets and the command-matching section, then submit the completion flag.
 
 ## Cleanup
 
