@@ -15,7 +15,11 @@ cat > "$BASE/evidence/auth.log" <<'EOF'
 2026-09-24T13:01:02Z user=sam action=FAILED_LOGIN source=192.168.56.50
 EOF
 
-printf '\x7fELFtraining-artifact\x00incident-note=beginner-forensics\x00' > "$BASE/evidence/archive.bin"
+PRESERVATION_FLAG="${BEGINNER_FORENSICS_PRESERVATION_FLAG:-FLAG_NOT_CONFIGURED}"
+ANALYSIS_FLAG="${BEGINNER_FORENSICS_ANALYSIS_FLAG:-FLAG_NOT_CONFIGURED}"
+
+printf '%s\n' "$PRESERVATION_FLAG" > "$BASE/evidence/.preservation-note"
+printf '\x7fELFtraining-artifact\x00incident-note=beginner-forensics\x00analysis_flag=%s\x00' "$ANALYSIS_FLAG" > "$BASE/evidence/archive.bin"
 
 touch -t 202609241300 "$BASE/evidence/meeting-notes.txt"
 touch -t 202609241300 "$BASE/evidence/working-copy.txt"
