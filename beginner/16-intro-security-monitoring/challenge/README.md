@@ -16,17 +16,21 @@ You are given a fictional training case related to **Intro to Security Monitorin
 
 ## Authorized Scope
 
-Only files in this challenge directory are authorized. Do not pivot identifiers, IP addresses, names, or examples toward real systems.
+Only the provided challenge files and generated local workspace are authorized. Do not pivot identifiers, IP addresses, names, or examples toward real systems.
 
 ## Setup
 
-No service startup is required.
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/security-monitoring
+~~~
 
 ## Investigation / Tasks
 
 ### Phase 1 — Baseline
 
-Read `evidence.txt` and identify the evidence types and important fields.
+Read `events.jsonl` and identify the evidence types and important fields.
 
 ### Phase 2 — Core Analysis
 
@@ -34,6 +38,8 @@ Read `evidence.txt` and identify the evidence types and important fields.
 2. Show that you can build a simple event timeline.
 3. Show that you can separate a single suspicious event from a correlated sequence.
 4. Show that you can describe one reasonable detection idea.
+
+After reconstructing the correlated event sequence, inspect `timeline-note.json` for the first flag. After writing a detection idea that connects the auth, process, and network events, inspect `detection-note.json` for the second flag.
 
 ### Phase 3 — Evidence vs. Interpretation
 
@@ -52,7 +58,7 @@ State what additional evidence or authorization would be needed before taking ac
 
 ## Deliverable
 
-Submit both flags plus:
+Submit both discovered flags to the CyberLabs dashboard plus:
 
 ~~~text
 Scope:
@@ -66,4 +72,6 @@ Recommended next step:
 
 ## Cleanup
 
-No cleanup is required for this static-data challenge.
+~~~bash
+./reset.sh
+~~~
