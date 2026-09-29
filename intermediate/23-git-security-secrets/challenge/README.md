@@ -14,6 +14,14 @@
 
 A fictional repository accidentally committed a training API token, then deleted it in a later commit.
 
+## Authorized Scope
+
+Use only `history.txt` and `diff.txt`. Do not search real repositories or test any credential found in the fictional evidence.
+
+## Setup
+
+No Git server or external repository access is required.
+
 ## Investigation / Tasks
 
 Determine:
