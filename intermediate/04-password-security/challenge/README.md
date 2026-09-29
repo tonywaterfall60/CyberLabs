@@ -17,7 +17,14 @@ Do not use these techniques against real password databases, accounts, or creden
 
 ## Setup
 
-No service startup is required. Work from the files already provided in this challenge directory.
+The event lead loads the private flag registry, then prepares ignored runtime artifacts:
+
+~~~bash
+chmod +x prepare-flags.sh
+./prepare-flags.sh
+~~~
+
+Work only from the provided toy dataset and generated runtime notes.
 
 ## Scenario
 
@@ -82,6 +89,8 @@ hashcat --username --potfile-disable -m 1400 hashes.txt wordlist.txt
 
 Compare hashcat results with the Python script.
 
+After completing the scoped toy audit and comparing both methods, inspect `runtime/audit-note.txt` and record the first dashboard flag.
+
 ### Part 4 — Storage Design Review
 
 Inspect:
@@ -131,6 +140,8 @@ Review:
 
 Recommend at least four improvements.
 
+After completing the storage, MFA, rate-limit, and logging review, inspect `runtime/control-review.txt` and record the second dashboard flag.
+
 ### Part 7 — Online vs. Offline
 
 Create a comparison:
@@ -161,8 +172,12 @@ Python vs hashcat comparison:
 Online vs offline comparison:
 ~~~
 
-No flag is required.
+Submit both discovered flags to the CyberLabs dashboard.
 
 ## Cleanup
 
-No cleanup is required unless you created additional local output files.
+Remove generated runtime material when finished:
+
+~~~bash
+rm -rf runtime
+~~~
