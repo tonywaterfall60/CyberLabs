@@ -134,29 +134,6 @@ Frame | Method | Path | Response Status | Observation
 
 Put the requests in order.
 
-## Flags
-
-This challenge contains **2 flags**.
-
-### Flag 1 — Packet Analysis Checkpoint
-
-After reconstructing the HTTP request sequence, run:
-
-~~~bash
-chmod +x check-analysis.sh
-./check-analysis.sh
-~~~
-
-### Flag 2 — PCAP Validation Checkpoint
-
-After saving the capture as `challenge.pcap`, run:
-
-~~~bash
-chmod +x check-pcap.sh
-./check-pcap.sh
-~~~
-
-You may pass a different PCAP path as the first argument if needed.
 
 ## Deliverable
 
