@@ -100,6 +100,7 @@ Answer:
 - Which response header set the cookie?
 - Which request header later sends it?
 - Is `training_view` an authentication token? Why or why not?
+- When the stored training cookie is returned correctly, record the flag shown in the session-state evidence.
 
 ### Phase 4 — Authorization Response
 
@@ -124,7 +125,7 @@ Do not attempt to bypass it in this Beginner lab.
 
 Inspect `/robots.txt`.
 
-Explain why listing `/admin` does not protect it.
+Explain why listing `/admin` does not protect it. Also note the additional training route listed there; request that route and record the route-mapping flag it returns.
 
 ### Optional Burp Preview
 
@@ -159,7 +160,7 @@ Create:
 
 ## Deliverable
 
-Submit both flags. Also answer:
+Submit both discovered flags to the CyberLabs dashboard. Also answer:
 
 ~~~text
 One custom X-CyberLabs header:
