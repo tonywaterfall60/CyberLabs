@@ -16,11 +16,17 @@ A fictional wireless event export contains management-frame activity from severa
 
 ## Authorized Scope
 
-Offline evidence only. No live wireless scanning, monitor mode, deauthentication, or password attacks.
+Offline evidence and the generated local workspace only. No live wireless scanning, monitor mode, deauthentication, or password attacks.
 
 ## Setup
 
-No setup is required.
+The event lead loads the private flag registry, then create the local evidence workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/wireless-analysis
+~~~
 
 ## Investigation / Tasks
 
@@ -35,10 +41,16 @@ observed/inferred/unknown
 
 Explain why a directed probe may reveal a preferred SSID and why that does not prove compromise.
 
+After reconstructing the client/AP timeline, inspect `timeline-note.txt` and record the first dashboard flag.
+
+After documenting the evidence limitations and what the capture cannot prove, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
 
-Submit the inventory, timeline, privacy observation, and additional evidence needed.
+Submit both discovered flags to the CyberLabs dashboard plus the inventory, timeline, privacy observation, and additional evidence needed.
 
 ## Cleanup
 
-No cleanup is required.
+~~~bash
+./reset.sh
+~~~
