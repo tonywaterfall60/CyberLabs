@@ -22,5 +22,10 @@ AES
 RSA
 EOF
 
+ENCODING_FLAG="${BEGINNER_CRYPTO_ENCODING_FLAG:-FLAG_NOT_CONFIGURED}"
+INTEGRITY_FLAG="${BEGINNER_CRYPTO_INTEGRITY_FLAG:-FLAG_NOT_CONFIGURED}"
+printf '%s' "$ENCODING_FLAG" | base64 > "$BASE/flag-message.b64"
+printf '%s' "$INTEGRITY_FLAG" | base64 > "$BASE/.integrity-note.b64"
+
 echo "[+] Crypto challenge created at $BASE"
 echo "[+] Start with: cd $BASE && ls -l"
