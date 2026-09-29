@@ -215,9 +215,6 @@ The expanded challenge creates a small incident-style filesystem with:
 
 Students locate and summarize evidence using only Linux terminal tools.
 
-## Flags
-
-This event contains **2 challenge flags**: one evidence-discovery flag and one final completion flag.
 
 ## Deliverable
 
