@@ -60,6 +60,8 @@ hosts.csv
 
 Determine which username appears most often in failed logins.
 
+After identifying the user, inspect `analyst-notes.log`. It contains the first dashboard flag associated with this analysis milestone.
+
 Suggested building blocks:
 
 ~~~text
@@ -117,10 +119,12 @@ Most common failed source: <ip>
 
 You may use `echo`, command substitution, and redirection if comfortable.
 
+After building the summary, inspect the `reports/` directory carefully, including hidden files. The handoff artifact contains the second dashboard flag.
+
 
 ## Deliverable
 
-Submit both flags and:
+Submit both discovered flags to the CyberLabs dashboard and provide:
 
 ~~~text
 Failed count:
