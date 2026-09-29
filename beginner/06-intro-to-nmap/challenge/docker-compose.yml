@@ -5,6 +5,7 @@ services:
       - "127.0.0.1:8080:80"
     volumes:
       - ./web-one:/usr/share/nginx/html:ro
+      - ./runtime:/usr/share/nginx/html/runtime:ro
 
   web-two:
     image: nginx:alpine
@@ -19,3 +20,4 @@ services:
       - "127.0.0.1:8096:80"
     volumes:
       - ./web-three:/usr/share/nginx/html:ro
+      - ./runtime:/usr/share/nginx/html/runtime:ro
