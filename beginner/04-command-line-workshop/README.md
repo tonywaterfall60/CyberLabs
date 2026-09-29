@@ -194,12 +194,6 @@ Students now practice:
 - CSV field extraction,
 - building a final summary file.
 
-## Flags
-
-This event contains **2 challenge flags**:
-
-1. analysis checkpoint,
-2. completed evidence/summary checkpoint.
 
 ## Deliverable
 
