@@ -1,8 +1,8 @@
 services:
   app:
     build: .
-    environment:
-      RED_FLAG_VALUE: ${RED_FLAG_VALUE:-FLAG_NOT_CONFIGURED}
+    env_file:
+      - ./runtime/red.env
     ports:
       - "127.0.0.1:8600:5000"
     volumes:
