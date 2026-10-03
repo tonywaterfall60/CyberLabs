@@ -16,11 +16,17 @@ A fictional Windows endpoint export contains process, token, integrity, and serv
 
 ## Authorized Scope
 
-Use only internals.txt. No live Windows endpoint is authorized or required.
+Use only `internals.txt` and the generated local workspace. No live Windows endpoint is authorized or required.
 
 ## Setup
 
-No setup is required.
+The event lead loads the private flag registry, then creates the local internals workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/advanced-windows-internals
+~~~
 
 ## Investigation / Tasks
 
@@ -33,10 +39,16 @@ Identify:
 - one service running as LocalSystem,
 - what evidence is still needed before claiming malicious activity.
 
+After correlating process ancestry, token groups/privileges, integrity, and service context, inspect `correlation-note.txt` and record the first dashboard flag.
+
+After identifying the strongest lead, alternative explanation, next telemetry, and containment considerations, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
 
-Submit process tree, token/integrity interpretation, strongest lead, alternative explanation, and next telemetry request.
+Submit both discovered flags to the CyberLabs dashboard plus the process tree, token/integrity interpretation, strongest lead, alternative explanation, and next telemetry request.
 
 ## Cleanup
 
-No cleanup is required.
+~~~bash
+./reset.sh
+~~~
