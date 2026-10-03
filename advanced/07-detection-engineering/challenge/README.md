@@ -19,7 +19,15 @@ Use only the provided synthetic telemetry and local detection files. No live end
 
 ## Setup
 
-No service startup is required. Python 3 is sufficient to run the local test harness.
+The event lead loads the private flag registry, then creates the local detection workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/advanced-detection-engineering
+~~~
+
+Python 3 is sufficient to run the local test harness.
 
 ## Objectives / Tasks
 
@@ -69,6 +77,8 @@ within 120 seconds
 3. Explain why failures across multiple users from one source are a different detection problem.
 4. State the correlation keys and time semantics explicitly.
 
+After defining both detection rules with explicit fields, keys, and time semantics, inspect `logic-note.txt` and record the first dashboard flag.
+
 ### Test Harness
 
 Run:
@@ -110,6 +120,8 @@ Response
 
 ### Detection-as-Code Discussion
 
+After running the regression matrix and validating both expected alerts and expected non-alerts, inspect hidden files in the workspace and record the second dashboard flag.
+
 Explain:
 
 - what should be version-controlled,
@@ -119,8 +131,10 @@ Explain:
 
 ## Deliverable
 
-Submit updated rule logic, regression matrix, test output, false-positive analysis, coverage gaps, severity rationale, and analyst triage steps.
+Submit both discovered flags to the CyberLabs dashboard plus updated rule logic, regression matrix, test output, false-positive analysis, coverage gaps, severity rationale, and analyst triage steps.
 
 ## Cleanup
 
-No cleanup is required unless you created additional local test output.
+~~~bash
+./reset.sh
+~~~
