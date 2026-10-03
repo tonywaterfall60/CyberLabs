@@ -17,6 +17,13 @@ Do **not** run `compose.insecure.yml`.
 
 ## Setup
 
+The event lead loads the private flag registry and prepares ignored runtime artifacts:
+
+~~~bash
+chmod +x prepare-flags.sh
+./prepare-flags.sh
+~~~
+
 No insecure runtime should be started. Building the standalone image for inspection is allowed.
 
 ## Objectives / Tasks
@@ -76,6 +83,8 @@ plaintext ADMIN_PASSWORD
 
 Explain how each changes the container/host trust boundary.
 
+After identifying the build/image/runtime/host-boundary risks and validating the most dangerous trust-boundary settings, inspect `runtime/risk-note.txt` and record the first dashboard flag.
+
 ### Phase 4 — Hardened Comparison
 
 Compare against the provided hardened examples.
@@ -109,6 +118,8 @@ Pick two scanner findings and manually verify whether they are relevant to this 
 
 Do not equate CVE count with risk.
 
+After comparing the insecure and hardened definitions and explaining which risks disappear versus remain, inspect `runtime/hardening-note.txt` and record the second dashboard flag.
+
 ### Phase 7 — Residual Risk
 
 Even after hardening, discuss:
@@ -121,7 +132,7 @@ Even after hardening, discuss:
 
 ## Deliverable
 
-Complete `AUDIT_WORKSHEET.md` plus:
+Submit both discovered flags to the CyberLabs dashboard. Complete `AUDIT_WORKSHEET.md` plus:
 
 ~~~text
 Top 3 findings:
@@ -138,4 +149,5 @@ Residual risks:
 
 ~~~bash
 docker image rm cyberlabs-container-audit 2>/dev/null || true
+rm -rf runtime
 ~~~
