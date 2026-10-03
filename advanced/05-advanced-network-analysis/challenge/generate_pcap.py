@@ -1,7 +1,10 @@
 from scapy.all import Ether, IP, UDP, TCP, DNS, DNSQR, Raw, wrpcap
+import os
 
 pkts = []
 BASE = 1790344800  # 2026-09-25T14:00:00Z
+TIMELINE_FLAG = os.getenv("ADV_NETWORK_TIMELINE_FLAG", "FLAG_NOT_CONFIGURED")
+HYPOTHESIS_FLAG = os.getenv("ADV_NETWORK_HYPOTHESIS_FLAG", "FLAG_NOT_CONFIGURED")
 
 def add(pkt, offset):
     pkt.time = BASE + offset
@@ -20,11 +23,12 @@ add(Ether()/IP(src='10.30.0.25',dst='10.30.0.53')/UDP(sport=53025,dport=53)/DNS(
 
 # Host of interest also accesses an internal application
 add(Ether()/IP(src='10.30.0.25',dst='10.30.0.20')/TCP(sport=42000,dport=8080,flags='PA')/Raw(load=b'GET /profile HTTP/1.1\r\nHost: portal.training.local\r\n\r\n'), 72)
-add(Ether()/IP(src='10.30.0.25',dst='10.30.0.20')/TCP(sport=42001,dport=8080,flags='PA')/Raw(load=b'GET /reports/export HTTP/1.1\r\nHost: portal.training.local\r\n\r\n'), 91)
+add(Ether()/IP(src='10.30.0.25',dst='10.30.0.20')/TCP(sport=42001,dport=8080,flags='PA')/Raw(load=(f'GET /reports/export HTTP/1.1\r\nHost: portal.training.local\r\nX-Timeline-Marker: {TIMELINE_FLAG}\r\n\r\n').encode()), 91)
 
 # Recurring packets every 60 seconds to a documentation-range IP
 for i in range(8):
-    add(Ether()/IP(src='10.30.0.25',dst='198.51.100.25')/TCP(sport=45000+i,dport=8443,flags='PA')/Raw(load=b'training-heartbeat'), 120 + (i * 60))
+    payload = f'training-heartbeat;analysis={HYPOTHESIS_FLAG if i == 7 else "periodic"}'.encode()
+    add(Ether()/IP(src='10.30.0.25',dst='198.51.100.25')/TCP(sport=45000+i,dport=8443,flags='PA')/Raw(load=payload), 120 + (i * 60))
 
 # A second periodic flow with a different interval, to discourage simplistic 'periodic == bad' reasoning
 for i in range(4):
