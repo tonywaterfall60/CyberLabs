@@ -42,6 +42,7 @@ Students should be able to:
 
 ```bash
 cd challenge
+./prepare-flags.sh
 ./build.sh
 cat README.md
 ```
@@ -72,7 +73,7 @@ Detection/diagnostic ideas:
 Remaining uncertainty:
 ```
 
-A crash alone is not a complete exploitability conclusion.
+A crash alone is not a complete exploitability conclusion. This event has two dashboard milestones: crash characterization and hardened-build/remediation analysis.
 
 ## Next Event
 
