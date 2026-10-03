@@ -34,7 +34,8 @@ Use the local build and generated inputs only.
 ### Phase 1 — Build and Baseline
 
 ~~~bash
-chmod +x build.sh generate-inputs.py
+chmod +x prepare-flags.sh build.sh generate-inputs.py
+./prepare-flags.sh
 ./build.sh
 file vuln-bin
 checksec --file=vuln-bin
@@ -74,6 +75,8 @@ Crash? yes/no
 ~~~
 
 Your goal is to identify the approximate transition from normal processing to corruption/crash.
+
+After documenting the crash threshold and GDB evidence without overstating control, inspect `runtime/crash-note.txt` and record the first dashboard flag.
 
 ### Phase 4 — GDB Crash Characterization
 
@@ -120,6 +123,8 @@ Compare behavior and protections.
 
 Explain which controls reduce exploitability and which source bug still remains.
 
+After completing the hardened-build comparison and root-cause remediation analysis, inspect `runtime/mitigation-note.txt` and record the second dashboard flag.
+
 ### Phase 7 — Remediation
 
 Propose at least two source-level changes and two build/runtime mitigations.
@@ -153,8 +158,8 @@ Detection/diagnostic ideas:
 Remaining uncertainty:
 ~~~
 
-No flag is required.
+Submit both discovered flags to the CyberLabs dashboard.
 
 ## Cleanup
 
-Remove locally generated binaries and input files only if you want to reset the challenge.
+Remove locally generated binaries, input files, and `runtime/` if you want to reset the challenge.
