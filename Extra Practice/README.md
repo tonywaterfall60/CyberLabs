@@ -41,6 +41,43 @@ For every current CyberLabs event and lab in one place, see:
 
 ---
 
+## Beginner Practice Pathway
+
+Because the club has many newer members, Extra Practice now has a dedicated guided Beginner pathway:
+
+[**Beginner Extra Practice →**](Beginner/)
+
+These labs are shorter and more guided than the original numbered catalog. They are intended for repetition immediately after a matching Beginner event.
+
+| Lab | Topic | Recommended After |
+|---|---|---|
+| B01 | [Linux Navigation](Beginner/B01-linux-navigation/) | Beginner 02 — Linux Basics |
+| B02 | [Command-Line Filtering](Beginner/B02-command-line-filtering/) | Beginner 04 — Command Line Workshop |
+| B03 | [Networking Basics](Beginner/B03-networking-basics/) | Beginner 03 — Networking Fundamentals |
+| B04 | [Service Discovery](Beginner/B04-service-discovery/) | Beginner 06 — Intro to Nmap |
+| B05 | [HTTP and curl](Beginner/B05-http-and-curl/) | Beginner 07 — Web Security Basics |
+| B06 | [Packet Reading](Beginner/B06-packet-reading/) | Beginner 05 — Intro to Wireshark |
+| B07 | [Encoding and Hashing](Beginner/B07-encoding-and-hashing/) | Beginner 08 — Intro to Cryptography |
+| B08 | [File Forensics](Beginner/B08-file-forensics/) | Beginner 09 — Intro to Digital Forensics |
+| B09 | [Identity Log Triage](Beginner/B09-identity-log-triage/) | Beginner 14 — Identity & Access Basics |
+| B10 | [Security Monitoring](Beginner/B10-security-monitoring/) | Beginner 16 — Intro to Security Monitoring |
+| B11 | [Incident Response Mini Case](Beginner/B11-incident-response-mini-case/) | Beginner 17 — Basic Incident Response |
+| B12 | [Beginner Skills Challenge](Beginner/B12-beginner-skills-challenge/) | Beginner CTF / readiness review |
+
+Recommended progression:
+
+~~~text
+Beginner event
+→ matching B-lab
+→ repeat as needed
+→ B12 skills challenge
+→ Beginner CTF / readiness interview
+~~~
+
+The original numbered Extra Practice labs remain available below for members ready for more independent Intermediate/Advanced practice.
+
+---
+
 # Current Lab Catalog
 
 This numbered catalog is the canonical Extra Practice list.
