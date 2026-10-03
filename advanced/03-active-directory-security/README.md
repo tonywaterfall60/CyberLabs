@@ -35,7 +35,7 @@ delegated right
 privileged system/account
 ~~~
 
-The local version teaches that reasoning without requiring a live domain.
+The local version teaches that reasoning without requiring a live domain. Two dashboard milestones track attack-path mapping and defensive prioritization.
 
 ## Learning Objectives
 
