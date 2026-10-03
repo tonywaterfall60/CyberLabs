@@ -16,9 +16,17 @@ A synthetic reversing exercise provides disassembly and strings from a multi-sta
 
 ## Authorized Scope
 
-Use only disassembly.txt and strings.txt.
+Use only `disassembly.txt`, `strings.txt`, and the generated local workspace.
 
 ## Setup
+
+The event lead loads the private flag registry, then creates the local reversing workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/advanced-re2
+~~~
 
 No binary execution is required.
 
@@ -28,12 +36,18 @@ Identify the input-length check, per-byte transformation, loop termination, fina
 
 Write pseudocode and derive what constraints a valid input must satisfy.
 
+After reconstructing the length check, loop, XOR transformation, accumulator, comparison, and success branch, inspect `logic-note.txt` and record the first dashboard flag.
+
+After deriving the valid-input constraint without assuming the visible strings are directly compared, inspect hidden files in the workspace and record the second dashboard flag.
+
 Do not assume visible strings are directly compared.
 
 ## Deliverable
 
-Submit pseudocode, control-flow explanation, derived constraints, validation evidence, and remaining uncertainty.
+Submit both discovered flags to the CyberLabs dashboard plus pseudocode, control-flow explanation, derived constraints, validation evidence, and remaining uncertainty.
 
 ## Cleanup
 
-No cleanup is required.
+~~~bash
+./reset.sh
+~~~
