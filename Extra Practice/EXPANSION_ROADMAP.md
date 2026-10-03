@@ -48,3 +48,41 @@ Work in small chunks:
 - evidence and reporting required
 - advanced offensive labs should include remediation/detection context
 - no automatic checker required unless explicitly added later
+## Beginner Extra Practice Expansion
+
+A dedicated Beginner Extra Practice pathway now exists under:
+
+~~~text
+Extra Practice/Beginner/
+~~~
+
+The purpose is to give newer members short, repeatable reinforcement labs without forcing them into the more independent Intermediate/Advanced Extra Practice catalog.
+
+Current Beginner labs:
+
+| Lab | Topic | Status |
+|---|---|---|
+| B01 | Linux Navigation | Complete |
+| B02 | Command-Line Filtering | Complete |
+| B03 | Networking Basics | Complete |
+| B04 | Service Discovery | Complete |
+| B05 | HTTP and curl | Complete |
+| B06 | Packet Reading | Complete |
+| B07 | Encoding and Hashing | Complete |
+| B08 | File Forensics | Complete |
+| B09 | Identity Log Triage | Complete |
+| B10 | Security Monitoring | Complete |
+| B11 | Incident Response Mini Case | Complete |
+| B12 | Beginner Skills Challenge | Complete |
+
+Design goals:
+
+- 20–45 minute labs,
+- guided commands rather than assumed tool knowledge,
+- one clear concept per lab,
+- one private dashboard flag per lab,
+- direct alignment with the Beginner track,
+- safe localhost/static evidence only,
+- easy cleanup and repeatability.
+
+The existing numbered Extra Practice 01–35 catalog remains intact to avoid breaking links and to preserve the more independent practice sequence.
