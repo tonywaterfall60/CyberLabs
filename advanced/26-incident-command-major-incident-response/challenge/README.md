@@ -16,9 +16,17 @@ A fictional organization is responding to a multi-system incident involving iden
 
 ## Authorized Scope
 
-Static fictional incident timeline, status board, and role packet in this challenge directory.
+Static fictional incident timeline, status board, role packet, and generated local workspace only.
 
 ## Setup
+
+The event lead loads the private flag registry, then creates the local incident-command workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/advanced-incident-command
+~~~
 
 No external target or service is required.
 
@@ -36,6 +44,8 @@ Build a current-state timeline from incident-timeline.jsonl.
 
 Choose three containment actions and document business/forensic tradeoffs.
 
+After assigning roles, reconstructing the timeline, and choosing containment actions with business/forensic tradeoffs, inspect `command-note.txt` and record the first dashboard flag.
+
 ### Phase 4
 
 Update status-board.md with confirmed, suspected, and unknown items.
@@ -44,10 +54,14 @@ Update status-board.md with confirmed, suspected, and unknown items.
 
 Write a technical handoff and a separate executive update.
 
+After completing both communication products and keeping confirmed/suspected/unknown clearly separated, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
 
-Role assignment, timeline, decision log, containment plan, technical handoff, and executive update.
+Submit both discovered flags to the CyberLabs dashboard plus the role assignment, timeline, decision log, containment plan, technical handoff, and executive update.
 
 ## Cleanup
 
-No cleanup is required for this static-data challenge.
+~~~bash
+./reset.sh
+~~~
