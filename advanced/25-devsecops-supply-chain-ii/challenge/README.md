@@ -16,9 +16,17 @@ A fictional application release passed functional testing, but security engineer
 
 ## Authorized Scope
 
-Static fictional CI, SBOM, provenance, and release evidence only.
+Static fictional CI, SBOM, provenance, release evidence, and the generated local workspace only.
 
 ## Setup
+
+The event lead loads the private flag registry, then creates the local supply-chain workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/advanced-supply-chain
+~~~
 
 No external platform or account is required.
 
@@ -36,6 +44,8 @@ Compare workflow.yml, sbom.json, provenance.json, and release-log.jsonl.
 
 Identify the provenance mismatch and explain what it proves and does not prove.
 
+After comparing the deployed artifact digest with the provenance digest and explaining what the mismatch proves and does not prove, inspect `provenance-note.txt` and record the first dashboard flag.
+
 ### Phase 4
 
 List controls that would prevent or detect an untrusted build promotion.
@@ -44,10 +54,14 @@ List controls that would prevent or detect an untrusted build promotion.
 
 Design a release gate requiring identity, digest, provenance, and approval validation.
 
+After defining the release gate and controls needed to prevent promotion of an untrusted build, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
 
-Supply-chain diagram, mismatch evidence, trust-boundary findings, recommended gates, and remaining uncertainty.
+Submit both discovered flags to the CyberLabs dashboard plus the supply-chain diagram, mismatch evidence, trust-boundary findings, recommended gates, and remaining uncertainty.
 
 ## Cleanup
 
-No cleanup is required for this static-data challenge.
+~~~bash
+./reset.sh
+~~~
