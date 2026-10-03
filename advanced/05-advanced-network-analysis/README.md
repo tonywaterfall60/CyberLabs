@@ -34,6 +34,7 @@ Advanced packet analysis is less about locating one request and more about ident
 
 ~~~bash
 cd challenge
+./prepare-flags.sh
 python3 generate_pcap.py
 ~~~
 
@@ -75,7 +76,7 @@ tshark -r advanced-network.pcap -T fields -e frame.time_epoch -e ip.src -e ip.ds
 
 Open graphically with Wireshark to inspect timing and payload clues.
 
-The expanded PCAP deliberately contains **more than one periodic flow**, so students must avoid the simplistic rule that periodic traffic automatically means beaconing or malware.
+The expanded PCAP deliberately contains **more than one periodic flow**, so students must avoid the simplistic rule that periodic traffic automatically means beaconing or malware. Two runtime-injected markers are carried inside the synthetic PCAP for timeline reconstruction and hypothesis-testing milestones.
 
 ## Optional
 
