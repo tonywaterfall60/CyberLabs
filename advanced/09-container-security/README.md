@@ -83,6 +83,7 @@ residual risk
 Safe image build for inspection:
 
 ~~~bash
+./prepare-flags.sh
 docker build -f Dockerfile.insecure -t cyberlabs-container-audit .
 docker history cyberlabs-container-audit
 docker inspect cyberlabs-container-audit
@@ -114,7 +115,7 @@ Residual risk:
 Priority:
 ~~~
 
-If a scanner is used, manually validate at least two findings instead of reporting raw CVE counts.
+If a scanner is used, manually validate at least two findings instead of reporting raw CVE counts. Two dashboard milestones track trust-boundary risk analysis and hardened-comparison reasoning.
 
 ## Cleanup
 
