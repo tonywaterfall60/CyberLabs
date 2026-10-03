@@ -16,9 +16,17 @@ A fictional reporting workload can assume several roles. An internal review foun
 
 ## Authorized Scope
 
-Static fictional cloud identity, trust-policy, and audit files in this challenge directory.
+Static fictional cloud identity, trust-policy, audit files, and the generated local workspace only.
 
 ## Setup
+
+The event lead loads the private flag registry, then creates the local cloud-identity workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/advanced-cloud-identity
+~~~
 
 No external platform or account is required.
 
@@ -40,14 +48,20 @@ Correlate audit-events.jsonl with the trust graph.
 
 Identify the shortest path to persistent service credentials.
 
+After correlating the trust graph with the audit trail and identifying the shortest path to persistent service credentials, inspect `path-note.txt` and record the first dashboard flag.
+
 ### Phase 5
 
 Propose preventative, detective, and credential-lifecycle controls.
 
+After designing controls that reduce cross-role trust and long-lived credential risk, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
 
-Identity graph, observed vs inferred path, top finding, hardened trust/permission recommendations, and monitoring plan.
+Submit both discovered flags to the CyberLabs dashboard plus the identity graph, observed vs inferred path, top finding, hardened trust/permission recommendations, and monitoring plan.
 
 ## Cleanup
 
-No cleanup is required for this static-data challenge.
+~~~bash
+./reset.sh
+~~~
