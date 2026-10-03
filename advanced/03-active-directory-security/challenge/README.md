@@ -17,6 +17,14 @@ Use only the provided fictional exports. Do not pivot names, accounts, domains, 
 
 ## Setup
 
+The event lead loads the private flag registry, then creates the local review workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/advanced-ad-security
+~~~
+
 No live domain is required.
 
 ## Objectives / Tasks
@@ -109,6 +117,8 @@ carol / Domain Admin
 credential/administrative exposure
 ~~~
 
+After building defensible graph paths and labeling their edges, inspect `attack-path-note.txt` and record the first dashboard flag.
+
 ### Phase 7 — Password / Identity Policy Context
 
 Review `password-policy.txt`.
@@ -139,7 +149,11 @@ Validation needed
 Residual risk
 ~~~
 
+After ranking the top identity relationships and writing preventative plus detection controls, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
+
+Submit both discovered flags to the CyberLabs dashboard.
 
 ~~~text
 Privileged groups:
@@ -167,4 +181,6 @@ Do not use this dataset to pivot toward real university identities or infrastruc
 
 ## Cleanup
 
-No cleanup is required for this static-data challenge.
+~~~bash
+./reset.sh
+~~~
