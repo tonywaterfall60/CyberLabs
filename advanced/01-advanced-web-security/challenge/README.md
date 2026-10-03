@@ -25,8 +25,8 @@ runtime/access.jsonl
 ## Setup
 
 ~~~bash
-mkdir -p runtime
-chmod 777 runtime
+chmod +x prepare-flags.sh
+./prepare-flags.sh
 docker compose up --build -d
 ~~~
 
@@ -109,6 +109,8 @@ request_id
 
 Discuss legitimate administrative/delegated access as a possible real-world false positive.
 
+After correlating the cross-user request, request ID, and structured log event, inspect `runtime/telemetry-note.txt` and record the second dashboard flag.
+
 ## Deliverable
 
 ~~~text
@@ -132,9 +134,9 @@ False positives:
 Residual risk:
 ~~~
 
-### Private Flag
+### Flags
 
-If configured by the event lead, successful cross-user access includes the private event flag. The real value is not stored here.
+Successful cross-user access reveals the first runtime-injected flag. The second flag is tied to telemetry correlation. Submit both discovered values to the CyberLabs dashboard; no public verifier is used.
 
 ## Cleanup
 
