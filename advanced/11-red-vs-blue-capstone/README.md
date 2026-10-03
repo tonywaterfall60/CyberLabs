@@ -77,6 +77,8 @@ Do not redirect the red-team workflow or detector toward unrelated services or l
 ## Setup
 
 ~~~bash
+chmod +x prepare-flags.sh
+./prepare-flags.sh
 docker compose up --build -d
 ~~~
 
@@ -106,7 +108,7 @@ PURPLE_DEBRIEF.md
 
 ### Flag Privacy
 
-The public repository contains no filled-in flag. The event lead injects `RED_FLAG_VALUE` at runtime from the private instructor repository.
+The public repository contains no filled-in flags. The event lead injects the Red value at runtime from the private instructor repository. Blue and Purple milestone values are written only to ignored runtime artifacts.
 
 ### Suggested Blue Tools
 
@@ -155,6 +157,10 @@ Red action
 → detector
 → remediation
 ~~~
+
+After Blue correlates the cross-user event and request ID, inspect `runtime/blue-note.txt` for the Blue milestone flag. After the Purple debrief and prevention/detection redesign are complete, inspect `runtime/purple-note.txt` for the Purple milestone flag.
+
+Submit all three flags to the CyberLabs dashboard.
 
 ## Cleanup
 
