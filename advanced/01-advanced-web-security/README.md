@@ -56,6 +56,7 @@ Advanced work should connect the offensive observation to the server-side decisi
 
 ```bash
 cd challenge
+./prepare-flags.sh
 docker compose up --build -d
 cat README.md
 ```
@@ -76,7 +77,7 @@ challenge/runtime/access.jsonl
 
 Students correlate the Burp/API request with the application log by request ID.
 
-If an instructor injects `WEB_FLAG_VALUE`, successful validation may reveal the private event flag. Without injection, the lab still works and returns `FLAG_NOT_CONFIGURED`.
+The event lead prepares private runtime values before launch. Successful cross-user validation reveals the first flag, while correlating the request with structured authorization telemetry leads to the second milestone flag. The dashboard performs verification.
 
 ## Tools
 
