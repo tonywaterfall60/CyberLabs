@@ -15,6 +15,14 @@ Static fictional configuration and audit data only. No real cloud account or cre
 
 ## Setup
 
+The event lead loads the private flag registry, then creates the local review workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/advanced-cloud-security
+~~~
+
 No cloud account or network access is required.
 
 ## Objectives / Tasks
@@ -96,6 +104,8 @@ persistent service credential risk
 
 Label every edge as observed or inferred.
 
+After building the identity/configuration abuse paths and separating configuration exposure from observed use, inspect `abuse-path-note.txt` and record the first dashboard flag.
+
 ### Phase 8 — Least-Privilege Redesign
 
 Create:
@@ -108,11 +118,15 @@ Narrow the reporting role to the resources/actions required for reporting.
 
 Remove unrelated identity-administration capability.
 
+After producing the hardened policy and explaining the highest-priority remediation, inspect hidden files in the workspace and record the second dashboard flag.
+
 ### Phase 9 — Prioritization
 
 Rank the top findings using evidence, impact, blast radius, and actual observed use.
 
 ## Deliverable
+
+Submit both discovered flags to the CyberLabs dashboard.
 
 ~~~text
 Identity graph:
@@ -141,4 +155,6 @@ Do not use real AWS, Azure, or GCP credentials for this event.
 
 ## Cleanup
 
-No cleanup is required for this static-data challenge.
+~~~bash
+./reset.sh
+~~~
