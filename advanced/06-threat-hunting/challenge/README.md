@@ -15,7 +15,13 @@ Everything in the dataset is synthetic. Do not pivot hostnames, users, domains, 
 
 ## Setup
 
-No service startup is required.
+The event lead loads the private flag registry, then creates the local hunt workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/advanced-threat-hunt
+~~~
 
 ## Objectives / Tasks
 
@@ -57,6 +63,8 @@ Decode only the harmless Base64 value present in the dataset.
 
 Build the full `WS-03` sequence, including DNS, network, file, child-process, and registry events.
 
+After reconstructing the full `WS-03` sequence and correlating the process, DNS, network, file, child-process, and registry events, inspect `sequence-note.txt` and record the first dashboard flag.
+
 ### Phase 5 — Compare a Benign-Looking PowerShell Case
 
 Compare `WS-03` with the scheduled inventory-style PowerShell on `WS-04`.
@@ -88,7 +96,11 @@ confirmed malicious activity
 
 Justify your choice from the evidence. Avoid claiming confirmed malware unless the dataset actually proves it.
 
+After defending the hunt outcome and documenting alternative explanations plus validation needs, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
+
+Submit both discovered flags to the CyberLabs dashboard.
 
 ~~~text
 Hypothesis:
@@ -110,4 +122,6 @@ Confidence:
 
 ## Cleanup
 
-No cleanup is required for this static-data challenge.
+~~~bash
+./reset.sh
+~~~
