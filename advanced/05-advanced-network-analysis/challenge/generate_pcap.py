@@ -1,10 +1,17 @@
 from scapy.all import Ether, IP, UDP, TCP, DNS, DNSQR, Raw, wrpcap
-import os
+from pathlib import Path
 
 pkts = []
 BASE = 1790344800  # 2026-09-25T14:00:00Z
-TIMELINE_FLAG = os.getenv("ADV_NETWORK_TIMELINE_FLAG", "FLAG_NOT_CONFIGURED")
-HYPOTHESIS_FLAG = os.getenv("ADV_NETWORK_HYPOTHESIS_FLAG", "FLAG_NOT_CONFIGURED")
+def runtime_value(name):
+    path = Path("runtime") / name
+    if not path.exists():
+        return "FLAG_NOT_CONFIGURED"
+    text = path.read_text(encoding="utf-8").strip()
+    return text.split("=", 1)[-1] if "=" in text else text
+
+TIMELINE_FLAG = runtime_value("timeline-note.txt")
+HYPOTHESIS_FLAG = runtime_value("hypothesis-note.txt")
 
 def add(pkt, offset):
     pkt.time = BASE + offset
