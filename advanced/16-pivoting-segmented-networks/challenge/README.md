@@ -16,9 +16,17 @@ A fictional analyst host can reach a jump host, but the target application subne
 
 ## Authorized Scope
 
-Use only network-map.txt and the documented training reachability. Do not tunnel through real systems.
+Use only `network-map.txt`, the documented training reachability, and the generated local workspace. Do not tunnel through real systems.
 
 ## Setup
+
+The event lead loads the private flag registry, then creates the local path-analysis workspace:
+
+~~~bash
+chmod +x setup.sh reset.sh
+./setup.sh
+cd ~/cyberclub/advanced-pivoting
+~~~
 
 No live tunnel is required; reason from the provided network evidence.
 
@@ -33,10 +41,16 @@ From the evidence identify:
 - why a tunnel is not proof of lateral compromise,
 - which logs could reveal pivot behavior.
 
+After identifying the dual-homed host and minimum path into the internal subnet, inspect `path-note.txt` and record the first dashboard flag.
+
+After designing telemetry/detection for SSH, proxy/tunnel use, egress, and internal destination access, inspect hidden files in the workspace and record the second dashboard flag.
+
 ## Deliverable
 
-Submit routing diagram, pivot plan, assumptions, required credentials/trust, and detection ideas.
+Submit both discovered flags to the CyberLabs dashboard plus the routing diagram, pivot plan, assumptions, required credentials/trust, and detection ideas.
 
 ## Cleanup
 
-No cleanup is required.
+~~~bash
+./reset.sh
+~~~
