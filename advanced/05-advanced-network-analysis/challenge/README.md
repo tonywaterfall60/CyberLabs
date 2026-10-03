@@ -24,6 +24,8 @@ Analyze only the generated synthetic PCAP. Do not pivot documentation-range IPs,
 ### Generate
 
 ~~~bash
+chmod +x prepare-flags.sh
+./prepare-flags.sh
 python3 generate_pcap.py
 sha256sum advanced-network.pcap
 ~~~
@@ -72,6 +74,8 @@ Build a timeline for `10.30.0.25` containing:
 - report/export-related request,
 - recurring external/documentation-range flow.
 
+After reconstructing the host-of-interest timeline, recover the timeline marker embedded in the relevant HTTP-like traffic and record the first dashboard flag.
+
 ### Phase 5 — Compare Against Benign Periodicity
 
 Compare the 60-second recurring flow with the slower printer-status flow.
@@ -100,6 +104,8 @@ unauthorized remote communication
 
 Do not decide among them without evidence.
 
+After comparing competing hypotheses and explaining why periodicity alone is insufficient, recover the second marker from the recurring 8443 flow and record the second dashboard flag.
+
 ### Phase 8 — Validation Plan
 
 Request at least four additional evidence sources.
@@ -107,6 +113,8 @@ Request at least four additional evidence sources.
 For each state the exact question it would answer.
 
 ## Deliverable
+
+Submit both recovered flags to the CyberLabs dashboard.
 
 ~~~text
 PCAP SHA-256:
@@ -128,4 +136,4 @@ Unknowns:
 
 ## Cleanup
 
-Remove the generated PCAP if you want a clean regeneration.
+Remove the generated PCAP and `runtime/` if you want a clean regeneration.
