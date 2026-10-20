@@ -62,11 +62,47 @@ git clone https://github.com/tonywaterfall60/CyberLabs.git
 cd CyberLabs
 ~~~
 
-Before a club event:
+Before a club event, update your existing clone (you **do not** need to clone it again):
 
 ~~~bash
-git pull
+cd ~/CyberLabs
+git status
+git pull origin main
 ~~~
+
+> If your clone is in a different directory, `cd` to that directory instead. Run these commands from the repository root, not from inside an individual challenge folder.
+
+### Updating an existing Kali clone
+
+After a new lab, reference guide, or event update is published to GitHub, run:
+
+~~~bash
+cd ~/CyberLabs
+git pull origin main
+~~~
+
+This fetches and integrates the latest changes from the `main` branch while retaining your existing repository checkout.
+
+To check which files are available after updating:
+
+~~~bash
+ls intermediate/24-python-pentester-toolkit/
+git log --oneline -5
+~~~
+
+**If you have edited files locally**, check `git status` first. Commit your work before pulling, or temporarily stash it:
+
+~~~bash
+git stash -u
+git pull origin main
+git stash pop
+~~~
+
+`git stash -u` includes untracked files. If `stash pop` reports merge conflicts, resolve them manually before continuing. Do not use `git reset --hard` just to update; it can discard your work.
+
+**If you downloaded a ZIP instead of running `git clone`:** the folder has no Git history. Clone the repository once with the command above, then use `git pull origin main` for future updates.
+
+For most events, the routine is simply `cd ~/CyberLabs && git pull origin main`.
 
 Then enter the assigned event and read its README:
 
