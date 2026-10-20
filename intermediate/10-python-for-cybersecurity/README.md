@@ -1,5 +1,10 @@
 # Intermediate 10 — Python for Cybersecurity
 
+
+## New to Python?
+
+Start with the [Python Fundamentals Quick Reference](PYTHON_REFERENCE.md) for variables, loops, functions, dictionaries, file I/O, exceptions, JSON, and runnable examples before tackling this lab.
+
 ## Event Snapshot
 
 | Item | Details |
