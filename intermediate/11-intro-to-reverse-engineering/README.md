@@ -145,6 +145,10 @@ See:
 challenge/README.md
 ```
 
+## Optional Hard Mode — Permuted Byte Validator
+
+After finishing the original validator, try the [harder reverse-engineering stretch challenge](hard-mode/README.md). It adds a permuted indexing scheme, XOR, byte rotations, and an additional checksum. Build and analyze the stripped `hard-bin` on Kali; do not open its source until after solving. It reuses the existing Intermediate 11 dynamic flag when configured, rather than creating a new dashboard entry.
+
 ## Next Event
 
 [Intermediate 12 — Intermediate CTF](../12-intermediate-ctf/)
