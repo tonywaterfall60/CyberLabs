@@ -1,0 +1,14 @@
+services:
+  linux-privesc:
+    build: .
+    ports:
+      - "127.0.0.1:2222:22"
+    env_file:
+      - .env
+    init: true
+    security_opt:
+      - no-new-privileges:false
+    pids_limit: 128
+    mem_limit: 384m
+    cpus: 1.0
+    restart: "no"
