@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
+#include "generated_flag.h"
 
 /* Build for educational reversing. Try analyzing hard-bin before reading source. */
 static const uint8_t reference[17] = {
@@ -36,19 +37,7 @@ int main(void) {
         puts("Access denied.");
         return 2;
     }
-    FILE *fp = fopen("runtime/dynamic-flag.txt", "r");
-    if (!fp) {
-        puts("Validation passed. Runtime flag file not found: see setup instructions.");
-        return 0;
-    }
-    char flag[256] = {0};
-    if (!fgets(flag, sizeof flag, fp)) {
-        fclose(fp);
-        puts("Validation passed, but flag file was empty.");
-        return 0;
-    }
-    fclose(fp);
     puts("VALIDATION PASSED");
-    printf("%s", flag);
+    puts(HARD_MODE_FLAG);
     return 0;
 }
