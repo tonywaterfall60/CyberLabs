@@ -40,19 +40,17 @@ Useful tools: `objdump -d -M intel hard-bin`, `gdb ./hard-bin`, `radare2 -A hard
 
 <details><summary>Hint 4</summary>For each transformed index i, the corresponding original position is (5*i) modulo 17.</details>
 
-## Optional completion flag
+## Completion flag
 
-This stretch exercise **reuses** the original Intermediate 11 dynamic flag, not a separately registered flag. The checker prints that flag only after correct validation **and only if the instructor has supplied the original flag file**:
+Once you enter the correct key, **the binary prints its embedded `SRU{...}` flag** immediately. No external flag file is needed when running `./hard-bin`.
+
+`bash build-hard.sh` automatically generates a practice flag if none is configured. Practice flags are **not** automatically registered in the club dashboard. To build with an instructor-approved dashboard flag instead:
 
 ```bash
-mkdir -p runtime
-cp ../challenge/runtime/dynamic-flag.txt runtime/dynamic-flag.txt
-./hard-bin
+INTERMEDIATE_RE_HARD_FLAG='SRU{YOUR_CONFIGURED_FLAG}' bash build-hard.sh
 ```
 
-Only copy the flag artifact after the instructor has prepared it via the existing Intermediate 11 process. Without the file, successful validation prints a completion notice instead. **Do not submit the reused flag twice as a new dashboard challenge.**
-
-**Note:** Since the flag file lives in the student's local filesystem, possession of the flag by itself is not proof of successful reversing. Instructors should require the accepted key and the recovered algorithm.
+The build also accepts the original lab's prepared `../challenge/runtime/dynamic-flag.txt` as a fallback; a separately configured hard-mode flag takes precedence. Students should not commit flags or build artifacts. **An embedded flag can be extracted via `strings` or disassembly**, so instructor verification should also require the accepted password and a demonstrated successful run. For a competition, distribute a prebuilt binary with the flag provisioned by the instructor rather than asking students to compile from source.
 
 ## Cleanup
 
