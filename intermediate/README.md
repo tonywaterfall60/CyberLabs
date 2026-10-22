@@ -81,6 +81,7 @@ Instructor guidance is still available, but the workflow should be increasingly 
 | 21 | [Cloud Security Fundamentals](21-cloud-security-fundamentals/) | IAM, storage, network, audit | fictional cloud JSON |
 | 22 | [Intro to Detection Engineering](22-intro-detection-engineering/) | fields, detections, positive/negative tests | synthetic process events |
 | 23 | [Git for Security / Secrets](23-git-security-secrets/) | Git history, secret exposure, rotation | static Git evidence |
+| 25 | [Live Linux Privilege Escalation](25-live-linux-privilege-escalation/) | sudo misconfiguration and SSH-based root demonstration | isolated localhost-only Docker target |
 
 For a repository-wide view, see:
 
