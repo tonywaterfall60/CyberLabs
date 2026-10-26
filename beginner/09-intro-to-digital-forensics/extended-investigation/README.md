@@ -2,7 +2,7 @@
 
 **Difficulty:** Beginner | **Duration:** 75–100 minutes | **Required:** Kali Linux, Sleuth Kit | **Optional:** Autopsy Desktop
 
-This extension follows the existing [Lab 09 fundamentals](../README.md). It uses an instructor-provided synthetic FAT16 image named `case09_usb.img`. **Ask the instructor for the image and its SHA256SUMS.txt manifest before starting.** These are deliberately distributed separately, because the disk image embeds live challenge flags.
+This extension follows the existing [Lab 09 fundamentals](../README.md). It generates a synthetic FAT16 evidence image, `case09_usb.img`, directly from the included `generate_evidence.py` script. No instructor distribution or extra download is needed. The exercise is practice-only: since students have the generator, its embedded challenge flags are not secret.
 
 ## Mission
 You are investigating an image of a removable drive. Preserve evidence, inspect the filesystem, recover a deleted document, construct an evidence-based event timeline, and submit two `SRU{...}` flags.
@@ -14,13 +14,13 @@ Only inspect the provided synthetic evidence. Do not modify the original image o
 ```bash
 sudo apt update
 sudo apt install -y sleuthkit file binutils
-mkdir -p ~/cyberlabs09/{work,output}
-cp /path/to/case09_usb.img ~/cyberlabs09/work/
-cd ~/cyberlabs09/work
-sha256sum case09_usb.img
+cd ~/CyberLabs/beginner/09-intro-to-digital-forensics/extended-investigation
+python3 generate_evidence.py
+cd evidence
+sha256sum -c SHA256SUMS.txt
 ```
 
-Compare the SHA256 to the instructor-provided manifest. Keep your original image unchanged and extract results only to `~/cyberlabs09/output/`.
+The generator creates `evidence/case09_usb.img` and `evidence/SHA256SUMS.txt` on your VM. Compare the hash against that manifest. Keep the image unchanged and extract results only to `~/cyberlabs09/output/` (`mkdir -p ~/cyberlabs09/output` first).
 
 The case is a raw FAT16 **filesystem image**, not a partitioned disk. You do not need `-o`; `mmls` may find no partition table.
 
