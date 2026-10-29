@@ -178,6 +178,31 @@ Students:
 Use at least three Kali tools, but explain what question each tool answered.
 
 
+## Autopsy / Sleuth Kit Guided Demonstration
+
+The challenge setup now generates two real ext2 images: a guided-demo filesystem and
+a separate student bonus filesystem. On Kali, install the dependencies:
+
+~~~bash
+sudo apt update
+sudo apt install -y autopsy sleuthkit e2fsprogs libimage-exiftool-perl
+~~~
+
+Run `cd challenge && ./setup.sh` and then follow the **Bonus — Autopsy Disk
+Image Investigation** instructions in [challenge/README.md](challenge/README.md).
+
+During the live demo: verify SHA-256, inspect filesystem metadata with
+`fsstat`, enumerate files with `fls`, recover one text file with `icat`,
+and view the same content using Autopsy at
+`http://localhost:9999/autopsy`.
+
+Students then analyze `extra-filesystem.img` independently, find the hidden
+review note and submit the analysis flag with evidence of their process.
+
+**Timing:** allow 15–20 minutes for the instructor demonstration and another
+20–30 minutes for the optional challenge. The CLI alternative works if the
+legacy Autopsy browser cannot start.
+
 ## Cleanup
 
 ```bash
