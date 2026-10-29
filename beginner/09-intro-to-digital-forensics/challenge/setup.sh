@@ -29,5 +29,29 @@ touch -t 202609241315 "$BASE/evidence/archive.bin"
 
 (cd "$BASE" && sha256sum evidence/* > evidence-manifest.sha256)
 
+# Build two genuine ext2 filesystem images for Autopsy 2.x and Sleuth Kit.
+# mkfs.ext2 -d copies a directory tree into the new filesystem without mounting.
+if ! command -v mkfs.ext2 >/dev/null 2>&1; then
+  echo "[!] Missing mkfs.ext2. Install: sudo apt install e2fsprogs" >&2
+  exit 1
+fi
+STAGE="$(mktemp -d)"
+trap 'rm -rf "$STAGE"' EXIT
+
+mkdir -p "$STAGE/demo/casefiles" "$STAGE/extra/casefiles"
+cp "$BASE/evidence/meeting-notes.txt" "$STAGE/demo/casefiles/"
+cp "$BASE/evidence/auth.log" "$STAGE/demo/casefiles/"
+printf 'Demo: locate meeting-notes.txt and verify its contents using fls/icat.\n' > "$STAGE/demo/casefiles/README.txt"
+
+cp "$BASE/evidence/auth.log" "$STAGE/extra/casefiles/"
+printf 'Anomalous login review: investigate source 192.168.56.50.\nFind the hidden review note and recover its flag.\n' > "$STAGE/extra/casefiles/investigation.txt"
+printf 'Analysis finding: %s\n' "$ANALYSIS_FLAG" > "$STAGE/extra/casefiles/.review-note"
+for type in demo extra; do
+  image="$BASE/${type}-filesystem.img"
+  truncate -s 16M "$image"
+  mkfs.ext2 -q -F -d "$STAGE/$type" "$image"
+  sha256sum "$image" > "$image.sha256"
+done
+
 echo "[+] Forensics challenge created at $BASE"
 echo "[+] Start with: cd $BASE && cat evidence-manifest.sha256"
