@@ -159,3 +159,83 @@ Submit both recovered flags to the CyberLabs dashboard and include:
 ~~~bash
 ./reset.sh
 ~~~
+
+## Bonus — Autopsy Disk Image Investigation (20–30 minutes)
+
+This optional exercise is separate from the five original evidence files. Setup also
+creates real **ext2 filesystem images** and accompanying SHA-256 manifests in
+`~/cyberclub/forensics-challenge/`:
+
+- `demo-filesystem.img` — the instructor-led walkthrough
+- `extra-filesystem.img` — the independent student challenge
+
+Prerequisites on Kali:
+
+~~~bash
+sudo apt update
+sudo apt install -y autopsy sleuthkit e2fsprogs
+~~~
+
+You may use the command-line Sleuth Kit even if the Autopsy web browser is unavailable.
+
+### Instructor-guided demonstration
+
+From the generated evidence directory:
+
+~~~bash
+sha256sum -c demo-filesystem.img.sha256
+file demo-filesystem.img
+fsstat demo-filesystem.img | head -35
+fls -r -p demo-filesystem.img
+~~~
+
+Find the inode number for `casefiles/meeting-notes.txt` in `fls` output, then:
+
+~~~bash
+icat demo-filesystem.img INODE_NUMBER
+~~~
+
+Replace `INODE_NUMBER` with the actual number printed by `fls`.
+
+Start the legacy Kali Autopsy Forensic Browser from another terminal:
+
+~~~bash
+mkdir -p ~/cyberclub/autopsy-cases
+autopsy -d ~/cyberclub/autopsy-cases
+~~~
+
+Leave the terminal running. In Firefox inside Kali, visit
+`http://localhost:9999/autopsy`. Create a new case, add a host, add an image,
+and enter the **absolute path** to `demo-filesystem.img`. Select the image as
+a disk/partition filesystem image as appropriate for the interface; choose
+**no partition splitting** since this is a filesystem image, not a whole disk.
+Browse the `casefiles` directory and inspect the meeting notes and login log.
+
+If the legacy interface reports `Can't open log: autopsy.log`, check that
+the chosen evidence locker exists and is writable and try the explicit `-d`
+path above; if necessary, use `fls`/`icat` while fixing its configuration.
+
+### Independent student extra challenge
+
+1. Verify `extra-filesystem.img.sha256` before analysis.
+2. Open `extra-filesystem.img` as a **separate image** in Autopsy.
+3. Identify the suspicious source IP from the included log.
+4. Find the hidden review note in the filesystem and recover the analysis flag.
+5. Cross-check the finding with `fls -r -p` and `icat`.
+6. Document the image hash, file path, inode number, and exact tool evidence.
+
+Hint: some file browsers conceal dotfiles; use a listing that shows them.
+Do not execute anything recovered from an evidence image.
+
+### Cleanup
+
+The reset script is stored in the **repository's challenge directory**, not
+inside the generated evidence directory. From the repository's
+`beginner/09-intro-to-digital-forensics/challenge/` folder, run:
+
+~~~bash
+./reset.sh
+~~~
+
+This deletes only `~/cyberclub/forensics-challenge`; Autopsy case metadata in
+`~/cyberclub/autopsy-cases` is retained unless you remove it yourself.
