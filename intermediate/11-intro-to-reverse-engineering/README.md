@@ -149,6 +149,10 @@ challenge/README.md
 
 After finishing the original validator, try the [harder reverse-engineering stretch challenge](hard-mode/README.md). It adds a permuted indexing scheme, XOR, byte rotations, and an additional checksum. Build and analyze the stripped `hard-bin` on Kali; do not open its source until after solving. It reuses the existing Intermediate 11 dynamic flag when configured, rather than creating a new dashboard entry.
 
+## Optional Hard Mode II — Chained Validator
+
+After Hard Mode I, try [Hard Mode II](hard-mode-2/README.md). This advanced stretch exercise introduces a state-dependent chained transform, masked expected bytes, byte rotations, and a digest check. Build the local binary or use an instructor-supplied build; instructor solutions and the accepted key are stored only in the private instructor repository.
+
 ## Next Event
 
 [Intermediate 12 — Intermediate CTF](../12-intermediate-ctf/)
