@@ -199,6 +199,10 @@ The completed `SRU{...}` value present in the instructor's original recording ha
 sha256sum cyberlabs-webauth.pcap
 ~~~
 
+## Optional Wireless Handshake Challenge (Intermediate)
+
+After completing the introductory PCAP exercise, try the [WPA2 Handshake Investigation](../../intermediate/07-packet-analysis/wifi-challenge/README.md). This is an offline Wi-Fi capture and wordlist exercise; it requires no live wireless traffic.
+
 ## Challenge
 
 ~~~bash

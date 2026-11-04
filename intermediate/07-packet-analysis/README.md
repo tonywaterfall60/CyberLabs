@@ -75,6 +75,10 @@ http
 tcp.stream eq 0
 ```
 
+## Optional Wireless Handshake Challenge
+
+The [Wi-Fi Handshake Challenge](wifi-challenge/README.md) provides an intermediate-level, offline 802.11 and WPA2 handshake investigation. Use Wireshark to analyze management frames and EAPOL, then aircrack-ng to test the provided training wordlist. The challenge data must be distributed by the event organizer until the binary evidence archive is uploaded.
+
 ## Challenge
 
 See `challenge/README.md`.
