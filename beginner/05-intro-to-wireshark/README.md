@@ -160,6 +160,45 @@ Reproduce one observation with tshark
 
 Knowing what traffic you generated makes the first packet-analysis experience easier to understand.
 
+## Offline Practice — HTTP Authentication PCAP
+
+The supplied [cyberlabs-webauth.pcap](cyberlabs-webauth.pcap) is a **pre-recorded training capture**, so you do not need Docker, a network interface, or live traffic to complete this exercise. It contains 32 packets of simulated DNS, ICMP, and HTTP activity. All hosts, credentials, and session values are fictional lab data; **do not try them on real systems**.
+
+Open the file with Wireshark:
+
+~~~bash
+wireshark cyberlabs-webauth.pcap
+~~~
+
+Or examine it from a terminal:
+
+~~~bash
+tshark -r cyberlabs-webauth.pcap
+tshark -r cyberlabs-webauth.pcap -Y 'http.request'
+tshark -r cyberlabs-webauth.pcap -Y 'http.response'
+~~~
+
+**Try these filters**: `dns`, `icmp`, `tcp`, `http`, `http.request.method == "POST"`, and `http.cookie`. If HTTP packets are not automatically decoded, try **Analyze → Decode As…** and select HTTP for the TCP service port.
+
+**Questions (record evidence, not just answers):**
+
+1. What hostname is resolved, and what IP address is returned?
+2. Which client and server addresses appear in the HTTP conversation?
+3. What are the HTTP methods and paths, in chronological order?
+4. Which request submits form credentials? How can you identify the submitted fields in the packet bytes or Follow TCP Stream?
+5. Which response redirects the browser, and where does it redirect?
+6. Which response creates a session cookie? On which subsequent requests is that cookie sent?
+7. Which response contains JSON? What does the field named `flag` contain in this **public training copy**?
+8. Why are plaintext HTTP form submissions and session cookies sensitive? How would HTTPS change what a passive network observer can read?
+
+The completed `SRU{...}` value present in the instructor's original recording has been **redacted in this student copy** to keep completed challenge flags out of the public repository. The redaction is part of the static training data, **not** a dashboard submission flag. To earn dashboard flags, complete the separate Docker-based challenge below; its flags are generated at runtime.
+
+**Deliverable:** a short timeline of HTTP requests and responses, screenshots or packet/frame numbers supporting your answers, one Follow TCP Stream observation, and the SHA-256 hash of this PCAP.
+
+~~~bash
+sha256sum cyberlabs-webauth.pcap
+~~~
+
 ## Challenge
 
 ~~~bash
