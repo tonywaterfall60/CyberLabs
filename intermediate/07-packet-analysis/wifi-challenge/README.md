@@ -14,7 +14,7 @@ You are investigating a captured WPA2 connection on a simulated training network
 - `wpa-handshake.pcap` — supplied 316-frame Wi-Fi capture
 - `wordlist.txt` — small candidate-passphrase list
 
-**The binary PCAP is not included in this repository update yet.** Obtain the `wifi-evidence.zip` evidence package from the club event organizer and extract both assets into this folder before starting.
+The [wifi-evidence.zip](wifi-evidence.zip) archive is included in this folder. Extract it to obtain the original capture and wordlist.
 
 ## Setup
 
@@ -25,7 +25,13 @@ sudo apt update
 sudo apt install wireshark aircrack-ng
 ```
 
-Extract the instructor-provided `wifi-evidence.zip` here, then open:
+From this challenge folder, extract the included archive and open the capture:
+
+```bash
+unzip -o wifi-evidence.zip
+``` 
+
+Then open:
 
 ```bash
 wireshark wpa-handshake.pcap
