@@ -11,7 +11,22 @@ A security analyst received a recorded Wi-Fi capture from a fictional training n
 
 This is a **question-based investigation**: answer **WIFI-Q1 through WIFI-Q12** using the capture, not guesses. The instructor has a private answer key with specific grading values.
 
-## Prepare the evidence
+## Get the latest challenge files
+
+If CyberLabs is not on your machine yet, run this **once**:
+
+```bash
+cd ~
+git clone https://github.com/tonywaterfall60/CyberLabs.git
+```
+
+If you already cloned it, **update rather than clone again**:
+
+```bash
+git -C ~/CyberLabs pull --ff-only origin main
+```
+
+## Prepare the offline evidence
 
 From a Kali terminal:
 
@@ -26,18 +41,6 @@ The archive includes `wpa-handshake.pcap` and a small `wordlist.txt`. If a tool 
 ```bash
 sudo apt update
 sudo apt install wireshark tshark aircrack-ng unzip
-```
-
-If you have not cloned CyberLabs yet:
-
-```bash
-git clone https://github.com/tonywaterfall60/CyberLabs.git
-```
-
-If you already have it, **update rather than clone again**:
-
-```bash
-git -C ~/CyberLabs pull --ff-only origin main
 ```
 
 ## Part 1 — Wireless discovery (4 points)
