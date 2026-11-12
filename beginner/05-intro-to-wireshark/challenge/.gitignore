@@ -1,0 +1,4 @@
+# Never commit instructor-injected runtime flags or local packet captures.
+site/runtime/
+*.pcap
+*.pcapng
