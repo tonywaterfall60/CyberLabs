@@ -207,7 +207,7 @@ Try `dns`, `icmp`, `http.request`, `http.response` and `http.request.method == "
 
 **Extra investigation (not scored as fixed-value questions):** identify the queried domain, HTTP request paths, redirect, cookies, and JSON response. Show frame numbers. These are good evidence exercises, but only the numbered B05-O questions are graded against the fixed key.
 
-The training capture's originally completed demonstration flag was **redacted** in the public copy. To earn actual dashboard flags, complete the separate **runtime Docker capture** below, whose flag values are privately configured.
+The training capture's original demonstration flag was **redacted** in the public copy. For dashboard flags, use the **separate Python-based local capture** below with instructor-provided runtime evidence. No Docker is needed.
 
 **Submission:** B05-O1 to B05-O8, one Follow TCP Stream observation, and a PCAP hash:
 
@@ -215,16 +215,19 @@ The training capture's originally completed demonstration flag was **redacted** 
 sha256sum cyberlabs-webauth.pcap
 ```
 
-## Part B — Live Local Investigation (11 points + evidence)
+## Part B — Live Local Investigation with Python (11 points + evidence)
 
-In the [question-based challenge](challenge/README.md), capture local HTTP traffic, reconstruct the request order, and answer **B05-C1 through B05-C11**. The challenge also contains two **instructor-injected** flags that must be recovered from the HTTP response bodies and submitted to the CyberLabs dashboard.
+In the [question-based challenge](challenge/README.md), use **Python 3's built-in HTTP server** to generate local HTTP traffic on loopback, reconstruct the request order, and answer **B05-C1 through B05-C11**. No Docker, Compose, or external target is needed. When the instructor supplies private runtime evidence, two flags can also be recovered from the captured HTTP responses and submitted to the dashboard.
 
 ```bash
 cd challenge
-cat README.md
+bash prepare-flags.sh
+python3 -m http.server 8085 --bind 127.0.0.1 --directory site
 ```
 
-The event lead must prepare private runtime flags before starting Docker. Run `./generate-traffic.sh` only after capture begins. Grading and exact answers are instructor-only.
+Leave that server running in **Terminal 1**. Start Wireshark on **lo** and then use **Terminal 2** to run `bash generate-traffic.sh`. Save your capture, complete the worksheet, and stop the Python server with **Ctrl+C**.
+
+For dashboard scoring, the event lead must inject the private runtime flags first or distribute a pre-recorded scored capture. Without them, `FLAG_NOT_CONFIGURED` is a practice placeholder, not a dashboard flag. The exact question answers stay private.
 
 ## Optional Wireless Handshake Challenge (Intermediate)
 
@@ -233,7 +236,7 @@ After completing the introductory PCAP exercise, try the [WPA2 Handshake Investi
 ## Turn In
 
 - **Part A:** B05-O1 through B05-O8, one TCP-stream observation, and the offline PCAP SHA-256.
-- **Part B:** B05-C1 through B05-C11, a short six-request HTTP timeline, capture evidence, and the two runtime flags submitted to the CyberLabs dashboard.
+- **Part B:** B05-C1 through B05-C11, a six-request HTTP timeline and capture evidence. Submit the two additional runtime flags to the dashboard only when the event lead has provided instructor-injected evidence.
 
 Follow the [local challenge README](challenge/README.md) for complete setup and cleanup. Do not skip instructor runtime flag preparation or attempt to recover a live dashboard flag from the redacted static training PCAP.
 
