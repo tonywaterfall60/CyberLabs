@@ -1,67 +1,119 @@
-# Optional Wireless Challenge — Crack the WiFi Handshake
+# Wi-Fi Challenge — Investigate a WPA2 Handshake
 
-**Track:** Intermediate (optional extension for Beginner 05 and Intermediate 07)  
-**Time:** 45–75 minutes  
-**Tools:** Wireshark and aircrack-ng  
-**Scope:** Provided `wpa-handshake.pcap` and `wordlist.txt` ONLY. No wireless adapter or live testing is required.
+**Track:** Intermediate 07 — Protocol / Packet Analysis (also optional after Beginner 05)  
+**Estimated time:** 45–75 minutes  
+**Tools:** Wireshark, tshark (optional), aircrack-ng  
+**Authorized scope:** The supplied offline evidence only. **No wireless adapter, live AP, or active wireless testing is needed.**
 
 ## Scenario
 
-You are investigating a captured WPA2 connection on a simulated training network. Find the 802.11 management frames, identify the access point and client, inspect the four-way EAPOL handshake, and test the supplied candidate passwords **offline** against the supplied capture.
+A security analyst received a recorded Wi-Fi capture from a fictional training network. Your job is to identify the network and station, investigate unusual management traffic, examine the authentication exchange, and test the **provided** candidate-password list against the **provided** PCAP.
 
-## Student assets
+This is a **question-based investigation**: answer **WIFI-Q1 through WIFI-Q12** using the capture, not guesses. The instructor has a private answer key with specific grading values.
 
-- `wpa-handshake.pcap` — supplied 316-frame Wi-Fi capture
-- `wordlist.txt` — small candidate-passphrase list
+## Prepare the evidence
 
-The [wifi-evidence.zip](wifi-evidence.zip) archive is included in this folder. Extract it to obtain the original capture and wordlist.
-
-## Setup
-
-On Kali, install tools if needed:
+From a Kali terminal:
 
 ```bash
-sudo apt update
-sudo apt install wireshark aircrack-ng
-```
-
-From this challenge folder, extract the included archive and open the capture:
-
-```bash
+cd ~/CyberLabs/intermediate/07-packet-analysis/wifi-challenge
 unzip -o wifi-evidence.zip
-``` 
-
-Then open:
-
-```bash
 wireshark wpa-handshake.pcap
 ```
 
-## Tasks
+The archive includes `wpa-handshake.pcap` and a small `wordlist.txt`. If a tool is missing:
 
-1. **Network identification:** Find the SSID and AP BSSID using `wlan.fc.type_subtype == 0x08` (beacons) or probe responses. Find the joining station's MAC.
-2. **Management frame analysis:** Use `wlan.fc.type_subtype == 0x0c`. What kind of management frames dominate the capture? Count them and describe their effect.
-3. **Handshake:** Apply `eapol`. Identify the WPA2 four-way handshake, and explain what it allows an analyst to verify without disclosing a passphrase on the wire.
-4. **Offline wordlist check:** Run `aircrack-ng -w wordlist.txt -b <BSSID> wpa-handshake.pcap`, replacing `<BSSID>` with the AP address you observed. Record the recovered lab-only passphrase.
-5. **Defensive analysis:** Suggest three mitigations to resist weak WPA2-PSK selection or management-frame disruption. Explain what is directly observed versus inferred.
-
-## Deliverable
-
-```text
-SSID:
-BSSID (AP MAC):
-Station MAC:
-Management-frame type and count:
-EAPOL/handshake observations:
-Recovered lab passphrase:
-Three recommended defenses:
-Observed:
-Inferred:
-Unknown:
+```bash
+sudo apt update
+sudo apt install wireshark tshark aircrack-ng unzip
 ```
 
-**Do not try this workflow against public, campus, or third-party wireless networks.** All analysis is limited to the prerecorded, authorized exercise.
+If you have not cloned CyberLabs yet:
 
-## Instructor material
+```bash
+git clone https://github.com/tonywaterfall60/CyberLabs.git
+```
 
-Answers, passphrase, suggested completion token, and teaching notes belong only in the private CyberLabs-Instructor repository.
+If you already have it, **update rather than clone again**:
+
+```bash
+git -C ~/CyberLabs pull --ff-only origin main
+```
+
+## Part 1 — Wireless discovery (4 points)
+
+Use **Wireshark → Statistics → Capture File Properties** and inspect 802.11 beacon/probe-response frames.
+
+| ID | Investigation question | Your answer |
+|---|---|---|
+| **WIFI-Q1** | How many **total frames** are in the supplied capture? | |
+| **WIFI-Q2** | What is the wireless network's **SSID** (exact spelling)? | |
+| **WIFI-Q3** | What is the access point's **BSSID / MAC address** (six hex pairs)? | |
+| **WIFI-Q4** | What is the **client/station MAC address** joining that AP? | |
+
+Hint: `wlan.fc.type_subtype == 0x08` can show beacon frames. Expand the 802.11 header to distinguish transmitter, receiver, BSSID, and station addresses.
+
+## Part 2 — Management frames (3 points)
+
+Apply `wlan.fc.type_subtype == 0x0c` and check the number of **displayed** packets.
+
+| ID | Investigation question | Your answer |
+|---|---|---|
+| **WIFI-Q5** | Which 802.11 management-frame type has subtype **0x08**? | |
+| **WIFI-Q6** | Which management-frame type has subtype **0x0c**, and **exactly how many** appear? | |
+| **WIFI-Q7** | What effect can a burst of these 0x0c frames have on a connected client? | |
+
+Record at least one supporting frame number for WIFI-Q6. Do not assume you know who sent the frames or why.
+
+## Part 3 — WPA2 handshake and offline validation (3 points)
+
+Filter `eapol`. Inspect the nearby frames and the network's security information.
+
+| ID | Investigation question | Your answer |
+|---|---|---|
+| **WIFI-Q8** | Which **authentication/key-exchange sequence** is visible, and does it send the Wi-Fi password in plaintext? | |
+| **WIFI-Q9** | What **wireless security / cipher combination** does the evidence show? | |
+| **WIFI-Q10** | Which **exact training passphrase** does the provided offline wordlist check recover? | |
+
+After recording the BSSID from WIFI-Q3, run (replace the placeholder with that BSSID):
+
+```bash
+aircrack-ng -w wordlist.txt -b <BSSID_FROM_Q3> wpa-handshake.pcap
+```
+
+**Important:** `<BSSID_FROM_Q3>` is a placeholder, not literal terminal syntax. Use only the included wordlist and prerecorded capture. The private instructor answer key contains the expected passphrase; it is not posted in the student repository.
+
+## Part 4 — Defensive interpretation (2 points)
+
+| ID | Investigation question | Your answer |
+|---|---|---|
+| **WIFI-Q11** | Name **three distinct mitigations** for weak WPA2 passwords or management-frame disruption; give one sentence explaining each. | |
+| **WIFI-Q12** | Separate the evidence into **Observed**, **Inferred**, and **Unknown**. What can you prove from this PCAP, and what cannot you prove about the cause? | |
+
+## Submission template
+
+Copy and fill this in. Use exact case for SSIDs and passphrases, and colon-separated MAC addresses.
+
+```text
+WIFI-Q1:
+WIFI-Q2:
+WIFI-Q3:
+WIFI-Q4:
+WIFI-Q5:
+WIFI-Q6:
+WIFI-Q7:
+WIFI-Q8:
+WIFI-Q9:
+WIFI-Q10:
+WIFI-Q11:
+WIFI-Q12:
+
+Evidence: frame number(s) for Q3/Q4/Q6/Q8:
+Display filters used:
+Offline command run:
+Observed / Inferred / Unknown:
+```
+
+**Grading:** 12 questions × 1 point = **12 instructor-reviewed points**. If an event lead separately registers a dashboard flag, they will provide submission instructions; the recovered passphrase alone is not necessarily a registered dashboard flag.
+
+**Safety:** Do not capture nearby devices, send deauthentication frames, test campus Wi-Fi, or attempt to recover passwords from networks you do not own. This exercise is offline and self-contained.
