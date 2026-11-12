@@ -160,44 +160,55 @@ Reproduce one observation with tshark
 
 Knowing what traffic you generated makes the first packet-analysis experience easier to understand.
 
-## Offline Practice — HTTP Authentication PCAP
+## Part A — Offline Evidence Questions (8 points)
 
-The supplied [cyberlabs-webauth.pcap](cyberlabs-webauth.pcap) is a **pre-recorded training capture**, so you do not need Docker, a network interface, or live traffic to complete this exercise. It contains 32 packets of simulated DNS, ICMP, and HTTP activity. All hosts, credentials, and session values are fictional lab data; **do not try them on real systems**.
+Open the provided **fictional training capture** `cyberlabs-webauth.pcap`. No Docker or live Internet connection is needed. All addresses and credentials shown are simulated; never try them on real systems.
 
-Open the file with Wireshark:
-
-~~~bash
+```bash
 wireshark cyberlabs-webauth.pcap
-~~~
+```
 
-Or examine it from a terminal:
+Or inspect it from a terminal:
 
-~~~bash
+```bash
 tshark -r cyberlabs-webauth.pcap
-tshark -r cyberlabs-webauth.pcap -Y 'http.request'
-tshark -r cyberlabs-webauth.pcap -Y 'http.response'
-~~~
+```
 
-**Try these filters**: `dns`, `icmp`, `tcp`, `http`, `http.request.method == "POST"`, and `http.cookie`. If HTTP packets are not automatically decoded, try **Analyze → Decode As…** and select HTTP for the TCP service port.
+**Answer B05-O1 through B05-O8.** Every question has a defined, privately maintained instructor answer. Include a display filter, frame number, or screenshot where helpful.
 
-**Questions (record evidence, not just answers):**
+| ID | Question | Your answer |
+|---|---|---|
+| **B05-O1** | How many **total frames** are in this PCAP? | |
+| **B05-O2** | Which **four protocols** can you identify from the DNS, ping and web activity? | |
+| **B05-O3** | Which **Wireshark display filter** isolates DNS? | |
+| **B05-O4** | Which display filter shows **HTTP requests only**? | |
+| **B05-O5** | Write the display filter that shows only **HTTP POST** requests. | |
+| **B05-O6** | Which Wireshark feature reassembles a TCP conversation so you can read the full HTTP request/response? | |
+| **B05-O7** | Is the lab form/session traffic **HTTP or HTTPS**? Why would a passive analyst be able to read sensitive fields? | |
+| **B05-O8** | Does the public offline PCAP contain a **valid dashboard challenge flag**? Explain what happened to the original training value. | |
 
-1. What hostname is resolved, and what IP address is returned?
-2. Which client and server addresses appear in the HTTP conversation?
-3. What are the HTTP methods and paths, in chronological order?
-4. Which request submits form credentials? How can you identify the submitted fields in the packet bytes or Follow TCP Stream?
-5. Which response redirects the browser, and where does it redirect?
-6. Which response creates a session cookie? On which subsequent requests is that cookie sent?
-7. Which response contains JSON? What does the field named `flag` contain in this **public training copy**?
-8. Why are plaintext HTTP form submissions and session cookies sensitive? How would HTTPS change what a passive network observer can read?
+Try `dns`, `icmp`, `http.request`, `http.response` and `http.request.method == "POST"`. If traffic is not decoded as HTTP, try **Analyze → Decode As…** for the appropriate TCP port.
 
-The completed `SRU{...}` value present in the instructor's original recording has been **redacted in this student copy** to keep completed challenge flags out of the public repository. The redaction is part of the static training data, **not** a dashboard submission flag. To earn dashboard flags, complete the separate Docker-based challenge below; its flags are generated at runtime.
+**Extra investigation (not scored as fixed-value questions):** identify the queried domain, HTTP request paths, redirect, cookies, and JSON response. Show frame numbers. These are good evidence exercises, but only the numbered B05-O questions are graded against the fixed key.
 
-**Deliverable:** a short timeline of HTTP requests and responses, screenshots or packet/frame numbers supporting your answers, one Follow TCP Stream observation, and the SHA-256 hash of this PCAP.
+The training capture's originally completed demonstration flag was **redacted** in the public copy. To earn actual dashboard flags, complete the separate **runtime Docker capture** below, whose flag values are privately configured.
 
-~~~bash
+**Submission:** B05-O1 to B05-O8, one Follow TCP Stream observation, and a PCAP hash:
+
+```bash
 sha256sum cyberlabs-webauth.pcap
-~~~
+```
+
+## Part B — Live Local Investigation (11 points + evidence)
+
+In the [question-based challenge](challenge/README.md), capture local HTTP traffic, reconstruct the request order, and answer **B05-C1 through B05-C11**. The challenge also contains two **instructor-injected** flags that must be recovered from the HTTP response bodies and submitted to the CyberLabs dashboard.
+
+```bash
+cd challenge
+cat README.md
+```
+
+The event lead must prepare private runtime flags before starting Docker. Run `./generate-traffic.sh` only after capture begins. Grading and exact answers are instructor-only.
 
 ## Optional Wireless Handshake Challenge (Intermediate)
 
