@@ -214,64 +214,12 @@ The event lead must prepare private runtime flags before starting Docker. Run `.
 
 After completing the introductory PCAP exercise, try the [WPA2 Handshake Investigation](../../intermediate/07-packet-analysis/wifi-challenge/README.md). This is an offline Wi-Fi capture and wordlist exercise; it requires no live wireless traffic.
 
-## Challenge
+## Turn In
 
-~~~bash
-cd challenge
-docker compose up -d
-cat README.md
-~~~
+- **Part A:** B05-O1 through B05-O8, one TCP-stream observation, and the offline PCAP SHA-256.
+- **Part B:** B05-C1 through B05-C11, a short six-request HTTP timeline, capture evidence, and the two runtime flags submitted to the CyberLabs dashboard.
 
-The expanded challenge includes a repeatable traffic generator:
-
-~~~bash
-./generate-traffic.sh
-~~~
-
-It creates a recognizable sequence:
-
-~~~text
-/
-→ /status
-→ /help
-→ /status
-~~~
-
-Students then:
-
-- identify TCP setup,
-- inspect HTTP requests and responses,
-- follow a TCP stream,
-- save and hash the PCAP,
-- reconstruct the request order,
-- reproduce observations with tshark.
-
-
-## Deliverable
-
-Record both flags plus:
-
-~~~text
-Capture interface:
-Client IP:
-Server IP:
-Destination port:
-Paths:
-Response statuses:
-TCP flag:
-One request header:
-PCAP SHA-256:
-Wireshark filter:
-tshark command:
-Timeline:
-~~~
-
-## Cleanup
-
-```bash
-docker compose down
-rm -f beginner.pcap
-```
+Follow the [local challenge README](challenge/README.md) for complete setup and cleanup. Do not skip instructor runtime flag preparation or attempt to recover a live dashboard flag from the redacted static training PCAP.
 
 ## Next Event
 
