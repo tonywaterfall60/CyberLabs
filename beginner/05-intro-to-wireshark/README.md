@@ -16,6 +16,22 @@
 **Prerequisites:** Beginner 03–04  
 **Environment:** Kali Linux, Wireshark, tshark, local traffic
 
+## Get the Latest Lab Files
+
+On Kali, this single command **clones the repo if you do not have it**, or **updates your existing `~/CyberLabs` clone** if you do:
+
+```bash
+cd ~ && if [ -d CyberLabs/.git ]; then git -C CyberLabs pull --ff-only origin main; else git clone https://github.com/tonywaterfall60/CyberLabs.git; fi
+```
+
+Then open this lab:
+
+```bash
+cd ~/CyberLabs/beginner/05-intro-to-wireshark
+```
+
+If your clone lives elsewhere, update it from its actual directory instead; do not create a duplicate checkout.
+
 ## Why This Event Exists
 
 Wireshark lets analysts see what systems are actually sending over a network. This event connects networking concepts to real packets and introduces both GUI and command-line packet analysis.
