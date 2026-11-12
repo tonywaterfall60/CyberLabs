@@ -62,6 +62,16 @@ git clone https://github.com/tonywaterfall60/CyberLabs.git
 cd CyberLabs
 ~~~
 
+### One copy/paste command — clone **or** update
+
+On Kali, this command **clones CyberLabs the first time**, then **pulls the latest changes** on future runs. It assumes you keep your checkout in `~/CyberLabs`:
+
+```bash
+cd ~ && if [ -d CyberLabs/.git ]; then git -C CyberLabs pull --ff-only origin main; else git clone https://github.com/tonywaterfall60/CyberLabs.git; fi
+```
+
+If you already cloned it somewhere else, **do not clone again**. From that folder use `git pull --ff-only origin main`. If you made local edits, check `git status` and commit or stash them first. A ZIP download is **not** a Git clone and cannot be updated with `git pull`.
+
 Before a club event, update your existing clone (you **do not** need to clone it again):
 
 ~~~bash
