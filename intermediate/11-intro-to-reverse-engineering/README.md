@@ -74,11 +74,12 @@ The expanded binary is stripped and PIE-enabled, so students must rely more on s
 
 ## Guided Commands
 
-Build:
+Use the provided standalone binary (no build or instructor repository required):
 
 ```bash
 cd challenge
-./build.sh
+chmod +x training-bin
+./training-bin
 ```
 
 Identify:
